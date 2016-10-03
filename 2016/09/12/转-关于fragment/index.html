@@ -4,14 +4,21 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>colin</title>
+  <title>[转]关于fragment | colin</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="colin">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="版权声明：本文为博主原创文章，未经博主允许不得转载。
+目录(?)[+]1.  Fragment的产生与介绍2.  Fragment的生命周期3.  静态的使用Fragment4.  动态的使用Fragment5.  Fragment家族常用的API6.  转载请标明出处：http://blog.csdn.net/lmj623565791/article/details/37970961自从Frag">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[转]关于fragment">
+<meta property="og:url" content="http://yoursite.com/2016/09/12/转-关于fragment/index.html">
 <meta property="og:site_name" content="colin">
+<meta property="og:description" content="版权声明：本文为博主原创文章，未经博主允许不得转载。
+目录(?)[+]1.  Fragment的产生与介绍2.  Fragment的生命周期3.  静态的使用Fragment4.  动态的使用Fragment5.  Fragment家族常用的API6.  转载请标明出处：http://blog.csdn.net/lmj623565791/article/details/37970961自从Frag">
+<meta property="og:updated_time" content="2016-10-03T06:57:46.531Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="colin">
+<meta name="twitter:title" content="[转]关于fragment">
+<meta name="twitter:description" content="版权声明：本文为博主原创文章，未经博主允许不得转载。
+目录(?)[+]1.  Fragment的产生与介绍2.  Fragment的生命周期3.  静态的使用Fragment4.  动态的使用Fragment5.  Fragment家族常用的API6.  转载请标明出处：http://blog.csdn.net/lmj623565791/article/details/37970961自从Frag">
   
     <link rel="alternative" href="/atom.xml" title="colin" type="application/atom+xml">
   
@@ -127,9 +134,7 @@
 </nav>
 
       <div class="body-wrap">
-        
-  
-    <article id="post-原-Android-Looper，handler，HandlerThread" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-转-关于fragment" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -138,486 +143,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/28/原-Android-Looper，handler，HandlerThread/">Android Looper，handler，HandlerThread</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>#1<br>上回书说道，掌柜的饿了，叫大厨做饭去了；但一家客栈如果不冷清的话，就会有很多客人；跑堂的小二问完客观，记下来，会跟大厨喊：两斤酱牛肉，两斤烤鸭；至于茶水，跑堂的自己端过去就行了；那掌柜的是不是得记账啊；所以更可能的情况是小二用纸笔记下来，一份送到掌柜的，一份送到大厨那里；掌柜的可能就直接收起来，等晚些时候记账也行，大厨就不一样了，那就是铁定的任务了；看完这个消息，做个鱼香肉丝，再看哪个，做个清蒸红薯之类的。。。<br>相关访问，一定要看的；<br><a href="http://www.cnblogs.com/codingmyworld/archive/2011/09/14/2174255.html" target="_blank" rel="external">http://www.cnblogs.com/codingmyworld/archive/2011/09/14/2174255.html</a></p>
-<p>#2<br>    主程序:可以看成是客栈的整个大堂，人来人往，小二忙的不亦乐乎<br>    线程：大厨做饭得有锅啊；但是此时的锅只能做一道菜，做完就不能用了，大厨就把它藏起来了；之后来的n多单子不接受；<br>    looper：掌柜的一看，说这不行啊，加钱！让锅一直待在厨房，有单子就炒菜，没有就等着单子的到来；于是线程就升级为循环线程；<br>    Message：小二递过来的单子<br>    MessageQueue：虽然大厨是处于循环工作状态，但是那么多单子总得有个序列吧，此处将单子排序，大厨就可以按照次序<br>    Handler：大厨，关键人物，小二将单子交给大厨，到了厨房，大厨就将其放入消息队列，到了的话，就炒菜；<br>    那假如客栈大，厨师好多，一个相同的消息队列 不同的菜交给不同厨师，一个厨师可以对应好几道菜，不过的按照顺序吵；</p>
-<p>#3<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ThumbnailDownloader</span>&lt;<span class="title">Token</span>&gt; <span class="keyword">extends</span> <span class="title">HandlerThread</span> </span>&#123; <span class="comment">//线程</span></div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PhotoGallleryFargment</span> <span class="keyword">extends</span> <span class="title">Fragment</span> </span>&#123; <span class="comment">//主线程</span></div><div class="line">   ThumbnailDownloader&lt;ImageView&gt; thumbnailDownloader;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle s)</span></span></div><div class="line">    &#123;</div><div class="line">		thumbnailDownloader.start();          <span class="comment">//启动线程</span></div><div class="line">        thumbnailDownloader.getLooper();      <span class="comment">//升级线程,与looper进行关联</span></div><div class="line">        Log.i(TAG,<span class="string">"Background thread started"</span>);</div><div class="line"></div><div class="line">    &#125;    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span>  <span class="keyword">void</span> <span class="title">onDestroy</span><span class="params">()</span>             <span class="comment">//别忘了关闭线程</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">super</span>.onDestroy();</div><div class="line">        thumbnailDownloader.quit();</div><div class="line">        Log.i(TAG,<span class="string">"background thread destroy"</span>);</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ThumbnailDownloader</span>&lt;<span class="title">Token</span>&gt; <span class="keyword">extends</span> <span class="title">HandlerThread</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span>  <span class="keyword">static</span>  <span class="keyword">final</span>  String TAG = <span class="string">"ThumbnailDownloader"</span>;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span>  <span class="keyword">final</span>  <span class="keyword">int</span> MESSAGE_DOWNLOAD=<span class="number">0</span>;</div><div class="line"></div><div class="line">    Handler handler;</div><div class="line">    Map&lt;Token,String&gt; requestMap = Collections.synchronizedMap(<span class="keyword">new</span> HashMap&lt;Token, String&gt;());</div><div class="line">    </div><div class="line">    <span class="meta">@SuppressLint</span>(<span class="string">"HandlerLeak"</span>)</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span>  <span class="keyword">void</span> <span class="title">onLooperPrepared</span><span class="params">()</span>             <span class="comment">//looper的准备方法哦,调用于第一次消息队列检查之前</span></span></div><div class="line">    &#123;</div><div class="line">        handler = <span class="keyword">new</span> Handler()                   <span class="comment">//创建handler</span></div><div class="line">        &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">handleMessage</span><span class="params">(Message msg)</span><span class="comment">//处理message 由于handler本就创建于looerPrepared ，就省去消息发送的环节；</span></span></div><div class="line">            &#123;</div><div class="line">                <span class="keyword">if</span>(msg.what == MESSAGE_DOWNLOAD)</div><div class="line">                &#123;</div><div class="line">                    <span class="meta">@SuppressWarnings</span>(<span class="string">"unchecked"</span>)</div><div class="line">                    Token token =(Token)msg.obj;</div><div class="line">                    Log.i(TAG,<span class="string">"got to request for url :"</span>+ requestMap.get(token));</div><div class="line">                    handleRequest(token);</div><div class="line"></div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">   </div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span>  <span class="keyword">void</span>  <span class="title">queueThumbnail</span><span class="params">(Token token ,String url)</span></span></div><div class="line">    &#123;</div><div class="line">        Log.i(TAG,<span class="string">"Got to url :"</span>+url);</div><div class="line">        requestMap.put(token,url);</div><div class="line">        handler</div><div class="line">                .obtainMessage(MESSAGE_DOWNLOAD,token)</div><div class="line">                .sendToTarget();</div><div class="line"></div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">private</span>  <span class="keyword">void</span>  <span class="title">handleRequest</span><span class="params">(<span class="keyword">final</span> Token token)</span>  <span class="comment">//处理发送过来的token，完成</span></span></div><div class="line">    &#123;....&#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">cleanQueue</span><span class="params">()</span></span></div><div class="line">    &#123;....&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<pre><code>现在完成的是什么呢？大厨自己想吃东西了，所以就自己在消息队列中加了一个单子，自己做；
-</code></pre><p>#4<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span>           <span class="comment">//主程序将handler传递给线程,</span></div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle s)</span></span></div><div class="line">  &#123;</div><div class="line">      <span class="keyword">super</span>.onCreate(s);</div><div class="line">      setRetainInstance(<span class="keyword">true</span>);</div><div class="line">      <span class="keyword">new</span> FetchItemsTask().execute();</div><div class="line">      thumbnailDownloader = <span class="keyword">new</span> ThumbnailDownloader&lt;ImageView&gt;(<span class="keyword">new</span> Handler());<span class="comment">//Handler()方法就近关联looper，所以关联至主程序的looper；将其通过构造函数传递给线程</span></div><div class="line">      thumbnailDownloader.setListener(<span class="keyword">new</span> ThumbnailDownloader.Listener&lt;ImageView&gt;() &#123;...通过listener，</div><div class="line">          &#125;</div><div class="line">      &#125;);</div><div class="line"></div><div class="line">      thumbnailDownloader.start();</div><div class="line">      thumbnailDownloader.getLooper();</div><div class="line">  &#125;</div></pre></td></tr></table></figure></p>
-<figure class="highlight java"><figcaption><span>线程添加如下</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">Handler responsehandler;</div><div class="line">  ThumbnailDownloader.Listener&lt;Token&gt; mlistener;</div><div class="line"></div><div class="line">  <span class="keyword">public</span>  <span class="class"><span class="keyword">interface</span>  <span class="title">Listener</span>&lt;<span class="title">Token</span>&gt;</span></div><div class="line">  &#123;</div><div class="line">      <span class="function"><span class="keyword">void</span> <span class="title">onThumbnailDownloaded</span><span class="params">(Token token,Bitmap thumbnail)</span></span>;</div><div class="line">  &#125;</div><div class="line">  <span class="function"><span class="keyword">public</span>  <span class="keyword">void</span>  <span class="title">setListener</span><span class="params">(Listener&lt;Token&gt; listener)</span></span></div><div class="line">  &#123;</div><div class="line">      mlistener=listener;</div><div class="line">  &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ThumbnailDownloader</span><span class="params">(Handler responsehandler)</span><span class="comment">//构造函数</span></span></div><div class="line">  &#123;</div><div class="line">      <span class="keyword">super</span>(TAG);</div><div class="line">      <span class="keyword">this</span>.responsehandler=responsehandler;</div><div class="line">  &#125;</div><div class="line">  <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">handleRequest</span><span class="params">(<span class="keyword">final</span> Token token)</span></span></div><div class="line">  &#123;</div><div class="line">  ....</div><div class="line">   responsehandler.post(<span class="keyword">new</span> Runnable() &#123;                <span class="comment">//传说中的handler的信息发送；由于responhandler关联到的是主程序的looper，所以信息也自然发送到主线程，于是我们就在线程中改变了主线程的UI 哈哈；</span></div><div class="line"></div><div class="line">              <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">                  <span class="keyword">if</span>(requestMap.get(token)!=url)</div><div class="line">                      <span class="keyword">return</span>;</div><div class="line"></div><div class="line">                  requestMap.remove(token);</div><div class="line">                  mlistener.onThumbnailDownloaded(token,bitmap);</div><div class="line">              &#125;</div><div class="line">          &#125;);</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/09/28/原-Android-Looper，handler，HandlerThread/" class="archive-article-date">
-  	<time datetime="2016-09-28T11:44:49.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-09-28</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/线程/">线程</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-原-Android-线程AsyncTask" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/28/原-Android-线程AsyncTask/">Android 线程AsyncTask</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>##1.AsyncTask<br>Android已经到了最后阶段，突然蹦出来线程这一难题，真的是把我弄晕了<br>首先我们明确为什么存在线程？ 我们已经存在一个主程序，为什么要加一个呢？当我们的程序在请求网络时，我们希望主程序还可以运行吗？现在的程序一般都是后台下载，那前台下载你见过吗？点完下载，程序就变成下载的进度条了，软件不能用了；这样当然是不好的，所以才有了线程；</p>
-<p>就像是一个客栈，有大厨，有掌柜的，有跑堂的；如果说这家客栈就一个人，那是不是就忙不过来了呢；</p>
-<p>我们要看的程序是一个从网站获取链接与信息的程序；<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">	 <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FilckrFetchr</span> </span>&#123;<span class="comment">//网络连接相关代码，不是今天重点</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PhotoGallleryFargment</span> <span class="keyword">extends</span> <span class="title">Fragment</span></span>&#123;</div><div class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle s)</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">super</span>.onCreate(s);</div><div class="line">        setRetainInstance(<span class="keyword">true</span>);</div><div class="line">	    <span class="keyword">new</span> FetchItemsTask().execute();<span class="comment">//在此处开启线程</span></div><div class="line">        &#125;</div><div class="line"> <span class="keyword">private</span>  <span class="class"><span class="keyword">class</span>  <span class="title">FetchItemsTask</span> <span class="keyword">extends</span> <span class="title">AsyncTask</span>&lt;<span class="title">Void</span>,<span class="title">Void</span>,<span class="title">ArrayList</span>&lt;<span class="title">GalleryItem</span>&gt;&gt;//主程序中的内部类，线程类</span></div><div class="line">    &#123;</div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">protected</span> ArrayList&lt;GalleryItem&gt; <span class="title">doInBackground</span><span class="params">(Void... params)</span></span></div><div class="line">        &#123;</div><div class="line"><span class="comment">//            try		//此处获取百度的THML</span></div><div class="line"><span class="comment">//            &#123;</span></div><div class="line"><span class="comment">//                String result = new FilckrFetchr().geturl("http://www.baidu.com");</span></div><div class="line"><span class="comment">//                Log.i(TAG , "Fetched contents of URL: "+result);</span></div><div class="line"><span class="comment">//                Log.d(TAG,"LALALALALALAL");</span></div><div class="line"><span class="comment">//            &#125;catch (IOException io)</span></div><div class="line"><span class="comment">//            &#123;</span></div><div class="line"><span class="comment">//                Log.e(TAG, "Failed to fetch URL "+io);</span></div><div class="line"><span class="comment">//            &#125;</span></div><div class="line">            <span class="keyword">return</span> <span class="keyword">new</span> FilckrFetchr().fetchItems();<span class="comment">//调用网络连接,获取items</span></div><div class="line"></div><div class="line">        &#125;</div><div class="line">         <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onPostExecute</span><span class="params">(ArrayList&lt;GalleryItem&gt; items)</span></span></div><div class="line">        &#123;</div><div class="line">            mitems = items;</div><div class="line">            setupAdapter();<span class="comment">//当doInBackground有返回值时，onPostExecute执行，就可以改变主线程的视图了；</span></div><div class="line">        &#125;</div><div class="line">        &#125;</div></pre></td></tr></table></figure>
-<p>是不是很简单。就像是掌柜的饿了，让大厨做饭去了；大厨做完端过来，掌柜的就可以吃了；大厨做饭的时候，掌柜的就可以想干嘛干嘛；</p>
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/09/28/原-Android-线程AsyncTask/" class="archive-article-date">
-  	<time datetime="2016-09-28T08:20:43.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-09-28</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/线程/">线程</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-原-标题栏-层级导航" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/24/原-标题栏-层级导航/">标题栏 层级导航</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>##1<br>最初我们的标题栏导航是怎样的呢？</p>
-<p>点击标题栏按钮，触发事件，创建一个Intent ，打开新页面；<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Intent intent = <span class="keyword">new</span> Intent(getActivity(),CrimePagerActivity.class);</div><div class="line">intent.putExtra(CrimeFragment.EXTRA_CRIME_ID,crime.getmId());</div><div class="line">startActivityForResult(intent,<span class="number">0</span>);</div></pre></td></tr></table></figure></p>
-<p>Intent？我们知道用Intent可以随便打开那个页面，那么这种导航就没有明确的父子关系，且必须知道要去哪里；简单地说，小李坐车去女朋友家，司机说：“我知道你女朋友在那里，上车” 实际上去哪里，是司机说的算；</p>
-<p>##2<br>下面就定义了父子关系<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">activity</span> <span class="attr">android:name</span>=<span class="string">".Activity.CrimePagerActivity"</span></span></div><div class="line">    <span class="attr">android:label</span>=<span class="string">"@string/app_name"</span>&gt;</div><div class="line">    <span class="tag">&lt;<span class="name">meta-data</span> <span class="attr">android:name</span>=<span class="string">"android.support.PARENT_ACTIVITY"</span></span></div><div class="line">        <span class="attr">android:value</span>=<span class="string">".Activity.CrimeListActivity"</span>&gt;<span class="tag">&lt;/<span class="name">meta-data</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">activity</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<p>控制层表示说，你，想想你有亲戚没？有的话，找你亲戚去；控制层就不需要要去哪里；父子关系是activity自己的属性；当父子关系改变时，控制层不会变化；<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span>(NavUtils.getParentActivityName(getActivity())!=<span class="keyword">null</span>)</div><div class="line">                  NavUtils.navigateUpFromSameTask(getActivity());</div></pre></td></tr></table></figure></p>
-<p>简单说：你找女朋友，司机问你：有吗？在哪儿呢；你一说，司机就把你送走；你女朋友一天变一个，司机也能找到位置；</p>
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/09/24/原-标题栏-层级导航/" class="archive-article-date">
-  	<time datetime="2016-09-24T08:44:04.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-09-24</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-原-样式与include" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/24/原-样式与include/">样式与include</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>#1<br>简单来说样式是为了复用;</p>
-<p>style 中创建样式<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">"RemoteButton"</span>&gt;</span><span class="xml"></span></div><div class="line">       <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:layout_width"</span>&gt;</span>0dp<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:layout_height"</span>&gt;</span>match_parent<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:textColor"</span>&gt;</span>#556699<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:textSize"</span>&gt;</span>20dp<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span> = <span class="string">"android:layout_margin"</span>&gt;</span>3dp<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line"></div><div class="line">   <span class="tag">&lt;/<span class="name">style</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<p>控件使用某种样式；<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">TableRow</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></div><div class="line">   &gt;</div><div class="line">    <span class="tag">&lt;<span class="name">Button</span></span></div><div class="line">        <span class="attr">style</span>=<span class="string">"@style/RemoteButton"</span>/&gt;</div><div class="line">    <span class="tag">&lt;<span class="name">Button</span></span></div><div class="line">        <span class="attr">style</span>=<span class="string">"@style/RemoteButton"</span>/&gt;</div><div class="line">    <span class="tag">&lt;<span class="name">Button</span></span></div><div class="line">        <span class="attr">style</span>=<span class="string">"@style/RemoteButton"</span>/&gt;</div><div class="line"><span class="tag">&lt;/<span class="name">TableRow</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<p>样式呢，就是为了批量的定义某类具有相同属性的控件；比如说现在有十二个按钮，属性相同；那就给他们同一种style；当属性值很多时，就节省了很多代码；</p>
-<p>但就算这样我们还是要写12个按钮：</p>
-<p>#2<br>通过使用include 我们就可以一次引入多个button<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">include</span></span></div><div class="line">    <span class="attr">android:layout_weight</span>=<span class="string">"1"</span></div><div class="line">    <span class="attr">layout</span>=<span class="string">"@layout/button_row"</span>&gt;<span class="tag">&lt;/<span class="name">include</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<p>一次就引入了三个button，当然我们也可以引入其他一些奇形怪状的布局；include将其作为一种控件，还可以添加一些有关位置的属性；</p>
-<p>#3<br>样式的继承<br>通过在style中加入 parent 确定继承关系<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">"RemoteButton"</span>&gt;</span><span class="undefined">...</span></div><div class="line">   <span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">"new_button"</span> <span class="attr">parent</span>=<span class="string">"RemoteButton"</span></span></div><div class="line">       &gt;<span class="xml"></span></div><div class="line">      <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:textStyle"</span>&gt;</span>bold<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">   <span class="tag">&lt;/<span class="name">style</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<p>或者：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">"RemoteButton.new_button"</span>&gt;</span><span class="xml"></span></div><div class="line">        <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:textColor"</span>&gt;</span>#FF0000<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">style</span>&gt;</span></div></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/09/24/原-样式与include/" class="archive-article-date">
-  	<time datetime="2016-09-24T08:15:17.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-09-24</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-原-JSON数据保存与加载" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/24/原-JSON数据保存与加载/">JSON数据保存与加载</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>首先我们盘点一下参与者</p>
-<p>Crime 罪犯类，<br>CrimeLab 罪犯列表类<br>CriminalIntentJSONSerializer 罪犯json化 并且保存</p>
-<p>没有视图也没有控制的事 三个模型类玩游戏</p>
-<p>保存和加载自然归CriminalIntentJSONSerializer管理<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CriminalIntentJSONSerializer</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> Context context;</div><div class="line">    <span class="keyword">private</span> String Filename;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">CriminalIntentJSONSerializer</span><span class="params">(Context c, String f)</span></span></div><div class="line">    &#123;</div><div class="line">        context = c;</div><div class="line">        Filename = f;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">saveCrimes</span><span class="params">(ArrayList&lt;Crime&gt; crimes)</span> <span class="keyword">throws</span> JSONException,IOException</span></div><div class="line">    &#123;....&#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> ArrayList&lt;Crime&gt; <span class="title">loadCrimes</span><span class="params">()</span> <span class="keyword">throws</span>  IOException,JSONException</span></div><div class="line">    &#123;....&#125;</div></pre></td></tr></table></figure></p>
-<p>将crime自己变成JSON 和将JSON 变成crime自然是Crime自己的事情喽<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Crime</span> <span class="keyword">extends</span> <span class="title">android</span>.<span class="title">text</span>.<span class="title">format</span>.<span class="title">DateFormat</span></span>&#123;<span class="comment">//罪犯类 以及罪犯所携带的数据</span></div><div class="line"></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> JSONObject <span class="title">toJSON</span><span class="params">()</span><span class="keyword">throws</span> JSONException</span></div><div class="line">    &#123;</div><div class="line">        JSONObject jsonObject = <span class="keyword">new</span> JSONObject();</div><div class="line">        jsonObject.put(JSON_ID,mId.toString());</div><div class="line">        jsonObject.put(JSON_TITLE,mTitle);</div><div class="line">        jsonObject.put(JSON_SOLVED,mSolved);</div><div class="line">        jsonObject.put(JSON_DATE,mDate.getTime());</div><div class="line">        <span class="keyword">if</span>(photo!=<span class="keyword">null</span>)</div><div class="line">            jsonObject.put(JSON_PHOTO,photo.toJSON());</div><div class="line"></div><div class="line">        <span class="keyword">return</span> jsonObject;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Crime</span><span class="params">(JSONObject jsonObject)</span> <span class="keyword">throws</span>  JSONException</span></div><div class="line">    &#123;</div><div class="line">        mId = UUID.fromString(jsonObject.getString(JSON_ID));</div><div class="line">        <span class="keyword">if</span>(jsonObject.has(JSON_TITLE))</div><div class="line">        &#123;</div><div class="line">            mTitle=jsonObject.getString(JSON_TITLE);</div><div class="line"></div><div class="line">        &#125;</div><div class="line">        mSolved=jsonObject.getBoolean(JSON_SOLVED);</div><div class="line">        mDate = <span class="keyword">new</span> Date(jsonObject.getLong(JSON_DATE));</div><div class="line"></div><div class="line">        <span class="keyword">if</span>(jsonObject.has(JSON_PHOTO))</div><div class="line">            photo = <span class="keyword">new</span> Photo(jsonObject.getJSONObject(JSON_PHOTO));</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>那剩下那个干嘛呢？<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CrimeLab</span></span></div><div class="line">&#123;</div><div class="line">  </div><div class="line">    <span class="keyword">private</span> CriminalIntentJSONSerializer criminalIntentJSONSerializer;</div><div class="line"></div><div class="line">   <span class="comment">// private  Context Appcontext;</span></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">   </div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">saveCrimes</span><span class="params">()</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line"></div><div class="line">            criminalIntentJSONSerializer.saveCrimes(crimes);</div><div class="line">            Log.d(TAG,<span class="string">"crimes saved to file"</span>);</div><div class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">catch</span> (Exception e)</div><div class="line">        &#123;</div><div class="line">            Log.e(TAG,<span class="string">"Error saving criems;"</span>,e);</div><div class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>CrimeLab  负责将crime批量传输到CriminalIntentJSONSerializer，然后每一个crime调用自己的toJSON方法，最后保存起来；</p>
-<p>加载的时候，每一个crime都直接调用自己的初始化方法。从JSON拿到数据；</p>
-<p>是不是很清楚的；</p>
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/09/24/原-JSON数据保存与加载/" class="archive-article-date">
-  	<time datetime="2016-09-24T08:01:15.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-09-24</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-原-mvc与音频播放" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/19/原-mvc与音频播放/">mvc与音频播放</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>mvc<br>m：模型<br>v ：视图<br>c ：控制</p>
-<p>模型层，可以粗略理解为是属于纯纯的类，绝不与v层有任何关系，就音频播放来说，音频是数据，绝对是属于m层，那么相对应的就有一些控制音频的方法；模型层最接近于java里面的类；<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AudioPlayer</span> </span>&#123;			<span class="comment">//音频播放器和管理它的方法</span></div><div class="line">    <span class="keyword">private</span> MediaPlayer player;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">stop</span><span class="params">()</span></span>&#123;...&#125;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">play</span><span class="params">(Context c)</span></span></div><div class="line">    &#123;...&#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">pause</span><span class="params">()</span></span></div><div class="line">    &#123;...&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>v层 视图层，主要用于展现视图，有页面，以xml为例，不管有没有人用，都是一个页面，fragment加载就叫做fragment ，activity加载就叫做activity；</p>
-<p>c层，最麻烦的一层，我们非常容易的能够看见c层有一大堆的代码，而且都是必须的；<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123; <span class="comment">//加载xml页面,此处是activity，fragment一布局形式加入activity中</span></div><div class="line">    <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">    setContentView(R.layout.activity_hello_moon);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloMoonFragment</span> <span class="keyword">extends</span> <span class="title">Fragment</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> Button playbutton;</div><div class="line">    <span class="keyword">private</span>  Button stopbutton;</div><div class="line">    <span class="keyword">private</span>  Button pausebutton;</div><div class="line">    <span class="keyword">private</span>  AudioPlayer player = <span class="keyword">new</span> AudioPlayer();</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span>  <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle s)</span></span></div><div class="line">    &#123;....&#125;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> View <span class="title">onCreateView</span><span class="params">(LayoutInflater inflater, ViewGroup parent, Bundle s)</span></span></div><div class="line">    &#123;...&#125;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onDestroy</span><span class="params">()</span></span></div><div class="line">    &#123;...&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>控制层是连接视图和模型的桥梁；视图中的控件都是死的，只有通过控制层与某些方法连接起来，才能生动，比如说：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">private</span>  Button pausebutton;     <span class="comment">//将视图中的button拿了出来，将它的点击事件与 player.pause();关联起来；</span></div><div class="line"> pausebutton =(Button)v.findViewById(R.id.hello_pauseButton);</div><div class="line">      pausebutton.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</div><div class="line">          <span class="meta">@Override</span></div><div class="line">          <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View view)</span> </span>&#123;</div><div class="line">              player.pause();</div><div class="line">          &#125;</div><div class="line">      &#125;);</div></pre></td></tr></table></figure></p>
-<p>当然，除了基本的关联，还有对生命周期中调用各种方法；<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span>  <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle s)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">super</span>.onCreate(s);</div><div class="line">    setRetainInstance(<span class="keyword">true</span>);    <span class="comment">//保证其旋转屏幕时fragment不重启，保留fragment</span></div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p><img src="https://asce1885.gitbooks.io/android-rd-senior-advanced/content/life.jpg" alt="这里写图片描述"></p>
-<p>注意两点onAttach(),onDetach();<br>            onCreate(),onCreateView();<br>第一点：fragment的保留，然后重新加载视图；</p>
-<p>第二点：onCreate() 和onCreateView()是有显著区别的；<br>只有当View已经加载，我们才能找到视图上的某一个button，而onCreate()方法则是用来初始化除View以外的其他内容的<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pausebutton =(Button)v.findViewById(R.id.hello_pauseButton);</div></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/09/19/原-mvc与音频播放/" class="archive-article-date">
-  	<time datetime="2016-09-19T08:33:06.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-09-19</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mvc/">mvc</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-原-Fragment的实现方案" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/19/原-Fragment的实现方案/">Fragment的实现方案</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Fragment与Activity有几种方式，今天讲上一讲</p>
-<p>##1</p>
-<p>xml 布局fragment</p>
-<p>很简单，我们先造好fragment 然后再在activity的xml文件中加入<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">TableLayout</span> //这个是<span class="attr">fragment</span></span></div><div class="line"><span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></div><div class="line">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span> <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span>&gt;</div><div class="line">    </div><div class="line"><span class="tag">&lt;/<span class="name">TableLayout</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;   //这个是activity的xml，此处直接将fragment拿过来以fragment形式放在activity里</div><div class="line"><span class="tag">&lt;<span class="name">fragment</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></div><div class="line">    <span class="attr">android:id</span>=<span class="string">"@+id/hellomoonFragment"</span></div><div class="line">    <span class="attr">android:name</span>=<span class="string">"com.example.asus.hellomoon.HelloMoonFragment"</span></div><div class="line">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></div><div class="line"></div><div class="line">    &gt;<span class="tag">&lt;/<span class="name">fragment</span>&gt;</span></div></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloMoonActivity</span> <span class="keyword">extends</span> <span class="title">FragmentActivity</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">        setContentView(R.layout.activity_hello_moon); <span class="comment">//直接添加activity ，activity会自己把fragment添加过来；</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>##2<br>动态添加：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span>  </span></div><div class="line">    &#123;  </div><div class="line">        FragmentManager fm = getFragmentManager();  </div><div class="line">        <span class="comment">// 开启Fragment事务  </span></div><div class="line">        FragmentTransaction transaction = fm.beginTransaction();  </div><div class="line">  </div><div class="line">        <span class="keyword">switch</span> (v.getId())  </div><div class="line">        &#123;  </div><div class="line">        <span class="keyword">case</span> R.id.tab_bottom_weixin:  </div><div class="line">            <span class="keyword">if</span> (mWeixin == <span class="keyword">null</span>)  </div><div class="line">            &#123;  </div><div class="line">                mWeixin = <span class="keyword">new</span> ContentFragment();  </div><div class="line">            &#125;  </div><div class="line">            <span class="comment">// 使用当前Fragment的布局替代id_content的控件  </span></div><div class="line">            transaction.replace(R.id.id_content, mWeixin);  </div><div class="line">            <span class="keyword">break</span>;  </div><div class="line">        <span class="keyword">case</span> R.id.tab_bottom_friend:  </div><div class="line">            <span class="keyword">if</span> (mFriend == <span class="keyword">null</span>)  </div><div class="line">            &#123;  </div><div class="line">                mFriend = <span class="keyword">new</span> FriendFragment();  </div><div class="line">            &#125;  </div><div class="line">            transaction.replace(R.id.id_content, mFriend);  </div><div class="line">            <span class="keyword">break</span>;  </div><div class="line">        &#125;  </div><div class="line">        <span class="comment">// transaction.addToBackStack();  </span></div><div class="line">        <span class="comment">// 事务提交  </span></div><div class="line">        transaction.commit();  </div><div class="line">    &#125;  </div><div class="line">  </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>利用FragmentManager 动态添加目标xml作为fragment</p>
-<p>##3超级震撼的小技巧<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">SingleFragmentActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">protected</span>  <span class="keyword">abstract</span>  Fragment <span class="title">createFragment</span><span class="params">()</span></span>;         <span class="comment">//定义createFragemnt的抽象函数</span></div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">        setContentView(R.layout.activity_fragment);</div><div class="line">        android.support.v4.app.FragmentManager fm=getSupportFragmentManager();</div><div class="line">        Fragment fragment =fm.findFragmentById(R.id.fragmentContainer);</div><div class="line">        <span class="keyword">if</span>(fragment==<span class="keyword">null</span>)</div><div class="line">        &#123;</div><div class="line">            fragment=createFragment();                                        <span class="comment">//抽象函数获得fragment 在子类中便可具体实现</span></div><div class="line">            fm.beginTransaction().add(R.id.fragmentContainer,fragment).commit();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CrimeActivity</span> <span class="keyword">extends</span> <span class="title">SingleFragmentActivity</span> </span>&#123;</div><div class="line"></div><div class="line"><span class="meta">@Override</span></div><div class="line">   </div><div class="line">    <span class="keyword">return</span>  <span class="keyword">new</span> CrimeFragment();  <span class="comment">//整洁多了吧</span></div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/09/19/原-Fragment的实现方案/" class="archive-article-date">
-  	<time datetime="2016-09-19T07:45:21.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-09-19</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/fragment/">fragment</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-转-单例设计模式" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/12/转-单例设计模式/">[转]单例设计模式</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>版权声明：本文为 stormzhang 原创文章，可以随意转载，但必须在明确位置注明出处！！！</p>
-<p>经常有人问我说Android学习如何进阶？不管你怎么走，设计模式可谓是进阶必备，对设计模式的理解与运用对你之后的代码书写与架构设计有很多的帮助作用，那么从今天开始我就抽时间来给大家分享下设计模式系列。</p>
-<p>什么是设计模式？其实简单的理解就是前人留下来的一些经验总结而已，然后把这些经验起了个名字叫Design Pattern，翻译过来就是设计模式的意思，通过使用设计模式可以让我们的代码复用性更高，可维护性更高，让你的代码写的更优雅。设计模式理论上有23种，但是我只会针对Android平台上常用的一些设计模式做分享，今天就先来分享下最常用的单例模式。</p>
-<p>饿汉式<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span></span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Singleton instance = <span class="keyword">new</span> Singleton();</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span><span class="params">()</span></span>&#123;&#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">newInstance</span><span class="params">()</span></span>&#123;</div><div class="line">        <span class="keyword">return</span> instance;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>饿汉式 是最简单的实现方式，这种实现方式适合那些在初始化时就要用到单例的情况，这种方式简单粗暴，如果单例对象初始化非常快，而且占用内存非常小的时候这种方式是比较合适的，可以直接在应用启动时加载并初始化。 但是，如果单例初始化的操作耗时比较长而应用对于启动速度又有要求，或者单例的占用内存比较大，再或者单例只是在某个特定场景的情况下才会被使用，而一般情况下是不会使用时，使用饿汉式的单例模式就是不合适的，这时候就需要用到懒汉式的方式去按需延迟加载单例。</p>
-<p>懒汉式<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span></span>&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Singleton instance = <span class="keyword">null</span>;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span><span class="params">()</span></span>&#123;&#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">newInstance</span><span class="params">()</span></span>&#123;</div><div class="line">        <span class="keyword">if</span>(<span class="keyword">null</span> == instance)&#123;</div><div class="line">            instance = <span class="keyword">new</span> Singleton();</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> instance;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>懒汉式与饿汉式的最大区别就是将单例的初始化操作，延迟到需要的时候才进行，这样做在某些场合中有很大用处。比如某个单例用的次数不是很多，但是这个单例提供的功能又非常复杂，而且加载和初始化要消耗大量的资源，这个时候使用懒汉式就是非常不错的选择。</p>
-<p>多线程下的单例模式</p>
-<p>上面介绍了一些单例模式的基本应用方法，但是上面所说的那些使用方式都是有一个隐含的前提，那就是他们都是应用在单线程条件下，一旦换成了多线程就有出错的风险。</p>
-<p>如果在多线程的情况下，饿汉式不会出现问题，因为JVM只会加载一次单例类，但是懒汉式可能就会出现重复创建单例对象的问题。为什么会有这样的问题呢？因为懒汉式在创建单例时是 线程不安全的，多个线程可能会并发调用他的newInstance方法导致多个线程可能会创建多份相同的单例出来。</p>
-<p>那有没有办法，使懒汉式的单利模式也是线程安全的呢？答案肯定是有的，就是使用加同步锁的方式去实现。</p>
-<p>懒汉式同步锁<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span> </span>&#123;</div><div class="line"> </div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Singleton instance = <span class="keyword">null</span>;</div><div class="line"> </div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span><span class="params">()</span></span>&#123;</div><div class="line">    &#125;</div><div class="line"> </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">synchronized</span> (Singleton.class) &#123;</div><div class="line">            <span class="keyword">if</span> (instance == <span class="keyword">null</span>) &#123;</div><div class="line">                instance = <span class="keyword">new</span> Singleton();</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"> </div><div class="line">        <span class="keyword">return</span> instance;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>这种是最常见的解决同步问题的一种方式，使用同步锁synchronized (Singleton.class)防止多线程同时进入造成instance被多次实例化。举个在Android使用这种方式的例子：</p>
-<p>InputMethodManager示例<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">InputMethodManager</span> </span>&#123;</div><div class="line">    <span class="comment">//内部全局唯一实例  </span></div><div class="line">    <span class="keyword">static</span> InputMethodManager sInstance;</div><div class="line">   </div><div class="line">    <span class="comment">//对外api  </span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> InputMethodManager <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">synchronized</span> (InputMethodManager.class) &#123;</div><div class="line">            <span class="keyword">if</span> (sInstance == <span class="keyword">null</span>) &#123;</div><div class="line">                IBinder b = ServiceManager.getService(Context.INPUT_METHOD_SERVICE);</div><div class="line">                IInputMethodManager service = IInputMethodManager.Stub.asInterface(b);</div><div class="line">                sInstance = <span class="keyword">new</span> InputMethodManager(service, Looper.getMainLooper());</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">return</span> sInstance;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>以上是Android源码中输入法类相关的单例使用方式。</p>
-<p>但其实还有一种更好的方式如下：</p>
-<p>双重校验锁<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span> </span>&#123;</div><div class="line"> </div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">volatile</span> Singleton instance = <span class="keyword">null</span>;</div><div class="line"> </div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span><span class="params">()</span></span>&#123;</div><div class="line">    &#125;</div><div class="line"> </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="comment">// if already inited, no need to get lock everytime</span></div><div class="line">        <span class="keyword">if</span> (instance == <span class="keyword">null</span>) &#123;</div><div class="line">            <span class="keyword">synchronized</span> (Singleton.class) &#123;</div><div class="line">                <span class="keyword">if</span> (instance == <span class="keyword">null</span>) &#123;</div><div class="line">                    instance = <span class="keyword">new</span> Singleton();</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"> </div><div class="line">        <span class="keyword">return</span> instance;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>可以看到上面在synchronized (Singleton.class)外又添加了一层if，这是为了在instance已经实例化后下次进入不必执行synchronized (Singleton.class)获取对象锁，从而提高性能。</p>
-<p>以上两种方式还是挺麻烦的，我们不禁要问，有没有更好的实现方式呢？答案是肯定的。 我们可以利用JVM的类加载机制去实现。在很多情况下JVM已经为我们提供了同步控制，比如：</p>
-<p>在static{}区块中初始化的数据<br>访问final字段时<br>等等<br>因为在JVM进行类加载的时候他会保证数据是同步的，我们可以这样实现：</p>
-<p>采用内部类，在这个内部类里面去创建对象实例。这样的话，只要应用中不使用内部类 JVM 就不会去加载这个单例类，也就不会创建单例对象，从而实现懒汉式的延迟加载和线程安全。</p>
-<p>实现代码如下：</p>
-<p>静态内部类<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span></span>&#123;</div><div class="line">    <span class="comment">//内部类，在装载该内部类时才会去创建单利对象</span></div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">SingletonHolder</span></span>&#123;</div><div class="line">        <span class="keyword">public</span> <span class="keyword">static</span> Singleton instance = <span class="keyword">new</span> Singleton();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span><span class="params">()</span></span>&#123;&#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">newInstance</span><span class="params">()</span></span>&#123;</div><div class="line">        <span class="keyword">return</span> SingletonHolder.instance;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doSomething</span><span class="params">()</span></span>&#123;</div><div class="line">        <span class="comment">//do something</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>这样实现出来的单例类就是线程安全的，而且使用起来很简洁，麻麻再也不用担心我的单例不是单例了。</p>
-<p>然而这还不是最简单的方式，Effective Java中推荐了一种更简洁方便的使用方式，就是使用枚举。</p>
-<p>枚举类型单例模式<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">enum</span> Singleton&#123;</div><div class="line">    <span class="comment">//定义一个枚举的元素，它就是Singleton的一个实例</span></div><div class="line">    instance;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doSomething</span><span class="params">()</span></span>&#123;</div><div class="line">        <span class="comment">// do something ...</span></div><div class="line">    &#125;    </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>使用方法如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</div><div class="line">   Singleton singleton = Singleton.instance;</div><div class="line">   singleton.doSomething();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>默认枚举实例的创建是线程安全的.(创建枚举类的单例在JVM层面也是能保证线程安全的), 所以不需要担心线程安全的问题，所以理论上枚举类来实现单例模式是最简单的方式。</p>
-<p>总结</p>
-<p>一般单例模式包含了5种写法，分别是饿汉、懒汉、双重校验锁、静态内部类和枚举。相信看完之后你对单例模式有了充分的理解了，根据不同的场景选择最你最喜欢的一种单例模式吧！</p>
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/09/12/转-单例设计模式/" class="archive-article-date">
-  	<time datetime="2016-09-12T05:56:36.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-09-12</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-转-关于fragment" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/12/转-关于fragment/">[转]关于fragment</a>
+    <h1 class="article-title" itemprop="name">
+      [转]关于fragment
     </h1>
   
 
@@ -662,55 +189,46 @@
   </div>
 </article>
 
-
-
-
-
-
-
-
-
-
   
-    <article id="post-原-麻烦的素数" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
+<nav id="article-nav">
+  
+    <a href="/2016/09/12/转-单例设计模式/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
         
+          [转]单例设计模式
+        
+      </div>
+    </a>
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/12/原-麻烦的素数/">麻烦的素数</a>
-    </h1>
   
+    <a href="/2016/09/12/原-麻烦的素数/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">麻烦的素数</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>素数真的是很神奇 求素数更麻烦<br>最傻的方法<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span>  <span class="title">Prime</span><span class="params">(<span class="keyword">int</span> n)</span>				<span class="comment">//n=25 程序运行时间： 296415ns</span></span></div><div class="line">	&#123;</div><div class="line">		<span class="keyword">boolean</span>  flag;</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i =<span class="number">2</span> ;i&lt;=n;i++)</div><div class="line">		&#123;	flag=<span class="keyword">true</span>;</div><div class="line">		</div><div class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">2</span>;j&lt;i;j++)</div><div class="line">			&#123;</div><div class="line">				<span class="keyword">if</span>(i%j==<span class="number">0</span>)</div><div class="line">				&#123;		</div><div class="line">					flag=<span class="keyword">false</span>;</div><div class="line">						<span class="keyword">break</span>;</div><div class="line">				&#125;</div><div class="line">			&#125;	</div><div class="line">			<span class="keyword">if</span>(flag)</div><div class="line">			&#123;</div><div class="line">			System.out.print(i+<span class="string">" "</span>);</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/09/12/原-麻烦的素数/" class="archive-article-date">
-  	<time datetime="2016-09-12T04:09:47.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-09-12</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Beauty-of-Programming/">Beauty of Programming</a></li></ul>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
 	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
+	<script type="text/javascript" src="//v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
 
 
 
@@ -718,15 +236,6 @@
 
 
 
-
-
-
-  
-  
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
-    </nav>
-  
 
 
       </div>
@@ -748,8 +257,8 @@
 		fancybox: true,
 		mathjax: false,
 		animate: true,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,

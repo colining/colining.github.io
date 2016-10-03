@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>Android 复习6 fragment argument | colin</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="这个传递真的是好难懂啊
+首先我们先来看一看参与人员
+1 firstactivity2 seconactivity3 firstfragment
+过程是这样的：
+secondactivity 向firstactivity 跳转 有个intent 。intent里面可以携带数据啊；
+在intent.putExtra() 方法中我们传入一个键值对
+获取方法有两种
+###1键值都在 firstfragme">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android 复习6 fragment argument">
+<meta property="og:url" content="http://yoursite.com/2016/07/09/原-Android-复习6-fragment-argument/index.html">
+<meta property="og:site_name" content="colin">
+<meta property="og:description" content="这个传递真的是好难懂啊
+首先我们先来看一看参与人员
+1 firstactivity2 seconactivity3 firstfragment
+过程是这样的：
+secondactivity 向firstactivity 跳转 有个intent 。intent里面可以携带数据啊；
+在intent.putExtra() 方法中我们传入一个键值对
+获取方法有两种
+###1键值都在 firstfragme">
+<meta property="og:updated_time" content="2016-10-03T06:54:54.235Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android 复习6 fragment argument">
+<meta name="twitter:description" content="这个传递真的是好难懂啊
+首先我们先来看一看参与人员
+1 firstactivity2 seconactivity3 firstfragment
+过程是这样的：
+secondactivity 向firstactivity 跳转 有个intent 。intent里面可以携带数据啊；
+在intent.putExtra() 方法中我们传入一个键值对
+获取方法有两种
+###1键值都在 firstfragme">
+  
+    <link rel="alternative" href="/atom.xml" title="colin" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="//favicon.png">
+  
+  <script src="/style.js"></script>
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="/0.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">任天起</a></h1>
+		</hgroup>
+
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/tags/随笔">随笔</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">所有文章</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="2" href="javascript:void(0)">友链</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="3" href="javascript:void(0)">关于我</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="https://github.com/colining" title="github">github</a>
+		        
+					<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/ren-tian-qi" title="zhihu">zhihu</a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<h1 class="header-author js-mobile-header hide">任天起</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img src="/0.jpg" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">任天起</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/tags/随笔">随笔</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/colining" title="github">github</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/ren-tian-qi" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap">
+        <article id="post-原-Android-复习6-fragment-argument" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Android 复习6 fragment argument
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>这个传递真的是好难懂啊</p>
+<p>首先我们先来看一看参与人员</p>
+<p>1 firstactivity<br>2 seconactivity<br>3 firstfragment</p>
+<p>过程是这样的：</p>
+<p>secondactivity 向firstactivity 跳转 有个intent 。intent里面可以携带数据啊；</p>
+<p>在intent.putExtra() 方法中我们传入一个键值对</p>
+<p>获取方法有两种</p>
+<p>###1<br>键值都在 firstfragment中获取 但问题是intent是 firstactivity的，所以你想获取 你就必须和某个activity有强关联<br>在fragment中必须获取它所在activity的intent，这样就失去了fragment的封装性<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">UUID crimeId =(UUID)getActivity().getIntent().getSerializableExtra(EXTRA_CRIME_ID);</div></pre></td></tr></table></figure></p>
+<p>###2<br>既然是键值对 我们就可以想一下：<br>键的定义一定是属于fragment 的<br>而intent是属于activity的<br>而activity必须了解其下属fragment的(和封装性无关)</p>
+<p>所以我们可以这样做</p>
+<p>activity 获取其自身intent，并从fragment获取键，组合得到值；再把值传给fragment；<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//fragment</span></div><div class="line"><span class="keyword">public</span>  <span class="keyword">static</span>  String EXTRA_CRIME_ID=<span class="string">"com.example.asus.criminalintent.crime_id"</span>;</div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span>  CrimeFragment <span class="title">newInstance</span><span class="params">(UUID crimeid)</span></span></div><div class="line">    &#123;</div><div class="line">        Bundle args = <span class="keyword">new</span> Bundle();</div><div class="line">        args.putSerializable(EXTRA_CRIME_ID,crimeid);</div><div class="line">        CrimeFragment fragment = <span class="keyword">new</span> CrimeFragment();</div><div class="line">        fragment.setArguments(args);</div><div class="line">        <span class="keyword">return</span>  fragment;</div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
+<p>activity<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">    <span class="function"><span class="keyword">protected</span> Fragment <span class="title">createFragment</span><span class="params">()</span></span>&#123;</div><div class="line">    UUID crimeId =(UUID)getIntent().getSerializableExtra(CrimeFragment.EXTRA_CRIME_ID);</div><div class="line">    <span class="keyword">return</span> CrimeFragment.newInstance(crimeId);</div><div class="line">    <span class="comment">//return  new CrimeFragment();</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>简单比喻一下是这样：</p>
+<p>第一种情况是：<br>儿子想买玩具，而玩具店呢，只能和妈妈进行交易，然后他就去找要妈妈去买玩具,并且声称得不到玩具，就不睡觉；</p>
+<p>第二种情况是：</p>
+<p>孤儿院有好些小孩 每个可能都有自己想要的玩具，他们就写在纸条上。如果孤儿院的员工看见某个小孩的愿望，并且想要将其实现，就去玩具店买玩具，并且将其送给小孩；</p>
+<p>现在看完全看不懂上面在说啥</p>
+<p>###1<br>首先我们要懂得是fragment 和 activity的关系 </p>
+<p>activity就像是 一个父容器一样 fragment在其中</p>
+<p>从fragment中启动 activity的方法<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Intent intent =<span class="keyword">new</span> Intent(getActivity(), CrimePagerActivity.class);</div></pre></td></tr></table></figure></p>
+<p>fragment 也是通过Intent定位到目标activity的，不是也不能是目标fragment，跳转需要借助父容器才能跳转</p>
+<p>###2<br> 跳转很容易做到，基本像是李四家的儿子要和张三家儿子说话，李四儿子先和李四说，李四告诉张三，张三告诉自己儿子；那传输数据是这样的吗？</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//CrimeListFragment</span></div><div class="line"> Crime c =((CrimeAdapter)getListAdapter()).getItem(position);</div><div class="line"> </div><div class="line">   Intent intent =<span class="keyword">new</span> Intent(getActivity(), CrimePagerActivity.class);</div><div class="line">   intent.putExtra(CrimeFragment.EXTRA_CRIME_ID,c.getmId());</div><div class="line">   startActivity(intent);</div></pre></td></tr></table></figure>
+<p>李四的儿子李小四要交给张三儿子张小三一封信，然后说张小三那里有解密的钥匙；CrimeFragment.EXTRA_CRIME_ID </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//CrimeFragment</span></div><div class="line"> <span class="keyword">public</span>  <span class="keyword">static</span>  String EXTRA_CRIME_ID=<span class="string">"com.example.asus.criminalintent.crime_id"</span>;</div><div class="line">    <span class="function"><span class="keyword">public</span>  <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">	    UUID crimeId =(UUID)getArguments().getSerializable(EXTRA_CRIME_ID)；</div><div class="line">        mCrime= CrimeLab.get(getActivity()).getCrime(crimeId);</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p>张小三这里有秘钥；但是信在张三那里，所以他必须要和张三要，张三也必须有这么一封从李四那里过来的，且有这么一个秘钥记录的信；张三和张小三必须是父子关系，强关联；</p>
+<p>那假如我告诉你说，父亲可以随便阅览儿子的秘钥，那会怎么样呢？<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">UUID crimeId =(UUID)getIntent().getSerializableExtra(CrimeFragment.EXTRA_CRIME_ID);</div><div class="line"><span class="comment">//return CrimeFragment.newInstance(crimeId);</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>父亲拿过儿子的秘钥，解密了信件，放在了信箱<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span>  CrimeFragment <span class="title">newInstance</span><span class="params">(UUID crimeid)</span></span></div><div class="line">   &#123;</div><div class="line">       Bundle args = <span class="keyword">new</span> Bundle();</div><div class="line">       args.putSerializable(EXTRA_CRIME_ID,crimeid);</div><div class="line">       CrimeFragment fragment = <span class="keyword">new</span> CrimeFragment();</div><div class="line">       fragment.setArguments(args);</div><div class="line">       <span class="keyword">return</span>  fragment;</div><div class="line">   &#125;</div></pre></td></tr></table></figure></p>
+<p>信箱完成后，儿子就可以随意阅览了</p>
+<p>就像是邮差可以送好多家的信一样；这样儿子和父的关系就弱化了；fragment就可以随便复用了；</p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/07/09/原-Android-复习6-fragment-argument/" class="archive-article-date">
+  	<time datetime="2016-07-09T06:07:04.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-07-09</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2016/07/19/原-Beauty-of-Programming-1/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Beauty of Programming 1
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/07/08/原-Android-复习笔记5-listView-ArrayList/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Android 复习笔记5 listView ArrayList</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="//v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+
+
+
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 任天起
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: false,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: "/"
+	}
+</script>
+
+<script src="/./main.js"></script>
+
+
+    
+<div class="tools-col">
+  <ul class="btn-wrap">
+    
+      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
+    
+    
+      <li data-hook="tools-section-tag"><span class="text">标签</span><i class="icon-price-tags"></i></li>
+    
+    
+      <li data-hook="tools-section-friends"><span class="text">友链</span><i class="icon-link"></i></li>
+    
+    
+      <li data-hook="tools-section-me"><span class="text">我</span><i class="icon-smile"></i></li>
+    
+  </ul>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all chose">
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-tag">
+    			<div class="widget tagcloud" id="js-tagcloud">
+    				<a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/Beauty-of-Programming/" style="font-size: 16.67px;">Beauty of Programming</a> <a href="/tags/fragment/" style="font-size: 16.67px;">fragment</a> <a href="/tags/mvc/" style="font-size: 13.33px;">mvc</a> <a href="/tags/线程/" style="font-size: 13.33px;">线程</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a>
+    			</div>
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-friends">
+  		
+  			<div class="friends-wrap" id="js-friends">
+  			
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="https://www.google.com.hk/">谷歌</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="https://stackoverflow.com/">stackoverflow</a>
+  	        
+  	        </div>
+  		
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-me">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">继续跑&lt;br&gt;&lt;br&gt;带着赤子的骄傲</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div>
+</body>
+</html>
