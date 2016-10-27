@@ -4,14 +4,27 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Archives: 2016 | colin</title>
+  <title>android 5 通知栏 | colin</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="colin">
-<meta property="og:url" content="http://yoursite.com/archives/2016/page/3/index.html">
+  <meta name="description" content="##1 intent intent extra  activity
+简单的说是，activity1 要启动activity2 ，并且传输一个值；
+常用方法肯定是：123Intent intent( activity1.this,activity2.class)intent.putExtra(...);startActivity(intent)
+将其改为 activity212345public s">
+<meta property="og:type" content="article">
+<meta property="og:title" content="android 5 通知栏">
+<meta property="og:url" content="http://yoursite.com/2016/10/15/Android intent 和activity/index.html">
 <meta property="og:site_name" content="colin">
+<meta property="og:description" content="##1 intent intent extra  activity
+简单的说是，activity1 要启动activity2 ，并且传输一个值；
+常用方法肯定是：123Intent intent( activity1.this,activity2.class)intent.putExtra(...);startActivity(intent)
+将其改为 activity212345public s">
+<meta property="og:updated_time" content="2016-10-27T08:44:59.354Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="colin">
+<meta name="twitter:title" content="android 5 通知栏">
+<meta name="twitter:description" content="##1 intent intent extra  activity
+简单的说是，activity1 要启动activity2 ，并且传输一个值；
+常用方法肯定是：123Intent intent( activity1.this,activity2.class)intent.putExtra(...);startActivity(intent)
+将其改为 activity212345public s">
   
     <link rel="alternative" href="/atom.xml" title="colin" type="application/atom+xml">
   
@@ -127,186 +140,102 @@
 </nav>
 
       <div class="body-wrap">
+        <article id="post-Android intent 和activity" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
         
   
+    <h1 class="article-title" itemprop="name">
+      android 5 通知栏
+    </h1>
   
+
+      </header>
     
-    
+    <div class="article-entry" itemprop="articleBody">
       
+        <p>##1 intent intent extra  activity</p>
+<p>简单的说是，activity1 要启动activity2 ，并且传输一个值；</p>
+<p>常用方法肯定是：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function">Intent <span class="title">intent</span><span class="params">( activity1.<span class="keyword">this</span>,activity2.class)</span></span></div><div class="line">intent.<span class="title">putExtra</span><span class="params">(...)</span>;</div><div class="line">startActivity(intent)</div></pre></td></tr></table></figure></p>
+<p>将其改为 activity2<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Intent <span class="title">newIntent</span><span class="params">(Context packageContext,<span class="keyword">boolean</span> answerIsTrue)</span></span>&#123;</div><div class="line"><span class="function">Intent <span class="title">intent</span><span class="params">( packageContext,activity2.class)</span></span></div><div class="line">intent.<span class="title">putExtra</span><span class="params">(Extra,answerIsTrue)</span>;</div><div class="line"><span class="keyword">return</span> intetn</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>activity1<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Intent i=activity.newIntent(activity.<span class="keyword">this</span>,answer); <span class="comment">//此处传入的answer不是重点；</span></div></pre></td></tr></table></figure></p>
+<p>在acitivty2 中声明Intent方法，相当于对全世界开放了港口，谁都可以过来，过来的时候还可以捎点东西，<br>不过更多的东西都得有“打包”和“拆包”的过程（键值对）；</p>
+<p>##2 返回结果值</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">startActivityForResult(i,REQUEST_CODE_CHEAT))<span class="comment">//启动时</span></div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">setResult(RESULT)_OK,date); <span class="comment">//返回结果</span></div></pre></td></tr></table></figure>
+<p>只要是以startActivityForResult()方法启动，父activity总会收到结果代码，如果我们调用了setResult()就使用我们的结果，否则系统返回的结果代码为RESULT_CANCLED;</p>
+
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/07/03/原-Android-复习2-有关activity/" class="archive-article-date">
-  	<time datetime="2016-07-03T06:18:40.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-07-03</time>
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/10/15/Android intent 和activity/" class="archive-article-date">
+  	<time datetime="2016-10-15T07:40:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-15</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/07/03/原-Android-复习2-有关activity/">Android 复习2 有关activity</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
 	</div>
 
-          
+      
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/06/30/原-Android-复习1-1-神奇的bundle/" class="archive-article-date">
-  	<time datetime="2016-06-30T11:51:38.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-06-30</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/06/30/原-Android-复习1-1-神奇的bundle/">Android 复习1.1 神奇的bundle</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
+  
+<nav id="article-nav">
+  
+    <a href="/2016/10/23/Android ToolBar and Listview/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          android 5 通知栏
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/10/07/Android 广播接收器/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">android 5 通知栏</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
 	</div>
+	<script type="text/javascript" src="//v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
 
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/06/30/原-Android-复习1-mvc设计模式/" class="archive-article-date">
-  	<time datetime="2016-06-30T10:43:36.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-06-30</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/06/30/原-Android-复习1-mvc设计模式/">Android 复习1 mvc设计模式</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mvc/">mvc</a></li></ul>
-	</div>
 
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/06/24/原-android-5-通知栏/" class="archive-article-date">
-  	<time datetime="2016-06-24T08:46:06.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-06-24</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/06/24/原-android-5-通知栏/">android 5 通知栏</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
-	</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/06/24/Android学习笔记4 图片和杂谈/" class="archive-article-date">
-  	<time datetime="2016-06-24T08:46:05.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-06-24</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/06/24/Android学习笔记4 图片和杂谈/">android4 图片和杂谈</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/2016/page/2/">&laquo; Prev</a><a class="page-number" href="/archives/2016/">1</a><a class="page-number" href="/archives/2016/page/2/">2</a><span class="page-number current">3</span>
-    </nav>
-  
 
 
       </div>
@@ -329,8 +258,8 @@
 		mathjax: false,
 		animate: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

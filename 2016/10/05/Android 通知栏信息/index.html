@@ -4,14 +4,21 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Archives: 2016 | colin</title>
+  <title>android 5 通知栏 | colin</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="colin">
-<meta property="og:url" content="http://yoursite.com/archives/2016/page/3/index.html">
+  <meta name="description" content="#1今天讲点简单的哦，再日后补坑，通知栏信息；用Android的人，都应该知道通知栏是个什么东西，下拉会出来一些设置菜单，当有新的消息时，就会跑到这里，或者比如云音乐，后台听歌，也会有这么一个通知栏信息；今天就简单的说一下，以后再完善；
+1234567891011121314PendingIntent pendingIntent = PendingIntent.getActivity(this,0">
+<meta property="og:type" content="article">
+<meta property="og:title" content="android 5 通知栏">
+<meta property="og:url" content="http://yoursite.com/2016/10/05/Android 通知栏信息/index.html">
 <meta property="og:site_name" content="colin">
+<meta property="og:description" content="#1今天讲点简单的哦，再日后补坑，通知栏信息；用Android的人，都应该知道通知栏是个什么东西，下拉会出来一些设置菜单，当有新的消息时，就会跑到这里，或者比如云音乐，后台听歌，也会有这么一个通知栏信息；今天就简单的说一下，以后再完善；
+1234567891011121314PendingIntent pendingIntent = PendingIntent.getActivity(this,0">
+<meta property="og:updated_time" content="2016-10-27T08:41:30.916Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="colin">
+<meta name="twitter:title" content="android 5 通知栏">
+<meta name="twitter:description" content="#1今天讲点简单的哦，再日后补坑，通知栏信息；用Android的人，都应该知道通知栏是个什么东西，下拉会出来一些设置菜单，当有新的消息时，就会跑到这里，或者比如云音乐，后台听歌，也会有这么一个通知栏信息；今天就简单的说一下，以后再完善；
+1234567891011121314PendingIntent pendingIntent = PendingIntent.getActivity(this,0">
   
     <link rel="alternative" href="/atom.xml" title="colin" type="application/atom+xml">
   
@@ -127,186 +134,95 @@
 </nav>
 
       <div class="body-wrap">
+        <article id="post-Android 通知栏信息" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
         
   
+    <h1 class="article-title" itemprop="name">
+      android 5 通知栏
+    </h1>
   
+
+      </header>
     
-    
+    <div class="article-entry" itemprop="articleBody">
       
+        <p>#1<br>今天讲点简单的哦，再日后补坑，通知栏信息；<br>用Android的人，都应该知道通知栏是个什么东西，下拉会出来一些设置菜单，<br>当有新的消息时，就会跑到这里，或者比如云音乐，后台听歌，也会有这么一个通知栏信息；<br>今天就简单的说一下，以后再完善；</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">PendingIntent pendingIntent = PendingIntent.getActivity(<span class="keyword">this</span>,<span class="number">0</span>,<span class="keyword">new</span> Intent(<span class="keyword">this</span>, Photogallery_activity.class),<span class="number">0</span>);   <span class="comment">//某个intent</span></div><div class="line"></div><div class="line">         Notification notification = <span class="keyword">new</span> NotificationCompat.Builder(<span class="keyword">this</span>)         <span class="comment">//通知对象的创建</span></div><div class="line">                 .setTicker(resources.getString(R.string.new_picture_title))<span class="comment">//信息在通知栏滚动的text，就像新短信会在未下拉的状态来滚动信息</span></div><div class="line">                 .setSmallIcon(android.R.drawable.ic_menu_report_image)<span class="comment">//图标</span></div><div class="line">                 .setContentTitle(resources.getString(R.string.new_picture_title))<span class="comment">//标题</span></div><div class="line">                 .setContentText(resources.getString(R.string.new_picture_text))<span class="comment">//文本</span></div><div class="line">                 .setContentIntent(pendingIntent)<span class="comment">//点击后启动的intent</span></div><div class="line">                 .setAutoCancel(<span class="keyword">true</span>)<span class="comment">//点击后自动取消，比如云音乐，你点击后，就跳到主页面，不删除通知栏</span></div><div class="line">                 .build();</div><div class="line"></div><div class="line">         NotificationManager notificationManager =(NotificationManager)getSystemService(NOTIFICATION_SERVICE); <span class="comment">//创建manager</span></div><div class="line"></div><div class="line">         notificationManager.notify(<span class="number">0</span>,notification);<span class="comment">//发送消息</span></div></pre></td></tr></table></figure>
+<p>ok，我们就在通知栏建立了我们自己的信息；</p>
+
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/07/03/原-Android-复习2-有关activity/" class="archive-article-date">
-  	<time datetime="2016-07-03T06:18:40.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-07-03</time>
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/10/05/Android 通知栏信息/" class="archive-article-date">
+  	<time datetime="2016-10-05T11:42:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-05</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/07/03/原-Android-复习2-有关activity/">Android 复习2 有关activity</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
 	</div>
 
-          
+      
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/06/30/原-Android-复习1-1-神奇的bundle/" class="archive-article-date">
-  	<time datetime="2016-06-30T11:51:38.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-06-30</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/06/30/原-Android-复习1-1-神奇的bundle/">Android 复习1.1 神奇的bundle</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
+  
+<nav id="article-nav">
+  
+    <a href="/2016/10/07/Android 广播接收器/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          android 5 通知栏
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/09/28/原-Android-Looper，handler，HandlerThread/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Android Looper，handler，HandlerThread</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
 	</div>
+	<script type="text/javascript" src="//v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
 
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/06/30/原-Android-复习1-mvc设计模式/" class="archive-article-date">
-  	<time datetime="2016-06-30T10:43:36.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-06-30</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/06/30/原-Android-复习1-mvc设计模式/">Android 复习1 mvc设计模式</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mvc/">mvc</a></li></ul>
-	</div>
 
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/06/24/原-android-5-通知栏/" class="archive-article-date">
-  	<time datetime="2016-06-24T08:46:06.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-06-24</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/06/24/原-android-5-通知栏/">android 5 通知栏</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
-	</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/06/24/Android学习笔记4 图片和杂谈/" class="archive-article-date">
-  	<time datetime="2016-06-24T08:46:05.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-06-24</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/06/24/Android学习笔记4 图片和杂谈/">android4 图片和杂谈</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/2016/page/2/">&laquo; Prev</a><a class="page-number" href="/archives/2016/">1</a><a class="page-number" href="/archives/2016/page/2/">2</a><span class="page-number current">3</span>
-    </nav>
-  
 
 
       </div>
@@ -329,8 +245,8 @@
 		mathjax: false,
 		animate: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
