@@ -129,6 +129,76 @@
       <div class="body-wrap">
         
   
+    <article id="post-原-Android-复习-3-有关于fragment" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/05/原-Android-复习-3-有关于fragment/">Android 复习 3 有关于fragment</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>#fragment<br>最初认识fragment 是说为了解决平板屏幕大，一个屏幕上可以展示不同的内容 看起来像是多个板块；多个板块互相不干涉，就像是网页的div 一样 ；</p>
+<p>fragment 碎片 可以认为是一种控件，和button什么的一样；<br>所以他是可以添加到acivtity上 </p>
+<p>比如 定义left_fragment.xml 和 right_fragment.xml后，我们可以直接在mainacivity中<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">fragment</span></span></div><div class="line"><span class="attr">android:name</span>=<span class="string">""</span> 标注这是从哪个<span class="attr">xml</span>拿来的</div><div class="line">一大堆的其他属性</div><div class="line">/&gt;</div></pre></td></tr></table></figure></p>
+<p>这样就把某个fragment 放在了activity中了</p>
+<p>那么什么是fragment 什么是activity呢？</p>
+<p>事实上我们在xml书写的都只是布局文件 没有任何区别 将其区分为fragment 和actitivity是因为如下面的函数：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">left_fragment</span> <span class="title">extend</span> <span class="title">Fragment</span></span>&#123;</div><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="comment">//函数不写啦</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这部分函数应该称之为控制器 （在mvc模型中），拿来一个布局文件将其定义为fragment，activity也是类似的原理，生命周期与相关函数不就是写在函数中的嘛</p>
+<p>这样就不难理解，因为一个大布局可以套多个布局，所以activity理所应当可以加进来多个fragment-碎片；</p>
+<p>#UI fragment<br>原来我们一般使用多个activity 当做程序的不同页面，现在我们有了新帮手，用fragment构建页面，activity负责管理；这样好处是有的，缺点也理所当然；<br>Fragment可以使你能够将activity分离成多个可重用的组件，每个都有它自己的生命周期和UI。<br>（此处copy）<br>Fragment可以轻松得创建动态灵活的UI设计，可以适应于不同的屏幕尺寸。从手机到平板电脑。</p>
+<p>Fragment是一个独立的模块,紧紧地与activity绑定在一起。可以运行中动态地移除、加入、交换等。</p>
+<p>Fragment提供一个新的方式让你在不同的安卓设备上统一你的UI。</p>
+<p>Fragment 解决Activity间的切换不流畅，轻量切换。</p>
+<p>Fragment 替代TabActivity做导航，性能更好。</p>
+<p>Fragment 在4.2.版本中新增嵌套fragment使用方法，能够生成更好的界面效果。</p>
+<p>Fragment做局部内容更新更方便，原来为了到达这一点要把多个布局放到一个activity里面，现在可以用多Fragment来代替，只有在需要的时候才加载Fragment，提高性能。<br>可以从startActivityForResult中接收到返回结果,但是View不能。</p>
+<p>##关于实现<br>首先 我们要有 一个布局文件 ，有一个activity类，现在我们其实可以加载布局，但这样布局就变成了一个activity。<br>我们要的是fragment，所以这个布局的显示，将布局变成一个view的函数一定在他自己所属的fragment函数中；<br>xml文件：fragment_crime.xml<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CrimeFragment</span> <span class="keyword">extends</span> <span class="title">Fragment</span></span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span>  <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">       </div><div class="line">    &#125;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span>  View <span class="title">onCreateView</span> <span class="params">(LayoutInflater inflater, ViewGroup parent,Bundle savedInstanceState)</span></span></div><div class="line">    &#123;</div><div class="line">        View v=inflater.inflate(R.layout.fragment_crime,parent,<span class="keyword">false</span>);</div><div class="line">        <span class="comment">/*</span></div><div class="line">        &#123;这里可以写一些布局有关的东西，和逻辑，就像activity一样&#125;</div><div class="line">        */</div><div class="line">        <span class="keyword">return</span> v;</div><div class="line">      &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>现在我们获得了一个view对吗？<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">FragmentActivity</span></span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">        setContentView(R.layout.activity_main);</div><div class="line">        android.support.v4.app.FragmentManager fm=getSupportFragmentManager();</div><div class="line">        Fragment fragment =fm.findFragmentById(R.id.fragmentContainer);</div><div class="line">        <span class="keyword">if</span>(fragment==<span class="keyword">null</span>)</div><div class="line">        &#123;</div><div class="line">            fragment=<span class="keyword">new</span> CrimeFragment();</div><div class="line">            fm.beginTransaction().add(R.id.fragmentContainer,fragment).commit();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>程序有些复杂，不用管太多，我们知道通过FragmentManager 把碎片放进来了；代码多了很多，逻辑也很复杂，但碎片实实在在变得独立化了，他与activity的关系更弱。至于FragmentManager具体实现 谷歌吧；</p>
+<p>#fragment的生命周期<br>这个是简单明了的生命周期描述<br><img src="http://img.my.csdn.net/uploads/201211/29/1354170699_6619.png" alt="这里写图片描述"><br>这个是与activity之间的比较 看起来也没什么大的区别<br>![这里写图片描述]<br>(<a href="http://img.my.csdn.net/uploads/201211/29/1354170682_3824.png" target="_blank" rel="external">http://img.my.csdn.net/uploads/201211/29/1354170682_3824.png</a>)</p>
+<p>但是下面这张，是不是觉得突然之间差距就很大。我还在学习，不太清楚，但是我很明白一点，功能越强大，就越复杂，所以关于fragment的话题只能以后再说了；<br><img src="https://asce1885.gitbooks.io/android-rd-senior-advanced/content/life.jpg" alt="这里写图片描述"></p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/07/05/原-Android-复习-3-有关于fragment/" class="archive-article-date">
+  	<time datetime="2016-07-05T12:15:19.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-07-05</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/fragment/">fragment</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-原-Android-复习2-有关activity" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     

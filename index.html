@@ -129,6 +129,69 @@
       <div class="body-wrap">
         
   
+    <article id="post-原-IntelliJ IDEA 与junit" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/22/原-IntelliJ IDEA 与junit/">IntelliJ IDEA 与junit</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>##1<br>软件测试要来一个测试大作业，要用junit，在学习java的一年以后，再见过android studio 这种现代化IDE以后，我可是受不了jcreator 这种东西啦；</p>
+<p>所以让我们来使用IntelliJ IDEA 吧；虽说有点大材小用，但还是好用啊；你可以先去官网看看，如果和你胃口的话，跟着我做吧；<br><a href="https://www.jetbrains.com/idea/" target="_blank" rel="external">https://www.jetbrains.com/idea/</a> </p>
+<p>####1下载安装（可跳过）<br>这个不用多说，官网下载免费版，然后就可以下一步下一步啦；<br>中间会让你选风格，我偏向于黑色，还会让你选择一个生成桌面图标和后缀关联什么的，接下来应该是插件什么的，我是把android给 diabled了，因为我几经有android studio 啦；</p>
+<p>####2创建项目<br>一个新的ide，就得学一些零散的东西，那第一件事肯定是创建项目啦； <strong>create new project</strong><br><img src="http://img.blog.csdn.net/20161122164304622" alt="这里写图片描述"><br><strong>这里有很多选项，目前我们都用不上，我稍微熟悉的是 Gradle 被称为自动化构建工具，可以添加依赖什么的，但目前我们不需要</strong><br><img src="http://img.blog.csdn.net/20161122165034484" alt="这里写图片描述"><br>这里记得勾选，下面有说明，会顺便建一个main方法，你要不选的话，我也没办法。。。。<br><img src="http://img.blog.csdn.net/20161122165023234" alt="这里写图片描述"><br>接下来，项目就创建成功了，刚开始是没有红色的文件夹哦，当你运行一下程序，就会发现出现了红色的文件夹，现在你知道里面是什么了吗？<br><img src="http://img.blog.csdn.net/20161122165001350" alt="这里写图片描述"></p>
+<p>####3 吐槽<br>你们可能认为 这些用得着你说？？？ 如果这样的话，那接下来的部分一定要看看；</p>
+<p>####4导入项目<br>因为我们需要测试，所以一定是从别人那里获取代码，那怎么从古老的jcreator导入项目呢？</p>
+<p>首先我们对比一下项目结构： 发现他们都拥有src（out） 和 bin<br><img src="http://img.blog.csdn.net/20161122170206786" alt="这里写图片描述"></p>
+<p>我们将原本的out 和 src 删掉,将我们自己的src放进去，如果你发现src是蓝色的那是最好，因为可以直接运行，否则的话，你需要一下操作（顺带学习一下）<br>点击 File–&gt; project …<br><img src="http://img.blog.csdn.net/20161122171209696" alt="这里写图片描述"><br>左侧选择Moldues 你就会看下面差不多的界面，你会发现在项目文件上，会有一排mark as 你可以将项目中的文件夹改为上述文件夹，记得点击ok，然后你就发现src 变蓝喽;<br><img src="http://img.blog.csdn.net/20161122171403534" alt="这里写图片描述"></p>
+<p>如果你要导入的是eclipse项目，那就很简单了<br><img src="http://img.blog.csdn.net/20161122172214169" alt="这里写图片描述"><br>看到这个说明你就知道找什么了吧<br><img src="http://img.blog.csdn.net/20161122172154044" alt="这里写图片描述"></p>
+<p>####5 junit<br><a href="https://www.youtube.com/watch?v=Bld3644bIAo" target="_blank" rel="external">https://www.youtube.com/watch?v=Bld3644bIAo</a> 我是从这里学的 ， 如果你有翻墙的能力，就不要听我废话了；</p>
+<p>首先在项目中创建一个文件夹 比如test，然后按照上面的方法，将其修改为Tests 也就是说改绿；(new Directory)</p>
+<p>然后在要测试的java类名上 alt+Enter  你应该看到下面 的Create test选项<br><img src="http://img.blog.csdn.net/20161122172834816" alt="这里写图片描述"></p>
+<p>移到选项上回车，会看到<br>将testing library 改为junit 4 别的我也不会  会如图提示找不到 junit 你就点一下fix就好了，记得把member点选，这样会自动的创建测试函数啦；<br><img src="http://img.blog.csdn.net/20161122173157705" alt="这里写图片描述"><br>就像这样。。。<br><img src="http://img.blog.csdn.net/20161122173446628" alt="这里写图片描述"><br>你会发现左侧有小三角，你就可以对每个测试函数测试喽；</p>
+<p>我写的测试啦啦啦啦<br><img src="http://img.blog.csdn.net/20161122173843750" alt="这里写图片描述"></p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/11/22/原-IntelliJ IDEA 与junit/" class="archive-article-date">
+  	<time datetime="2016-11-22T09:39:01.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-11-22</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-Android ToolBar and Listview" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -635,65 +698,6 @@
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-原-mvc与音频播放" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/19/原-mvc与音频播放/">mvc与音频播放</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>mvc<br>m：模型<br>v ：视图<br>c ：控制</p>
-<p>模型层，可以粗略理解为是属于纯纯的类，绝不与v层有任何关系，就音频播放来说，音频是数据，绝对是属于m层，那么相对应的就有一些控制音频的方法；模型层最接近于java里面的类；<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AudioPlayer</span> </span>&#123;			<span class="comment">//音频播放器和管理它的方法</span></div><div class="line">    <span class="keyword">private</span> MediaPlayer player;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">stop</span><span class="params">()</span></span>&#123;...&#125;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">play</span><span class="params">(Context c)</span></span></div><div class="line">    &#123;...&#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">pause</span><span class="params">()</span></span></div><div class="line">    &#123;...&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>v层 视图层，主要用于展现视图，有页面，以xml为例，不管有没有人用，都是一个页面，fragment加载就叫做fragment ，activity加载就叫做activity；</p>
-<p>c层，最麻烦的一层，我们非常容易的能够看见c层有一大堆的代码，而且都是必须的；<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123; <span class="comment">//加载xml页面,此处是activity，fragment一布局形式加入activity中</span></div><div class="line">    <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">    setContentView(R.layout.activity_hello_moon);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloMoonFragment</span> <span class="keyword">extends</span> <span class="title">Fragment</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> Button playbutton;</div><div class="line">    <span class="keyword">private</span>  Button stopbutton;</div><div class="line">    <span class="keyword">private</span>  Button pausebutton;</div><div class="line">    <span class="keyword">private</span>  AudioPlayer player = <span class="keyword">new</span> AudioPlayer();</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span>  <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle s)</span></span></div><div class="line">    &#123;....&#125;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> View <span class="title">onCreateView</span><span class="params">(LayoutInflater inflater, ViewGroup parent, Bundle s)</span></span></div><div class="line">    &#123;...&#125;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onDestroy</span><span class="params">()</span></span></div><div class="line">    &#123;...&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>控制层是连接视图和模型的桥梁；视图中的控件都是死的，只有通过控制层与某些方法连接起来，才能生动，比如说：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">private</span>  Button pausebutton;     <span class="comment">//将视图中的button拿了出来，将它的点击事件与 player.pause();关联起来；</span></div><div class="line"> pausebutton =(Button)v.findViewById(R.id.hello_pauseButton);</div><div class="line">      pausebutton.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</div><div class="line">          <span class="meta">@Override</span></div><div class="line">          <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View view)</span> </span>&#123;</div><div class="line">              player.pause();</div><div class="line">          &#125;</div><div class="line">      &#125;);</div></pre></td></tr></table></figure></p>
-<p>当然，除了基本的关联，还有对生命周期中调用各种方法；<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span>  <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle s)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">super</span>.onCreate(s);</div><div class="line">    setRetainInstance(<span class="keyword">true</span>);    <span class="comment">//保证其旋转屏幕时fragment不重启，保留fragment</span></div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p><img src="https://asce1885.gitbooks.io/android-rd-senior-advanced/content/life.jpg" alt="这里写图片描述"></p>
-<p>注意两点onAttach(),onDetach();<br>            onCreate(),onCreateView();<br>第一点：fragment的保留，然后重新加载视图；</p>
-<p>第二点：onCreate() 和onCreateView()是有显著区别的；<br>只有当View已经加载，我们才能找到视图上的某一个button，而onCreate()方法则是用来初始化除View以外的其他内容的<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pausebutton =(Button)v.findViewById(R.id.hello_pauseButton);</div></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/09/19/原-mvc与音频播放/" class="archive-article-date">
-  	<time datetime="2016-09-19T08:33:06.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-09-19</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mvc/">mvc</a></li></ul>
 	</div>
 
       
