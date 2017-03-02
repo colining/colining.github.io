@@ -12,8 +12,7 @@
 过程是这样的：
 secondactivity 向firstactivity 跳转 有个intent 。intent里面可以携带数据啊；
 在intent.putExtra() 方法中我们传入一个键值对
-获取方法有两种
-###1键值都在 firstfragme">
+获取方法有两种">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android 复习6 fragment argument">
 <meta property="og:url" content="http://yoursite.com/2016/07/09/原-Android-复习6-fragment-argument/index.html">
@@ -24,9 +23,8 @@ secondactivity 向firstactivity 跳转 有个intent 。intent里面可以携带�
 过程是这样的：
 secondactivity 向firstactivity 跳转 有个intent 。intent里面可以携带数据啊；
 在intent.putExtra() 方法中我们传入一个键值对
-获取方法有两种
-###1键值都在 firstfragme">
-<meta property="og:updated_time" content="2016-10-03T06:54:54.235Z">
+获取方法有两种">
+<meta property="og:updated_time" content="2017-03-02T05:57:21.824Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android 复习6 fragment argument">
 <meta name="twitter:description" content="这个传递真的是好难懂啊
@@ -35,8 +33,7 @@ secondactivity 向firstactivity 跳转 有个intent 。intent里面可以携带�
 过程是这样的：
 secondactivity 向firstactivity 跳转 有个intent 。intent里面可以携带数据啊；
 在intent.putExtra() 方法中我们传入一个键值对
-获取方法有两种
-###1键值都在 firstfragme">
+获取方法有两种">
   
     <link rel="alternative" href="/atom.xml" title="colin" type="application/atom+xml">
   
@@ -176,7 +173,7 @@ secondactivity 向firstactivity 跳转 有个intent 。intent里面可以携带�
 <p>过程是这样的：</p>
 <p>secondactivity 向firstactivity 跳转 有个intent 。intent里面可以携带数据啊；</p>
 <p>在intent.putExtra() 方法中我们传入一个键值对</p>
-<p>获取方法有两种</p>
+<p>获取方法有两种<br><a id="more"></a></p>
 <p>###1<br>键值都在 firstfragment中获取 但问题是intent是 firstactivity的，所以你想获取 你就必须和某个activity有强关联<br>在fragment中必须获取它所在activity的intent，这样就失去了fragment的封装性<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">UUID crimeId =(UUID)getActivity().getIntent().getSerializableExtra(EXTRA_CRIME_ID);</div></pre></td></tr></table></figure></p>
 <p>###2<br>既然是键值对 我们就可以想一下：<br>键的定义一定是属于fragment 的<br>而intent是属于activity的<br>而activity必须了解其下属fragment的(和封装性无关)</p>
 <p>所以我们可以这样做</p>

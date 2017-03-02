@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="colin">
 <meta property="og:description" content="##1最初我们的标题栏导航是怎样的呢？
 点击标题栏按钮，触发事件，创建一个Intent ，打开新页面；123Intent intent = new Intent(getActivity(),CrimePagerActivity.class);intent.putExtra(CrimeFragment.EXTRA_CRIME_ID,crime.getmId());startActivityForRe">
-<meta property="og:updated_time" content="2016-10-03T06:56:12.745Z">
+<meta property="og:updated_time" content="2017-03-02T05:58:36.070Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="标题栏 层级导航">
 <meta name="twitter:description" content="##1最初我们的标题栏导航是怎样的呢？
@@ -154,7 +154,7 @@
       
         <p>##1<br>最初我们的标题栏导航是怎样的呢？</p>
 <p>点击标题栏按钮，触发事件，创建一个Intent ，打开新页面；<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Intent intent = <span class="keyword">new</span> Intent(getActivity(),CrimePagerActivity.class);</div><div class="line">intent.putExtra(CrimeFragment.EXTRA_CRIME_ID,crime.getmId());</div><div class="line">startActivityForResult(intent,<span class="number">0</span>);</div></pre></td></tr></table></figure></p>
-<p>Intent？我们知道用Intent可以随便打开那个页面，那么这种导航就没有明确的父子关系，且必须知道要去哪里；简单地说，小李坐车去女朋友家，司机说：“我知道你女朋友在那里，上车” 实际上去哪里，是司机说的算；</p>
+<p>Intent？我们知道用Intent可以随便打开那个页面，那么这种导航就没有明确的父子关系，且必须知道要去哪里；简单地说，小李坐车去女朋友家，司机说：“我知道你女朋友在那里，上车” 实际上去哪里，是司机说的算；<br><a id="more"></a></p>
 <p>##2<br>下面就定义了父子关系<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">activity</span> <span class="attr">android:name</span>=<span class="string">".Activity.CrimePagerActivity"</span></span></div><div class="line">    <span class="attr">android:label</span>=<span class="string">"@string/app_name"</span>&gt;</div><div class="line">    <span class="tag">&lt;<span class="name">meta-data</span> <span class="attr">android:name</span>=<span class="string">"android.support.PARENT_ACTIVITY"</span></span></div><div class="line">        <span class="attr">android:value</span>=<span class="string">".Activity.CrimeListActivity"</span>&gt;<span class="tag">&lt;/<span class="name">meta-data</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">activity</span>&gt;</span></div></pre></td></tr></table></figure></p>
 <p>控制层表示说，你，想想你有亲戚没？有的话，找你亲戚去；控制层就不需要要去哪里；父子关系是activity自己的属性；当父子关系改变时，控制层不会变化；<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span>(NavUtils.getParentActivityName(getActivity())!=<span class="keyword">null</span>)</div><div class="line">                  NavUtils.navigateUpFromSameTask(getActivity());</div></pre></td></tr></table></figure></p>
 <p>简单说：你找女朋友，司机问你：有吗？在哪儿呢；你一说，司机就把你送走；你女朋友一天变一个，司机也能找到位置；</p>

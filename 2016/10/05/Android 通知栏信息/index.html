@@ -6,19 +6,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <title>android 5 通知栏 | colin</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="#1今天讲点简单的哦，再日后补坑，通知栏信息；用Android的人，都应该知道通知栏是个什么东西，下拉会出来一些设置菜单，当有新的消息时，就会跑到这里，或者比如云音乐，后台听歌，也会有这么一个通知栏信息；今天就简单的说一下，以后再完善；
-1234567891011121314PendingIntent pendingIntent = PendingIntent.getActivity(this,0">
+  <meta name="description" content="#1今天讲点简单的哦，再日后补坑，通知栏信息；用Android的人，都应该知道通知栏是个什么东西，下拉会出来一些设置菜单，当有新的消息时，就会跑到这里，或者比如云音乐，后台听歌，也会有这么一个通知栏信息；今天就简单的说一下，以后再完善；">
 <meta property="og:type" content="article">
 <meta property="og:title" content="android 5 通知栏">
 <meta property="og:url" content="http://yoursite.com/2016/10/05/Android 通知栏信息/index.html">
 <meta property="og:site_name" content="colin">
-<meta property="og:description" content="#1今天讲点简单的哦，再日后补坑，通知栏信息；用Android的人，都应该知道通知栏是个什么东西，下拉会出来一些设置菜单，当有新的消息时，就会跑到这里，或者比如云音乐，后台听歌，也会有这么一个通知栏信息；今天就简单的说一下，以后再完善；
-1234567891011121314PendingIntent pendingIntent = PendingIntent.getActivity(this,0">
-<meta property="og:updated_time" content="2016-10-27T08:41:30.916Z">
+<meta property="og:description" content="#1今天讲点简单的哦，再日后补坑，通知栏信息；用Android的人，都应该知道通知栏是个什么东西，下拉会出来一些设置菜单，当有新的消息时，就会跑到这里，或者比如云音乐，后台听歌，也会有这么一个通知栏信息；今天就简单的说一下，以后再完善；">
+<meta property="og:updated_time" content="2017-03-02T05:56:01.219Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="android 5 通知栏">
-<meta name="twitter:description" content="#1今天讲点简单的哦，再日后补坑，通知栏信息；用Android的人，都应该知道通知栏是个什么东西，下拉会出来一些设置菜单，当有新的消息时，就会跑到这里，或者比如云音乐，后台听歌，也会有这么一个通知栏信息；今天就简单的说一下，以后再完善；
-1234567891011121314PendingIntent pendingIntent = PendingIntent.getActivity(this,0">
+<meta name="twitter:description" content="#1今天讲点简单的哦，再日后补坑，通知栏信息；用Android的人，都应该知道通知栏是个什么东西，下拉会出来一些设置菜单，当有新的消息时，就会跑到这里，或者比如云音乐，后台听歌，也会有这么一个通知栏信息；今天就简单的说一下，以后再完善；">
   
     <link rel="alternative" href="/atom.xml" title="colin" type="application/atom+xml">
   
@@ -152,7 +149,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>#1<br>今天讲点简单的哦，再日后补坑，通知栏信息；<br>用Android的人，都应该知道通知栏是个什么东西，下拉会出来一些设置菜单，<br>当有新的消息时，就会跑到这里，或者比如云音乐，后台听歌，也会有这么一个通知栏信息；<br>今天就简单的说一下，以后再完善；</p>
+        <p>#1<br>今天讲点简单的哦，再日后补坑，通知栏信息；<br>用Android的人，都应该知道通知栏是个什么东西，下拉会出来一些设置菜单，<br>当有新的消息时，就会跑到这里，或者比如云音乐，后台听歌，也会有这么一个通知栏信息；<br>今天就简单的说一下，以后再完善；<br><a id="more"></a></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">PendingIntent pendingIntent = PendingIntent.getActivity(<span class="keyword">this</span>,<span class="number">0</span>,<span class="keyword">new</span> Intent(<span class="keyword">this</span>, Photogallery_activity.class),<span class="number">0</span>);   <span class="comment">//某个intent</span></div><div class="line"></div><div class="line">         Notification notification = <span class="keyword">new</span> NotificationCompat.Builder(<span class="keyword">this</span>)         <span class="comment">//通知对象的创建</span></div><div class="line">                 .setTicker(resources.getString(R.string.new_picture_title))<span class="comment">//信息在通知栏滚动的text，就像新短信会在未下拉的状态来滚动信息</span></div><div class="line">                 .setSmallIcon(android.R.drawable.ic_menu_report_image)<span class="comment">//图标</span></div><div class="line">                 .setContentTitle(resources.getString(R.string.new_picture_title))<span class="comment">//标题</span></div><div class="line">                 .setContentText(resources.getString(R.string.new_picture_text))<span class="comment">//文本</span></div><div class="line">                 .setContentIntent(pendingIntent)<span class="comment">//点击后启动的intent</span></div><div class="line">                 .setAutoCancel(<span class="keyword">true</span>)<span class="comment">//点击后自动取消，比如云音乐，你点击后，就跳到主页面，不删除通知栏</span></div><div class="line">                 .build();</div><div class="line"></div><div class="line">         NotificationManager notificationManager =(NotificationManager)getSystemService(NOTIFICATION_SERVICE); <span class="comment">//创建manager</span></div><div class="line"></div><div class="line">         notificationManager.notify(<span class="number">0</span>,notification);<span class="comment">//发送消息</span></div></pre></td></tr></table></figure>
 <p>ok，我们就在通知栏建立了我们自己的信息；</p>
 

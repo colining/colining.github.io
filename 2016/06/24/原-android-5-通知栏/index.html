@@ -18,7 +18,7 @@ NotificationManager 是一个系统Service，所以必须通">
 状态通知栏主要涉及到2个类：  Notification 和 NotificationManager
 Notification为通知信息类，它里面对应了通知栏的各个属性；NotificationManager ：  是状态栏通知的管理类，负责发通知、清除通知等操作。
 NotificationManager 是一个系统Service，所以必须通">
-<meta property="og:updated_time" content="2016-10-03T06:47:47.531Z">
+<meta property="og:updated_time" content="2017-03-02T05:56:18.166Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="android 5 通知栏">
 <meta name="twitter:description" content="书上有关于通知栏的说法 已经过时了 是时候来点新东西啦
@@ -161,7 +161,7 @@ NotificationManager 是一个系统Service，所以必须通">
         <p>书上有关于通知栏的说法 已经过时了 是时候来点新东西啦</p>
 <p>状态通知栏主要涉及到2个类：  <strong>Notification</strong> 和 <strong>NotificationManager</strong></p>
 <p>Notification为通知信息类，它里面对应了通知栏的各个属性；NotificationManager ：  是状态栏通知的管理类，负责发通知、清除通知等操作。</p>
-<p>NotificationManager 是一个系统Service，所以必须通过 getSystemService(NOTIFICATION_SERVICE)方法来获取：</p>
+<p>NotificationManager 是一个系统Service，所以必须通过 getSystemService(NOTIFICATION_SERVICE)方法来获取：<br><a id="more"></a></p>
 <p>#新建一个通知管理 NotificationManger<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">NotificationManager mNotificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);<span class="comment">//从系统获取</span></div></pre></td></tr></table></figure></p>
 <p>当你要发表通知时，要使用notify(int, Notification)把Notification传递给NotificationManager。方法的第一个参数是通知的唯一的ID，第二个参数就是Notification对象。ID唯一地标识了通知是来自你的应用程序。如果你需要更新通知或者（如果你的应用管理不同种类的通知）当用户通过通知中定义的intent返回到你的应用时，选择合适的action，那么ID就是必需的。</p>
 <pre><code>private static final int HELLO_ID = 1;
