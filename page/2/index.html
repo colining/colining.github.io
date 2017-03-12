@@ -129,7 +129,7 @@
       <div class="body-wrap">
         
   
-    <article id="post-原-mvc与音频播放" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-原-Android-Looper，handler，HandlerThread" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -139,7 +139,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/19/原-mvc与音频播放/">mvc与音频播放</a>
+      <a class="article-title" href="/2016/09/28/原-Android-Looper，handler，HandlerThread/">Android Looper，handler，HandlerThread</a>
     </h1>
   
 
@@ -147,24 +147,22 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>mvc<br>m：模型<br>v ：视图<br>c ：控制</p>
-<p>模型层，可以粗略理解为是属于纯纯的类，绝不与v层有任何关系，就音频播放来说，音频是数据，绝对是属于m层，那么相对应的就有一些控制音频的方法；模型层最接近于java里面的类；<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AudioPlayer</span> </span>&#123;			<span class="comment">//音频播放器和管理它的方法</span></div><div class="line">    <span class="keyword">private</span> MediaPlayer player;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">stop</span><span class="params">()</span></span>&#123;...&#125;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">play</span><span class="params">(Context c)</span></div><div class="line">    </span>&#123;...&#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">pause</span><span class="params">()</span></div><div class="line">    </span>&#123;...&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>v层 视图层，主要用于展现视图，有页面，以xml为例，不管有没有人用，都是一个页面，fragment加载就叫做fragment ，activity加载就叫做activity；</p>
-<p>c层，最麻烦的一层，我们非常容易的能够看见c层有一大堆的代码，而且都是必须的；<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123; <span class="comment">//加载xml页面,此处是activity，fragment一布局形式加入activity中</span></div><div class="line">    <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">    setContentView(R.layout.activity_hello_moon);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+        <p>#1<br>上回书说道，掌柜的饿了，叫大厨做饭去了；但一家客栈如果不冷清的话，就会有很多客人；跑堂的小二问完客观，记下来，会跟大厨喊：两斤酱牛肉，两斤烤鸭；至于茶水，跑堂的自己端过去就行了；那掌柜的是不是得记账啊；所以更可能的情况是小二用纸笔记下来，一份送到掌柜的，一份送到大厨那里；掌柜的可能就直接收起来，等晚些时候记账也行，大厨就不一样了，那就是铁定的任务了；看完这个消息，做个鱼香肉丝，再看哪个，做个清蒸红薯之类的。。。<br>相关访问，一定要看的；<br><a href="http://www.cnblogs.com/codingmyworld/archive/2011/09/14/2174255.html">http://www.cnblogs.com/codingmyworld/archive/2011/09/14/2174255.html</a></p>
+<p>#2<br>    主程序:可以看成是客栈的整个大堂，人来人往，小二忙的不亦乐乎<br>    线程：大厨做饭得有锅啊；但是此时的锅只能做一道菜，做完就不能用了，大厨就把它藏起来了；之后来的n多单子不接受；<br>    looper：掌柜的一看，说这不行啊，加钱！让锅一直待在厨房，有单子就炒菜，没有就等着单子的到来；于是线程就升级为循环线程；<br>    Message：小二递过来的单子<br>    MessageQueue：虽然大厨是处于循环工作状态，但是那么多单子总得有个序列吧，此处将单子排序，大厨就可以按照次序<br>    Handler：大厨，关键人物，小二将单子交给大厨，到了厨房，大厨就将其放入消息队列，到了的话，就炒菜；<br>    那假如客栈大，厨师好多，一个相同的消息队列 不同的菜交给不同厨师，一个厨师可以对应好几道菜，不过的按照顺序吵；<br>
         <p class="article-more-link">
-          <a  href="/2016/09/19/原-mvc与音频播放/#more">more >></a>
+          <a  href="/2016/09/28/原-Android-Looper，handler，HandlerThread/#more">more >></a>
         </p>
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2016/09/19/原-mvc与音频播放/" class="archive-article-date">
-  	<time datetime="2016-09-19T08:33:06.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-09-19</time>
+      <a href="/2016/09/28/原-Android-Looper，handler，HandlerThread/" class="archive-article-date">
+  	<time datetime="2016-09-28T11:44:49.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-09-28</time>
 </a>
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mvc/">mvc</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/线程/">线程</a></li></ul>
 	</div>
 
       
@@ -184,7 +182,7 @@
 
 
   
-    <article id="post-原-Fragment的实现方案" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-原-Android-线程AsyncTask" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -194,7 +192,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/19/原-Fragment的实现方案/">Fragment的实现方案</a>
+      <a class="article-title" href="/2016/09/28/原-Android-线程AsyncTask/">Android 线程AsyncTask</a>
     </h1>
   
 
@@ -202,24 +200,23 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Fragment与Activity有几种方式，今天讲上一讲</p>
-<p>##1</p>
-<p>xml 布局fragment</p>
-<p>很简单，我们先造好fragment 然后再在activity的xml文件中加入<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">TableLayout</span> //这个是<span class="attr">fragment</span></div><div class="line"><span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></div><div class="line">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span> <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span>&gt;</span></div><div class="line">    </div><div class="line"><span class="tag">&lt;/<span class="name">TableLayout</span>&gt;</span></div></pre></td></tr></table></figure></p>
+        <p>##1.AsyncTask<br>Android已经到了最后阶段，突然蹦出来线程这一难题，真的是把我弄晕了<br>首先我们明确为什么存在线程？ 我们已经存在一个主程序，为什么要加一个呢？当我们的程序在请求网络时，我们希望主程序还可以运行吗？现在的程序一般都是后台下载，那前台下载你见过吗？点完下载，程序就变成下载的进度条了，软件不能用了；这样当然是不好的，所以才有了线程；</p>
+<p>就像是一个客栈，有大厨，有掌柜的，有跑堂的；如果说这家客栈就一个人，那是不是就忙不过来了呢；</p>
+<p>我们要看的程序是一个从网站获取链接与信息的程序；<br>
         <p class="article-more-link">
-          <a  href="/2016/09/19/原-Fragment的实现方案/#more">more >></a>
+          <a  href="/2016/09/28/原-Android-线程AsyncTask/#more">more >></a>
         </p>
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2016/09/19/原-Fragment的实现方案/" class="archive-article-date">
-  	<time datetime="2016-09-19T07:45:21.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-09-19</time>
+      <a href="/2016/09/28/原-Android-线程AsyncTask/" class="archive-article-date">
+  	<time datetime="2016-09-28T08:20:43.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-09-28</time>
 </a>
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/fragment/">fragment</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/线程/">线程</a></li></ul>
 	</div>
 
       
@@ -239,7 +236,7 @@
 
 
   
-    <article id="post-转-单例设计模式" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-原-标题栏-层级导航" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -249,7 +246,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/12/转-单例设计模式/">[转]单例设计模式</a>
+      <a class="article-title" href="/2016/09/24/原-标题栏-层级导航/">标题栏 层级导航</a>
     </h1>
   
 
@@ -257,285 +254,18 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>版权声明：本文为 stormzhang 原创文章，可以随意转载，但必须在明确位置注明出处！！！</p>
-<p>经常有人问我说Android学习如何进阶？不管你怎么走，设计模式可谓是进阶必备，对设计模式的理解与运用对你之后的代码书写与架构设计有很多的帮助作用，那么从今天开始我就抽时间来给大家分享下设计模式系列。</p>
-<p>什么是设计模式？其实简单的理解就是前人留下来的一些经验总结而已，然后把这些经验起了个名字叫Design Pattern，翻译过来就是设计模式的意思，通过使用设计模式可以让我们的代码复用性更高，可维护性更高，让你的代码写的更优雅。设计模式理论上有23种，但是我只会针对Android平台上常用的一些设计模式做分享，今天就先来分享下最常用的单例模式。</p>
-<p>饿汉式<br>
+        <p>##1<br>最初我们的标题栏导航是怎样的呢？</p>
+<p>点击标题栏按钮，触发事件，创建一个Intent ，打开新页面；<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Intent intent = <span class="keyword">new</span> Intent(getActivity(),CrimePagerActivity.class);</div><div class="line">intent.putExtra(CrimeFragment.EXTRA_CRIME_ID,crime.getmId());</div><div class="line">startActivityForResult(intent,<span class="number">0</span>);</div></pre></td></tr></table></figure></p>
+<p>Intent？我们知道用Intent可以随便打开那个页面，那么这种导航就没有明确的父子关系，且必须知道要去哪里；简单地说，小李坐车去女朋友家，司机说：“我知道你女朋友在那里，上车” 实际上去哪里，是司机说的算；<br>
         <p class="article-more-link">
-          <a  href="/2016/09/12/转-单例设计模式/#more">more >></a>
+          <a  href="/2016/09/24/原-标题栏-层级导航/#more">more >></a>
         </p>
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2016/09/12/转-单例设计模式/" class="archive-article-date">
-  	<time datetime="2016-09-12T05:56:36.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-09-12</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-转-关于fragment" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/12/转-关于fragment/">[转]关于fragment</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>版权声明：本文为博主原创文章，未经博主允许不得转载。</p>
-<div></div><div><br><br><span>目录<a href="#" title="系统根据文章中H1到H6标签自动生成文章目录">(?)</a></span><a href="#" title="展开">[+]</a><br><br>1.  <a href="#t0">Fragment的产生与介绍</a><br>2.  <a href="#t1">Fragment的生命周期</a><br>3.  <a href="#t2">静态的使用Fragment</a><br>4.  <a href="#t3">动态的使用Fragment</a><br>5.  <a href="#t4">Fragment家族常用的API</a><br>6.  <a href="#t5"></a></div><div></div><div id="article_content" class="article_content"><br><br>转载请标明出处：<a href="http://blog.csdn.net/lmj623565791/article/details/37970961">http://blog.csdn.net/lmj623565791/article/details/37970961</a><br>
-        <p class="article-more-link">
-          <a  href="/2016/09/12/转-关于fragment/#more">more >></a>
-        </p>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/09/12/转-关于fragment/" class="archive-article-date">
-  	<time datetime="2016-09-12T04:21:06.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-09-12</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/fragment/">fragment</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-原-麻烦的素数" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/12/原-麻烦的素数/">麻烦的素数</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>素数真的是很神奇 求素数更麻烦<br>最傻的方法<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span>  <span class="title">Prime</span><span class="params">(<span class="keyword">int</span> n)</span>				<span class="comment">//n=25 程序运行时间： 296415ns</span></span></div><div class="line">	&#123;</div><div class="line">		<span class="keyword">boolean</span>  flag;</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i =<span class="number">2</span> ;i&lt;=n;i++)</div><div class="line">		&#123;	flag=<span class="keyword">true</span>;</div><div class="line">		</div><div class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">2</span>;j&lt;i;j++)</div><div class="line">			&#123;</div><div class="line">				<span class="keyword">if</span>(i%j==<span class="number">0</span>)</div><div class="line">				&#123;		</div><div class="line">					flag=<span class="keyword">false</span>;</div><div class="line">						<span class="keyword">break</span>;</div><div class="line">				&#125;</div><div class="line">			&#125;	</div><div class="line">			<span class="keyword">if</span>(flag)</div><div class="line">			&#123;</div><div class="line">			System.out.print(i+<span class="string">" "</span>);</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/09/12/原-麻烦的素数/" class="archive-article-date">
-  	<time datetime="2016-09-12T04:09:47.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-09-12</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Beauty-of-Programming/">Beauty of Programming</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-原-无聊又无趣的位运算" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/24/原-无聊又无趣的位运算/">无聊又无趣的位运算</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>开坑 待写</p>
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/07/24/原-无聊又无趣的位运算/" class="archive-article-date">
-  	<time datetime="2016-07-24T06:27:50.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-07-24</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Beauty-of-Programming/">Beauty of Programming</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/随笔/">随笔</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-原-Beauty-of-Programming-1" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/19/原-Beauty-of-Programming-1/">Beauty of Programming 1</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>买了本编程之美 打算以后看看 也在这里记录一下有关算法方面的东西</p>
-<p>##有关象棋将帅的位置问题</p>
-<p>　假设在中国象棋中只剩下将帅两个棋子，国人都知道基本规则：将帅不能出九宫格，只能上下左右移动，不能斜向移动，同时将帅不能照面。问在这样条件下，所有可能将帅位置。<strong>要求在代码中只能使用一个字节存储变量</strong>。<br><img src="http://img.blog.csdn.net/20160719182303946" alt="这里写图片描述"><br>将帅的田字格自然都可以分为就这样 问题就变成 两个一到九的循环 他们对于3的余数不能一样 一样的话将帅就碰面了</p>
-<p>这样的问题 我也花三分钟写完 但问题来了？<br>
-        <p class="article-more-link">
-          <a  href="/2016/07/19/原-Beauty-of-Programming-1/#more">more >></a>
-        </p>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/07/19/原-Beauty-of-Programming-1/" class="archive-article-date">
-  	<time datetime="2016-07-19T11:20:20.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-07-19</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Beauty-of-Programming/">Beauty of Programming</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-原-Android-复习6-fragment-argument" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/09/原-Android-复习6-fragment-argument/">Android 复习6 fragment argument</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>这个传递真的是好难懂啊</p>
-<p>首先我们先来看一看参与人员</p>
-<p>1 firstactivity<br>2 seconactivity<br>3 firstfragment</p>
-<p>过程是这样的：</p>
-<p>secondactivity 向firstactivity 跳转 有个intent 。intent里面可以携带数据啊；</p>
-<p>在intent.putExtra() 方法中我们传入一个键值对</p>
-<p>获取方法有两种<br>
-        <p class="article-more-link">
-          <a  href="/2016/07/09/原-Android-复习6-fragment-argument/#more">more >></a>
-        </p>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/07/09/原-Android-复习6-fragment-argument/" class="archive-article-date">
-  	<time datetime="2016-07-09T06:07:04.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-07-09</time>
+      <a href="/2016/09/24/原-标题栏-层级导航/" class="archive-article-date">
+  	<time datetime="2016-09-24T08:44:04.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-09-24</time>
 </a>
       
 	<div class="article-tag tagcloud">
@@ -560,7 +290,7 @@
 
 
   
-    <article id="post-原-Android-复习笔记5-listView-ArrayList" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-原-样式与include" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -570,7 +300,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/08/原-Android-复习笔记5-listView-ArrayList/">Android 复习笔记5 listView ArrayList</a>
+      <a class="article-title" href="/2016/09/24/原-样式与include/">样式与include</a>
     </h1>
   
 
@@ -578,22 +308,23 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>#列表 listview<br>列表应该算得上是最难的系统自带组件了；归根结底，是因为listview本质要完成mvc所有层次；</p>
-<p>##1<br>既然是一个列表，那就应该有列表项，所以数据就会很多。那不管你元数据有多少条，我要做的事是把你的数据想办法发到页面上；<br>既然有列表项，而我们需要一个中转站  一个能够将数据打包发给页面的<br>这就是ArrayAdapter&lt;&gt; 一个适配器 很明显它应该处于control层；控制数据传输给页面<br>
+        <p>#1<br>简单来说样式是为了复用;</p>
+<p>style 中创建样式<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">"RemoteButton"</span>&gt;</span><span class="xml"></div><div class="line">       <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:layout_width"</span>&gt;</span>0dp<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:layout_height"</span>&gt;</span>match_parent<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:textColor"</span>&gt;</span>#556699<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:textSize"</span>&gt;</span>20dp<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span> = <span class="string">"android:layout_margin"</span>&gt;</span>3dp<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line"></div><div class="line">   </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>控件使用某种样式；<br>
         <p class="article-more-link">
-          <a  href="/2016/07/08/原-Android-复习笔记5-listView-ArrayList/#more">more >></a>
+          <a  href="/2016/09/24/原-样式与include/#more">more >></a>
         </p>
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2016/07/08/原-Android-复习笔记5-listView-ArrayList/" class="archive-article-date">
-  	<time datetime="2016-07-08T08:29:48.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-07-08</time>
+      <a href="/2016/09/24/原-样式与include/" class="archive-article-date">
+  	<time datetime="2016-09-24T08:15:17.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-09-24</time>
 </a>
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/随笔/">随笔</a></li></ul>
 	</div>
 
       
@@ -613,7 +344,7 @@
 
 
   
-    <article id="post-原-Android-复习4-神奇的问题-杂谈" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-原-JSON数据保存与加载" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -623,7 +354,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/06/原-Android-复习4-神奇的问题-杂谈/">Android 复习4 神奇的问题 杂谈</a>
+      <a class="article-title" href="/2016/09/24/原-JSON数据保存与加载/">JSON数据保存与加载</a>
     </h1>
   
 
@@ -631,17 +362,19 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>#关于fragment的问题<br>我遇见一个问题 神奇的问题<br><img src="http://img.blog.csdn.net/20160706201115898" alt="这里写图片描述"><br>我写着match_parent<br>可为什么会这样呢；</p>
-<p>布局出现问题，本来match_parent，却没有到达要求。我就开始每一项每一项的检查，和书上一样啊。然后我就做了这么一个测试，放了一个应该占满屏幕的button，它居然还是有问题<br>我就开始意识到这可能是fragment的问题，就上网搜了一下，activity加载fragment的时候让其占满屏幕，查了半天也没有什么对口的答案，突然想到，fragment放在activity里面，那是不是activity本来就不够大呢？<br>没想到这才是问题的关键所在；<br>
+        <p>首先我们盘点一下参与者</p>
+<p>Crime 罪犯类，<br>CrimeLab 罪犯列表类<br>CriminalIntentJSONSerializer 罪犯json化 并且保存</p>
+<p>没有视图也没有控制的事 三个模型类玩游戏</p>
+<p>保存和加载自然归CriminalIntentJSONSerializer管理<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CriminalIntentJSONSerializer</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> Context context;</div><div class="line">    <span class="keyword">private</span> String Filename;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">CriminalIntentJSONSerializer</span><span class="params">(Context c, String f)</span></div><div class="line">    </span>&#123;</div><div class="line">        context = c;</div><div class="line">        Filename = f;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">saveCrimes</span><span class="params">(ArrayList&lt;Crime&gt; crimes)</span> <span class="keyword">throws</span> JSONException,IOException</div><div class="line">    </span>&#123;....&#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> ArrayList&lt;Crime&gt; <span class="title">loadCrimes</span><span class="params">()</span> <span class="keyword">throws</span>  IOException,JSONException</div><div class="line">    </span>&#123;....&#125;</div></pre></td></tr></table></figure></p>
         <p class="article-more-link">
-          <a  href="/2016/07/06/原-Android-复习4-神奇的问题-杂谈/#more">more >></a>
+          <a  href="/2016/09/24/原-JSON数据保存与加载/#more">more >></a>
         </p>
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2016/07/06/原-Android-复习4-神奇的问题-杂谈/" class="archive-article-date">
-  	<time datetime="2016-07-06T12:26:10.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-07-06</time>
+      <a href="/2016/09/24/原-JSON数据保存与加载/" class="archive-article-date">
+  	<time datetime="2016-09-24T08:01:15.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-09-24</time>
 </a>
       
 	<div class="article-tag tagcloud">
@@ -668,7 +401,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
     </nav>
   
 
