@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>Java 读书笔记 14.7 动态代理 | colin</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="#动态代理这一章的难度加上翻译的水准使得我实在好像是在看天书啊，所以分开写了；
+##静态代理首先我们来看看静态代理：12345public interface Sell      //说呢，从古至今都有这么一个卖的接口，谁都可以卖东西；&amp;#123; 	void sell(); 	void ad();&amp;#125;
+12345678public class Vendor implements Sell">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java 读书笔记 14.7 动态代理">
+<meta property="og:url" content="http://yoursite.com/2017/03/05/Java 读书笔记 14.7 动态代理/index.html">
+<meta property="og:site_name" content="colin">
+<meta property="og:description" content="#动态代理这一章的难度加上翻译的水准使得我实在好像是在看天书啊，所以分开写了；
+##静态代理首先我们来看看静态代理：12345public interface Sell      //说呢，从古至今都有这么一个卖的接口，谁都可以卖东西；&amp;#123; 	void sell(); 	void ad();&amp;#125;
+12345678public class Vendor implements Sell">
+<meta property="og:updated_time" content="2017-03-15T11:09:10.064Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java 读书笔记 14.7 动态代理">
+<meta name="twitter:description" content="#动态代理这一章的难度加上翻译的水准使得我实在好像是在看天书啊，所以分开写了；
+##静态代理首先我们来看看静态代理：12345public interface Sell      //说呢，从古至今都有这么一个卖的接口，谁都可以卖东西；&amp;#123; 	void sell(); 	void ad();&amp;#125;
+12345678public class Vendor implements Sell">
+  
+    <link rel="alternative" href="/atom.xml" title="colin" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="//favicon.png">
+  
+  <script src="/style.js"></script>
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="/0.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">墨</a></h1>
+		</hgroup>
+
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/tags/随笔">随笔</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">所有文章</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="2" href="javascript:void(0)">友链</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="3" href="javascript:void(0)">关于我</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="https://github.com/colining" title="github">github</a>
+		        
+					<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/ren-tian-qi" title="zhihu">zhihu</a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<h1 class="header-author js-mobile-header hide">墨</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img src="/0.jpg" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">墨</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/tags/随笔">随笔</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/colining" title="github">github</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/ren-tian-qi" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap">
+        <article id="post-Java 读书笔记 14.7 动态代理" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Java 读书笔记 14.7 动态代理
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>#动态代理<br>这一章的难度加上翻译的水准使得我实在好像是在看天书啊，所以分开写了；</p>
+<p>##静态代理<br>首先我们来看看静态代理：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Sell</span>      //说呢，从古至今都有这么一个卖的接口，谁都可以卖东西；</span></div><div class="line">&#123; </div><div class="line">	<span class="function"><span class="keyword">void</span> <span class="title">sell</span><span class="params">()</span></span>; </div><div class="line">	<span class="function"><span class="keyword">void</span> <span class="title">ad</span><span class="params">()</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Vendor</span> <span class="keyword">implements</span> <span class="title">Sell</span> </span>&#123;        <span class="comment">//卖主，小贩实现了他的卖法还有广告；</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sell</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"In sell method"</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">ad</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"ad method"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<pre><code>&lt;!--more--&gt;
+</code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"> <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BusinessAgent</span> <span class="keyword">implements</span> <span class="title">Sell</span> </span>&#123;     <span class="comment">//代理商也实现卖的接口</span></div><div class="line">   <span class="keyword">private</span> Vendor mVendor;                        <span class="comment">//将卖家聚合到自己类中</span></div><div class="line">   <span class="function"><span class="keyword">public</span> <span class="title">BusinessAgent</span><span class="params">(Vendor vendor)</span> </span>&#123;</div><div class="line">     mVendor = vendor;</div><div class="line">   &#125;</div><div class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sell</span><span class="params">()</span> </span>&#123;                           <span class="comment">//你调用代理商卖东西，他就去调用小贩去啦；</span></div><div class="line">    mVendor.sell(); </div><div class="line">  &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span>  <span class="keyword">void</span>  <span class="title">sell</span><span class="params">(<span class="keyword">int</span> i)</span>             <span class="comment">//代理可以自己决定卖不卖给你</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">if</span> (i&lt;<span class="number">10</span>)</div><div class="line">        &#123;</div><div class="line">            System.out.println(<span class="string">"你买的太少，代理不乐意搭理你"</span>);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">else</span></div><div class="line">        &#123;</div><div class="line">            System.out.println(<span class="string">"亲，您需要支付"</span> + (<span class="number">100</span> * i) + <span class="string">"￥"</span>);</div><div class="line">            mVendor.sell();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">ad</span><span class="params">()</span> </span>&#123; </div><div class="line">    mVendor.ad(); </div><div class="line">  &#125;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">public</span>  <span class="keyword">static</span>  <span class="keyword">void</span>  <span class="title">main</span><span class="params">(String [] arg)</span></span></div><div class="line">    &#123;</div><div class="line">        BusinessAgent businessAgent = <span class="keyword">new</span> BusinessAgent(<span class="keyword">new</span> Vendor());</div><div class="line">        businessAgent.sell(<span class="number">10</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">output：</div><div class="line">亲，您需要支付<span class="number">1000</span>￥</div><div class="line">In sell method</div><div class="line">你买的太少，代理不乐意搭理你</div></pre></td></tr></table></figure>
+<p>以上就是静态代理的内容了； 就好像供货商，代理商之间的关系；卖不卖给你代理是可以决定的；</p>
+<p>##动态代理</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Sell</span></span>&#123;</div><div class="line">        </div><div class="line">        <span class="function"><span class="keyword">void</span> <span class="title">sell</span><span class="params">()</span></span>; </div><div class="line">        <span class="function"><span class="keyword">void</span> <span class="title">ad</span><span class="params">()</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DynamicProxy</span> <span class="keyword">implements</span> <span class="title">InvocationHandler</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> Object obj; <span class="comment">//obj为委托类对象</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">DynamicProxy</span><span class="params">(Object obj)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.obj = obj;</div><div class="line">    &#125;</div><div class="line">    <span class="comment">//通过invoke方法实现了动态的方法和委托类的调用</span></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">invoke</span><span class="params">(Object proxy, Method method, Object[] args)</span> <span class="keyword">throws</span> Throwable </span>&#123;</div><div class="line">        System.out.println(<span class="string">"before"</span>);</div><div class="line">        Object result = method.invoke(obj, args);</div><div class="line">        System.out.println(<span class="string">"after"</span>);</div><div class="line">        <span class="keyword">return</span> result;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span>  <span class="keyword">static</span>  <span class="keyword">void</span>  <span class="title">main</span><span class="params">(String [] arg)</span></span></div><div class="line">    &#123;</div><div class="line">        DynamicProxy inter = <span class="keyword">new</span> DynamicProxy(<span class="keyword">new</span> Vendor());</div><div class="line">        Sell sell = (Sell)   (Proxy.newProxyInstance(Sell.class.getClassLoader(),<span class="keyword">new</span>  Class[]&#123;Sell.class&#125;,inter));</div><div class="line">        sell.sell();</div><div class="line">        sell.ad();</div><div class="line">        <span class="comment">//既然是代理，那么我们可以反过来退出来sell这个引用一定是指向一个代理对象的；</span></div><div class="line">        <span class="comment">//Proxy.newProxyInstance()生成了一个代理对象</span></div><div class="line">        <span class="comment">//我们注意到inter是由 DynamicProxy 实例的一个对象；它就是整个代理对象的处理器了</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>下面的代码改动会使得方法的动态修改变得明朗<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">invoke</span><span class="params">(Object proxy, Method method, Object[] args)</span> <span class="keyword">throws</span> Throwable </span>&#123;</div><div class="line">       <span class="comment">// System.out.println("before");</span></div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            Class c = Class.forName(<span class="string">"Proxy.Sell"</span>);</div><div class="line">            Method method1 = c.getMethod(<span class="string">"sell"</span>, <span class="keyword">null</span>);</div><div class="line">            Class c2 = Class.forName(<span class="string">"Proxy.Sell"</span>);</div><div class="line">            Method method2 = c2.getMethod(<span class="string">"ad"</span>,<span class="keyword">null</span>);</div><div class="line">            <span class="keyword">if</span> (method.equals(method1)) &#123;</div><div class="line">                System.out.println(<span class="string">"处理器正在调用sell方法"</span>);</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">if</span> (method.equals(method2)) &#123;</div><div class="line">                System.out.println(<span class="string">"处理器正在调用ad方法"</span>);</div><div class="line">            &#125;</div><div class="line">        &#125;<span class="keyword">catch</span> (Exception e)</div><div class="line">        &#123;</div><div class="line">            System.out.println(e);</div><div class="line">        &#125;</div><div class="line">        Object result = method.invoke(obj, args);</div><div class="line">       <span class="comment">// System.out.println("after");</span></div><div class="line">        <span class="keyword">return</span> result;</div><div class="line">    &#125;</div><div class="line">ouput：</div><div class="line">处理器正在调用sell方法</div><div class="line">In sell method</div><div class="line">处理器正在调用ad方法</div><div class="line">ad method</div></pre></td></tr></table></figure></p>
+<p>还是蛮清楚的吧；</p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/03/05/Java 读书笔记 14.7 动态代理/" class="archive-article-date">
+  	<time datetime="2017-03-05T12:35:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-03-05</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java编程思想/">Java编程思想</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2017/03/08/Java 读书笔记 14.1-14.6 RTTI/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Java 读书笔记 14.1-14.6 RTTI
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/03/04/Java 读书笔记 13 字符串/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Java 读书笔记13 字符串</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="//v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+
+
+
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 墨
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: false,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: "/"
+	}
+</script>
+
+<script src="/./main.js"></script>
+
+
+    
+<div class="tools-col">
+  <ul class="btn-wrap">
+    
+      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
+    
+    
+      <li data-hook="tools-section-tag"><span class="text">标签</span><i class="icon-price-tags"></i></li>
+    
+    
+      <li data-hook="tools-section-friends"><span class="text">友链</span><i class="icon-link"></i></li>
+    
+    
+      <li data-hook="tools-section-me"><span class="text">我</span><i class="icon-smile"></i></li>
+    
+  </ul>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all chose">
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-tag">
+    			<div class="widget tagcloud" id="js-tagcloud">
+    				<a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/Beauty-of-Programming/" style="font-size: 16px;">Beauty of Programming</a> <a href="/tags/Java编程思想/" style="font-size: 18px;">Java编程思想</a> <a href="/tags/fragment/" style="font-size: 14px;">fragment</a> <a href="/tags/mvc/" style="font-size: 12px;">mvc</a> <a href="/tags/线程/" style="font-size: 12px;">线程</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/随笔/" style="font-size: 12px;">随笔</a>
+    			</div>
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-friends">
+  		
+  			<div class="friends-wrap" id="js-friends">
+  			
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="https://www.google.com.hk/">谷歌</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="https://stackoverflow.com/">stackoverflow</a>
+  	        
+  	        </div>
+  		
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-me">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">继续跑&lt;br&gt;&lt;br&gt;带着赤子的骄傲</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div>
+</body>
+</html>

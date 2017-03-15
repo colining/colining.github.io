@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>Java 读书笔记5 | colin</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="#初始化与清理
+1.重载和区分重载： 书上例子很好，洗衣服，洗车，洗狗；同样都是洗，却洗的是不一样的东西，似乎用一个名字做不同的事情，理所应当；而且呢，还告诉我们为什么不一样，因为给的参数不一样，当来着是衣服的时候，就用洗衣服的方式来洗，如果是车，就用车的方式；不可以通过返回值区分，你洗狗洗出来特干净，他就不干净，但是方法实际是相同的；不可以通过访问修饰符区分，你就给你家洗衣服，洗衣店谁家衣服都洗">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java 读书笔记5">
+<meta property="og:url" content="http://yoursite.com/2017/02/23/Java 读书笔记 5/index.html">
+<meta property="og:site_name" content="colin">
+<meta property="og:description" content="#初始化与清理
+1.重载和区分重载： 书上例子很好，洗衣服，洗车，洗狗；同样都是洗，却洗的是不一样的东西，似乎用一个名字做不同的事情，理所应当；而且呢，还告诉我们为什么不一样，因为给的参数不一样，当来着是衣服的时候，就用洗衣服的方式来洗，如果是车，就用车的方式；不可以通过返回值区分，你洗狗洗出来特干净，他就不干净，但是方法实际是相同的；不可以通过访问修饰符区分，你就给你家洗衣服，洗衣店谁家衣服都洗">
+<meta property="og:updated_time" content="2017-03-15T10:53:12.529Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java 读书笔记5">
+<meta name="twitter:description" content="#初始化与清理
+1.重载和区分重载： 书上例子很好，洗衣服，洗车，洗狗；同样都是洗，却洗的是不一样的东西，似乎用一个名字做不同的事情，理所应当；而且呢，还告诉我们为什么不一样，因为给的参数不一样，当来着是衣服的时候，就用洗衣服的方式来洗，如果是车，就用车的方式；不可以通过返回值区分，你洗狗洗出来特干净，他就不干净，但是方法实际是相同的；不可以通过访问修饰符区分，你就给你家洗衣服，洗衣店谁家衣服都洗">
+  
+    <link rel="alternative" href="/atom.xml" title="colin" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="//favicon.png">
+  
+  <script src="/style.js"></script>
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="/0.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">墨</a></h1>
+		</hgroup>
+
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/tags/随笔">随笔</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">所有文章</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="2" href="javascript:void(0)">友链</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="3" href="javascript:void(0)">关于我</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="https://github.com/colining" title="github">github</a>
+		        
+					<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/ren-tian-qi" title="zhihu">zhihu</a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<h1 class="header-author js-mobile-header hide">墨</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img src="/0.jpg" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">墨</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/tags/随笔">随笔</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/colining" title="github">github</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/ren-tian-qi" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap">
+        <article id="post-Java 读书笔记 5" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Java 读书笔记5
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>#初始化与清理</p>
+<p>1.重载和区分重载<br>： 书上例子很好，洗衣服，洗车，洗狗；同样都是洗，却洗的是不一样的东西，似乎用一个名字做不同的事情，理所应当；<br>而且呢，还告诉我们为什么不一样，因为给的参数不一样，当来着是衣服的时候，就用洗衣服的方式来洗，如果是车，就用车的方式；<br>不可以通过返回值区分，你洗狗洗出来特干净，他就不干净，但是方法实际是相同的；<br>不可以通过访问修饰符区分，你就给你家洗衣服，洗衣店谁家衣服都洗，但是方法还是一样的；</p>
+<p>2.基本类型与重载；<br>    简单来说呢，基本类型在重载时，由于类型不同重载就会出现问题；<br>上代码喽<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span>  </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testfloat</span><span class="params">(<span class="keyword">float</span> a)</span></span></div><div class="line">    &#123;</div><div class="line">        System.out.println(<span class="string">"lll"</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span>  <span class="keyword">void</span>  <span class="title">testdouble</span><span class="params">(<span class="keyword">double</span> a)</span></span></div><div class="line">    &#123;</div><div class="line">        System.out.println(<span class="string">"222"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">        Test test = <span class="keyword">new</span> Test();</div><div class="line">        <span class="keyword">double</span> a = <span class="number">0</span>;</div><div class="line">        <span class="keyword">float</span> b= <span class="number">0</span>;</div><div class="line">        test.testfloat(a);<span class="comment">//这样写报错    大类型不能向下转换，直接报错</span></div><div class="line">        test.testfloat((<span class="keyword">float</span>) a);</div><div class="line">        test.testdouble(b);    小类型转化为大类型</div></pre></td></tr></table></figure></p>
+<p>其实想想就明白了，32位转化为64位。又没什么损失，反过来的话，就会丢失精度；况且如果能够来回转的话，我估计你最后都不知道出来的是哪个类型的；</p>
+<p>3.this关键字</p>
+<ul>
+<li><p>一般的this肯定这么用的最多，这时其实不写this也是一样的啦；写上this更加清晰，指的是本对象里的某个属性等于参数。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Hello</span> </span>&#123; </div><div class="line"></div><div class="line">    String s = <span class="string">"Hello"</span>; </div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Hello</span><span class="params">(String s)</span></span>&#123; </div><div class="line">        System.out.println(<span class="string">"s = "</span> + s); </div><div class="line">        System.out.println(<span class="string">"1 -&gt; this.s = "</span> + <span class="keyword">this</span>.s); </div><div class="line">        <span class="keyword">this</span>.s = s; </div><div class="line">        System.out.println(<span class="string">"2 -&gt; this.s = "</span> + <span class="keyword">this</span>.s); </div><div class="line">    &#125; </div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123; </div><div class="line">    Hello x=<span class="keyword">new</span> Hello(<span class="string">"HelloWorld!"</span>); </div><div class="line">    &#125; </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>还有就是调用自己的其他构造函数，继承什么的题目里经常会有的那种</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Flower</span></span>&#123; </div><div class="line">           Flower (<span class="keyword">int</span> petals)&#123;&#125; </div><div class="line">           Flower(String ss)&#123;&#125; </div><div class="line">           Flower(<span class="keyword">int</span> petals, Sting ss)&#123; </div><div class="line">                <span class="comment">//petals++;调用另一个构造函数的语句必须在最起始的位置 </span></div><div class="line">                <span class="keyword">this</span>(petals); </div><div class="line">               <span class="comment">//this(ss);会产生错误，因为在一个构造函数中只能调用一个构造函数 </span></div><div class="line">           &#125; </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>这次学到了这个</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123; </div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="title">A</span><span class="params">()</span> </span>&#123; </div><div class="line">    <span class="keyword">new</span> B(<span class="keyword">this</span>).print();     <span class="comment">//将自身当成参数传递过去</span></div><div class="line">  &#125; </div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">print</span><span class="params">()</span> </span>&#123; </div><div class="line">    System.out.println(<span class="string">"Hello from A!"</span>); </div><div class="line">  &#125; </div><div class="line">&#125; </div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">B</span> </span>&#123; </div><div class="line">  A a; </div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="title">B</span><span class="params">(A a)</span> </span>&#123; </div><div class="line">    <span class="keyword">this</span>.a = a; </div><div class="line">  &#125; </div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">print</span><span class="params">()</span> </span>&#123; </div><div class="line">    a.print(); </div><div class="line">    System.out.println(<span class="string">"Hello from B!"</span>); </div><div class="line">  &#125; </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>匿名类 this一般代表整个匿名类，日后再说</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123; </div><div class="line">    <span class="keyword">int</span> i = <span class="number">1</span>; </div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">A</span><span class="params">()</span> </span>&#123; </div><div class="line">        Thread thread = <span class="keyword">new</span> Thread() &#123; </div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123; </div><div class="line">                <span class="keyword">for</span>(;;) &#123; </div><div class="line">                    A.<span class="keyword">this</span>.run();       <span class="comment">//匿名类</span></div><div class="line">                    <span class="keyword">try</span> &#123; </div><div class="line">                        sleep(<span class="number">1000</span>); </div><div class="line">                    &#125; <span class="keyword">catch</span>(InterruptedException ie) &#123;     &#125;</div><div class="line"></div><div class="line">                &#125; </div><div class="line">           &#125; </div><div class="line">        &#125;; <span class="comment">//注意这里有; </span></div><div class="line">        thread.start(); </div><div class="line">    &#125; </div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123; </div><div class="line">        System.out.println(<span class="string">"i = "</span> + i); </div><div class="line">        i++; </div><div class="line">    &#125; </div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception </span>&#123; </div><div class="line">        <span class="keyword">new</span> A(); </div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>##初始化顺序（对于类来说）<br>1.静态变量初始化            //由于static不可初始化局部变量，就没有小函数的担心啦；<br>2.普通变量初始化<br>3.变量都初始化后，方法开始执行                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               </p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/02/23/Java 读书笔记 5/" class="archive-article-date">
+  	<time datetime="2017-02-23T11:13:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-23</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java编程思想/">Java编程思想</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2017/02/23/Java 垃圾回收 （未完成）/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Java 垃圾回收 （未完成）
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/02/22/Java 读书笔记3/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Java 读书笔记3</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="//v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+
+
+
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 墨
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: false,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: "/"
+	}
+</script>
+
+<script src="/./main.js"></script>
+
+
+    
+<div class="tools-col">
+  <ul class="btn-wrap">
+    
+      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
+    
+    
+      <li data-hook="tools-section-tag"><span class="text">标签</span><i class="icon-price-tags"></i></li>
+    
+    
+      <li data-hook="tools-section-friends"><span class="text">友链</span><i class="icon-link"></i></li>
+    
+    
+      <li data-hook="tools-section-me"><span class="text">我</span><i class="icon-smile"></i></li>
+    
+  </ul>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all chose">
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-tag">
+    			<div class="widget tagcloud" id="js-tagcloud">
+    				<a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/Beauty-of-Programming/" style="font-size: 16px;">Beauty of Programming</a> <a href="/tags/Java编程思想/" style="font-size: 18px;">Java编程思想</a> <a href="/tags/fragment/" style="font-size: 14px;">fragment</a> <a href="/tags/mvc/" style="font-size: 12px;">mvc</a> <a href="/tags/线程/" style="font-size: 12px;">线程</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/随笔/" style="font-size: 12px;">随笔</a>
+    			</div>
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-friends">
+  		
+  			<div class="friends-wrap" id="js-friends">
+  			
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="https://www.google.com.hk/">谷歌</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="https://stackoverflow.com/">stackoverflow</a>
+  	        
+  	        </div>
+  		
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-me">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">继续跑&lt;br&gt;&lt;br&gt;带着赤子的骄傲</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div>
+</body>
+</html>

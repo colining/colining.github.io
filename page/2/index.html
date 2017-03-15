@@ -129,7 +129,7 @@
       <div class="body-wrap">
         
   
-    <article id="post-Android intent 和activity" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Java 读书笔记 13 字符串" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -139,7 +139,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/10/15/Android intent 和activity/">android 5 通知栏</a>
+      <a class="article-title" href="/2017/03/04/Java 读书笔记 13 字符串/">Java 读书笔记13 字符串</a>
     </h1>
   
 
@@ -147,24 +147,35 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>##1 intent intent extra  activity</p>
-<p>简单的说是，activity1 要启动activity2 ，并且传输一个值；</p>
-<p>常用方法肯定是：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function">Intent <span class="title">intent</span><span class="params">( activity1.<span class="keyword">this</span>,activity2.class)</span></div><div class="line">intent.<span class="title">putExtra</span><span class="params">(...)</span></span>;</div><div class="line">startActivity(intent)</div></pre></td></tr></table></figure></p>
-<p>将其改为 activity2<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Intent <span class="title">newIntent</span><span class="params">(Context packageContext,<span class="keyword">boolean</span> answerIsTrue)</span></span>&#123;</div><div class="line"><span class="function">Intent <span class="title">intent</span><span class="params">( packageContext,activity2.class)</span></div><div class="line">intent.<span class="title">putExtra</span><span class="params">(Extra,answerIsTrue)</span></span>;</div><div class="line"><span class="keyword">return</span> intetn</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-        <p class="article-more-link">
-          <a  href="/2016/10/15/Android intent 和activity/#more">more >></a>
-        </p>
+        <p>#字符串</p>
+<p>##不可变的字符串<br>早就听说java字符串是不变的；那么到底是怎么回事呢？<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Immutable</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span>  <span class="keyword">static</span>  String <span class="title">upcase</span><span class="params">(String s)</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">return</span>  s.toUpperCase();</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span>  <span class="keyword">static</span>  <span class="keyword">void</span>  <span class="title">main</span><span class="params">(String a[])</span></span></div><div class="line">    &#123;</div><div class="line">        String q =<span class="string">"howdy"</span>;</div><div class="line">        System.out.println(q); <span class="comment">//howdy</span></div><div class="line">        <span class="comment">//String qq = new String("aaaa");</span></div><div class="line">        String qq = upcase(q);</div><div class="line">        System.out.println(qq);<span class="comment">//HOWDY</span></div><div class="line">        System.out.println(q);<span class="comment">//howdy</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<pre><code>&lt;!--more--&gt;
+</code></pre><p>就像上面的代码，q作为参数给了upcase 传给了qq；<br>我们可能回想说，你字符串q经过upcase()以后，传给qq这个新字符串，q怎么可能会不变呢？<br>因为，qq本来就只是一个引用，一个指向某对象的引用；<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">String qq = <span class="keyword">new</span> String(<span class="string">"aaaa"</span>);   引用指向对象的过程</div></pre></td></tr></table></figure></p>
+<p>那么：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">String qq = upcase(q);  <span class="comment">//等号右面其实返回的是一个引用；一个全新对象的引用</span></div></pre></td></tr></table></figure></p>
+<p>简单来说通过q引用，找到q引用的对象，通过toUpperCase()对q对象得到一个新对象，将这个新对象的引用交给qq，万事大吉；q以及qq是引用，他们指向的对象可能会发生改变，但是实际创建的对象不会有任何改变；<br>如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">String s = <span class="string">"abcd"</span>;		<span class="comment">//s指向abcd</span></div><div class="line">s = s.concat(<span class="string">"ef"</span>);		<span class="comment">//s指向新字符串abcdef</span></div></pre></td></tr></table></figure>
+<p><img src="http://img.blog.csdn.net/20170304144519580?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjM5NzQxNzU=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="String不可变"></p>
+<p>那么string为什么不可变呢？<br><a href="https://www.zhihu.com/question/20618891" target="_blank" rel="external">看这里</a><br>简单而言：</p>
+<pre><code>1. 同一个字符串 “abc”，它在堆中就是一个对象，不管有多少所谓新的引用；
+2. 其实也是java的一贯准则；更明了的让程序员知道错误；StringBuilder.append 可以改变对象值，这样会发生什么呢？当新的引用出现并改变字符串，旧的引用也就改变了；发生了连锁反应；
+</code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span>  <span class="title">Test</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span>  <span class="keyword">static</span>  <span class="keyword">void</span>  <span class="title">main</span><span class="params">(String arg[])</span></span></div><div class="line">    &#123;</div><div class="line">       </div><div class="line">        StringBuilder [] builders = <span class="keyword">new</span>  StringBuilder[<span class="number">3</span>];</div><div class="line">        StringBuilder a1=<span class="keyword">new</span> StringBuilder(<span class="string">"aaa"</span>);</div><div class="line">        builders[<span class="number">0</span>]=a1;</div><div class="line">        StringBuilder a2 = a1;</div><div class="line">        builders[<span class="number">1</span>]=a2;</div><div class="line">        StringBuilder a3 = a2;</div><div class="line">        a3.append(<span class="string">"bbb"</span>);</div><div class="line">        builders[<span class="number">2</span>]=a3;</div><div class="line">        System.out.println(Arrays.toString(builders));</div><div class="line">		<span class="comment">//output :[aaabbb, aaabbb, aaabbb] </span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>如何实现String 不变,final+private<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">String</span></span></div><div class="line">    <span class="keyword">implements</span> <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span>, <span class="title">Comparable</span>&lt;<span class="title">String</span>&gt;, <span class="title">CharSequence</span> &#123;</div><div class="line">    <span class="comment">/** The value is used for character storage. */</span></div><div class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">char</span> value[];</div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
+<p>所以我们知道 String不是基本类型，其实是一个类；当我们要操作字符串本身是还是使用StringBuilder 吧；另外StringBuffer为了线程同步消耗了更多的资源；所以单线程使用StringBuilder 更好；<br>ps：这也就是为什么Object有tostring()方法，而基本类型没有；</p>
+<p>##Formatter<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Receipt</span> </span>&#123;</div><div class="line">    Formatter formatter = <span class="keyword">new</span> Formatter(System.out);</div><div class="line">    <span class="function"><span class="keyword">public</span>  <span class="keyword">void</span>  <span class="title">printtest</span><span class="params">()</span></span></div><div class="line">    &#123;</div><div class="line">        formatter.format(<span class="string">"%15s %5d %10.3f\n"</span>,<span class="string">"this is a test"</span>,<span class="number">10</span>,<span class="number">3.1564</span>*<span class="number">3</span>);</div><div class="line">        formatter.format(<span class="string">"%15s %5d %10.2f\n"</span>,<span class="string">"this "</span>,<span class="number">10</span>,<span class="number">3.1</span>*<span class="number">3</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span>  <span class="keyword">static</span>  <span class="keyword">void</span>  <span class="title">main</span><span class="params">(String a[])</span></span></div><div class="line">    &#123;</div><div class="line">        Receipt receipt =<span class="keyword">new</span> Receipt();</div><div class="line">        receipt.printtest();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>关于PrintStream<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">public class Turtle &#123;</div><div class="line">    private  String name;</div><div class="line">    private Formatter formatter;</div><div class="line">    public  Turtle (String name, Formatter f)</div><div class="line">    &#123;</div><div class="line">        this.name = name;</div><div class="line">        this.formatter = f;</div><div class="line">    &#125;</div><div class="line">    public  void  move ( int x , int y)</div><div class="line">    &#123;</div><div class="line">        formatter.format(&quot;%s  The Turtle is at (%d,%d)\n&quot;,name,x,y);</div><div class="line"></div><div class="line">    &#125;</div><div class="line">    public  static void main(String a[])</div><div class="line">    &#123;</div><div class="line">        PrintStream stream = System.err;</div><div class="line">        Turtle turtle = new Turtle(&quot;tommy&quot;,new Formatter( System.out));</div><div class="line">        Turtle turtle1 = new Turtle(&quot;tom&quot;,new Formatter(System.err));</div><div class="line">        turtle.move(5,6);</div><div class="line">        turtle.move(6,8);</div><div class="line">        turtle1.move(9,0);</div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
+<p>##正则表达式<br>这个嘛，用到再看吧</p>
+
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2016/10/15/Android intent 和activity/" class="archive-article-date">
-  	<time datetime="2016-10-15T07:40:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-15</time>
+      <a href="/2017/03/04/Java 读书笔记 13 字符串/" class="archive-article-date">
+  	<time datetime="2017-03-04T07:52:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-03-04</time>
 </a>
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java编程思想/">Java编程思想</a></li></ul>
 	</div>
 
       
@@ -184,7 +195,7 @@
 
 
   
-    <article id="post-Android 广播接收器" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Java 读书笔记 12 异常处理" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -194,7 +205,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/10/07/Android 广播接收器/">android 5 通知栏</a>
+      <a class="article-title" href="/2017/03/02/Java 读书笔记 12 异常处理/">Java 读书笔记12 异常处理</a>
     </h1>
   
 
@@ -202,24 +213,22 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>#1<br>broadcast  receiver 广播，接收器  Android四大组件之一；<br>Android权威指南这本书的结构实在是，四大组件离得这么远，早忘记概念了。。</p>
-<p>broadcast intent 我们看一下自定义广播的发送<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span>  String ACTION_SHOW_NOTIFICATION=<span class="string">"com.example.asus.photogallery.SHOW_NOTIFICATION"</span>;</div><div class="line"> sendBroadcast(<span class="keyword">new</span> Intent(ACTION_SHOW_NOTIFICATION));</div></pre></td></tr></table></figure></p>
-<p>我们创建了一个inten 然后通过sendBroadcast 发送出去；那么谁来接收呢？</p>
-<p>我们对比一下intent的发送和接收：<br>
+        <p>#异常处理<br>这章偏向实际，笔记没法记；真正多用就会了</p>
+<h2 id="try-catch-finally-规则-异常处理语句的语法规则）："><a href="#try-catch-finally-规则-异常处理语句的语法规则）：" class="headerlink" title="try-catch-finally 规则(异常处理语句的语法规则）："></a>try-catch-finally 规则(异常处理语句的语法规则）：</h2><p>1)  必须在 try 之后添加 catch 或 finally 块。try 块后可同时接 catch 和 finally 块，但至少有一个块。<br>2) 必须遵循块顺序：若代码同时使用 catch 和 finally 块，则必须将 catch 块放在 try 块之后。<br>3) catch 块与相应的异常类的类型相关。<br>4) 一个 try 块可能有多个 catch 块。若如此，则执行第一个匹配块。即Java虚拟机会把实际抛出的异常对象依次和各个catch代码块声明的异常类型匹配，如果异常对象为某个异常类型或其子类的实例，就执行这个catch代码块，不会再执行其他的 catch代码块<br>5) 可嵌套 try-catch-finally 结构。<br>6) 在 try-catch-finally 结构中，可重新抛出异常。<br>7) 除了下列情况，总将执行 finally 做为结束：JVM 过早终止（调用 System.exit(int)）；在 finally 块中抛出一个未处理的异常；计算机断电、失火、或遭遇病毒攻击。<br>
         <p class="article-more-link">
-          <a  href="/2016/10/07/Android 广播接收器/#more">more >></a>
+          <a  href="/2017/03/02/Java 读书笔记 12 异常处理/#more">more >></a>
         </p>
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2016/10/07/Android 广播接收器/" class="archive-article-date">
-  	<time datetime="2016-10-07T10:47:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-07</time>
+      <a href="/2017/03/02/Java 读书笔记 12 异常处理/" class="archive-article-date">
+  	<time datetime="2017-03-02T13:18:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-03-02</time>
 </a>
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java编程思想/">Java编程思想</a></li></ul>
 	</div>
 
       
@@ -239,7 +248,7 @@
 
 
   
-    <article id="post-Android 通知栏信息" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Java 读书笔记 11 持有对象" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -249,7 +258,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/10/05/Android 通知栏信息/">android 5 通知栏</a>
+      <a class="article-title" href="/2017/03/01/Java 读书笔记 11 持有对象/">Java 读书笔记 11 持有对象</a>
     </h1>
   
 
@@ -257,21 +266,40 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>#1<br>今天讲点简单的哦，再日后补坑，通知栏信息；<br>用Android的人，都应该知道通知栏是个什么东西，下拉会出来一些设置菜单，<br>当有新的消息时，就会跑到这里，或者比如云音乐，后台听歌，也会有这么一个通知栏信息；<br>今天就简单的说一下，以后再完善；<br>
-        <p class="article-more-link">
-          <a  href="/2016/10/05/Android 通知栏信息/#more">more >></a>
-        </p>
+        <p>#持有对象</p>
+<p>##泛型<br>1.简单来说 ArrayAlist<apple>可以限制只储存Apple类及其子类，限制其他类对象<br><img src="https://segmentfault.com/img/bVC4g8?w=786&amp;h=362" alt="容器整体结构"></apple></p>
+<p><img src="https://segmentfault.com/img/bVC4ht?w=588&amp;h=324" alt="这里写图片描述"></p>
+<p>这部分偏向于介绍具体的操作，就简单写了；这种东西不写写，不可能记得住；</p>
+<p>##list</p>
+<ol>
+<li>ArayList，基本和数组一个模式，随机访问简单，插入删除比较麻烦</li>
+<li>LinkedList，链表嘛，肯定是插入删除简单，随机访问麻烦；<pre><code>&lt;!--more--&gt;
+</code></pre>##Iterator<br>1.可以简单的理解为，通过Iterator，我们可以将容器内的对象简单的取出来，进行一些操作<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">list l = <span class="keyword">new</span> ArrayList();</div><div class="line">l.add(<span class="string">"aa"</span>);</div><div class="line">l.add(<span class="string">"bb"</span>);</div><div class="line">l.add(<span class="string">"cc"</span>);</div><div class="line"><span class="keyword">for</span> (Iterator iter = l.iterator(); iter.hasNext();) &#123;</div><div class="line"> String str = (String)iter.next();</div><div class="line"> System.out.println(str);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>##ListIterator<br>更加强大的子类型，只能用于各种List类的访问。</p>
+<p>可以双向移动<br>可以产生相对于迭代器在列表中指向的当前位置的前一个和后一个元素的索引<br>listIterator()产生一个指向List开始处的ListIterator<br>listIterator(n)产生一个开始指向索引为n的元素处的ListIterator</p>
+<p>##Set<br>Set最常用的是测试归属性，可以很容易查询到某个元素是否在某个Set中，因此查找变成最重要的操作，选择使用HashSet的实现，专门对快速查找进行了优化。</p>
+<p>Set和Collection有完全相同的接口。</p>
+<p>TreeSet将元素存储在红黑树数据结构中<br>HashSet用的是散列函数<br>LinkedHashSet因为查询速度的原因也使用了散列，但是却用了链表来维护元素的插入顺序</p>
+<p>##map<br>键值映射</p>
+<p>##Queue</p>
+<p>队列是一个典型的“先进先出”（FIFO）容器。</p>
+<p>LinkedList提供了方法支持队列的行为，并且实现了Queue接口，因此LinkedList可以用作Queue的一种实现，可以向上转型为Queue类型来使用。</p>
+<h2 id="PriorityQueue"><a href="#PriorityQueue" class="headerlink" title="PriorityQueue"></a>PriorityQueue</h2><p>优先级队列声明下一个弹出元素是最需要的元素（优先级最高）。</p>
+<p>可以通过构造器设置优先级规则（Collections类内有部分定义的规则）。</p>
+
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2016/10/05/Android 通知栏信息/" class="archive-article-date">
-  	<time datetime="2016-10-05T11:42:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-05</time>
+      <a href="/2017/03/01/Java 读书笔记 11 持有对象/" class="archive-article-date">
+  	<time datetime="2017-03-01T13:57:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-03-01</time>
 </a>
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java编程思想/">Java编程思想</a></li></ul>
 	</div>
 
       
@@ -291,7 +319,7 @@
 
 
   
-    <article id="post-原-Android-Looper，handler，HandlerThread" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Java 读书笔记 10 内部类" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -301,7 +329,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/28/原-Android-Looper，handler，HandlerThread/">Android Looper，handler，HandlerThread</a>
+      <a class="article-title" href="/2017/02/28/Java 读书笔记 10 内部类/">Java 读书笔记10 内部类</a>
     </h1>
   
 
@@ -309,22 +337,65 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>#1<br>上回书说道，掌柜的饿了，叫大厨做饭去了；但一家客栈如果不冷清的话，就会有很多客人；跑堂的小二问完客观，记下来，会跟大厨喊：两斤酱牛肉，两斤烤鸭；至于茶水，跑堂的自己端过去就行了；那掌柜的是不是得记账啊；所以更可能的情况是小二用纸笔记下来，一份送到掌柜的，一份送到大厨那里；掌柜的可能就直接收起来，等晚些时候记账也行，大厨就不一样了，那就是铁定的任务了；看完这个消息，做个鱼香肉丝，再看哪个，做个清蒸红薯之类的。。。<br>相关访问，一定要看的；<br><a href="http://www.cnblogs.com/codingmyworld/archive/2011/09/14/2174255.html">http://www.cnblogs.com/codingmyworld/archive/2011/09/14/2174255.html</a></p>
-<p>#2<br>    主程序:可以看成是客栈的整个大堂，人来人往，小二忙的不亦乐乎<br>    线程：大厨做饭得有锅啊；但是此时的锅只能做一道菜，做完就不能用了，大厨就把它藏起来了；之后来的n多单子不接受；<br>    looper：掌柜的一看，说这不行啊，加钱！让锅一直待在厨房，有单子就炒菜，没有就等着单子的到来；于是线程就升级为循环线程；<br>    Message：小二递过来的单子<br>    MessageQueue：虽然大厨是处于循环工作状态，但是那么多单子总得有个序列吧，此处将单子排序，大厨就可以按照次序<br>    Handler：大厨，关键人物，小二将单子交给大厨，到了厨房，大厨就将其放入消息队列，到了的话，就炒菜；<br>    那假如客栈大，厨师好多，一个相同的消息队列 不同的菜交给不同厨师，一个厨师可以对应好几道菜，不过的按照顺序吵；<br>
-        <p class="article-more-link">
-          <a  href="/2016/09/28/原-Android-Looper，handler，HandlerThread/#more">more >></a>
-        </p>
+        <p>##内部类</p>
+<p>##可访问外围类</p>
+<ol>
+<li><p>外围类就是包含内部类的那个类的啦</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Sequence</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span>  Object[] items= <span class="keyword">new</span> Object[<span class="number">5</span>];</div><div class="line">    <span class="keyword">private</span>  <span class="class"><span class="keyword">class</span>  <span class="title">SequenceSelector</span> <span class="keyword">implements</span>  <span class="title">Selector</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">private</span>  <span class="keyword">int</span> i ;</div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">end</span><span class="params">()</span> </span>&#123;</div><div class="line">            <span class="keyword">return</span> <span class="number">1</span>==items.length;         <span class="comment">//直接访问了内部类属性；</span></div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span>  Selector <span class="title">selector</span> <span class="params">()</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">return</span>  <span class="keyword">new</span> SequenceSelector();</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span>  <span class="keyword">static</span>  <span class="keyword">void</span>  <span class="title">main</span> <span class="params">(String a[])</span></span></div><div class="line">    &#123;</div><div class="line"></div><div class="line">        Sequence sequence = <span class="keyword">new</span> Sequence();</div><div class="line">       Selector selector =  sequence.selector();</div><div class="line">        System.out.println(selector.end());</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<pre><code>&lt;!--more--&gt;
+</code></pre><p>##this 与new</p>
+</li>
+<li>this是返回类自身的一个对象；</li>
+<li>外部类的.new方法，用于初始化一个内部类对象<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DoThis</span> </span>&#123;</div><div class="line">    inner inner = <span class="keyword">new</span> inner();</div><div class="line">    <span class="keyword">private</span>  <span class="class"><span class="keyword">class</span>  <span class="title">inner</span>          //访问无限制；</span></div><div class="line">    &#123;</div><div class="line">        <span class="function"><span class="keyword">public</span> inner <span class="title">in</span><span class="params">()</span></span></div><div class="line">        &#123;</div><div class="line">            <span class="keyword">return</span>  inner.<span class="keyword">this</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span>  <span class="keyword">static</span>  <span class="keyword">void</span>  <span class="title">main</span><span class="params">(String a[])</span></span></div><div class="line">    &#123;</div><div class="line">        DoThis doThis = <span class="keyword">new</span> DoThis();</div><div class="line">        DoThis.inner inner = doThis.new inner();</div><div class="line">        System.out.println(inner.equals(inner.in()));   <span class="comment">//输出为true</span></div><div class="line">        inner in = <span class="keyword">new</span> inner(); <span class="comment">//报错，（即便内部类为public），解决方案显示，要不将内部类static，变成嵌套类；要不main函数去掉static ，这样就变成外围类的小函数喽；</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>ps：在拥有外部类之前，是不能创建内部类的；内部类对象会偷偷连接到外部类对象；嵌套类除外，就是内部类前面加static；嵌套类基本是说外部类可以访问内部类，而内部类不可直接访问内部类；</p>
+<p>##内部类与向上转型；<br>1.大概讲了接口分离吧，没感觉的说。。。。</p>
+<p>##在方法和作用域中的内部类<br>1.当一个类只在某处使用，而又不想公开，就可以写在方法或作用域中<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="class"><span class="keyword">class</span>  <span class="title">a</span></span>&#123;        <span class="comment">//class前面不可有访问控制符；</span></div><div class="line">        </div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span> (<span class="keyword">true</span>)</div><div class="line">    &#123;</div><div class="line">        <span class="class"><span class="keyword">class</span>  <span class="title">b</span> </span>&#123;</div><div class="line">            </div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>##匿名类 （重点喽）<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Parcel7</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span>  Selector <span class="title">selector</span> <span class="params">()</span>      <span class="comment">//Selector是接口</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">return</span>  <span class="keyword">new</span> Selector() &#123;     <span class="comment">//直接返回一个对象，没有引用，也就是对象的名字</span></div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">end</span><span class="params">()</span> </span>&#123;    <span class="comment">//接口需要重写方法；</span></div><div class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">    <span class="class"><span class="keyword">class</span>  <span class="title">selector</span> <span class="keyword">implements</span>  <span class="title">Selector</span>   //原始版本</span></div><div class="line">    &#123;</div><div class="line"></div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">end</span><span class="params">()</span> </span>&#123;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span>  Selector <span class="title">selector02</span><span class="params">()</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">return</span>  <span class="keyword">new</span> selector();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>1.从上面可以看出，在没有匿名类时。我们需要使用接口就得新建一个类，为了方便就可以创建内部类；但是类本身生成对象没有用啊，于是我们可能就得用函数，或者外围类来创建它；而假设我们只是想得到一个对象，这样太麻烦了；匿名类就简化了这样的步骤；<br>2.相当于什么呢，现在我们需要一个泥瓦罐，平常得先继承啊什么的，匿名类，直接上一个泥瓦罐交差了；</p>
+<p>上面的是接口，如果是继承呢？<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Wrapping</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span>  <span class="keyword">int</span> i ;</div><div class="line">    <span class="function"><span class="keyword">public</span>  <span class="title">Wrapping</span><span class="params">(<span class="keyword">int</span> x)</span></span></div><div class="line">    &#123;</div><div class="line">        i = x;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">a</span><span class="params">()</span></span></div><div class="line">    &#123;</div><div class="line">        </div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Parcel7</span> </span>&#123;</div><div class="line">  <span class="function"><span class="keyword">public</span>  Wrapping <span class="title">wrapping</span> <span class="params">()</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">return</span>  <span class="keyword">new</span> Wrapping(<span class="number">1</span>) <span class="comment">//这里也可以直接初始化</span></div><div class="line">        &#123;</div><div class="line">            <span class="meta">@Override</span>          <span class="comment">//只能重写</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">a</span><span class="params">()</span> </span>&#123;      </div><div class="line"></div><div class="line">            &#125;</div><div class="line">        &#125;;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<pre><code>1. 当匿名类继承自类时，实际上是把它作为接口使用，无法重载；
+2. 匿名内部类只能继承或只能实现接口，不可重载；
+</code></pre><p>##再访工厂方法</p>
+<p><a href="http://blog.csdn.net/hguisu/article/details/7505909" target="_blank" rel="external">设计模式还是到时候一起看吧</a></p>
+<p>##嵌套类<br>感觉没啥用啊</p>
+<ol>
+<li>嵌套类的创建不需要外部类；也就是说你写在内部，写在外部没有区别</li>
+<li>不能从嵌套类对象访问非静态的外围类的对象。 只能访问静态对象，要你何用？</li>
+<li>一个嵌套类不管嵌套多深，都可以访问外部类；</li>
+<li>但是我们发现，当嵌套类放在接口中的时候，他就可以顺利成章的被所有实现接口的类所使用（接口自动就是static ，所以内部类不好使）<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">ClassInterface</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">howdy</span><span class="params">()</span></span>;</div><div class="line">    <span class="class"><span class="keyword">class</span>  <span class="title">test</span> <span class="keyword">implements</span>  <span class="title">ClassInterface</span></span></div><div class="line">    &#123;</div><div class="line"></div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">howdy</span><span class="params">()</span> </span>&#123;</div><div class="line">            System.out.println(<span class="string">"out"</span>);</div><div class="line">        &#125;</div><div class="line">        <span class="function"><span class="keyword">void</span>  <span class="title">a</span> <span class="params">()</span>         <span class="comment">//a方法就不行啦</span></span></div><div class="line">        &#123;</div><div class="line">            System.out.println(<span class="string">"a"</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ClassIner</span> <span class="keyword">implements</span>  <span class="title">ClassInterface</span> </span>&#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">howdy</span><span class="params">()</span> </span>&#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span>  <span class="keyword">void</span>  <span class="title">main</span><span class="params">(String a[])</span></span></div><div class="line">    &#123;</div><div class="line">        ClassIner classIner = <span class="keyword">new</span> ClassIner();</div><div class="line"></div><div class="line">        classIner.howdy();</div><div class="line">        <span class="keyword">new</span>  test().howdy();    <span class="comment">//不声明接口无法调用</span></div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>##内部类到底有啥用处？</p>
+<pre><code>1.  首先一个内部类创建时就和一和一个外围类的对象绑定；可以访问外围类中的属性；
+2. 内部类可以有多个；他们可以实现接口或者继承；
+</code></pre><p>于是我们可以推出的是：</p>
+<pre><code>1. 当内部类对象被创建时，这个对象是可以操作外围类数据的；这就好像外围类自己的方法操作自己的方法一样；然而，内部类可以继承，可以接口；所以方法一下子就变多了；等于外围类实现了多重继承；
+2. 然而却不是多重继承；我们在继承的时候，留下了方法，留下了属性；然而有些时候我们只希望用一下你们家的方法，不想要属性；（想要属性那是抽象类）这种事情很多，就有了接口，谁想用用呗；只要自己想办法实现；然而这样不能用继承啊，而且接口多的话好麻烦啊，整个类变得臃肿不堪
+</code></pre><p>最后呢，举个例子：</p>
+<ol>
+<li>期初有一家公司</li>
+<li>这家公司随着时间总得换新boss吧；然后就继承出了新的公司；</li>
+<li>随着时间又该换boss啦，老头看了看不争气的儿子；就把公司的几个部门的老大解雇了，说到：我把这些人解雇，部门还留着，但是具体实现就得靠你了；这时就是抽象类了；</li>
+<li>随着时间过去了很久，市场有了天翻地覆的变化，网络啊，手机啊；这家公司不知所措，就别人做什么他也做什么；经常是使用公司的全力向某个方向发展；然后活下去了；这就叫做接口；</li>
+<li>但是随着接口越来越多，公司的发展方向越来越多；很难再倾尽公司之力，于是就分为子公司专做这个；这就是内部类</li>
+<li>随着时间的消逝，你可能已经忘了最初的那家公司了，因为它全身插满了管子，通往四面八方；</li>
+</ol>
+<p>##闭包<br>闭包（Closure）是一种能被调用的对象，它保存了创建它的作用域的信息。JAVA并不能显式地支持闭包，但是在JAVA中，闭包可以通过“接口+内部类”来实现。<br>例如：一个接口程序员和一个基类作家都有一个相同的方法work，相同的方法名，但是其含义完全不同，这时候就需要闭包。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Writer</span> </span>&#123;<span class="comment">//作家基类</span></div><div class="line">  <span class="function"><span class="keyword">void</span> <span class="title">work</span><span class="params">()</span></span>&#123;&#125;;</div><div class="line">&#125;</div><div class="line"><span class="class"><span class="keyword">interface</span> <span class="title">programmer</span></span>&#123;<span class="comment">//程序员接口</span></div><div class="line">  <span class="function"><span class="keyword">void</span> <span class="title">work</span><span class="params">()</span></span>;</div><div class="line">&#125;</div><div class="line">闭包实现代码如下：</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WriterProgrammer</span> <span class="keyword">extends</span> <span class="title">Writer</span> </span>&#123;</div><div class="line">  <span class="meta">@Override</span></div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">work</span><span class="params">()</span></span>&#123;</div><div class="line">      <span class="comment">//写作</span></div><div class="line">  &#125;</div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">code</span><span class="params">()</span></span>&#123;</div><div class="line">      <span class="comment">//写代码</span></div><div class="line">  &#125;</div><div class="line">  <span class="class"><span class="keyword">class</span> <span class="title">ProgrammerInner</span> <span class="keyword">implements</span> <span class="title">programmer</span></span>&#123;</div><div class="line">      <span class="meta">@Override</span></div><div class="line">      <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">work</span><span class="params">()</span></span>&#123;</div><div class="line">          code();</div><div class="line">      &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>在子类中定义了遵循程序员接口规则的内部类，然后使用内部类实现程序员的work()方法回调code()方法，在子类中直接实现父类作家的work()方法。</p>
+
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2016/09/28/原-Android-Looper，handler，HandlerThread/" class="archive-article-date">
-  	<time datetime="2016-09-28T11:44:49.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-09-28</time>
+      <a href="/2017/02/28/Java 读书笔记 10 内部类/" class="archive-article-date">
+  	<time datetime="2017-02-28T13:43:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-28</time>
 </a>
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/线程/">线程</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java编程思想/">Java编程思想</a></li></ul>
 	</div>
 
       
@@ -344,7 +415,7 @@
 
 
   
-    <article id="post-原-Android-线程AsyncTask" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Java 读书笔记 9 接口" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -354,7 +425,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/28/原-Android-线程AsyncTask/">Android 线程AsyncTask</a>
+      <a class="article-title" href="/2017/02/27/Java 读书笔记 9 接口/">Java 读书笔记9 接口</a>
     </h1>
   
 
@@ -362,23 +433,44 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>##1.AsyncTask<br>Android已经到了最后阶段，突然蹦出来线程这一难题，真的是把我弄晕了<br>首先我们明确为什么存在线程？ 我们已经存在一个主程序，为什么要加一个呢？当我们的程序在请求网络时，我们希望主程序还可以运行吗？现在的程序一般都是后台下载，那前台下载你见过吗？点完下载，程序就变成下载的进度条了，软件不能用了；这样当然是不好的，所以才有了线程；</p>
-<p>就像是一个客栈，有大厨，有掌柜的，有跑堂的；如果说这家客栈就一个人，那是不是就忙不过来了呢；</p>
-<p>我们要看的程序是一个从网站获取链接与信息的程序；<br>
-        <p class="article-more-link">
-          <a  href="/2016/09/28/原-Android-线程AsyncTask/#more">more >></a>
-        </p>
+        <p>###接口</p>
+<p>####抽象类：</p>
+<pre><code>1. 理解起来很容易，比如父类是动物，子类是狗；动物嘛，肯定得会呼吸；
+</code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Animal</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">protected</span>  <span class="keyword">void</span> <span class="title">breath</span><span class="params">()</span>  </span></div><div class="line">    &#123;</div><div class="line">        System.out.println(<span class="string">"breath"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Mouse</span> <span class="keyword">extends</span> <span class="title">Animal</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span>  <span class="keyword">static</span>  <span class="keyword">void</span>  <span class="title">main</span><span class="params">(String a[])</span></span></div><div class="line">    &#123;</div><div class="line">        Animal mouse = <span class="keyword">new</span> Mouse(<span class="string">"11"</span>,<span class="number">1</span>);     </div><div class="line">        mouse.breath();     <span class="comment">//这里输出的实际上就是mousebreath ，通过父类我们可以随意访问详细对象的方法；</span></div><div class="line">        <span class="comment">//但是实际上，我们几乎不用父类初始化，这样breath方法就显得没有意义；</span></div><div class="line">        <span class="comment">//那把他定义为抽象有什么好处呢？一目了然，立马就知道子类需要具体实现；</span></div><div class="line">        <span class="comment">//这样就把声明和实现分开了</span></div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span>  <span class="title">Mouse</span><span class="params">(String myName, <span class="keyword">int</span> myid)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>(myName, myid);</div><div class="line">    &#125;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">breath</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="comment">//super.breath();</span></div><div class="line">        System.out.println(<span class="string">"mousebreath"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<pre><code>&lt;!--more--&gt;
+</code></pre><p>####接口</p>
+<pre><code>1. 抽象类是说有这么一个父类方法几乎不用，但是又想定义出来，形成继承关系；使得通过父类可以简单调用相应方法；那么接口呢，就是父类中全部的东西都是抽象的；就像是动物，动物有一大堆方法，呼吸啊，吃啊之类的；这个类我们将其接口话，所有implements动物的，都得有这些方法；你不重写就算错
+</code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Instrument</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> VALUE = <span class="number">5</span> ;</div><div class="line">    <span class="function"><span class="keyword">void</span>  <span class="title">play</span><span class="params">()</span></span>;</div><div class="line">    <span class="function"><span class="keyword">void</span>  <span class="title">adjust</span><span class="params">()</span></span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Wind</span> <span class="keyword">implements</span>  <span class="title">Instrument</span></span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span>  <span class="keyword">static</span>  <span class="keyword">void</span>  <span class="title">main</span><span class="params">(String a[])</span></span></div><div class="line">    &#123;</div><div class="line">        Instrument instrument = <span class="keyword">new</span> Wind();     <span class="comment">//这样就可以访问接口里的属性了；</span></div><div class="line">       <span class="keyword">int</span> b =  Wind.VALUE;                     <span class="comment">//虽然它是final&amp;static9</span></div><div class="line"></div><div class="line">    &#125;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">play</span><span class="params">()</span> </span>&#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">adjust</span><span class="params">()</span> </span>&#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>####完全解耦 与适配器类</p>
+<ol>
+<li>书上写的太晕了，完全看不懂；解耦嘛，简单说就是通过接口，把只有继承关系中能用的开放出去；</li>
+<li>抽象类可以不实现接口的方法</li>
+<li>适配器</li>
+</ol>
+<p>####多重继承</p>
+<pre><code>1.当存在继承+接口时，接口不需要实现；
+
+2. 接口的作用 向上转型为多个父类（接口类），同时防止创建对象
+</code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">CanFight</span> </span>&#123;       <span class="comment">//不可被创建对象</span></div><div class="line">    <span class="function"><span class="keyword">void</span>  <span class="title">fight</span><span class="params">()</span></span>;</div><div class="line">&#125;</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ActionCharacter</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span>  <span class="keyword">void</span>  <span class="title">fight</span><span class="params">()</span></span></div><div class="line">    &#123;</div><div class="line">        System.out.println(<span class="string">"fight1"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Hero</span> <span class="keyword">extends</span>  <span class="title">ActionCharacter</span> <span class="keyword">implements</span>  <span class="title">CanFight</span></span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">fight</span><span class="params">()</span> </span>&#123;            <span class="comment">//此处是不用写的,此处重写父类方法，而不是接口</span></div><div class="line">        <span class="keyword">super</span>.fight();</div><div class="line">        System.out.println(<span class="string">"fight"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Adventure</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span>  <span class="keyword">static</span>  <span class="keyword">void</span>  <span class="title">t</span><span class="params">(CanFight fight)</span></span></div><div class="line">    &#123;</div><div class="line">        fight.fight();</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span>  <span class="keyword">static</span>  <span class="keyword">void</span>  <span class="title">t2</span><span class="params">(ActionCharacter x )</span></span></div><div class="line">    &#123;</div><div class="line">        x.fight();</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span>  <span class="keyword">static</span>  <span class="keyword">void</span>  <span class="title">main</span><span class="params">(String a[])</span></span></div><div class="line">    &#123;</div><div class="line">        Hero hero = <span class="keyword">new</span> Hero();</div><div class="line">        t(hero);</div><div class="line">        t2(hero);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>####通过继承扩展接口</p>
+<pre><code>1. 接口可以通过继承保留父类接口的方法，同时加入自己的，这样接口的扩展性就变得很好；由于接口继承，方法都是未实现的，所以肯定没有重写什么的，也就不会出现c++多重继承不知道继承谁的问题了；
+</code></pre><p>####适配器 （需要重点复习）<br><a href="http://blog.csdn.net/zhangjg_blog/article/details/18735243" target="_blank" rel="external">插座示例</a></p>
+<p>####工厂类 </p>
+<ol>
+<li>和适配器一样，属于模式上的事情；所以日后再说？</li>
+</ol>
+
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2016/09/28/原-Android-线程AsyncTask/" class="archive-article-date">
-  	<time datetime="2016-09-28T08:20:43.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-09-28</time>
+      <a href="/2017/02/27/Java 读书笔记 9 接口/" class="archive-article-date">
+  	<time datetime="2017-02-27T13:38:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-27</time>
 </a>
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/线程/">线程</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java编程思想/">Java编程思想</a></li></ul>
 	</div>
 
       
@@ -400,7 +492,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
     </nav>
   
 
@@ -462,7 +554,7 @@
     
     	<section class="tools-section tools-section-tag">
     			<div class="widget tagcloud" id="js-tagcloud">
-    				<a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/Beauty-of-Programming/" style="font-size: 17.5px;">Beauty of Programming</a> <a href="/tags/fragment/" style="font-size: 15px;">fragment</a> <a href="/tags/mvc/" style="font-size: 12.5px;">mvc</a> <a href="/tags/线程/" style="font-size: 12.5px;">线程</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/随笔/" style="font-size: 12.5px;">随笔</a>
+    				<a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/Beauty-of-Programming/" style="font-size: 16px;">Beauty of Programming</a> <a href="/tags/Java编程思想/" style="font-size: 18px;">Java编程思想</a> <a href="/tags/fragment/" style="font-size: 14px;">fragment</a> <a href="/tags/mvc/" style="font-size: 12px;">mvc</a> <a href="/tags/线程/" style="font-size: 12px;">线程</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/随笔/" style="font-size: 12px;">随笔</a>
     			</div>
     	</section>
     

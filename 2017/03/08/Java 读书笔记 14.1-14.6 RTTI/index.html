@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>Java 读书笔记 14.1-14.6 RTTI | colin</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="#RTTIRuntime Type Information好吧，时隔多日我又来啃这块骨头了；
+RTTI顾名思义 运行时类型信息；编译的时候不知道，只有当具体运行时才知道是什么类型信息；Java编程思想好像也没说是怎么具体实现的；我也只能管中窥豹了；
+首先，我们知道多态，那么多态是啥呢？维基百科说：多态也可定义为“一种将不同的特殊行为和单个泛化记号相关联的能力”
+这就让我想起了继承关系；不论是哪个子">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java 读书笔记 14.1-14.6 RTTI">
+<meta property="og:url" content="http://yoursite.com/2017/03/08/Java 读书笔记 14.1-14.6 RTTI/index.html">
+<meta property="og:site_name" content="colin">
+<meta property="og:description" content="#RTTIRuntime Type Information好吧，时隔多日我又来啃这块骨头了；
+RTTI顾名思义 运行时类型信息；编译的时候不知道，只有当具体运行时才知道是什么类型信息；Java编程思想好像也没说是怎么具体实现的；我也只能管中窥豹了；
+首先，我们知道多态，那么多态是啥呢？维基百科说：多态也可定义为“一种将不同的特殊行为和单个泛化记号相关联的能力”
+这就让我想起了继承关系；不论是哪个子">
+<meta property="og:updated_time" content="2017-03-15T11:09:10.062Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java 读书笔记 14.1-14.6 RTTI">
+<meta name="twitter:description" content="#RTTIRuntime Type Information好吧，时隔多日我又来啃这块骨头了；
+RTTI顾名思义 运行时类型信息；编译的时候不知道，只有当具体运行时才知道是什么类型信息；Java编程思想好像也没说是怎么具体实现的；我也只能管中窥豹了；
+首先，我们知道多态，那么多态是啥呢？维基百科说：多态也可定义为“一种将不同的特殊行为和单个泛化记号相关联的能力”
+这就让我想起了继承关系；不论是哪个子">
+  
+    <link rel="alternative" href="/atom.xml" title="colin" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="//favicon.png">
+  
+  <script src="/style.js"></script>
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="/0.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">墨</a></h1>
+		</hgroup>
+
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/tags/随笔">随笔</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">所有文章</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="2" href="javascript:void(0)">友链</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="3" href="javascript:void(0)">关于我</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="https://github.com/colining" title="github">github</a>
+		        
+					<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/ren-tian-qi" title="zhihu">zhihu</a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<h1 class="header-author js-mobile-header hide">墨</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img src="/0.jpg" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">墨</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/tags/随笔">随笔</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/colining" title="github">github</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/ren-tian-qi" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap">
+        <article id="post-Java 读书笔记 14.1-14.6 RTTI" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Java 读书笔记 14.1-14.6 RTTI
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>#RTTI<br>Runtime Type Information<br>好吧，时隔多日我又来啃这块骨头了；</p>
+<p>RTTI顾名思义 运行时类型信息；编译的时候不知道，只有当具体运行时才知道是什么类型信息；Java编程思想好像也没说是怎么具体实现的；我也只能管中窥豹了；</p>
+<p>首先，我们知道多态，那么多态是啥呢？<br>维基百科说：<br>多态也可定义为“一种将不同的特殊行为和单个泛化记号相关联的能力”</p>
+<p>这就让我想起了继承关系；不论是哪个子类都可以用父类表示；编译时是父类，运行时就变成子类了；这就是RTTI了；厉害吧；</p>
+<pre><code>&lt;!--more--&gt;
+</code></pre><p>##Class对象</p>
+<p>首先想知道Class对象是什么，必须清楚类，类实例化之后形成一个对象；<br>这是我们常见的：类和对象？那么类是什么？对于虚拟机来说，他怎么区别这个对象和那个对象不一样呢？ 这就靠类对象了；通过类对象，我们就知道“类型”；<br>举个例子；我们说狮子，一般是一个名词，指代一种生物，某个狮子就是狮子这个类的实例化；但是我们的大脑，社会上的文字，是要储存狮子的定义的；这样你知道Class对象是什么了吧；</p>
+<p>class调用顺序<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Candy</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Candy</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"ccandy"</span>);</div><div class="line">    &#125;</div><div class="line">    &#123;</div><div class="line">        System.out.println(<span class="string">"no static"</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">static</span></div><div class="line">    &#123;</div><div class="line">        System.out.println(<span class="string">"loading Cnady"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SweetShop</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span>  <span class="keyword">static</span>  <span class="keyword">void</span>  <span class="title">main</span><span class="params">(String [] arg)</span> <span class="keyword">throws</span> ClassNotFoundException </span>&#123;</div><div class="line">        <span class="keyword">new</span> Candy();</div><div class="line">        Class a =Class.forName(<span class="string">"Class.Gum"</span>);   <span class="comment">//会直接加载类</span></div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">output:</div><div class="line">loading Cnady</div><div class="line">no <span class="keyword">static</span></div><div class="line">ccandy</div><div class="line">loading Gun</div></pre></td></tr></table></figure>
+<p>##类字面常量<br>想调用类有三种方式<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ReflectDemo</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> ClassNotFoundException </span>&#123;</div><div class="line">        <span class="comment">//第一种：Class c1 = Code.class;</span></div><div class="line">        Class class1=ReflectDemo.class;</div><div class="line">        System.out.println(class1.getName());</div><div class="line"></div><div class="line">        <span class="comment">//第二种：Class c2 = code1.getClass();</span></div><div class="line">        ReflectDemo demo2= <span class="keyword">new</span> ReflectDemo();</div><div class="line">        Class c2 = demo2.getClass();</div><div class="line">        System.out.println(c2.getName());</div><div class="line"></div><div class="line">        <span class="comment">//第三种：Class c3 = Class.forName("com.trigl.reflect.Code");</span></div><div class="line">        Class class3 = Class.forName(<span class="string">"com.tengj.reflect.ReflectDemo"</span>);</div><div class="line">        System.out.println(class3.getName());</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>第一种的Code.class又叫做类字面常量，好处是不会直接初始化class对象，仅仅是加载；<br>使用类的准备工作有</p>
+<ol>
+<li>加载</li>
+<li>链接</li>
+<li>初始化，由于java很懒，所以都是啥时候用到啥时候加载，所以直接的forName就有点不好玩了；初始化要延迟到静态方法被调用，（所以构造函数也是静态方法），或者非常数讲台域被引用的时候；</li>
+</ol>
+<p>##泛化的class引用</p>
+<ol>
+<li>简单地说就是class引用带了类型，只接受这种，或者一部分的class对象；</li>
+<li>instance与instanceof，简单说一个要比名字，另一个比的是class对象，对象可以动态传参，所以就方便许多；</li>
+<li>instance和class比较时的区别 instance会考虑继承；即：麻雀是鸟，但是class不会这么比，麻雀！=鸟；</li>
+</ol>
+<p>##反射<br>其实就是通过class对象来获取类中的相关内容比如获取一个方法<br><a href="http://www.jianshu.com/p/1a60d55a94cd" target="_blank" rel="external">以下代码来源：”</a><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> String name;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> age;</div><div class="line">    <span class="keyword">private</span> String msg=<span class="string">"hello wrold"</span>;</div><div class="line"> <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> name;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.name = name;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getAge</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> age;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAge</span><span class="params">(<span class="keyword">int</span> age)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.age = age;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Person</span><span class="params">()</span> </span>&#123;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Person</span><span class="params">(String name)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.name = name;</div><div class="line">  System.out.println(name);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">fun</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"fun"</span>);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">fun</span><span class="params">(String name,<span class="keyword">int</span> age)</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"我叫"</span>+name+<span class="string">",今年"</span>+age+<span class="string">"岁"</span>);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ReflectDemo</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            Class c = Class.forName(<span class="string">"com.tengj.reflect.Person"</span>);</div><div class="line">            Object o = c.newInstance();</div><div class="line">            Method method = c.getMethod(<span class="string">"fun"</span>, String.class, <span class="keyword">int</span>.class);</div><div class="line">            method.invoke(o, <span class="string">"tengj"</span>, <span class="number">10</span>);</div><div class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>或者获取方法组<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ReflectDemo</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            Class c = Class.forName(<span class="string">"com.tengj.reflect.Person"</span>);</div><div class="line">            Method[] methods = c.getDeclaredMethods();</div><div class="line">            <span class="keyword">for</span>(Method m:methods)&#123;</div><div class="line">                String  methodName= m.getName();</div><div class="line">                System.out.println(methodName);</div><div class="line">            &#125;</div><div class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ReflectDemo</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            Class c = Class.forName(<span class="string">"com.tengj.reflect.Person"</span>);</div><div class="line">            <span class="comment">//获取成员变量</span></div><div class="line">            Field field = c.getDeclaredField(<span class="string">"msg"</span>); <span class="comment">//因为msg变量是private的，所以不能用getField方法</span></div><div class="line">            Object o = c.newInstance();</div><div class="line">            field.setAccessible(<span class="keyword">true</span>);<span class="comment">//设置是否允许访问，因为该变量是private的，所以要手动设置允许访问，如果msg是public的就不需要这行了。</span></div><div class="line">            Object msg = field.get(o);</div><div class="line">            System.out.println(msg);</div><div class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ReflectDemo</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            Class c = Class.forName(<span class="string">"com.tengj.reflect.Person"</span>);</div><div class="line">            <span class="comment">//获取构造函数</span></div><div class="line">            Constructor constructor = c.getDeclaredConstructor(String.class);</div><div class="line">            constructor.setAccessible(<span class="keyword">true</span>);<span class="comment">//设置是否允许访问，因为该构造器是private的，所以要手动设置允许访问，如果构造器是public的就不需要这行了。</span></div><div class="line">            constructor.newInstance(<span class="string">"tengj"</span>);</div><div class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>ps:无关思想的细节就不要深究了；</p>
+<p>##接口与类型信息</p>
+<p>1.通过使用反射，即使实现包的访问权限，仍旧可以到达并调用所有方法，甚至是private方法。如果知道方法名，就可以在其Method对象上调用setAccessible(true)，然后通过invoke()方法来使用该方法。<br>2.final域实际上在遭遇修改时是安全的。运行时系统会在不抛异常的情况下接受任何修改尝试，但实际上不会发生任何修改</p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/03/08/Java 读书笔记 14.1-14.6 RTTI/" class="archive-article-date">
+  	<time datetime="2017-03-08T12:37:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-03-08</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java编程思想/">Java编程思想</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2017/03/09/Java 读书笔记 15泛型/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Java 读书笔记 15泛型
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/03/05/Java 读书笔记 14.7 动态代理/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Java 读书笔记 14.7 动态代理</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="//v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+
+
+
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 墨
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: false,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: "/"
+	}
+</script>
+
+<script src="/./main.js"></script>
+
+
+    
+<div class="tools-col">
+  <ul class="btn-wrap">
+    
+      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
+    
+    
+      <li data-hook="tools-section-tag"><span class="text">标签</span><i class="icon-price-tags"></i></li>
+    
+    
+      <li data-hook="tools-section-friends"><span class="text">友链</span><i class="icon-link"></i></li>
+    
+    
+      <li data-hook="tools-section-me"><span class="text">我</span><i class="icon-smile"></i></li>
+    
+  </ul>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all chose">
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-tag">
+    			<div class="widget tagcloud" id="js-tagcloud">
+    				<a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/Beauty-of-Programming/" style="font-size: 16px;">Beauty of Programming</a> <a href="/tags/Java编程思想/" style="font-size: 18px;">Java编程思想</a> <a href="/tags/fragment/" style="font-size: 14px;">fragment</a> <a href="/tags/mvc/" style="font-size: 12px;">mvc</a> <a href="/tags/线程/" style="font-size: 12px;">线程</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/随笔/" style="font-size: 12px;">随笔</a>
+    			</div>
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-friends">
+  		
+  			<div class="friends-wrap" id="js-friends">
+  			
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="https://www.google.com.hk/">谷歌</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="https://stackoverflow.com/">stackoverflow</a>
+  	        
+  	        </div>
+  		
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-me">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">继续跑&lt;br&gt;&lt;br&gt;带着赤子的骄傲</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div>
+</body>
+</html>

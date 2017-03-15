@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>Java 读书笔记 15泛型 | colin</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="##泛型泛型的来源，首先我们知道类是存在聚合的，就是这个类有其他类的对象；那么问题来了，我今天用你，明天用别人；怎么办呢？12public class Automobile &amp;#123;      //普通模式有这么一个类&amp;#125;
+1234567891011121314151617181920212223242526public class Holder1 &amp;#123;    private">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java 读书笔记 15泛型">
+<meta property="og:url" content="http://yoursite.com/2017/03/09/Java 读书笔记 15泛型/index.html">
+<meta property="og:site_name" content="colin">
+<meta property="og:description" content="##泛型泛型的来源，首先我们知道类是存在聚合的，就是这个类有其他类的对象；那么问题来了，我今天用你，明天用别人；怎么办呢？12public class Automobile &amp;#123;      //普通模式有这么一个类&amp;#125;
+1234567891011121314151617181920212223242526public class Holder1 &amp;#123;    private">
+<meta property="og:updated_time" content="2017-03-15T11:09:10.067Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java 读书笔记 15泛型">
+<meta name="twitter:description" content="##泛型泛型的来源，首先我们知道类是存在聚合的，就是这个类有其他类的对象；那么问题来了，我今天用你，明天用别人；怎么办呢？12public class Automobile &amp;#123;      //普通模式有这么一个类&amp;#125;
+1234567891011121314151617181920212223242526public class Holder1 &amp;#123;    private">
+  
+    <link rel="alternative" href="/atom.xml" title="colin" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="//favicon.png">
+  
+  <script src="/style.js"></script>
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="/0.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">墨</a></h1>
+		</hgroup>
+
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/tags/随笔">随笔</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">所有文章</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="2" href="javascript:void(0)">友链</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="3" href="javascript:void(0)">关于我</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="https://github.com/colining" title="github">github</a>
+		        
+					<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/ren-tian-qi" title="zhihu">zhihu</a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<h1 class="header-author js-mobile-header hide">墨</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img src="/0.jpg" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">墨</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/tags/随笔">随笔</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/colining" title="github">github</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/ren-tian-qi" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap">
+        <article id="post-Java 读书笔记 15泛型" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Java 读书笔记 15泛型
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>##泛型<br>泛型的来源，首先我们知道类是存在聚合的，就是这个类有其他类的对象；那么问题来了，我今天用你，明天用别人；怎么办呢？<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Automobile</span> </span>&#123;      <span class="comment">//普通模式有这么一个类</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Holder1</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span>  Automobile a;     <span class="comment">//类间聚合；但是你必须编译的时候就定义啊；</span></div><div class="line">    <span class="function"><span class="keyword">public</span>  <span class="title">Holder1</span><span class="params">(Automobile a)</span>   <span class="comment">//完全不能改变的时候</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">this</span>.a=a;</div><div class="line">    &#125;</div><div class="line">    <span class="function">Automobile <span class="title">get</span><span class="params">()</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">return</span>  a;</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">    <span class="keyword">private</span>  Object b;        <span class="comment">//定义Object可以通过向下转型的方式储存其他对象，但是自然是麻烦的；</span></div><div class="line">    <span class="function"><span class="keyword">public</span>  <span class="title">Holder1</span><span class="params">(Object b)</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">this</span>.b=b;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span>  <span class="keyword">void</span>  <span class="title">setB</span><span class="params">(Object b)</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">this</span>.b = b;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">getB</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> b;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<pre><code>&lt;!--more--&gt;
+</code></pre><p>然后泛型自然就出来；<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Holder2</span>&lt;<span class="title">T</span>&gt; </span>&#123;      <span class="comment">//定义一个Tpye，谁来换成谁，多好；</span></div><div class="line">    <span class="keyword">private</span>  T a;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Holder2</span><span class="params">(T a)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.a = a;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> T <span class="title">getA</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> a;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setA</span><span class="params">(T a)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.a = a;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>##元组类库</p>
+<ol>
+<li>就是通过泛型聚合多个类对象；使得一个对象可以携带多个对象，而且还是可以随便更改的对象；</li>
+</ol>
+<p>##泛型方法</p>
+<ol>
+<li>不靠泛型类，方法泛型就行，就像下面</li>
+<li>static方法如果使用泛型必须成为泛型方法，简单的讲，因为static方法和类一起加载，那时就可以直接调用static方法了，而你的tpye是啥都不知道；而构造函数虽然也是隐藏的static，但我们就是通过人家获得的tpye的，soso。。<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GenericMethods</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span>  &lt;T&gt; <span class="function"><span class="keyword">void</span>  <span class="title">f</span><span class="params">(T x)</span></span></div><div class="line">    &#123;</div><div class="line">        System.out.println(x.getClass().getName());</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span>  <span class="keyword">static</span>  <span class="keyword">void</span>  <span class="title">main</span><span class="params">(String [] arg)</span></span></div><div class="line">    &#123;</div><div class="line">        GenericMethods genericMethods = <span class="keyword">new</span> GenericMethods();</div><div class="line">        genericMethods.f(<span class="string">""</span>);</div><div class="line">        genericMethods.f(<span class="number">1</span>);</div><div class="line">        genericMethods.f(<span class="keyword">new</span> HelloA());</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>##吐槽<br>编程思想这本书真的是，有太多和java思想无关的内容，而只是经验之谈，还有一些事设计模式，说的太杂；</p>
+<p>##泛型擦除<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Foo</span>&lt;<span class="title">T</span>&gt; </span>&#123;</div><div class="line">    T a;</div><div class="line">    <span class="function">List&lt;T&gt; <span class="title">create</span> <span class="params">(T t,<span class="keyword">int</span> n)</span></span></div><div class="line">    &#123;</div><div class="line">        List&lt;T&gt; result = <span class="keyword">new</span> ArrayList&lt;T&gt;();</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i&lt; n ;i++) &#123;</div><div class="line">            result.add(t);</div><div class="line">        &#125;</div><div class="line">            <span class="keyword">return</span> result;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span>  String <span class="title">toString</span><span class="params">()</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">return</span>  a.getClass().getName();</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span>  <span class="title">main</span><span class="params">(String []arg)</span></span></div><div class="line">    &#123;</div><div class="line">        Foo&lt;Holder1&gt; holder1Foo= <span class="keyword">new</span> Foo&lt;&gt;();</div><div class="line">        Foo&lt;String&gt; foo = <span class="keyword">new</span> Foo&lt;&gt;();</div><div class="line">      List&lt;String&gt; list=  foo.create(<span class="string">"hello"</span>,<span class="number">4</span>);</div><div class="line">        System.out.println(list);      <span class="comment">//虽然擦除了类型，但是编译器还是知道你存的是什么，</span></div><div class="line">        System.out.println(holder1Foo.getClass().getName()); <span class="comment">//简单说，编译器帮我们又转型了；</span></div><div class="line">        System.out.println(holder1Foo.toString()); <span class="comment">//报错，因为它根本不知道是哪个类的</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>##协变</p>
+<ol>
+<li>子类可以赋值给父类，就称为协变；</li>
+<li>数组也可以协变，但是这货会存在陷阱一样的错误<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Fruit</span> </span>&#123;&#125;</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Apple</span> <span class="keyword">extends</span> <span class="title">Fruit</span> </span>&#123;&#125;</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Jonathan</span> <span class="keyword">extends</span> <span class="title">Apple</span> </span>&#123;&#125;</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Orange</span> <span class="keyword">extends</span> <span class="title">Fruit</span> </span>&#123;&#125;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CovariantArrays</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;       </div><div class="line">        Fruit[] fruit = <span class="keyword">new</span> Apple[<span class="number">10</span>];</div><div class="line">        fruit[<span class="number">0</span>] = <span class="keyword">new</span> Apple(); <span class="comment">// OK</span></div><div class="line">        fruit[<span class="number">1</span>] = <span class="keyword">new</span> Jonathan(); <span class="comment">// OK</span></div><div class="line">        <span class="comment">// Runtime type is Apple[], not Fruit[] or Orange[]:</span></div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            <span class="comment">// Compiler allows you to add Fruit:</span></div><div class="line">            fruit[<span class="number">0</span>] = <span class="keyword">new</span> Fruit(); <span class="comment">// ArrayStoreException</span></div><div class="line">        &#125; <span class="keyword">catch</span>(Exception e) &#123; System.out.println(e); &#125;</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            <span class="comment">// Compiler allows you to add Oranges:</span></div><div class="line">            fruit[<span class="number">0</span>] = <span class="keyword">new</span> Orange(); <span class="comment">// ArrayStoreException</span></div><div class="line">        &#125; <span class="keyword">catch</span>(Exception e) &#123; System.out.println(e); &#125;</div><div class="line">        &#125;</div><div class="line">&#125; <span class="comment">/* Output:</span></div><div class="line">java.lang.ArrayStoreException: Fruit</div><div class="line">java.lang.ArrayStoreException: Orange</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>然后就是泛型了，它不支持协变，父类和子类不能直接赋值；</p>
+<p>##通配符</p>
+<p>&lt;?&gt;和&lt;? extends E&gt;的只读性<br>通配符&lt;?&gt;和&lt;? extends E&gt;具有只读性，即可以对其进行读取操作但是无法进行写入。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">printList</span><span class="params">(List&lt;?&gt; list)</span> </span>&#123;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; list.size(); i++) &#123;</div><div class="line">        System.out.println(list.get(i));</div><div class="line">    &#125;</div><div class="line">    <span class="comment">//一下操作不可以</span></div><div class="line">    list.add(<span class="number">1</span>);</div><div class="line">    list.add(<span class="string">"123"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>原因在于：?就是表示类型完全无知，? extends E表示是E的某个子类型，但不知道具体子类型，如果允许写入，Java就无法确保类型安全性。假设我们允许写入，如果我们传入的参数是List<integer>，此时进行add操作，可以添加任何类型元素，就无法保证List<integer>的类型安全了。</integer></integer></p>
+<p>超类型&lt;? super E&gt;<br>超类型通配符允许写入，例子如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">printList</span><span class="params">(List&lt;? <span class="keyword">super</span> String&gt; list)</span> </span>&#123;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; list.size(); i++) &#123;</div><div class="line">        System.out.println(list.get(i));</div><div class="line">    &#125;</div><div class="line">    list.add(<span class="string">"123"</span>);</div><div class="line">    list.add(<span class="string">"456"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>这个很好理解，list的参数类型是String的上界，必然可以添加String类型的元素。</p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/03/09/Java 读书笔记 15泛型/" class="archive-article-date">
+  	<time datetime="2017-03-09T14:19:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-03-09</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java编程思想/">Java编程思想</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2017/03/12/Java 读书笔记 21.1并发/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Java 读书笔记 21.1并发
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/03/08/Java 读书笔记 14.1-14.6 RTTI/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Java 读书笔记 14.1-14.6 RTTI</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="//v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+
+
+
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 墨
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: false,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: "/"
+	}
+</script>
+
+<script src="/./main.js"></script>
+
+
+    
+<div class="tools-col">
+  <ul class="btn-wrap">
+    
+      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
+    
+    
+      <li data-hook="tools-section-tag"><span class="text">标签</span><i class="icon-price-tags"></i></li>
+    
+    
+      <li data-hook="tools-section-friends"><span class="text">友链</span><i class="icon-link"></i></li>
+    
+    
+      <li data-hook="tools-section-me"><span class="text">我</span><i class="icon-smile"></i></li>
+    
+  </ul>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all chose">
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-tag">
+    			<div class="widget tagcloud" id="js-tagcloud">
+    				<a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/Beauty-of-Programming/" style="font-size: 16px;">Beauty of Programming</a> <a href="/tags/Java编程思想/" style="font-size: 18px;">Java编程思想</a> <a href="/tags/fragment/" style="font-size: 14px;">fragment</a> <a href="/tags/mvc/" style="font-size: 12px;">mvc</a> <a href="/tags/线程/" style="font-size: 12px;">线程</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/随笔/" style="font-size: 12px;">随笔</a>
+    			</div>
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-friends">
+  		
+  			<div class="friends-wrap" id="js-friends">
+  			
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="https://www.google.com.hk/">谷歌</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="https://stackoverflow.com/">stackoverflow</a>
+  	        
+  	        </div>
+  		
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-me">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">继续跑&lt;br&gt;&lt;br&gt;带着赤子的骄傲</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div>
+</body>
+</html>

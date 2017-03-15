@@ -129,7 +129,7 @@
       <div class="body-wrap">
         
   
-    <article id="post-原-Android-复习1-1-神奇的bundle" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Android 通知栏信息" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -139,7 +139,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/06/30/原-Android-复习1-1-神奇的bundle/">Android 复习1.1 神奇的bundle</a>
+      <a class="article-title" href="/2016/10/05/Android 通知栏信息/">android 5 通知栏</a>
     </h1>
   
 
@@ -147,17 +147,16 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>#有关Activity<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">      <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">      setContentView(R.layout.activity_main);</div></pre></td></tr></table></figure></p>
-<p>活动的onCreate 有个很神奇的参数 bundle 它是用来干嘛的呢？</p>
-<p>看起来像是把什么传进来，那是什么东西要传进初始化的activity里呢？</p>
-<p>我们的app一般是竖屏的，一旦横屏，activity 就要重新加载，而在当前activity上的数据理所当然就不见了；是不是很不爽。Bundle 就是来解决这个问题的；让我们在横竖屏切换时传递数据的；<br>相信作用可以举一反三，不过目前还没用到；        </p>
-
+        <p>#1<br>今天讲点简单的哦，再日后补坑，通知栏信息；<br>用Android的人，都应该知道通知栏是个什么东西，下拉会出来一些设置菜单，<br>当有新的消息时，就会跑到这里，或者比如云音乐，后台听歌，也会有这么一个通知栏信息；<br>今天就简单的说一下，以后再完善；<br>
+        <p class="article-more-link">
+          <a  href="/2016/10/05/Android 通知栏信息/#more">more >></a>
+        </p>
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2016/06/30/原-Android-复习1-1-神奇的bundle/" class="archive-article-date">
-  	<time datetime="2016-06-30T11:51:38.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-06-30</time>
+      <a href="/2016/10/05/Android 通知栏信息/" class="archive-article-date">
+  	<time datetime="2016-10-05T11:42:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-05</time>
 </a>
       
 	<div class="article-tag tagcloud">
@@ -182,7 +181,7 @@
 
 
   
-    <article id="post-原-Android-复习1-mvc设计模式" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-原-Android-Looper，handler，HandlerThread" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -192,7 +191,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/06/30/原-Android-复习1-mvc设计模式/">Android 复习1 mvc设计模式</a>
+      <a class="article-title" href="/2016/09/28/原-Android-Looper，handler，HandlerThread/">Android Looper，handler，HandlerThread</a>
     </h1>
   
 
@@ -200,25 +199,22 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>#有关MVC和string</p>
-<p>Android 真的是有超级多的东西，学了后面忘了前面，希望这个能够让我以后看吧</p>
-<p>MVC是一种设计模式；学过面向对象后，就觉得我们的世界和平常人不一样了；</p>
-<p>在java中 是各个类，各个包之间的联系访问；<br>在Android中，是视图，模型，控制器之间的访问；<br>视图 最好理解 xml下的各种各样的视图对象；</p>
-<p>模型 是我们新建的那些奇怪的类，用来进行数据储存和业务逻辑；<br>
+        <p>#1<br>上回书说道，掌柜的饿了，叫大厨做饭去了；但一家客栈如果不冷清的话，就会有很多客人；跑堂的小二问完客观，记下来，会跟大厨喊：两斤酱牛肉，两斤烤鸭；至于茶水，跑堂的自己端过去就行了；那掌柜的是不是得记账啊；所以更可能的情况是小二用纸笔记下来，一份送到掌柜的，一份送到大厨那里；掌柜的可能就直接收起来，等晚些时候记账也行，大厨就不一样了，那就是铁定的任务了；看完这个消息，做个鱼香肉丝，再看哪个，做个清蒸红薯之类的。。。<br>相关访问，一定要看的；<br><a href="http://www.cnblogs.com/codingmyworld/archive/2011/09/14/2174255.html">http://www.cnblogs.com/codingmyworld/archive/2011/09/14/2174255.html</a></p>
+<p>#2<br>    主程序:可以看成是客栈的整个大堂，人来人往，小二忙的不亦乐乎<br>    线程：大厨做饭得有锅啊；但是此时的锅只能做一道菜，做完就不能用了，大厨就把它藏起来了；之后来的n多单子不接受；<br>    looper：掌柜的一看，说这不行啊，加钱！让锅一直待在厨房，有单子就炒菜，没有就等着单子的到来；于是线程就升级为循环线程；<br>    Message：小二递过来的单子<br>    MessageQueue：虽然大厨是处于循环工作状态，但是那么多单子总得有个序列吧，此处将单子排序，大厨就可以按照次序<br>    Handler：大厨，关键人物，小二将单子交给大厨，到了厨房，大厨就将其放入消息队列，到了的话，就炒菜；<br>    那假如客栈大，厨师好多，一个相同的消息队列 不同的菜交给不同厨师，一个厨师可以对应好几道菜，不过的按照顺序吵；<br>
         <p class="article-more-link">
-          <a  href="/2016/06/30/原-Android-复习1-mvc设计模式/#more">more >></a>
+          <a  href="/2016/09/28/原-Android-Looper，handler，HandlerThread/#more">more >></a>
         </p>
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2016/06/30/原-Android-复习1-mvc设计模式/" class="archive-article-date">
-  	<time datetime="2016-06-30T10:43:36.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-06-30</time>
+      <a href="/2016/09/28/原-Android-Looper，handler，HandlerThread/" class="archive-article-date">
+  	<time datetime="2016-09-28T11:44:49.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-09-28</time>
 </a>
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mvc/">mvc</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/线程/">线程</a></li></ul>
 	</div>
 
       
@@ -238,7 +234,7 @@
 
 
   
-    <article id="post-原-android-5-通知栏" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-原-Android-线程AsyncTask" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -248,7 +244,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/06/24/原-android-5-通知栏/">android 5 通知栏</a>
+      <a class="article-title" href="/2016/09/28/原-Android-线程AsyncTask/">Android 线程AsyncTask</a>
     </h1>
   
 
@@ -256,19 +252,72 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>书上有关于通知栏的说法 已经过时了 是时候来点新东西啦</p>
-<p>状态通知栏主要涉及到2个类：  <strong>Notification</strong> 和 <strong>NotificationManager</strong></p>
-<p>Notification为通知信息类，它里面对应了通知栏的各个属性；NotificationManager ：  是状态栏通知的管理类，负责发通知、清除通知等操作。</p>
-<p>NotificationManager 是一个系统Service，所以必须通过 getSystemService(NOTIFICATION_SERVICE)方法来获取：<br>
+        <p>##1.AsyncTask<br>Android已经到了最后阶段，突然蹦出来线程这一难题，真的是把我弄晕了<br>首先我们明确为什么存在线程？ 我们已经存在一个主程序，为什么要加一个呢？当我们的程序在请求网络时，我们希望主程序还可以运行吗？现在的程序一般都是后台下载，那前台下载你见过吗？点完下载，程序就变成下载的进度条了，软件不能用了；这样当然是不好的，所以才有了线程；</p>
+<p>就像是一个客栈，有大厨，有掌柜的，有跑堂的；如果说这家客栈就一个人，那是不是就忙不过来了呢；</p>
+<p>我们要看的程序是一个从网站获取链接与信息的程序；<br>
         <p class="article-more-link">
-          <a  href="/2016/06/24/原-android-5-通知栏/#more">more >></a>
+          <a  href="/2016/09/28/原-Android-线程AsyncTask/#more">more >></a>
         </p>
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2016/06/24/原-android-5-通知栏/" class="archive-article-date">
-  	<time datetime="2016-06-24T08:46:06.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-06-24</time>
+      <a href="/2016/09/28/原-Android-线程AsyncTask/" class="archive-article-date">
+  	<time datetime="2016-09-28T08:20:43.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-09-28</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/线程/">线程</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-原-标题栏-层级导航" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/24/原-标题栏-层级导航/">标题栏 层级导航</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>##1<br>最初我们的标题栏导航是怎样的呢？</p>
+<p>点击标题栏按钮，触发事件，创建一个Intent ，打开新页面；<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Intent intent = <span class="keyword">new</span> Intent(getActivity(),CrimePagerActivity.class);</div><div class="line">intent.putExtra(CrimeFragment.EXTRA_CRIME_ID,crime.getmId());</div><div class="line">startActivityForResult(intent,<span class="number">0</span>);</div></pre></td></tr></table></figure></p>
+<p>Intent？我们知道用Intent可以随便打开那个页面，那么这种导航就没有明确的父子关系，且必须知道要去哪里；简单地说，小李坐车去女朋友家，司机说：“我知道你女朋友在那里，上车” 实际上去哪里，是司机说的算；<br>
+        <p class="article-more-link">
+          <a  href="/2016/09/24/原-标题栏-层级导航/#more">more >></a>
+        </p>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/09/24/原-标题栏-层级导航/" class="archive-article-date">
+  	<time datetime="2016-09-24T08:44:04.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-09-24</time>
 </a>
       
 	<div class="article-tag tagcloud">
@@ -293,7 +342,7 @@
 
 
   
-    <article id="post-Android学习笔记4 图片和杂谈" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-原-样式与include" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -303,7 +352,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/06/24/Android学习笔记4 图片和杂谈/">android4 图片和杂谈</a>
+      <a class="article-title" href="/2016/09/24/原-样式与include/">样式与include</a>
     </h1>
   
 
@@ -311,25 +360,23 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>#迷茫的一天</p>
-<p>##关于图片的麻烦事<br>学到自定义控件，图片真的是让人头大的事情，书上只写了加入某张图片，这可真是苦了我了，首先是要找图标；<br>下面是两个网站<br><a href="http://iconmonstr.com">http://iconmonstr.com</a><br><a href="http://iconfont.cn/">http://iconfont.cn/</a><br>还有一些网站，不过我现在就只是找和书上一样的，所以这俩就够了；<br>但问题来了。网站只有图标，现在需要的是标题栏的背景，于是我Google了好久，也许是关键词不对，最后才知道背景可以直接敲代码设置颜色；还可以设置高度；于是标题栏顺利解决；</p>
-<p>总感觉网上关于图片的资料略少，可能程序员都不关注，或者一次学会就不会有再问题，于是资料比较少；</p>
-<p>图标找到后，最头疼就是大小问题了。作为一个新人，就算我知道Android文档里写的是什么，我也不知道，到底哪个图标可以用，最好啊？于是只能把不同像素的同一图标都测试一次，最后知道了差不多50-70左右就差不多，<a href="http://iconmonstr.com可以调节px预览大小，还可以改变颜色，只是相对来说图标有点少；而假设dpi扩大一倍，那我们的图标像素也扩大一倍就可以了；">http://iconmonstr.com可以调节px预览大小，还可以改变颜色，只是相对来说图标有点少；而假设dpi扩大一倍，那我们的图标像素也扩大一倍就可以了；</a></p>
-<p>我感觉我自己审美现在挺好的，可是再编程是根本不会在乎图标是否漂亮，也许这就是大家吐槽程序员审美的原因吧；<br>
+        <p>#1<br>简单来说样式是为了复用;</p>
+<p>style 中创建样式<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">"RemoteButton"</span>&gt;</span><span class="xml"></div><div class="line">       <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:layout_width"</span>&gt;</span>0dp<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:layout_height"</span>&gt;</span>match_parent<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:textColor"</span>&gt;</span>#556699<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:textSize"</span>&gt;</span>20dp<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span> = <span class="string">"android:layout_margin"</span>&gt;</span>3dp<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line"></div><div class="line">   </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>控件使用某种样式；<br>
         <p class="article-more-link">
-          <a  href="/2016/06/24/Android学习笔记4 图片和杂谈/#more">more >></a>
+          <a  href="/2016/09/24/原-样式与include/#more">more >></a>
         </p>
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2016/06/24/Android学习笔记4 图片和杂谈/" class="archive-article-date">
-  	<time datetime="2016-06-24T08:46:05.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-06-24</time>
+      <a href="/2016/09/24/原-样式与include/" class="archive-article-date">
+  	<time datetime="2016-09-24T08:15:17.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-09-24</time>
 </a>
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/随笔/">随笔</a></li></ul>
 	</div>
 
       
@@ -351,7 +398,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/5/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span>
+      <a class="extend prev" rel="prev" href="/page/5/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/7/">Next &raquo;</a>
     </nav>
   
 
@@ -413,7 +460,7 @@
     
     	<section class="tools-section tools-section-tag">
     			<div class="widget tagcloud" id="js-tagcloud">
-    				<a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/Beauty-of-Programming/" style="font-size: 17.5px;">Beauty of Programming</a> <a href="/tags/fragment/" style="font-size: 15px;">fragment</a> <a href="/tags/mvc/" style="font-size: 12.5px;">mvc</a> <a href="/tags/线程/" style="font-size: 12.5px;">线程</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/随笔/" style="font-size: 12.5px;">随笔</a>
+    				<a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/Beauty-of-Programming/" style="font-size: 16px;">Beauty of Programming</a> <a href="/tags/Java编程思想/" style="font-size: 18px;">Java编程思想</a> <a href="/tags/fragment/" style="font-size: 14px;">fragment</a> <a href="/tags/mvc/" style="font-size: 12px;">mvc</a> <a href="/tags/线程/" style="font-size: 12px;">线程</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/随笔/" style="font-size: 12px;">随笔</a>
     			</div>
     	</section>
     
