@@ -18,7 +18,7 @@ RTTI顾名思义 运行时类型信息；编译的时候不知道，只有当具
 RTTI顾名思义 运行时类型信息；编译的时候不知道，只有当具体运行时才知道是什么类型信息；Java编程思想好像也没说是怎么具体实现的；我也只能管中窥豹了；
 首先，我们知道多态，那么多态是啥呢？维基百科说：多态也可定义为“一种将不同的特殊行为和单个泛化记号相关联的能力”
 这就让我想起了继承关系；不论是哪个子">
-<meta property="og:updated_time" content="2017-03-15T11:09:10.062Z">
+<meta property="og:updated_time" content="2017-03-15T11:32:06.732Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java 读书笔记 14.1-14.6 RTTI">
 <meta name="twitter:description" content="#RTTIRuntime Type Information好吧，时隔多日我又来啃这块骨头了；
@@ -162,8 +162,8 @@ RTTI顾名思义 运行时类型信息；编译的时候不知道，只有当具
 <p>RTTI顾名思义 运行时类型信息；编译的时候不知道，只有当具体运行时才知道是什么类型信息；Java编程思想好像也没说是怎么具体实现的；我也只能管中窥豹了；</p>
 <p>首先，我们知道多态，那么多态是啥呢？<br>维基百科说：<br>多态也可定义为“一种将不同的特殊行为和单个泛化记号相关联的能力”</p>
 <p>这就让我想起了继承关系；不论是哪个子类都可以用父类表示；编译时是父类，运行时就变成子类了；这就是RTTI了；厉害吧；</p>
-<pre><code>&lt;!--more--&gt;
-</code></pre><p>##Class对象</p>
+<a id="more"></a>
+<p>##Class对象</p>
 <p>首先想知道Class对象是什么，必须清楚类，类实例化之后形成一个对象；<br>这是我们常见的：类和对象？那么类是什么？对于虚拟机来说，他怎么区别这个对象和那个对象不一样呢？ 这就靠类对象了；通过类对象，我们就知道“类型”；<br>举个例子；我们说狮子，一般是一个名词，指代一种生物，某个狮子就是狮子这个类的实例化；但是我们的大脑，社会上的文字，是要储存狮子的定义的；这样你知道Class对象是什么了吧；</p>
 <p>class调用顺序<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Candy</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Candy</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"ccandy"</span>);</div><div class="line">    &#125;</div><div class="line">    &#123;</div><div class="line">        System.out.println(<span class="string">"no static"</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">static</span></div><div class="line">    &#123;</div><div class="line">        System.out.println(<span class="string">"loading Cnady"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SweetShop</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span>  <span class="keyword">static</span>  <span class="keyword">void</span>  <span class="title">main</span><span class="params">(String [] arg)</span> <span class="keyword">throws</span> ClassNotFoundException </span>&#123;</div><div class="line">        <span class="keyword">new</span> Candy();</div><div class="line">        Class a =Class.forName(<span class="string">"Class.Gum"</span>);   <span class="comment">//会直接加载类</span></div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">output:</div><div class="line">loading Cnady</div><div class="line">no <span class="keyword">static</span></div><div class="line">ccandy</div><div class="line">loading Gun</div></pre></td></tr></table></figure>
@@ -252,6 +252,26 @@ RTTI顾名思义 运行时类型信息；编译的时候不知道，只有当具
 
 
 
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="Java 读书笔记 14.1-14.6 RTTI" data-title="Java 读书笔记 14.1-14.6 RTTI" data-url="http://yoursite.com/2017/03/08/Java 读书笔记 14.1-14.6 RTTI/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"colining.duoshuo.com"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
 
 
 

@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="colin">
 <meta property="og:description" content="##泛型泛型的来源，首先我们知道类是存在聚合的，就是这个类有其他类的对象；那么问题来了，我今天用你，明天用别人；怎么办呢？12public class Automobile &amp;#123;      //普通模式有这么一个类&amp;#125;
 1234567891011121314151617181920212223242526public class Holder1 &amp;#123;    private">
-<meta property="og:updated_time" content="2017-03-15T11:09:10.067Z">
+<meta property="og:updated_time" content="2017-03-15T11:32:06.703Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java 读书笔记 15泛型">
 <meta name="twitter:description" content="##泛型泛型的来源，首先我们知道类是存在聚合的，就是这个类有其他类的对象；那么问题来了，我今天用你，明天用别人；怎么办呢？12public class Automobile &amp;#123;      //普通模式有这么一个类&amp;#125;
@@ -154,8 +154,8 @@
       
         <p>##泛型<br>泛型的来源，首先我们知道类是存在聚合的，就是这个类有其他类的对象；那么问题来了，我今天用你，明天用别人；怎么办呢？<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Automobile</span> </span>&#123;      <span class="comment">//普通模式有这么一个类</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Holder1</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span>  Automobile a;     <span class="comment">//类间聚合；但是你必须编译的时候就定义啊；</span></div><div class="line">    <span class="function"><span class="keyword">public</span>  <span class="title">Holder1</span><span class="params">(Automobile a)</span>   <span class="comment">//完全不能改变的时候</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">this</span>.a=a;</div><div class="line">    &#125;</div><div class="line">    <span class="function">Automobile <span class="title">get</span><span class="params">()</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">return</span>  a;</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">    <span class="keyword">private</span>  Object b;        <span class="comment">//定义Object可以通过向下转型的方式储存其他对象，但是自然是麻烦的；</span></div><div class="line">    <span class="function"><span class="keyword">public</span>  <span class="title">Holder1</span><span class="params">(Object b)</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">this</span>.b=b;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span>  <span class="keyword">void</span>  <span class="title">setB</span><span class="params">(Object b)</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">this</span>.b = b;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">getB</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> b;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<pre><code>&lt;!--more--&gt;
-</code></pre><p>然后泛型自然就出来；<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Holder2</span>&lt;<span class="title">T</span>&gt; </span>&#123;      <span class="comment">//定义一个Tpye，谁来换成谁，多好；</span></div><div class="line">    <span class="keyword">private</span>  T a;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Holder2</span><span class="params">(T a)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.a = a;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> T <span class="title">getA</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> a;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setA</span><span class="params">(T a)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.a = a;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<p>然后泛型自然就出来；<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Holder2</span>&lt;<span class="title">T</span>&gt; </span>&#123;      <span class="comment">//定义一个Tpye，谁来换成谁，多好；</span></div><div class="line">    <span class="keyword">private</span>  T a;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Holder2</span><span class="params">(T a)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.a = a;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> T <span class="title">getA</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> a;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setA</span><span class="params">(T a)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.a = a;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>##元组类库</p>
 <ol>
 <li>就是通过泛型聚合多个类对象；使得一个对象可以携带多个对象，而且还是可以随便更改的对象；</li>
@@ -245,6 +245,26 @@
 
 
 
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="Java 读书笔记 15泛型" data-title="Java 读书笔记 15泛型" data-url="http://yoursite.com/2017/03/09/Java 读书笔记 15泛型/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"colining.duoshuo.com"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
 
 
 

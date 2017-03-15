@@ -9,8 +9,7 @@
   <meta name="description" content="##内部类
 ##可访问外围类
 
-外围类就是包含内部类的那个类的啦
-12345678910111213141516171819202122public class Sequence &amp;#123;    private  Object[] items= new Object[5];    private  class  SequenceSelector implements  Selector">
+外围类就是包含内部类的那个类的啦12345678910111213141516171819202122public class Sequence &amp;#123;    private  Object[] items= new Object[5];    private  class  SequenceSelector implements  Selector    &amp;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java 读书笔记10 内部类">
 <meta property="og:url" content="http://yoursite.com/2017/02/28/Java 读书笔记 10 内部类/index.html">
@@ -18,16 +17,14 @@
 <meta property="og:description" content="##内部类
 ##可访问外围类
 
-外围类就是包含内部类的那个类的啦
-12345678910111213141516171819202122public class Sequence &amp;#123;    private  Object[] items= new Object[5];    private  class  SequenceSelector implements  Selector">
-<meta property="og:updated_time" content="2017-03-15T11:09:10.081Z">
+外围类就是包含内部类的那个类的啦12345678910111213141516171819202122public class Sequence &amp;#123;    private  Object[] items= new Object[5];    private  class  SequenceSelector implements  Selector    &amp;">
+<meta property="og:updated_time" content="2017-03-15T11:32:06.721Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java 读书笔记10 内部类">
 <meta name="twitter:description" content="##内部类
 ##可访问外围类
 
-外围类就是包含内部类的那个类的啦
-12345678910111213141516171819202122public class Sequence &amp;#123;    private  Object[] items= new Object[5];    private  class  SequenceSelector implements  Selector">
+外围类就是包含内部类的那个类的啦12345678910111213141516171819202122public class Sequence &amp;#123;    private  Object[] items= new Object[5];    private  class  SequenceSelector implements  Selector    &amp;">
   
     <link rel="alternative" href="/atom.xml" title="colin" type="application/atom+xml">
   
@@ -164,11 +161,12 @@
         <p>##内部类</p>
 <p>##可访问外围类</p>
 <ol>
-<li><p>外围类就是包含内部类的那个类的啦</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Sequence</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span>  Object[] items= <span class="keyword">new</span> Object[<span class="number">5</span>];</div><div class="line">    <span class="keyword">private</span>  <span class="class"><span class="keyword">class</span>  <span class="title">SequenceSelector</span> <span class="keyword">implements</span>  <span class="title">Selector</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">private</span>  <span class="keyword">int</span> i ;</div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">end</span><span class="params">()</span> </span>&#123;</div><div class="line">            <span class="keyword">return</span> <span class="number">1</span>==items.length;         <span class="comment">//直接访问了内部类属性；</span></div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span>  Selector <span class="title">selector</span> <span class="params">()</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">return</span>  <span class="keyword">new</span> SequenceSelector();</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span>  <span class="keyword">static</span>  <span class="keyword">void</span>  <span class="title">main</span> <span class="params">(String a[])</span></span></div><div class="line">    &#123;</div><div class="line"></div><div class="line">        Sequence sequence = <span class="keyword">new</span> Sequence();</div><div class="line">       Selector selector =  sequence.selector();</div><div class="line">        System.out.println(selector.end());</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<pre><code>&lt;!--more--&gt;
-</code></pre><p>##this 与new</p>
+<li>外围类就是包含内部类的那个类的啦<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Sequence</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span>  Object[] items= <span class="keyword">new</span> Object[<span class="number">5</span>];</div><div class="line">    <span class="keyword">private</span>  <span class="class"><span class="keyword">class</span>  <span class="title">SequenceSelector</span> <span class="keyword">implements</span>  <span class="title">Selector</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">private</span>  <span class="keyword">int</span> i ;</div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">end</span><span class="params">()</span> </span>&#123;</div><div class="line">            <span class="keyword">return</span> <span class="number">1</span>==items.length;         <span class="comment">//直接访问了内部类属性；</span></div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span>  Selector <span class="title">selector</span> <span class="params">()</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">return</span>  <span class="keyword">new</span> SequenceSelector();</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span>  <span class="keyword">static</span>  <span class="keyword">void</span>  <span class="title">main</span> <span class="params">(String a[])</span></span></div><div class="line">    &#123;</div><div class="line"></div><div class="line">        Sequence sequence = <span class="keyword">new</span> Sequence();</div><div class="line">       Selector selector =  sequence.selector();</div><div class="line">        System.out.println(selector.end());</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
+</ol>
+<a id="more"></a>
+<p>##this 与new</p>
+<ol>
 <li>this是返回类自身的一个对象；</li>
 <li>外部类的.new方法，用于初始化一个内部类对象<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DoThis</span> </span>&#123;</div><div class="line">    inner inner = <span class="keyword">new</span> inner();</div><div class="line">    <span class="keyword">private</span>  <span class="class"><span class="keyword">class</span>  <span class="title">inner</span>          //访问无限制；</span></div><div class="line">    &#123;</div><div class="line">        <span class="function"><span class="keyword">public</span> inner <span class="title">in</span><span class="params">()</span></span></div><div class="line">        &#123;</div><div class="line">            <span class="keyword">return</span>  inner.<span class="keyword">this</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span>  <span class="keyword">static</span>  <span class="keyword">void</span>  <span class="title">main</span><span class="params">(String a[])</span></span></div><div class="line">    &#123;</div><div class="line">        DoThis doThis = <span class="keyword">new</span> DoThis();</div><div class="line">        DoThis.inner inner = doThis.new inner();</div><div class="line">        System.out.println(inner.equals(inner.in()));   <span class="comment">//输出为true</span></div><div class="line">        inner in = <span class="keyword">new</span> inner(); <span class="comment">//报错，（即便内部类为public），解决方案显示，要不将内部类static，变成嵌套类；要不main函数去掉static ，这样就变成外围类的小函数喽；</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
@@ -273,6 +271,26 @@
 
 
 
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="Java 读书笔记 10 内部类" data-title="Java 读书笔记10 内部类" data-url="http://yoursite.com/2017/02/28/Java 读书笔记 10 内部类/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"colining.duoshuo.com"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
 
 
 
