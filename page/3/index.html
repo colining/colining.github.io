@@ -129,6 +129,169 @@
       <div class="body-wrap">
         
   
+    <article id="post-原-标题栏-层级导航" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/24/原-标题栏-层级导航/">标题栏 层级导航</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>##1<br>最初我们的标题栏导航是怎样的呢？</p>
+<p>点击标题栏按钮，触发事件，创建一个Intent ，打开新页面；<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Intent intent = <span class="keyword">new</span> Intent(getActivity(),CrimePagerActivity.class);</div><div class="line">intent.putExtra(CrimeFragment.EXTRA_CRIME_ID,crime.getmId());</div><div class="line">startActivityForResult(intent,<span class="number">0</span>);</div></pre></td></tr></table></figure></p>
+<p>Intent？我们知道用Intent可以随便打开那个页面，那么这种导航就没有明确的父子关系，且必须知道要去哪里；简单地说，小李坐车去女朋友家，司机说：“我知道你女朋友在那里，上车” 实际上去哪里，是司机说的算；<br>
+        <p class="article-more-link">
+          <a  href="/2016/09/24/原-标题栏-层级导航/#more">more >></a>
+        </p>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/09/24/原-标题栏-层级导航/" class="archive-article-date">
+  	<time datetime="2016-09-24T08:44:04.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-09-24</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-原-样式与include" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/24/原-样式与include/">样式与include</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>#1<br>简单来说样式是为了复用;</p>
+<p>style 中创建样式<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">"RemoteButton"</span>&gt;</span><span class="xml"></div><div class="line">       <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:layout_width"</span>&gt;</span>0dp<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:layout_height"</span>&gt;</span>match_parent<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:textColor"</span>&gt;</span>#556699<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:textSize"</span>&gt;</span>20dp<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span> = <span class="string">"android:layout_margin"</span>&gt;</span>3dp<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line"></div><div class="line">   </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>控件使用某种样式；<br>
+        <p class="article-more-link">
+          <a  href="/2016/09/24/原-样式与include/#more">more >></a>
+        </p>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/09/24/原-样式与include/" class="archive-article-date">
+  	<time datetime="2016-09-24T08:15:17.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-09-24</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/随笔/">随笔</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-原-JSON数据保存与加载" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/24/原-JSON数据保存与加载/">JSON数据保存与加载</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>首先我们盘点一下参与者</p>
+<p>Crime 罪犯类，<br>CrimeLab 罪犯列表类<br>CriminalIntentJSONSerializer 罪犯json化 并且保存</p>
+<p>没有视图也没有控制的事 三个模型类玩游戏</p>
+<p>保存和加载自然归CriminalIntentJSONSerializer管理<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CriminalIntentJSONSerializer</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> Context context;</div><div class="line">    <span class="keyword">private</span> String Filename;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">CriminalIntentJSONSerializer</span><span class="params">(Context c, String f)</span></div><div class="line">    </span>&#123;</div><div class="line">        context = c;</div><div class="line">        Filename = f;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">saveCrimes</span><span class="params">(ArrayList&lt;Crime&gt; crimes)</span> <span class="keyword">throws</span> JSONException,IOException</div><div class="line">    </span>&#123;....&#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> ArrayList&lt;Crime&gt; <span class="title">loadCrimes</span><span class="params">()</span> <span class="keyword">throws</span>  IOException,JSONException</div><div class="line">    </span>&#123;....&#125;</div></pre></td></tr></table></figure></p>
+        <p class="article-more-link">
+          <a  href="/2016/09/24/原-JSON数据保存与加载/#more">more >></a>
+        </p>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/09/24/原-JSON数据保存与加载/" class="archive-article-date">
+  	<time datetime="2016-09-24T08:01:15.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-09-24</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-原-mvc与音频播放" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -239,164 +402,6 @@
 
 
   
-    <article id="post-转-单例设计模式" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/12/转-单例设计模式/">[转]单例设计模式</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>版权声明：本文为 stormzhang 原创文章，可以随意转载，但必须在明确位置注明出处！！！</p>
-<p>经常有人问我说Android学习如何进阶？不管你怎么走，设计模式可谓是进阶必备，对设计模式的理解与运用对你之后的代码书写与架构设计有很多的帮助作用，那么从今天开始我就抽时间来给大家分享下设计模式系列。</p>
-<p>什么是设计模式？其实简单的理解就是前人留下来的一些经验总结而已，然后把这些经验起了个名字叫Design Pattern，翻译过来就是设计模式的意思，通过使用设计模式可以让我们的代码复用性更高，可维护性更高，让你的代码写的更优雅。设计模式理论上有23种，但是我只会针对Android平台上常用的一些设计模式做分享，今天就先来分享下最常用的单例模式。</p>
-<p>饿汉式<br>
-        <p class="article-more-link">
-          <a  href="/2016/09/12/转-单例设计模式/#more">more >></a>
-        </p>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/09/12/转-单例设计模式/" class="archive-article-date">
-  	<time datetime="2016-09-12T05:56:36.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-09-12</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-转-关于fragment" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/12/转-关于fragment/">[转]关于fragment</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>版权声明：本文为博主原创文章，未经博主允许不得转载。</p>
-<div></div><div><br><br><span>目录<a href="#" title="系统根据文章中H1到H6标签自动生成文章目录">(?)</a></span><a href="#" title="展开">[+]</a><br><br>1.  <a href="#t0">Fragment的产生与介绍</a><br>2.  <a href="#t1">Fragment的生命周期</a><br>3.  <a href="#t2">静态的使用Fragment</a><br>4.  <a href="#t3">动态的使用Fragment</a><br>5.  <a href="#t4">Fragment家族常用的API</a><br>6.  <a href="#t5"></a></div><div></div><div id="article_content" class="article_content"><br><br>转载请标明出处：<a href="http://blog.csdn.net/lmj623565791/article/details/37970961">http://blog.csdn.net/lmj623565791/article/details/37970961</a><br>
-        <p class="article-more-link">
-          <a  href="/2016/09/12/转-关于fragment/#more">more >></a>
-        </p>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/09/12/转-关于fragment/" class="archive-article-date">
-  	<time datetime="2016-09-12T04:21:06.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-09-12</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/fragment/">fragment</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-原-麻烦的素数" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/12/原-麻烦的素数/">麻烦的素数</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>素数真的是很神奇 求素数更麻烦<br>最傻的方法<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span>  <span class="title">Prime</span><span class="params">(<span class="keyword">int</span> n)</span>				<span class="comment">//n=25 程序运行时间： 296415ns</span></span></div><div class="line">	&#123;</div><div class="line">		<span class="keyword">boolean</span>  flag;</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i =<span class="number">2</span> ;i&lt;=n;i++)</div><div class="line">		&#123;	flag=<span class="keyword">true</span>;</div><div class="line">		</div><div class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">2</span>;j&lt;i;j++)</div><div class="line">			&#123;</div><div class="line">				<span class="keyword">if</span>(i%j==<span class="number">0</span>)</div><div class="line">				&#123;		</div><div class="line">					flag=<span class="keyword">false</span>;</div><div class="line">						<span class="keyword">break</span>;</div><div class="line">				&#125;</div><div class="line">			&#125;	</div><div class="line">			<span class="keyword">if</span>(flag)</div><div class="line">			&#123;</div><div class="line">			System.out.print(i+<span class="string">" "</span>);</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/09/12/原-麻烦的素数/" class="archive-article-date">
-  	<time datetime="2016-09-12T04:09:47.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-09-12</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Beauty-of-Programming/">Beauty of Programming</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
@@ -461,7 +466,7 @@
     
     	<section class="tools-section tools-section-tag">
     			<div class="widget tagcloud" id="js-tagcloud">
-    				<a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/Beauty-of-Programming/" style="font-size: 16.67px;">Beauty of Programming</a> <a href="/tags/fragment/" style="font-size: 16.67px;">fragment</a> <a href="/tags/mvc/" style="font-size: 13.33px;">mvc</a> <a href="/tags/线程/" style="font-size: 13.33px;">线程</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/随笔/" style="font-size: 13.33px;">随笔</a>
+    				<a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/Beauty-of-Programming/" style="font-size: 17.5px;">Beauty of Programming</a> <a href="/tags/fragment/" style="font-size: 15px;">fragment</a> <a href="/tags/mvc/" style="font-size: 12.5px;">mvc</a> <a href="/tags/线程/" style="font-size: 12.5px;">线程</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/随笔/" style="font-size: 12.5px;">随笔</a>
     			</div>
     	</section>
     

@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>回溯法-素数环问题 | colin</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="##1：问题描述
+一个环由一圈整数组成，要求是相邻的两个整数之和为素数；
+##2：问题思考
+对于回溯法来说，我们深度优先，也就是说的想法就是先找到一个能够全部填完的环；1：如果填入一个数是成立的，我们就继续填写下一个位置，如果这个数不成立，我们就换下一个数填写，相当于我们剪掉了这个数的树枝，去寻找下一个；
+2：填写最后一个数时，应该考虑其应该和第一个数之和是素数；
+##3：acm要求：http:/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="回溯法-素数环问题">
+<meta property="og:url" content="http://yoursite.com/2016/12/28/回溯法-素数环问题/index.html">
+<meta property="og:site_name" content="colin">
+<meta property="og:description" content="##1：问题描述
+一个环由一圈整数组成，要求是相邻的两个整数之和为素数；
+##2：问题思考
+对于回溯法来说，我们深度优先，也就是说的想法就是先找到一个能够全部填完的环；1：如果填入一个数是成立的，我们就继续填写下一个位置，如果这个数不成立，我们就换下一个数填写，相当于我们剪掉了这个数的树枝，去寻找下一个；
+2：填写最后一个数时，应该考虑其应该和第一个数之和是素数；
+##3：acm要求：http:/">
+<meta property="og:updated_time" content="2017-03-15T10:15:22.584Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="回溯法-素数环问题">
+<meta name="twitter:description" content="##1：问题描述
+一个环由一圈整数组成，要求是相邻的两个整数之和为素数；
+##2：问题思考
+对于回溯法来说，我们深度优先，也就是说的想法就是先找到一个能够全部填完的环；1：如果填入一个数是成立的，我们就继续填写下一个位置，如果这个数不成立，我们就换下一个数填写，相当于我们剪掉了这个数的树枝，去寻找下一个；
+2：填写最后一个数时，应该考虑其应该和第一个数之和是素数；
+##3：acm要求：http:/">
+  
+    <link rel="alternative" href="/atom.xml" title="colin" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="//favicon.png">
+  
+  <script src="/style.js"></script>
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="/0.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">墨</a></h1>
+		</hgroup>
+
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/tags/随笔">随笔</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">所有文章</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="2" href="javascript:void(0)">友链</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="3" href="javascript:void(0)">关于我</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="https://github.com/colining" title="github">github</a>
+		        
+					<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/ren-tian-qi" title="zhihu">zhihu</a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<h1 class="header-author js-mobile-header hide">墨</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img src="/0.jpg" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">墨</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/tags/随笔">随笔</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/colining" title="github">github</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/ren-tian-qi" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap">
+        <article id="post-回溯法-素数环问题" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      回溯法-素数环问题
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>##1：问题描述</p>
+<p>一个环由一圈整数组成，要求是相邻的两个整数之和为素数；</p>
+<p>##2：问题思考</p>
+<p>对于回溯法来说，我们深度优先，也就是说的想法就是先找到一个能够全部填完的环；<br>1：如果填入一个数是成立的，我们就继续填写下一个位置，如果这个数不成立，我们就换下一个数填写，相当于我们剪掉了这个数的树枝，去寻找下一个；</p>
+<p>2：填写最后一个数时，应该考虑其应该和第一个数之和是素数；</p>
+<p>##3：acm要求：<br><a href="http://acm.cugb.edu.cn/problem_show.php?pid=1789" target="_blank" rel="external">http://acm.cugb.edu.cn/problem_show.php?pid=1789</a></p>
+<p>##4：代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">import</span> java.util.ArrayList;</div><div class="line"><span class="keyword">import</span> java.util.Scanner;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * Created by asus on 2016/12/23.</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PrimeCircle</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> n ;</div><div class="line"><span class="comment">//    boolean flag = true;</span></div><div class="line">    <span class="function"><span class="keyword">public</span>  <span class="keyword">static</span>  <span class="keyword">void</span>  <span class="title">main</span><span class="params">(String arg[])</span></span></div><div class="line">    &#123;</div><div class="line">        PrimeCircle primeCircle = <span class="keyword">new</span> PrimeCircle();</div><div class="line">        Scanner cin = <span class="keyword">new</span> Scanner(System.in);</div><div class="line">        ArrayList list = <span class="keyword">new</span> ArrayList();</div><div class="line">        <span class="keyword">int</span> i = <span class="number">0</span>;</div><div class="line">        <span class="keyword">while</span>(cin.hasNextInt()) &#123;</div><div class="line">            list.add( cin.nextInt());</div><div class="line">            i++;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">for</span> (i=<span class="number">0</span>;i&lt;list.size();i++)</div><div class="line">        &#123;</div><div class="line">            System.out.println(<span class="string">"Case "</span>+(i+<span class="number">1</span>)+<span class="string">":"</span>);</div><div class="line">            primeCircle.PrimeCircle((<span class="keyword">int</span>)list.get(i));</div><div class="line">            <span class="keyword">if</span>(i!=list.size()-<span class="number">1</span>)System.out.println();</div><div class="line">        &#125;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">void</span>  <span class="title">PrimeCircle</span><span class="params">(<span class="keyword">int</span> n)</span>    <span class="comment">//输入为n，素数环从1到n；</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">if</span> (n==<span class="number">1</span>) &#123;                 <span class="comment">//防止输入为一，其实没有意义啦；</span></div><div class="line">            System.out.println(<span class="number">1</span>);</div><div class="line">            <span class="keyword">return</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">int</span> i ,k ;</div><div class="line">        <span class="keyword">this</span>.n = n;</div><div class="line">        <span class="keyword">int</span> a[] = <span class="keyword">new</span> <span class="keyword">int</span>[n];</div><div class="line">        <span class="keyword">for</span> ( i =<span class="number">0</span>; i &lt;n ;i++)      <span class="comment">//初始化数组a，用来储存素数环答案</span></div><div class="line">        &#123;</div><div class="line">            a[i]=<span class="number">0</span>;</div><div class="line">        &#125;</div><div class="line">        a[<span class="number">0</span>]= <span class="number">1</span> ; k =<span class="number">1</span>;             <span class="comment">//指定第一个位置为1；凡事总有开头的嘛</span></div><div class="line">            <span class="keyword">while</span> (k&gt;=<span class="number">1</span>)</div><div class="line">            &#123;</div><div class="line">                a[k] = a[k] +<span class="number">1</span>;</div><div class="line">                <span class="keyword">while</span> (a[k]&lt;=n) &#123;</div><div class="line">                    <span class="keyword">if</span> (Check(k, a) == <span class="number">1</span>)  <span class="comment">//如果满足要求，就跳出</span></div><div class="line">                        <span class="keyword">break</span>;</div><div class="line">                    <span class="keyword">else</span></div><div class="line">                        a[k] = a[k] + <span class="number">1</span>;       <span class="comment">//不满足，就试验下一个数</span></div><div class="line">                &#125;</div><div class="line"></div><div class="line">                <span class="keyword">if</span> (a[k]&lt;= n &amp;&amp;k==n-<span class="number">1</span>)          <span class="comment">//如果最后一个也成立，就输出啦</span></div><div class="line">                &#123;</div><div class="line">                    <span class="keyword">for</span> (i=<span class="number">0</span>;i&lt;n-<span class="number">1</span> ;i++)</div><div class="line">                    System.out.print(a[i]+<span class="string">" "</span>);</div><div class="line">                    System.out.print(a[n-<span class="number">1</span>]);           <span class="comment">//这样写会在最后输出换行，而不是空格</span></div><div class="line">                    System.out.println();</div><div class="line">                &#125;</div><div class="line">                <span class="keyword">if</span> (a[k]&lt;=n &amp;&amp; k &lt;n - <span class="number">1</span>)                <span class="comment">//如果没有完成，就继续下一个位置</span></div><div class="line">                    k+=<span class="number">1</span>;</div><div class="line">                <span class="keyword">else</span></div><div class="line">                    a[k--]=<span class="number">0</span>;                           <span class="comment">//说明这个树枝无法填写了，所以回到父节点；</span></div><div class="line">            &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">int</span> <span class="title">Prime</span><span class="params">( <span class="keyword">int</span> x)</span>       <span class="comment">//判断素数，素数返回1，合数返回0；</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">int</span> i , n ;</div><div class="line">        n = (<span class="keyword">int</span>) Math.sqrt(x);</div><div class="line">        <span class="keyword">for</span> (  i = <span class="number">2</span> ; i &lt;=n ; i++)</div><div class="line">        &#123;</div><div class="line">            <span class="keyword">if</span> (x%i==<span class="number">0</span>)</div><div class="line">                <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line"></div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">int</span> <span class="title">Check</span> <span class="params">(<span class="keyword">int</span> k,<span class="keyword">int</span> a[])</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">int</span> flag = <span class="number">0</span> ;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i =<span class="number">0</span>;i&lt;k;i++)          <span class="comment">//检查是否重复</span></div><div class="line">            <span class="keyword">if</span> (a[i] == a[k])</div><div class="line">                <span class="keyword">return</span>  <span class="number">0</span>;</div><div class="line"></div><div class="line">        flag = Prime(a[k]+a[k-<span class="number">1</span>]);  <span class="comment">//检验与相邻之和是否是素数</span></div><div class="line">        <span class="keyword">if</span> (flag ==<span class="number">1</span>&amp;&amp;k ==n-<span class="number">1</span>)          <span class="comment">//如果是最后一个，需要检查与开始值得和</span></div><div class="line">            flag = Prime(a[k]+a[<span class="number">0</span>]);</div><div class="line">        <span class="keyword">return</span> flag;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/12/28/回溯法-素数环问题/" class="archive-article-date">
+  	<time datetime="2016-12-28T10:39:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-28</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Beauty-of-Programming/">Beauty of Programming</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2017/01/04/辗转相除法/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          辗转相除法
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/11/23/归并排序 --分治初探/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">归并排序 --分治初探</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="//v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+
+
+
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 墨
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: false,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: "/"
+	}
+</script>
+
+<script src="/./main.js"></script>
+
+
+    
+<div class="tools-col">
+  <ul class="btn-wrap">
+    
+      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
+    
+    
+      <li data-hook="tools-section-tag"><span class="text">标签</span><i class="icon-price-tags"></i></li>
+    
+    
+      <li data-hook="tools-section-friends"><span class="text">友链</span><i class="icon-link"></i></li>
+    
+    
+      <li data-hook="tools-section-me"><span class="text">我</span><i class="icon-smile"></i></li>
+    
+  </ul>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all chose">
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-tag">
+    			<div class="widget tagcloud" id="js-tagcloud">
+    				<a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/Beauty-of-Programming/" style="font-size: 17.5px;">Beauty of Programming</a> <a href="/tags/fragment/" style="font-size: 15px;">fragment</a> <a href="/tags/mvc/" style="font-size: 12.5px;">mvc</a> <a href="/tags/线程/" style="font-size: 12.5px;">线程</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/随笔/" style="font-size: 12.5px;">随笔</a>
+    			</div>
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-friends">
+  		
+  			<div class="friends-wrap" id="js-friends">
+  			
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="https://www.google.com.hk/">谷歌</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="https://stackoverflow.com/">stackoverflow</a>
+  	        
+  	        </div>
+  		
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-me">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">继续跑&lt;br&gt;&lt;br&gt;带着赤子的骄傲</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div>
+</body>
+</html>
