@@ -18,7 +18,7 @@ NotificationManager 是一个系统Service，所以必须通">
 状态通知栏主要涉及到2个类：  Notification 和 NotificationManager
 Notification为通知信息类，它里面对应了通知栏的各个属性；NotificationManager ：  是状态栏通知的管理类，负责发通知、清除通知等操作。
 NotificationManager 是一个系统Service，所以必须通">
-<meta property="og:updated_time" content="2017-03-02T05:56:18.166Z">
+<meta property="og:updated_time" content="2017-03-17T10:30:04.226Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="android 5 通知栏">
 <meta name="twitter:description" content="书上有关于通知栏的说法 已经过时了 是时候来点新东西啦
@@ -162,11 +162,11 @@ NotificationManager 是一个系统Service，所以必须通">
 <p>状态通知栏主要涉及到2个类：  <strong>Notification</strong> 和 <strong>NotificationManager</strong></p>
 <p>Notification为通知信息类，它里面对应了通知栏的各个属性；NotificationManager ：  是状态栏通知的管理类，负责发通知、清除通知等操作。</p>
 <p>NotificationManager 是一个系统Service，所以必须通过 getSystemService(NOTIFICATION_SERVICE)方法来获取：<br><a id="more"></a></p>
-<p>#新建一个通知管理 NotificationManger<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">NotificationManager mNotificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);<span class="comment">//从系统获取</span></div></pre></td></tr></table></figure></p>
+<h1 id="新建一个通知管理-NotificationManger"><a href="#新建一个通知管理-NotificationManger" class="headerlink" title="新建一个通知管理 NotificationManger"></a>新建一个通知管理 NotificationManger</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">NotificationManager mNotificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);<span class="comment">//从系统获取</span></div></pre></td></tr></table></figure>
 <p>当你要发表通知时，要使用notify(int, Notification)把Notification传递给NotificationManager。方法的第一个参数是通知的唯一的ID，第二个参数就是Notification对象。ID唯一地标识了通知是来自你的应用程序。如果你需要更新通知或者（如果你的应用管理不同种类的通知）当用户通过通知中定义的intent返回到你的应用时，选择合适的action，那么ID就是必需的。</p>
 <pre><code>private static final int HELLO_ID = 1;
 mNotificationManagerr.notify(HELLO_ID, mBuilder.build());
-</code></pre><p>###接下来是通知栏具体的东西<br>Notification<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">NotificationCompat.Builder mBuilder=  <span class="keyword">new</span> NotificationCompat.Builder(context);</div><div class="line">Intent notificationIntent = <span class="keyword">new</span> Intent(Intent.ACTION_VIEW,Uri.parse(<span class="string">"http://www.baidu.com"</span>));</div><div class="line">PendingIntent contentIntent = PendingIntent.getActivity(context, <span class="number">0</span>, notificationIntent, <span class="number">0</span>);</div><div class="line">mBuilder.setContentTitle(<span class="string">"My notification"</span>)<span class="comment">//设置通知栏标题  </span></div><div class="line">	    .setContentText(<span class="string">"Hello World!"</span>) <span class="comment">//设置通知栏显示内容</span></div><div class="line">	    .setContentIntent(contentIntent) <span class="comment">//设置通知栏点击意图  </span></div><div class="line">	    .setTicker(<span class="string">"hello ,you have a notification"</span>) <span class="comment">//通知首次出现在通知栏，带上升动画效果的  </span></div><div class="line">	    .setWhen(System.currentTimeMillis())<span class="comment">//通知产生的时间，会在通知信息里显示，一般是系统获取到的时间   </span></div><div class="line">	    .setSmallIcon(R.drawable.notifi);<span class="comment">//设置通知小ICON</span></div></pre></td></tr></table></figure></p>
+</code></pre><h2 id="接下来是通知栏具体的东西"><a href="#接下来是通知栏具体的东西" class="headerlink" title="# 接下来是通知栏具体的东西"></a># 接下来是通知栏具体的东西</h2><p>Notification<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">NotificationCompat.Builder mBuilder=  <span class="keyword">new</span> NotificationCompat.Builder(context);</div><div class="line">Intent notificationIntent = <span class="keyword">new</span> Intent(Intent.ACTION_VIEW,Uri.parse(<span class="string">"http://www.baidu.com"</span>));</div><div class="line">PendingIntent contentIntent = PendingIntent.getActivity(context, <span class="number">0</span>, notificationIntent, <span class="number">0</span>);</div><div class="line">mBuilder.setContentTitle(<span class="string">"My notification"</span>)<span class="comment">//设置通知栏标题  </span></div><div class="line">	    .setContentText(<span class="string">"Hello World!"</span>) <span class="comment">//设置通知栏显示内容</span></div><div class="line">	    .setContentIntent(contentIntent) <span class="comment">//设置通知栏点击意图  </span></div><div class="line">	    .setTicker(<span class="string">"hello ,you have a notification"</span>) <span class="comment">//通知首次出现在通知栏，带上升动画效果的  </span></div><div class="line">	    .setWhen(System.currentTimeMillis())<span class="comment">//通知产生的时间，会在通知信息里显示，一般是系统获取到的时间   </span></div><div class="line">	    .setSmallIcon(R.drawable.notifi);<span class="comment">//设置通知小ICON</span></div></pre></td></tr></table></figure></p>
 <p>intent 和 pendingintent 的作用在于 我们点击通知栏会发生什么 意图去哪里<br>mBuilder 是用来构建通知栏的样子的；</p>
 
       
@@ -328,6 +328,10 @@ mNotificationManagerr.notify(HELLO_ID, mBuilder.build());
   	          <a target="_blank" class="main-nav-link switch-friends-link" href="https://www.google.com.hk/">谷歌</a>
   	        
   	          <a target="_blank" class="main-nav-link switch-friends-link" href="https://stackoverflow.com/">stackoverflow</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://beyondtech.org/">泡饭</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="https://menyifan.com/">MYF</a>
   	        
   	        </div>
   		

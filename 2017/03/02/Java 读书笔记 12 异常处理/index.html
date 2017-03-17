@@ -6,18 +6,18 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <title>Java 读书笔记12 异常处理 | colin</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="#异常处理这章偏向实际，笔记没法记；真正多用就会了
+  <meta name="description" content="异常处理这章偏向实际，笔记没法记；真正多用就会了
 try-catch-finally 规则(异常处理语句的语法规则）：1)  必须在 try 之后添加 catch 或 finally 块。try 块后可同时接 catch 和 finally 块，但至少有一个块。2) 必须遵循块顺序：若代码同时使用 catch 和 finally 块，则必须将 catch 块放在 try 块之后。3) catch">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java 读书笔记12 异常处理">
 <meta property="og:url" content="http://yoursite.com/2017/03/02/Java 读书笔记 12 异常处理/index.html">
 <meta property="og:site_name" content="colin">
-<meta property="og:description" content="#异常处理这章偏向实际，笔记没法记；真正多用就会了
+<meta property="og:description" content="异常处理这章偏向实际，笔记没法记；真正多用就会了
 try-catch-finally 规则(异常处理语句的语法规则）：1)  必须在 try 之后添加 catch 或 finally 块。try 块后可同时接 catch 和 finally 块，但至少有一个块。2) 必须遵循块顺序：若代码同时使用 catch 和 finally 块，则必须将 catch 块放在 try 块之后。3) catch">
-<meta property="og:updated_time" content="2017-03-15T11:32:06.728Z">
+<meta property="og:updated_time" content="2017-03-17T10:30:04.179Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java 读书笔记12 异常处理">
-<meta name="twitter:description" content="#异常处理这章偏向实际，笔记没法记；真正多用就会了
+<meta name="twitter:description" content="异常处理这章偏向实际，笔记没法记；真正多用就会了
 try-catch-finally 规则(异常处理语句的语法规则）：1)  必须在 try 之后添加 catch 或 finally 块。try 块后可同时接 catch 和 finally 块，但至少有一个块。2) 必须遵循块顺序：若代码同时使用 catch 和 finally 块，则必须将 catch 块放在 try 块之后。3) catch">
   
     <link rel="alternative" href="/atom.xml" title="colin" type="application/atom+xml">
@@ -152,9 +152,9 @@ try-catch-finally 规则(异常处理语句的语法规则）：1)  必须在 tr
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>#异常处理<br>这章偏向实际，笔记没法记；真正多用就会了</p>
+        <h1 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a>异常处理</h1><p>这章偏向实际，笔记没法记；真正多用就会了</p>
 <h2 id="try-catch-finally-规则-异常处理语句的语法规则）："><a href="#try-catch-finally-规则-异常处理语句的语法规则）：" class="headerlink" title="try-catch-finally 规则(异常处理语句的语法规则）："></a>try-catch-finally 规则(异常处理语句的语法规则）：</h2><p>1)  必须在 try 之后添加 catch 或 finally 块。try 块后可同时接 catch 和 finally 块，但至少有一个块。<br>2) 必须遵循块顺序：若代码同时使用 catch 和 finally 块，则必须将 catch 块放在 try 块之后。<br>3) catch 块与相应的异常类的类型相关。<br>4) 一个 try 块可能有多个 catch 块。若如此，则执行第一个匹配块。即Java虚拟机会把实际抛出的异常对象依次和各个catch代码块声明的异常类型匹配，如果异常对象为某个异常类型或其子类的实例，就执行这个catch代码块，不会再执行其他的 catch代码块<br>5) 可嵌套 try-catch-finally 结构。<br>6) 在 try-catch-finally 结构中，可重新抛出异常。<br>7) 除了下列情况，总将执行 finally 做为结束：JVM 过早终止（调用 System.exit(int)）；在 finally 块中抛出一个未处理的异常；计算机断电、失火、或遭遇病毒攻击。<br><a id="more"></a></p>
-<p>##throw<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.lang.Exception;  </div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestException</span> </span>&#123;  </div><div class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">pop</span><span class="params">()</span> <span class="keyword">throws</span> NegativeArraySizeException </span>&#123;  </div><div class="line">        <span class="comment">// 定义方法并抛出NegativeArraySizeException异常  </span></div><div class="line">        <span class="keyword">int</span>[] arr = <span class="keyword">new</span> <span class="keyword">int</span>[-<span class="number">3</span>]; <span class="comment">// 创建数组  </span></div><div class="line">    &#125;  </div><div class="line">  </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123; <span class="comment">// 主方法  </span></div><div class="line">        <span class="keyword">try</span> &#123; <span class="comment">// try语句处理异常信息  </span></div><div class="line">            pop(); <span class="comment">// 调用pop()方法  </span></div><div class="line">        &#125; <span class="keyword">catch</span> (NegativeArraySizeException e) &#123;  </div><div class="line">            System.out.println(<span class="string">"pop()方法抛出的异常"</span>);<span class="comment">// 输出异常信息  </span></div><div class="line">        &#125;  </div><div class="line">    &#125;  </div><div class="line">  </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="throw"><a href="#throw" class="headerlink" title="throw"></a>throw</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.lang.Exception;  </div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestException</span> </span>&#123;  </div><div class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">pop</span><span class="params">()</span> <span class="keyword">throws</span> NegativeArraySizeException </span>&#123;  </div><div class="line">        <span class="comment">// 定义方法并抛出NegativeArraySizeException异常  </span></div><div class="line">        <span class="keyword">int</span>[] arr = <span class="keyword">new</span> <span class="keyword">int</span>[-<span class="number">3</span>]; <span class="comment">// 创建数组  </span></div><div class="line">    &#125;  </div><div class="line">  </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123; <span class="comment">// 主方法  </span></div><div class="line">        <span class="keyword">try</span> &#123; <span class="comment">// try语句处理异常信息  </span></div><div class="line">            pop(); <span class="comment">// 调用pop()方法  </span></div><div class="line">        &#125; <span class="keyword">catch</span> (NegativeArraySizeException e) &#123;  </div><div class="line">            System.out.println(<span class="string">"pop()方法抛出的异常"</span>);<span class="comment">// 输出异常信息  </span></div><div class="line">        &#125;  </div><div class="line">    &#125;  </div><div class="line">  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <pre><code>使用throws关键字将异常抛给调用者后，如果调用者不想处理该异常，可以继续向上抛出，但最终要有能够处理该异常的调用者。
 </code></pre>
       
@@ -316,6 +316,10 @@ try-catch-finally 规则(异常处理语句的语法规则）：1)  必须在 tr
   	          <a target="_blank" class="main-nav-link switch-friends-link" href="https://www.google.com.hk/">谷歌</a>
   	        
   	          <a target="_blank" class="main-nav-link switch-friends-link" href="https://stackoverflow.com/">stackoverflow</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://beyondtech.org/">泡饭</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="https://menyifan.com/">MYF</a>
   	        
   	        </div>
   		

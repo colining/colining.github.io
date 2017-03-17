@@ -6,25 +6,22 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <title>android 5 通知栏 | colin</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="##1 intent intent extra  activity
-简单的说是，activity1 要启动activity2 ，并且传输一个值；
+  <meta name="description" content="1 intent intent extra  activity简单的说是，activity1 要启动activity2 ，并且传输一个值；
 常用方法肯定是：123Intent intent( activity1.this,activity2.class)intent.putExtra(...);startActivity(intent)
-将其改为 activity212345public s">
+将其改为 activity212345public stat">
 <meta property="og:type" content="article">
 <meta property="og:title" content="android 5 通知栏">
 <meta property="og:url" content="http://yoursite.com/2016/10/15/Android intent 和activity/index.html">
 <meta property="og:site_name" content="colin">
-<meta property="og:description" content="##1 intent intent extra  activity
-简单的说是，activity1 要启动activity2 ，并且传输一个值；
+<meta property="og:description" content="1 intent intent extra  activity简单的说是，activity1 要启动activity2 ，并且传输一个值；
 常用方法肯定是：123Intent intent( activity1.this,activity2.class)intent.putExtra(...);startActivity(intent)
-将其改为 activity212345public s">
-<meta property="og:updated_time" content="2017-03-02T05:55:23.700Z">
+将其改为 activity212345public stat">
+<meta property="og:updated_time" content="2017-03-17T10:30:04.157Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="android 5 通知栏">
-<meta name="twitter:description" content="##1 intent intent extra  activity
-简单的说是，activity1 要启动activity2 ，并且传输一个值；
+<meta name="twitter:description" content="1 intent intent extra  activity简单的说是，activity1 要启动activity2 ，并且传输一个值；
 常用方法肯定是：123Intent intent( activity1.this,activity2.class)intent.putExtra(...);startActivity(intent)
-将其改为 activity212345public s">
+将其改为 activity212345public stat">
   
     <link rel="alternative" href="/atom.xml" title="colin" type="application/atom+xml">
   
@@ -158,15 +155,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>##1 intent intent extra  activity</p>
-<p>简单的说是，activity1 要启动activity2 ，并且传输一个值；</p>
+        <h2 id="1-intent-intent-extra-activity"><a href="#1-intent-intent-extra-activity" class="headerlink" title="1 intent intent extra  activity"></a>1 intent intent extra  activity</h2><p>简单的说是，activity1 要启动activity2 ，并且传输一个值；</p>
 <p>常用方法肯定是：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function">Intent <span class="title">intent</span><span class="params">( activity1.<span class="keyword">this</span>,activity2.class)</span></span></div><div class="line">intent.<span class="title">putExtra</span><span class="params">(...)</span>;</div><div class="line">startActivity(intent)</div></pre></td></tr></table></figure></p>
 <p>将其改为 activity2<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Intent <span class="title">newIntent</span><span class="params">(Context packageContext,<span class="keyword">boolean</span> answerIsTrue)</span></span>&#123;</div><div class="line"><span class="function">Intent <span class="title">intent</span><span class="params">( packageContext,activity2.class)</span></span></div><div class="line">intent.<span class="title">putExtra</span><span class="params">(Extra,answerIsTrue)</span>;</div><div class="line"><span class="keyword">return</span> intetn</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <a id="more"></a>
 <p>activity1<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Intent i=activity.newIntent(activity.<span class="keyword">this</span>,answer); <span class="comment">//此处传入的answer不是重点；</span></div></pre></td></tr></table></figure></p>
 <p>在acitivty2 中声明Intent方法，相当于对全世界开放了港口，谁都可以过来，过来的时候还可以捎点东西，<br>不过更多的东西都得有“打包”和“拆包”的过程（键值对）；</p>
-<p>##2 返回结果值</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">startActivityForResult(i,REQUEST_CODE_CHEAT))<span class="comment">//启动时</span></div></pre></td></tr></table></figure>
+<h2 id="2-返回结果值"><a href="#2-返回结果值" class="headerlink" title="2 返回结果值"></a>2 返回结果值</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">startActivityForResult(i,REQUEST_CODE_CHEAT))<span class="comment">//启动时</span></div></pre></td></tr></table></figure>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">setResult(RESULT)_OK,date); <span class="comment">//返回结果</span></div></pre></td></tr></table></figure>
 <p>只要是以startActivityForResult()方法启动，父activity总会收到结果代码，如果我们调用了setResult()就使用我们的结果，否则系统返回的结果代码为RESULT_CANCLED;</p>
 
@@ -329,6 +324,10 @@
   	          <a target="_blank" class="main-nav-link switch-friends-link" href="https://www.google.com.hk/">谷歌</a>
   	        
   	          <a target="_blank" class="main-nav-link switch-friends-link" href="https://stackoverflow.com/">stackoverflow</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://beyondtech.org/">泡饭</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="https://menyifan.com/">MYF</a>
   	        
   	        </div>
   		

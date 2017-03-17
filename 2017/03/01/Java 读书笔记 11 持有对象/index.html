@@ -6,37 +6,31 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <title>Java 读书笔记 11 持有对象 | colin</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="#持有对象
-##泛型1.简单来说 ArrayAlist可以限制只储存Apple类及其子类，限制其他类对象
+  <meta name="description" content="持有对象泛型1.简单来说 ArrayAlist可以限制只储存Apple类及其子类，限制其他类对象
 
 这部分偏向于介绍具体的操作，就简单写了；这种东西不写写，不可能记得住；
-##list
-
+list
 ArayList，基本和数组一个模式，随机访问简单，插入删除比较麻烦
 LinkedList，链表嘛，肯定是插入删除简单，随机访问麻烦；">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java 读书笔记 11 持有对象">
 <meta property="og:url" content="http://yoursite.com/2017/03/01/Java 读书笔记 11 持有对象/index.html">
 <meta property="og:site_name" content="colin">
-<meta property="og:description" content="#持有对象
-##泛型1.简单来说 ArrayAlist可以限制只储存Apple类及其子类，限制其他类对象
+<meta property="og:description" content="持有对象泛型1.简单来说 ArrayAlist可以限制只储存Apple类及其子类，限制其他类对象
 
 这部分偏向于介绍具体的操作，就简单写了；这种东西不写写，不可能记得住；
-##list
-
+list
 ArayList，基本和数组一个模式，随机访问简单，插入删除比较麻烦
 LinkedList，链表嘛，肯定是插入删除简单，随机访问麻烦；">
 <meta property="og:image" content="https://segmentfault.com/img/bVC4g8?w=786&h=362">
 <meta property="og:image" content="https://segmentfault.com/img/bVC4ht?w=588&h=324">
-<meta property="og:updated_time" content="2017-03-15T11:32:06.725Z">
+<meta property="og:updated_time" content="2017-03-17T10:30:04.179Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java 读书笔记 11 持有对象">
-<meta name="twitter:description" content="#持有对象
-##泛型1.简单来说 ArrayAlist可以限制只储存Apple类及其子类，限制其他类对象
+<meta name="twitter:description" content="持有对象泛型1.简单来说 ArrayAlist可以限制只储存Apple类及其子类，限制其他类对象
 
 这部分偏向于介绍具体的操作，就简单写了；这种东西不写写，不可能记得住；
-##list
-
+list
 ArayList，基本和数组一个模式，随机访问简单，插入删除比较麻烦
 LinkedList，链表嘛，肯定是插入删除简单，随机访问麻烦；">
 <meta name="twitter:image" content="https://segmentfault.com/img/bVC4g8?w=786&h=362">
@@ -173,25 +167,22 @@ LinkedList，链表嘛，肯定是插入删除简单，随机访问麻烦；">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>#持有对象</p>
-<p>##泛型<br>1.简单来说 ArrayAlist<apple>可以限制只储存Apple类及其子类，限制其他类对象<br><img src="https://segmentfault.com/img/bVC4g8?w=786&amp;h=362" alt="容器整体结构"></apple></p>
+        <h1 id="持有对象"><a href="#持有对象" class="headerlink" title="持有对象"></a>持有对象</h1><h2 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a>泛型</h2><p>1.简单来说 ArrayAlist<apple>可以限制只储存Apple类及其子类，限制其他类对象<br><img src="https://segmentfault.com/img/bVC4g8?w=786&amp;h=362" alt="容器整体结构"></apple></p>
 <p><img src="https://segmentfault.com/img/bVC4ht?w=588&amp;h=324" alt="这里写图片描述"></p>
 <p>这部分偏向于介绍具体的操作，就简单写了；这种东西不写写，不可能记得住；</p>
-<p>##list</p>
-<ol>
+<h2 id="list"><a href="#list" class="headerlink" title="list"></a>list</h2><ol>
 <li>ArayList，基本和数组一个模式，随机访问简单，插入删除比较麻烦</li>
 <li>LinkedList，链表嘛，肯定是插入删除简单，随机访问麻烦；<a id="more"></a>
-##Iterator<br>1.可以简单的理解为，通过Iterator，我们可以将容器内的对象简单的取出来，进行一些操作<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">list l = <span class="keyword">new</span> ArrayList();</div><div class="line">l.add(<span class="string">"aa"</span>);</div><div class="line">l.add(<span class="string">"bb"</span>);</div><div class="line">l.add(<span class="string">"cc"</span>);</div><div class="line"><span class="keyword">for</span> (Iterator iter = l.iterator(); iter.hasNext();) &#123;</div><div class="line"> String str = (String)iter.next();</div><div class="line"> System.out.println(str);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="Iterator"><a href="#Iterator" class="headerlink" title="Iterator"></a>Iterator</h2>1.可以简单的理解为，通过Iterator，我们可以将容器内的对象简单的取出来，进行一些操作<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">list l = <span class="keyword">new</span> ArrayList();</div><div class="line">l.add(<span class="string">"aa"</span>);</div><div class="line">l.add(<span class="string">"bb"</span>);</div><div class="line">l.add(<span class="string">"cc"</span>);</div><div class="line"><span class="keyword">for</span> (Iterator iter = l.iterator(); iter.hasNext();) &#123;</div><div class="line"> String str = (String)iter.next();</div><div class="line"> System.out.println(str);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
 </ol>
-<p>##ListIterator<br>更加强大的子类型，只能用于各种List类的访问。</p>
+<h2 id="ListIterator"><a href="#ListIterator" class="headerlink" title="ListIterator"></a>ListIterator</h2><p>更加强大的子类型，只能用于各种List类的访问。</p>
 <p>可以双向移动<br>可以产生相对于迭代器在列表中指向的当前位置的前一个和后一个元素的索引<br>listIterator()产生一个指向List开始处的ListIterator<br>listIterator(n)产生一个开始指向索引为n的元素处的ListIterator</p>
-<p>##Set<br>Set最常用的是测试归属性，可以很容易查询到某个元素是否在某个Set中，因此查找变成最重要的操作，选择使用HashSet的实现，专门对快速查找进行了优化。</p>
+<h2 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h2><p>Set最常用的是测试归属性，可以很容易查询到某个元素是否在某个Set中，因此查找变成最重要的操作，选择使用HashSet的实现，专门对快速查找进行了优化。</p>
 <p>Set和Collection有完全相同的接口。</p>
 <p>TreeSet将元素存储在红黑树数据结构中<br>HashSet用的是散列函数<br>LinkedHashSet因为查询速度的原因也使用了散列，但是却用了链表来维护元素的插入顺序</p>
-<p>##map<br>键值映射</p>
-<p>##Queue</p>
-<p>队列是一个典型的“先进先出”（FIFO）容器。</p>
+<h2 id="map"><a href="#map" class="headerlink" title="map"></a>map</h2><p>键值映射</p>
+<h2 id="Queue"><a href="#Queue" class="headerlink" title="Queue"></a>Queue</h2><p>队列是一个典型的“先进先出”（FIFO）容器。</p>
 <p>LinkedList提供了方法支持队列的行为，并且实现了Queue接口，因此LinkedList可以用作Queue的一种实现，可以向上转型为Queue类型来使用。</p>
 <h2 id="PriorityQueue"><a href="#PriorityQueue" class="headerlink" title="PriorityQueue"></a>PriorityQueue</h2><p>优先级队列声明下一个弹出元素是最需要的元素（优先级最高）。</p>
 <p>可以通过构造器设置优先级规则（Collections类内有部分定义的规则）。</p>
@@ -355,6 +346,10 @@ LinkedList，链表嘛，肯定是插入删除简单，随机访问麻烦；">
   	          <a target="_blank" class="main-nav-link switch-friends-link" href="https://www.google.com.hk/">谷歌</a>
   	        
   	          <a target="_blank" class="main-nav-link switch-friends-link" href="https://stackoverflow.com/">stackoverflow</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://beyondtech.org/">泡饭</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="https://menyifan.com/">MYF</a>
   	        
   	        </div>
   		

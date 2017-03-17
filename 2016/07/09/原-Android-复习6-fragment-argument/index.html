@@ -24,7 +24,7 @@ secondactivity 向firstactivity 跳转 有个intent 。intent里面可以携带�
 secondactivity 向firstactivity 跳转 有个intent 。intent里面可以携带数据啊；
 在intent.putExtra() 方法中我们传入一个键值对
 获取方法有两种">
-<meta property="og:updated_time" content="2017-03-02T05:57:21.824Z">
+<meta property="og:updated_time" content="2017-03-17T10:30:04.242Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android 复习6 fragment argument">
 <meta name="twitter:description" content="这个传递真的是好难懂啊
@@ -174,8 +174,8 @@ secondactivity 向firstactivity 跳转 有个intent 。intent里面可以携带�
 <p>secondactivity 向firstactivity 跳转 有个intent 。intent里面可以携带数据啊；</p>
 <p>在intent.putExtra() 方法中我们传入一个键值对</p>
 <p>获取方法有两种<br><a id="more"></a></p>
-<p>###1<br>键值都在 firstfragment中获取 但问题是intent是 firstactivity的，所以你想获取 你就必须和某个activity有强关联<br>在fragment中必须获取它所在activity的intent，这样就失去了fragment的封装性<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">UUID crimeId =(UUID)getActivity().getIntent().getSerializableExtra(EXTRA_CRIME_ID);</div></pre></td></tr></table></figure></p>
-<p>###2<br>既然是键值对 我们就可以想一下：<br>键的定义一定是属于fragment 的<br>而intent是属于activity的<br>而activity必须了解其下属fragment的(和封装性无关)</p>
+<h2 id="1"><a href="#1" class="headerlink" title="# 1"></a># 1</h2><p>键值都在 firstfragment中获取 但问题是intent是 firstactivity的，所以你想获取 你就必须和某个activity有强关联<br>在fragment中必须获取它所在activity的intent，这样就失去了fragment的封装性<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">UUID crimeId =(UUID)getActivity().getIntent().getSerializableExtra(EXTRA_CRIME_ID);</div></pre></td></tr></table></figure></p>
+<h2 id="2"><a href="#2" class="headerlink" title="# 2"></a># 2</h2><p>既然是键值对 我们就可以想一下：<br>键的定义一定是属于fragment 的<br>而intent是属于activity的<br>而activity必须了解其下属fragment的(和封装性无关)</p>
 <p>所以我们可以这样做</p>
 <p>activity 获取其自身intent，并从fragment获取键，组合得到值；再把值传给fragment；<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//fragment</span></div><div class="line"><span class="keyword">public</span>  <span class="keyword">static</span>  String EXTRA_CRIME_ID=<span class="string">"com.example.asus.criminalintent.crime_id"</span>;</div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span>  CrimeFragment <span class="title">newInstance</span><span class="params">(UUID crimeid)</span></span></div><div class="line">    &#123;</div><div class="line">        Bundle args = <span class="keyword">new</span> Bundle();</div><div class="line">        args.putSerializable(EXTRA_CRIME_ID,crimeid);</div><div class="line">        CrimeFragment fragment = <span class="keyword">new</span> CrimeFragment();</div><div class="line">        fragment.setArguments(args);</div><div class="line">        <span class="keyword">return</span>  fragment;</div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
 <p>activity<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">    <span class="function"><span class="keyword">protected</span> Fragment <span class="title">createFragment</span><span class="params">()</span></span>&#123;</div><div class="line">    UUID crimeId =(UUID)getIntent().getSerializableExtra(CrimeFragment.EXTRA_CRIME_ID);</div><div class="line">    <span class="keyword">return</span> CrimeFragment.newInstance(crimeId);</div><div class="line">    <span class="comment">//return  new CrimeFragment();</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
@@ -184,11 +184,11 @@ secondactivity 向firstactivity 跳转 有个intent 。intent里面可以携带�
 <p>第二种情况是：</p>
 <p>孤儿院有好些小孩 每个可能都有自己想要的玩具，他们就写在纸条上。如果孤儿院的员工看见某个小孩的愿望，并且想要将其实现，就去玩具店买玩具，并且将其送给小孩；</p>
 <p>现在看完全看不懂上面在说啥</p>
-<p>###1<br>首先我们要懂得是fragment 和 activity的关系 </p>
+<h2 id="1-1"><a href="#1-1" class="headerlink" title="# 1"></a># 1</h2><p>首先我们要懂得是fragment 和 activity的关系 </p>
 <p>activity就像是 一个父容器一样 fragment在其中</p>
 <p>从fragment中启动 activity的方法<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Intent intent =<span class="keyword">new</span> Intent(getActivity(), CrimePagerActivity.class);</div></pre></td></tr></table></figure></p>
 <p>fragment 也是通过Intent定位到目标activity的，不是也不能是目标fragment，跳转需要借助父容器才能跳转</p>
-<p>###2<br> 跳转很容易做到，基本像是李四家的儿子要和张三家儿子说话，李四儿子先和李四说，李四告诉张三，张三告诉自己儿子；那传输数据是这样的吗？</p>
+<h2 id="2-1"><a href="#2-1" class="headerlink" title="# 2"></a># 2</h2><p> 跳转很容易做到，基本像是李四家的儿子要和张三家儿子说话，李四儿子先和李四说，李四告诉张三，张三告诉自己儿子；那传输数据是这样的吗？</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//CrimeListFragment</span></div><div class="line"> Crime c =((CrimeAdapter)getListAdapter()).getItem(position);</div><div class="line"> </div><div class="line">   Intent intent =<span class="keyword">new</span> Intent(getActivity(), CrimePagerActivity.class);</div><div class="line">   intent.putExtra(CrimeFragment.EXTRA_CRIME_ID,c.getmId());</div><div class="line">   startActivity(intent);</div></pre></td></tr></table></figure>
 <p>李四的儿子李小四要交给张三儿子张小三一封信，然后说张小三那里有解密的钥匙；CrimeFragment.EXTRA_CRIME_ID </p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//CrimeFragment</span></div><div class="line"> <span class="keyword">public</span>  <span class="keyword">static</span>  String EXTRA_CRIME_ID=<span class="string">"com.example.asus.criminalintent.crime_id"</span>;</div><div class="line">    <span class="function"><span class="keyword">public</span>  <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">	    UUID crimeId =(UUID)getArguments().getSerializable(EXTRA_CRIME_ID)；</div><div class="line">        mCrime= CrimeLab.get(getActivity()).getCrime(crimeId);</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
@@ -357,6 +357,10 @@ secondactivity 向firstactivity 跳转 有个intent 。intent里面可以携带�
   	          <a target="_blank" class="main-nav-link switch-friends-link" href="https://www.google.com.hk/">谷歌</a>
   	        
   	          <a target="_blank" class="main-nav-link switch-friends-link" href="https://stackoverflow.com/">stackoverflow</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://beyondtech.org/">泡饭</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="https://menyifan.com/">MYF</a>
   	        
   	        </div>
   		

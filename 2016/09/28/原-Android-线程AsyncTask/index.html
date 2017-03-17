@@ -6,19 +6,19 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <title>Android 线程AsyncTask | colin</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="##1.AsyncTaskAndroid已经到了最后阶段，突然蹦出来线程这一难题，真的是把我弄晕了首先我们明确为什么存在线程？ 我们已经存在一个主程序，为什么要加一个呢？当我们的程序在请求网络时，我们希望主程序还可以运行吗？现在的程序一般都是后台下载，那前台下载你见过吗？点完下载，程序就变成下载的进度条了，软件不能用了；这样当然是不好的，所以才有了线程；
-就像是一个客栈，有大厨，有掌柜的，有跑堂的">
+  <meta name="description" content="1.AsyncTaskAndroid已经到了最后阶段，突然蹦出来线程这一难题，真的是把我弄晕了首先我们明确为什么存在线程？ 我们已经存在一个主程序，为什么要加一个呢？当我们的程序在请求网络时，我们希望主程序还可以运行吗？现在的程序一般都是后台下载，那前台下载你见过吗？点完下载，程序就变成下载的进度条了，软件不能用了；这样当然是不好的，所以才有了线程；
+就像是一个客栈，有大厨，有掌柜的，有跑堂的；如">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android 线程AsyncTask">
 <meta property="og:url" content="http://yoursite.com/2016/09/28/原-Android-线程AsyncTask/index.html">
 <meta property="og:site_name" content="colin">
-<meta property="og:description" content="##1.AsyncTaskAndroid已经到了最后阶段，突然蹦出来线程这一难题，真的是把我弄晕了首先我们明确为什么存在线程？ 我们已经存在一个主程序，为什么要加一个呢？当我们的程序在请求网络时，我们希望主程序还可以运行吗？现在的程序一般都是后台下载，那前台下载你见过吗？点完下载，程序就变成下载的进度条了，软件不能用了；这样当然是不好的，所以才有了线程；
-就像是一个客栈，有大厨，有掌柜的，有跑堂的">
-<meta property="og:updated_time" content="2017-03-02T05:57:44.399Z">
+<meta property="og:description" content="1.AsyncTaskAndroid已经到了最后阶段，突然蹦出来线程这一难题，真的是把我弄晕了首先我们明确为什么存在线程？ 我们已经存在一个主程序，为什么要加一个呢？当我们的程序在请求网络时，我们希望主程序还可以运行吗？现在的程序一般都是后台下载，那前台下载你见过吗？点完下载，程序就变成下载的进度条了，软件不能用了；这样当然是不好的，所以才有了线程；
+就像是一个客栈，有大厨，有掌柜的，有跑堂的；如">
+<meta property="og:updated_time" content="2017-03-17T10:30:04.257Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android 线程AsyncTask">
-<meta name="twitter:description" content="##1.AsyncTaskAndroid已经到了最后阶段，突然蹦出来线程这一难题，真的是把我弄晕了首先我们明确为什么存在线程？ 我们已经存在一个主程序，为什么要加一个呢？当我们的程序在请求网络时，我们希望主程序还可以运行吗？现在的程序一般都是后台下载，那前台下载你见过吗？点完下载，程序就变成下载的进度条了，软件不能用了；这样当然是不好的，所以才有了线程；
-就像是一个客栈，有大厨，有掌柜的，有跑堂的">
+<meta name="twitter:description" content="1.AsyncTaskAndroid已经到了最后阶段，突然蹦出来线程这一难题，真的是把我弄晕了首先我们明确为什么存在线程？ 我们已经存在一个主程序，为什么要加一个呢？当我们的程序在请求网络时，我们希望主程序还可以运行吗？现在的程序一般都是后台下载，那前台下载你见过吗？点完下载，程序就变成下载的进度条了，软件不能用了；这样当然是不好的，所以才有了线程；
+就像是一个客栈，有大厨，有掌柜的，有跑堂的；如">
   
     <link rel="alternative" href="/atom.xml" title="colin" type="application/atom+xml">
   
@@ -152,7 +152,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>##1.AsyncTask<br>Android已经到了最后阶段，突然蹦出来线程这一难题，真的是把我弄晕了<br>首先我们明确为什么存在线程？ 我们已经存在一个主程序，为什么要加一个呢？当我们的程序在请求网络时，我们希望主程序还可以运行吗？现在的程序一般都是后台下载，那前台下载你见过吗？点完下载，程序就变成下载的进度条了，软件不能用了；这样当然是不好的，所以才有了线程；</p>
+        <h2 id="1-AsyncTask"><a href="#1-AsyncTask" class="headerlink" title="1.AsyncTask"></a>1.AsyncTask</h2><p>Android已经到了最后阶段，突然蹦出来线程这一难题，真的是把我弄晕了<br>首先我们明确为什么存在线程？ 我们已经存在一个主程序，为什么要加一个呢？当我们的程序在请求网络时，我们希望主程序还可以运行吗？现在的程序一般都是后台下载，那前台下载你见过吗？点完下载，程序就变成下载的进度条了，软件不能用了；这样当然是不好的，所以才有了线程；</p>
 <p>就像是一个客栈，有大厨，有掌柜的，有跑堂的；如果说这家客栈就一个人，那是不是就忙不过来了呢；</p>
 <p>我们要看的程序是一个从网站获取链接与信息的程序；<br><a id="more"></a></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">	 <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FilckrFetchr</span> </span>&#123;<span class="comment">//网络连接相关代码，不是今天重点</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -318,6 +318,10 @@
   	          <a target="_blank" class="main-nav-link switch-friends-link" href="https://www.google.com.hk/">谷歌</a>
   	        
   	          <a target="_blank" class="main-nav-link switch-friends-link" href="https://stackoverflow.com/">stackoverflow</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://beyondtech.org/">泡饭</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="https://menyifan.com/">MYF</a>
   	        
   	        </div>
   		

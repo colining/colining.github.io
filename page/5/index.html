@@ -199,7 +199,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>##1<br>软件测试要来一个测试大作业，要用junit，在学习java的一年以后，再见过android studio 这种现代化IDE以后，我可是受不了jcreator 这种东西啦；</p>
+        <h2 id="1"><a href="#1" class="headerlink" title="1"></a>1</h2><p>软件测试要来一个测试大作业，要用junit，在学习java的一年以后，再见过android studio 这种现代化IDE以后，我可是受不了jcreator 这种东西啦；</p>
 <p>所以让我们来使用IntelliJ IDEA 吧；虽说有点大材小用，但还是好用啊；你可以先去官网看看，如果和你胃口的话，跟着我做吧；<br><a href="https://www.jetbrains.com/idea/">https://www.jetbrains.com/idea/</a>
         <p class="article-more-link">
           <a  href="/2016/11/22/原-IntelliJ IDEA 与junit/#more">more >></a>
@@ -252,7 +252,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>###1<br>不是讲理论的，就是遇到很多奇怪的问题；<br>没事做，决定自己仿个个魅族便签玩玩，体验一把开发app的过程；</p>
+        <h2 id="1"><a href="#1" class="headerlink" title="# 1"></a># 1</h2><p>不是讲理论的，就是遇到很多奇怪的问题；<br>没事做，决定自己仿个个魅族便签玩玩，体验一把开发app的过程；</p>
 <p>如何加入标题栏，我还是比较喜欢称之为标题栏，我也没弄明白actionbar 和toolbar改了什么，只提供解决方案；</p>
 <p>最初 的时候是这样的，因为toolbar是viewgroup ，也就是说在toolbar中可以直接添加其他控件/view，于是我就加了两个imagebutton；然后我们想啊，click事件怎么写呢？找到button，添加事件，这样做好像和toolbar没有半毛钱关系啊；<br>记得别忘了把主题修改为noactionbar<br>
         <p class="article-more-link">
@@ -306,8 +306,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>##1 intent intent extra  activity</p>
-<p>简单的说是，activity1 要启动activity2 ，并且传输一个值；</p>
+        <h2 id="1-intent-intent-extra-activity"><a href="#1-intent-intent-extra-activity" class="headerlink" title="1 intent intent extra  activity"></a>1 intent intent extra  activity</h2><p>简单的说是，activity1 要启动activity2 ，并且传输一个值；</p>
 <p>常用方法肯定是：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function">Intent <span class="title">intent</span><span class="params">( activity1.<span class="keyword">this</span>,activity2.class)</span></div><div class="line">intent.<span class="title">putExtra</span><span class="params">(...)</span></span>;</div><div class="line">startActivity(intent)</div></pre></td></tr></table></figure></p>
 <p>将其改为 activity2<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Intent <span class="title">newIntent</span><span class="params">(Context packageContext,<span class="keyword">boolean</span> answerIsTrue)</span></span>&#123;</div><div class="line"><span class="function">Intent <span class="title">intent</span><span class="params">( packageContext,activity2.class)</span></div><div class="line">intent.<span class="title">putExtra</span><span class="params">(Extra,answerIsTrue)</span></span>;</div><div class="line"><span class="keyword">return</span> intetn</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
         <p class="article-more-link">
@@ -361,7 +360,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>#1<br>broadcast  receiver 广播，接收器  Android四大组件之一；<br>Android权威指南这本书的结构实在是，四大组件离得这么远，早忘记概念了。。</p>
+        <h1 id="1"><a href="#1" class="headerlink" title="1"></a>1</h1><p>broadcast  receiver 广播，接收器  Android四大组件之一；<br>Android权威指南这本书的结构实在是，四大组件离得这么远，早忘记概念了。。</p>
 <p>broadcast intent 我们看一下自定义广播的发送<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span>  String ACTION_SHOW_NOTIFICATION=<span class="string">"com.example.asus.photogallery.SHOW_NOTIFICATION"</span>;</div><div class="line"> sendBroadcast(<span class="keyword">new</span> Intent(ACTION_SHOW_NOTIFICATION));</div></pre></td></tr></table></figure></p>
 <p>我们创建了一个inten 然后通过sendBroadcast 发送出去；那么谁来接收呢？</p>
 <p>我们对比一下intent的发送和接收：<br>
@@ -475,6 +474,10 @@
   	          <a target="_blank" class="main-nav-link switch-friends-link" href="https://www.google.com.hk/">谷歌</a>
   	        
   	          <a target="_blank" class="main-nav-link switch-friends-link" href="https://stackoverflow.com/">stackoverflow</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://beyondtech.org/">泡饭</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="https://menyifan.com/">MYF</a>
   	        
   	        </div>
   		

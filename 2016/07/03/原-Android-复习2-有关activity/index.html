@@ -6,22 +6,22 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <title>Android 复习2 有关activity | colin</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="#activity 之间基于intent 的通信
-###如何打开新活动我们的一个应用程序 是由多个活动的，那么在活动之间如何跳转就是一个很有趣的事情；1public void startActivity(Intent intent)
-我们通过上面的函数来造访新的页面，该函数不是一个针对于activity的函数，而是针对操作系统，准确的说 它将intent发送给系统级别的ActivityManage">
+  <meta name="description" content="activity 之间基于intent 的通信# 如何打开新活动我们的一个应用程序 是由多个活动的，那么在活动之间如何跳转就是一个很有趣的事情；1public void startActivity(Intent intent)
+我们通过上面的函数来造访新的页面，该函数不是一个针对于activity的函数，而是针对操作系统，准确的说 它将intent发送给系统级别的ActivityManager
+A">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android 复习2 有关activity">
 <meta property="og:url" content="http://yoursite.com/2016/07/03/原-Android-复习2-有关activity/index.html">
 <meta property="og:site_name" content="colin">
-<meta property="og:description" content="#activity 之间基于intent 的通信
-###如何打开新活动我们的一个应用程序 是由多个活动的，那么在活动之间如何跳转就是一个很有趣的事情；1public void startActivity(Intent intent)
-我们通过上面的函数来造访新的页面，该函数不是一个针对于activity的函数，而是针对操作系统，准确的说 它将intent发送给系统级别的ActivityManage">
-<meta property="og:updated_time" content="2017-03-02T05:56:55.807Z">
+<meta property="og:description" content="activity 之间基于intent 的通信# 如何打开新活动我们的一个应用程序 是由多个活动的，那么在活动之间如何跳转就是一个很有趣的事情；1public void startActivity(Intent intent)
+我们通过上面的函数来造访新的页面，该函数不是一个针对于activity的函数，而是针对操作系统，准确的说 它将intent发送给系统级别的ActivityManager
+A">
+<meta property="og:updated_time" content="2017-03-17T10:30:04.242Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android 复习2 有关activity">
-<meta name="twitter:description" content="#activity 之间基于intent 的通信
-###如何打开新活动我们的一个应用程序 是由多个活动的，那么在活动之间如何跳转就是一个很有趣的事情；1public void startActivity(Intent intent)
-我们通过上面的函数来造访新的页面，该函数不是一个针对于activity的函数，而是针对操作系统，准确的说 它将intent发送给系统级别的ActivityManage">
+<meta name="twitter:description" content="activity 之间基于intent 的通信# 如何打开新活动我们的一个应用程序 是由多个活动的，那么在活动之间如何跳转就是一个很有趣的事情；1public void startActivity(Intent intent)
+我们通过上面的函数来造访新的页面，该函数不是一个针对于activity的函数，而是针对操作系统，准确的说 它将intent发送给系统级别的ActivityManager
+A">
   
     <link rel="alternative" href="/atom.xml" title="colin" type="application/atom+xml">
   
@@ -155,15 +155,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>#activity 之间基于intent 的通信</p>
-<p>###如何打开新活动<br>我们的一个应用程序 是由多个活动的，那么在活动之间如何跳转就是一个很有趣的事情；<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">startActivity</span><span class="params">(Intent intent)</span></span></div></pre></td></tr></table></figure></p>
+        <h1 id="activity-之间基于intent-的通信"><a href="#activity-之间基于intent-的通信" class="headerlink" title="activity 之间基于intent 的通信"></a>activity 之间基于intent 的通信</h1><h2 id="如何打开新活动"><a href="#如何打开新活动" class="headerlink" title="# 如何打开新活动"></a># 如何打开新活动</h2><p>我们的一个应用程序 是由多个活动的，那么在活动之间如何跳转就是一个很有趣的事情；<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">startActivity</span><span class="params">(Intent intent)</span></span></div></pre></td></tr></table></figure></p>
 <p>我们通过上面的函数来造访新的页面，该函数不是一个针对于activity的函数，而是针对操作系统，准确的说 它将intent发送给系统级别的ActivityManager</p>
 <p>ActivityManager主要就是用来管理众多Activity的 </p>
 <p>我们通过传递intent 告诉ActivityManager下面打开那个活动；<br><a id="more"></a></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Intent i =<span class="keyword">new</span> Intent(MainActivity.<span class="keyword">this</span>,CheatActivity.class);</div><div class="line"></div><div class="line">startActivity(i);</div></pre></td></tr></table></figure>
-<p>###传递数据玩</p>
-<p>####仅仅传过去<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">    String data=<span class="string">"Hello SecondActivity"</span></div><div class="line">        Intent intent =<span class="keyword">new</span> Intent(FirstActivity.<span class="keyword">this</span>,SecondActivity.class)</div><div class="line">        intent.putExtra(<span class="string">"extra_data"</span>,data);</div><div class="line"></div><div class="line"><span class="comment">//用intent.putExtra函数在意图中加些东西；</span></div><div class="line"></div><div class="line">      Intent intent=getIntent();<span class="comment">//写在onCreate方法中</span></div><div class="line">        String data=intent.getStringExtra(<span class="string">"extra_data"</span>);</div><div class="line">        Log.d(<span class="string">"SecondActivity"</span>,data);</div><div class="line">        <span class="comment">//取出intent中的东西</span></div></pre></td></tr></table></figure></p>
-<p>####传入并返回值<br>首先要能够从A传到B 所以有了startactivityforresult(Intent intent,int requestCode)</p>
+<h2 id="传递数据玩"><a href="#传递数据玩" class="headerlink" title="# 传递数据玩"></a># 传递数据玩</h2><h2 id="仅仅传过去"><a href="#仅仅传过去" class="headerlink" title="## 仅仅传过去"></a>## 仅仅传过去</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">    String data=<span class="string">"Hello SecondActivity"</span></div><div class="line">        Intent intent =<span class="keyword">new</span> Intent(FirstActivity.<span class="keyword">this</span>,SecondActivity.class)</div><div class="line">        intent.putExtra(<span class="string">"extra_data"</span>,data);</div><div class="line"></div><div class="line"><span class="comment">//用intent.putExtra函数在意图中加些东西；</span></div><div class="line"></div><div class="line">      Intent intent=getIntent();<span class="comment">//写在onCreate方法中</span></div><div class="line">        String data=intent.getStringExtra(<span class="string">"extra_data"</span>);</div><div class="line">        Log.d(<span class="string">"SecondActivity"</span>,data);</div><div class="line">        <span class="comment">//取出intent中的东西</span></div></pre></td></tr></table></figure>
+<h2 id="传入并返回值"><a href="#传入并返回值" class="headerlink" title="## 传入并返回值"></a>## 传入并返回值</h2><p>首先要能够从A传到B 所以有了startactivityforresult(Intent intent,int requestCode)</p>
 <p>紧接着，B看到A的信件后，要寄一封回信，所以有setResult(int resultCode, Intent data) 将信寄出</p>
 <p>那么对于A来说，有一个收信的地方就非常重要，onActivityResult(int requestCode, int resultCode, Intent data) </p>
 <p>requestCode 就是为了用于 A收信的  假设A与B要谋反，A给B寄信，B回信的时候要标明信中内容是绝密还是掩人耳目。这样A在收信的时候就不会存在问题啦。</p>
@@ -328,6 +326,10 @@
   	          <a target="_blank" class="main-nav-link switch-friends-link" href="https://www.google.com.hk/">谷歌</a>
   	        
   	          <a target="_blank" class="main-nav-link switch-friends-link" href="https://stackoverflow.com/">stackoverflow</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://beyondtech.org/">泡饭</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="https://menyifan.com/">MYF</a>
   	        
   	        </div>
   		

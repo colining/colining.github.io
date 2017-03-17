@@ -6,20 +6,20 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <title>Android 复习4 神奇的问题 杂谈 | colin</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="#关于fragment的问题我遇见一个问题 神奇的问题我写着match_parent可为什么会这样呢；
-布局出现问题，本来match_parent，却没有到达要求。我就开始每一项每一项的检查，和书上一样啊。然后我就做了这么一个测试，放了一个应该占满屏幕的button，它居然还是有问题我就开始意识到这可能是fragment的问题，就上网搜了一下，activity加载fragment的时候让其占满屏幕">
+  <meta name="description" content="关于fragment的问题我遇见一个问题 神奇的问题我写着match_parent可为什么会这样呢；
+布局出现问题，本来match_parent，却没有到达要求。我就开始每一项每一项的检查，和书上一样啊。然后我就做了这么一个测试，放了一个应该占满屏幕的button，它居然还是有问题我就开始意识到这可能是fragment的问题，就上网搜了一下，activity加载fragment的时候让其占满屏幕，">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android 复习4 神奇的问题 杂谈">
 <meta property="og:url" content="http://yoursite.com/2016/07/06/原-Android-复习4-神奇的问题-杂谈/index.html">
 <meta property="og:site_name" content="colin">
-<meta property="og:description" content="#关于fragment的问题我遇见一个问题 神奇的问题我写着match_parent可为什么会这样呢；
-布局出现问题，本来match_parent，却没有到达要求。我就开始每一项每一项的检查，和书上一样啊。然后我就做了这么一个测试，放了一个应该占满屏幕的button，它居然还是有问题我就开始意识到这可能是fragment的问题，就上网搜了一下，activity加载fragment的时候让其占满屏幕">
+<meta property="og:description" content="关于fragment的问题我遇见一个问题 神奇的问题我写着match_parent可为什么会这样呢；
+布局出现问题，本来match_parent，却没有到达要求。我就开始每一项每一项的检查，和书上一样啊。然后我就做了这么一个测试，放了一个应该占满屏幕的button，它居然还是有问题我就开始意识到这可能是fragment的问题，就上网搜了一下，activity加载fragment的时候让其占满屏幕，">
 <meta property="og:image" content="http://img.blog.csdn.net/20160706201115898">
-<meta property="og:updated_time" content="2017-03-02T05:57:13.738Z">
+<meta property="og:updated_time" content="2017-03-17T10:30:04.242Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android 复习4 神奇的问题 杂谈">
-<meta name="twitter:description" content="#关于fragment的问题我遇见一个问题 神奇的问题我写着match_parent可为什么会这样呢；
-布局出现问题，本来match_parent，却没有到达要求。我就开始每一项每一项的检查，和书上一样啊。然后我就做了这么一个测试，放了一个应该占满屏幕的button，它居然还是有问题我就开始意识到这可能是fragment的问题，就上网搜了一下，activity加载fragment的时候让其占满屏幕">
+<meta name="twitter:description" content="关于fragment的问题我遇见一个问题 神奇的问题我写着match_parent可为什么会这样呢；
+布局出现问题，本来match_parent，却没有到达要求。我就开始每一项每一项的检查，和书上一样啊。然后我就做了这么一个测试，放了一个应该占满屏幕的button，它居然还是有问题我就开始意识到这可能是fragment的问题，就上网搜了一下，activity加载fragment的时候让其占满屏幕，">
 <meta name="twitter:image" content="http://img.blog.csdn.net/20160706201115898">
   
     <link rel="alternative" href="/atom.xml" title="colin" type="application/atom+xml">
@@ -154,9 +154,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>#关于fragment的问题<br>我遇见一个问题 神奇的问题<br><img src="http://img.blog.csdn.net/20160706201115898" alt="这里写图片描述"><br>我写着match_parent<br>可为什么会这样呢；</p>
+        <h1 id="关于fragment的问题"><a href="#关于fragment的问题" class="headerlink" title="关于fragment的问题"></a>关于fragment的问题</h1><p>我遇见一个问题 神奇的问题<br><img src="http://img.blog.csdn.net/20160706201115898" alt="这里写图片描述"><br>我写着match_parent<br>可为什么会这样呢；</p>
 <p>布局出现问题，本来match_parent，却没有到达要求。我就开始每一项每一项的检查，和书上一样啊。然后我就做了这么一个测试，放了一个应该占满屏幕的button，它居然还是有问题<br>我就开始意识到这可能是fragment的问题，就上网搜了一下，activity加载fragment的时候让其占满屏幕，查了半天也没有什么对口的答案，突然想到，fragment放在activity里面，那是不是activity本来就不够大呢？<br>没想到这才是问题的关键所在；<br><a id="more"></a></p>
-<p>#关于功能类<br>上课时有听到一个好玩的<br>原来我就对构造函数充满疑问<br>c#<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">a</span></span>&#123;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">private</span> <span class="title">a</span><span class="params">()</span></span>&#123;&#125;<span class="comment">//私有构造函数厉害吧，就不给你们用</span></div><div class="line">				 <span class="comment">//我们知道 再不写构造函数时，系统会自动创建一个无参构造函数，</span></div><div class="line">				 <span class="comment">//那我们创建了一个还不让人用 是为什么？ 有时我们的类 不需要被实例化，而只需要方法，就像接口一样</span></div><div class="line">	<span class="keyword">public</span> <span class="keyword">static</span> fun1（）&#123;&#125;<span class="comment">//定义静态方法，直接进行类级调用；</span></div><div class="line"></div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h1 id="关于功能类"><a href="#关于功能类" class="headerlink" title="关于功能类"></a>关于功能类</h1><p>上课时有听到一个好玩的<br>原来我就对构造函数充满疑问<br>c#<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">a</span></span>&#123;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">private</span> <span class="title">a</span><span class="params">()</span></span>&#123;&#125;<span class="comment">//私有构造函数厉害吧，就不给你们用</span></div><div class="line">				 <span class="comment">//我们知道 再不写构造函数时，系统会自动创建一个无参构造函数，</span></div><div class="line">				 <span class="comment">//那我们创建了一个还不让人用 是为什么？ 有时我们的类 不需要被实例化，而只需要方法，就像接口一样</span></div><div class="line">	<span class="keyword">public</span> <span class="keyword">static</span> fun1（）&#123;&#125;<span class="comment">//定义静态方法，直接进行类级调用；</span></div><div class="line"></div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -317,6 +317,10 @@
   	          <a target="_blank" class="main-nav-link switch-friends-link" href="https://www.google.com.hk/">谷歌</a>
   	        
   	          <a target="_blank" class="main-nav-link switch-friends-link" href="https://stackoverflow.com/">stackoverflow</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://beyondtech.org/">泡饭</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="https://menyifan.com/">MYF</a>
   	        
   	        </div>
   		

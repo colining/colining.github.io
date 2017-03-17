@@ -147,7 +147,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>#1<br>今天讲点简单的哦，再日后补坑，通知栏信息；<br>用Android的人，都应该知道通知栏是个什么东西，下拉会出来一些设置菜单，<br>当有新的消息时，就会跑到这里，或者比如云音乐，后台听歌，也会有这么一个通知栏信息；<br>今天就简单的说一下，以后再完善；<br>
+        <h1 id="1"><a href="#1" class="headerlink" title="1"></a>1</h1><p>今天讲点简单的哦，再日后补坑，通知栏信息；<br>用Android的人，都应该知道通知栏是个什么东西，下拉会出来一些设置菜单，<br>当有新的消息时，就会跑到这里，或者比如云音乐，后台听歌，也会有这么一个通知栏信息；<br>今天就简单的说一下，以后再完善；<br>
         <p class="article-more-link">
           <a  href="/2016/10/05/Android 通知栏信息/#more">more >></a>
         </p>
@@ -199,8 +199,15 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>#1<br>上回书说道，掌柜的饿了，叫大厨做饭去了；但一家客栈如果不冷清的话，就会有很多客人；跑堂的小二问完客观，记下来，会跟大厨喊：两斤酱牛肉，两斤烤鸭；至于茶水，跑堂的自己端过去就行了；那掌柜的是不是得记账啊；所以更可能的情况是小二用纸笔记下来，一份送到掌柜的，一份送到大厨那里；掌柜的可能就直接收起来，等晚些时候记账也行，大厨就不一样了，那就是铁定的任务了；看完这个消息，做个鱼香肉丝，再看哪个，做个清蒸红薯之类的。。。<br>相关访问，一定要看的；<br><a href="http://www.cnblogs.com/codingmyworld/archive/2011/09/14/2174255.html">http://www.cnblogs.com/codingmyworld/archive/2011/09/14/2174255.html</a></p>
-<p>#2<br>    主程序:可以看成是客栈的整个大堂，人来人往，小二忙的不亦乐乎<br>    线程：大厨做饭得有锅啊；但是此时的锅只能做一道菜，做完就不能用了，大厨就把它藏起来了；之后来的n多单子不接受；<br>    looper：掌柜的一看，说这不行啊，加钱！让锅一直待在厨房，有单子就炒菜，没有就等着单子的到来；于是线程就升级为循环线程；<br>    Message：小二递过来的单子<br>    MessageQueue：虽然大厨是处于循环工作状态，但是那么多单子总得有个序列吧，此处将单子排序，大厨就可以按照次序<br>    Handler：大厨，关键人物，小二将单子交给大厨，到了厨房，大厨就将其放入消息队列，到了的话，就炒菜；<br>    那假如客栈大，厨师好多，一个相同的消息队列 不同的菜交给不同厨师，一个厨师可以对应好几道菜，不过的按照顺序吵；<br>
+        <h1 id="1"><a href="#1" class="headerlink" title="1"></a>1</h1><p>上回书说道，掌柜的饿了，叫大厨做饭去了；但一家客栈如果不冷清的话，就会有很多客人；跑堂的小二问完客观，记下来，会跟大厨喊：两斤酱牛肉，两斤烤鸭；至于茶水，跑堂的自己端过去就行了；那掌柜的是不是得记账啊；所以更可能的情况是小二用纸笔记下来，一份送到掌柜的，一份送到大厨那里；掌柜的可能就直接收起来，等晚些时候记账也行，大厨就不一样了，那就是铁定的任务了；看完这个消息，做个鱼香肉丝，再看哪个，做个清蒸红薯之类的。。。<br>相关访问，一定要看的；<br><a href="http://www.cnblogs.com/codingmyworld/archive/2011/09/14/2174255.html">http://www.cnblogs.com/codingmyworld/archive/2011/09/14/2174255.html</a></p>
+<h1 id="2"><a href="#2" class="headerlink" title="2"></a>2</h1><pre><code>主程序:可以看成是客栈的整个大堂，人来人往，小二忙的不亦乐乎
+线程：大厨做饭得有锅啊；但是此时的锅只能做一道菜，做完就不能用了，大厨就把它藏起来了；之后来的n多单子不接受；
+looper：掌柜的一看，说这不行啊，加钱！让锅一直待在厨房，有单子就炒菜，没有就等着单子的到来；于是线程就升级为循环线程；
+Message：小二递过来的单子
+MessageQueue：虽然大厨是处于循环工作状态，但是那么多单子总得有个序列吧，此处将单子排序，大厨就可以按照次序
+Handler：大厨，关键人物，小二将单子交给大厨，到了厨房，大厨就将其放入消息队列，到了的话，就炒菜；
+那假如客栈大，厨师好多，一个相同的消息队列 不同的菜交给不同厨师，一个厨师可以对应好几道菜，不过的按照顺序吵；
+</code></pre>
         <p class="article-more-link">
           <a  href="/2016/09/28/原-Android-Looper，handler，HandlerThread/#more">more >></a>
         </p>
@@ -252,7 +259,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>##1.AsyncTask<br>Android已经到了最后阶段，突然蹦出来线程这一难题，真的是把我弄晕了<br>首先我们明确为什么存在线程？ 我们已经存在一个主程序，为什么要加一个呢？当我们的程序在请求网络时，我们希望主程序还可以运行吗？现在的程序一般都是后台下载，那前台下载你见过吗？点完下载，程序就变成下载的进度条了，软件不能用了；这样当然是不好的，所以才有了线程；</p>
+        <h2 id="1-AsyncTask"><a href="#1-AsyncTask" class="headerlink" title="1.AsyncTask"></a>1.AsyncTask</h2><p>Android已经到了最后阶段，突然蹦出来线程这一难题，真的是把我弄晕了<br>首先我们明确为什么存在线程？ 我们已经存在一个主程序，为什么要加一个呢？当我们的程序在请求网络时，我们希望主程序还可以运行吗？现在的程序一般都是后台下载，那前台下载你见过吗？点完下载，程序就变成下载的进度条了，软件不能用了；这样当然是不好的，所以才有了线程；</p>
 <p>就像是一个客栈，有大厨，有掌柜的，有跑堂的；如果说这家客栈就一个人，那是不是就忙不过来了呢；</p>
 <p>我们要看的程序是一个从网站获取链接与信息的程序；<br>
         <p class="article-more-link">
@@ -306,7 +313,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>##1<br>最初我们的标题栏导航是怎样的呢？</p>
+        <h2 id="1"><a href="#1" class="headerlink" title="1"></a>1</h2><p>最初我们的标题栏导航是怎样的呢？</p>
 <p>点击标题栏按钮，触发事件，创建一个Intent ，打开新页面；<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Intent intent = <span class="keyword">new</span> Intent(getActivity(),CrimePagerActivity.class);</div><div class="line">intent.putExtra(CrimeFragment.EXTRA_CRIME_ID,crime.getmId());</div><div class="line">startActivityForResult(intent,<span class="number">0</span>);</div></pre></td></tr></table></figure></p>
 <p>Intent？我们知道用Intent可以随便打开那个页面，那么这种导航就没有明确的父子关系，且必须知道要去哪里；简单地说，小李坐车去女朋友家，司机说：“我知道你女朋友在那里，上车” 实际上去哪里，是司机说的算；<br>
         <p class="article-more-link">
@@ -360,8 +367,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>#1<br>简单来说样式是为了复用;</p>
-<p>style 中创建样式<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">"RemoteButton"</span>&gt;</span><span class="xml"></div><div class="line">       <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:layout_width"</span>&gt;</span>0dp<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:layout_height"</span>&gt;</span>match_parent<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:textColor"</span>&gt;</span>#556699<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:textSize"</span>&gt;</span>20dp<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span> = <span class="string">"android:layout_margin"</span>&gt;</span>3dp<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line"></div><div class="line">   </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div></pre></td></tr></table></figure></p>
+        <h1 id="1"><a href="#1" class="headerlink" title="1"></a>1</h1><p>简单来说样式是为了复用;</p>
+<p>style 中创建样式<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">"RemoteButton"</span>&gt;</span><span class="xml"></div><div class="line">       <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:layout_width"</span>&gt;</span>0dp<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:layout_height"</span>&gt;</span>match_parent<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:textColor"</span>&gt;</span># 556699<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:textSize"</span>&gt;</span>20dp<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span> = <span class="string">"android:layout_margin"</span>&gt;</span>3dp<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line"></div><div class="line">   </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div></pre></td></tr></table></figure></p>
 <p>控件使用某种样式；<br>
         <p class="article-more-link">
           <a  href="/2016/09/24/原-样式与include/#more">more >></a>
@@ -473,6 +480,10 @@
   	          <a target="_blank" class="main-nav-link switch-friends-link" href="https://www.google.com.hk/">谷歌</a>
   	        
   	          <a target="_blank" class="main-nav-link switch-friends-link" href="https://stackoverflow.com/">stackoverflow</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://beyondtech.org/">泡饭</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="https://menyifan.com/">MYF</a>
   	        
   	        </div>
   		

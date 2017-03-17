@@ -6,25 +6,19 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <title>Java 读书笔记9 接口 | colin</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="###接口
-####抽象类：
-1. 理解起来很容易，比如父类是动物，子类是狗；动物嘛，肯定得会呼吸；
-12345678910111213141516171819202122232425262728public class Animal &amp;#123;    protected  void breath()      &amp;#123;        System.out.println(&quot;breath&quot;)">
+  <meta name="description" content="# 接口## 抽象类：1. 理解起来很容易，比如父类是动物，子类是狗；动物嘛，肯定得会呼吸；
+12345678910111213141516171819202122232425262728public class Animal &amp;#123;    protected  void breath()      &amp;#123;        System.out.println(&quot;breath&quot;);">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java 读书笔记9 接口">
 <meta property="og:url" content="http://yoursite.com/2017/02/27/Java 读书笔记 9 接口/index.html">
 <meta property="og:site_name" content="colin">
-<meta property="og:description" content="###接口
-####抽象类：
-1. 理解起来很容易，比如父类是动物，子类是狗；动物嘛，肯定得会呼吸；
-12345678910111213141516171819202122232425262728public class Animal &amp;#123;    protected  void breath()      &amp;#123;        System.out.println(&quot;breath&quot;)">
-<meta property="og:updated_time" content="2017-03-15T11:32:06.718Z">
+<meta property="og:description" content="# 接口## 抽象类：1. 理解起来很容易，比如父类是动物，子类是狗；动物嘛，肯定得会呼吸；
+12345678910111213141516171819202122232425262728public class Animal &amp;#123;    protected  void breath()      &amp;#123;        System.out.println(&quot;breath&quot;);">
+<meta property="og:updated_time" content="2017-03-17T10:30:04.179Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java 读书笔记9 接口">
-<meta name="twitter:description" content="###接口
-####抽象类：
-1. 理解起来很容易，比如父类是动物，子类是狗；动物嘛，肯定得会呼吸；
-12345678910111213141516171819202122232425262728public class Animal &amp;#123;    protected  void breath()      &amp;#123;        System.out.println(&quot;breath&quot;)">
+<meta name="twitter:description" content="# 接口## 抽象类：1. 理解起来很容易，比如父类是动物，子类是狗；动物嘛，肯定得会呼吸；
+12345678910111213141516171819202122232425262728public class Animal &amp;#123;    protected  void breath()      &amp;#123;        System.out.println(&quot;breath&quot;);">
   
     <link rel="alternative" href="/atom.xml" title="colin" type="application/atom+xml">
   
@@ -158,30 +152,23 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>###接口</p>
-<p>####抽象类：</p>
-<pre><code>1. 理解起来很容易，比如父类是动物，子类是狗；动物嘛，肯定得会呼吸；
+        <h2 id="接口"><a href="#接口" class="headerlink" title="# 接口"></a># 接口</h2><h2 id="抽象类："><a href="#抽象类：" class="headerlink" title="## 抽象类："></a>## 抽象类：</h2><pre><code>1. 理解起来很容易，比如父类是动物，子类是狗；动物嘛，肯定得会呼吸；
 </code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Animal</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">protected</span>  <span class="keyword">void</span> <span class="title">breath</span><span class="params">()</span>  </span></div><div class="line">    &#123;</div><div class="line">        System.out.println(<span class="string">"breath"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Mouse</span> <span class="keyword">extends</span> <span class="title">Animal</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span>  <span class="keyword">static</span>  <span class="keyword">void</span>  <span class="title">main</span><span class="params">(String a[])</span></span></div><div class="line">    &#123;</div><div class="line">        Animal mouse = <span class="keyword">new</span> Mouse(<span class="string">"11"</span>,<span class="number">1</span>);     </div><div class="line">        mouse.breath();     <span class="comment">//这里输出的实际上就是mousebreath ，通过父类我们可以随意访问详细对象的方法；</span></div><div class="line">        <span class="comment">//但是实际上，我们几乎不用父类初始化，这样breath方法就显得没有意义；</span></div><div class="line">        <span class="comment">//那把他定义为抽象有什么好处呢？一目了然，立马就知道子类需要具体实现；</span></div><div class="line">        <span class="comment">//这样就把声明和实现分开了</span></div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span>  <span class="title">Mouse</span><span class="params">(String myName, <span class="keyword">int</span> myid)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>(myName, myid);</div><div class="line">    &#125;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">breath</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="comment">//super.breath();</span></div><div class="line">        System.out.println(<span class="string">"mousebreath"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <a id="more"></a>
-<p>####接口</p>
-<pre><code>1. 抽象类是说有这么一个父类方法几乎不用，但是又想定义出来，形成继承关系；使得通过父类可以简单调用相应方法；那么接口呢，就是父类中全部的东西都是抽象的；就像是动物，动物有一大堆方法，呼吸啊，吃啊之类的；这个类我们将其接口话，所有implements动物的，都得有这些方法；你不重写就算错
+<h2 id="接口-1"><a href="#接口-1" class="headerlink" title="## 接口"></a>## 接口</h2><pre><code>1. 抽象类是说有这么一个父类方法几乎不用，但是又想定义出来，形成继承关系；使得通过父类可以简单调用相应方法；那么接口呢，就是父类中全部的东西都是抽象的；就像是动物，动物有一大堆方法，呼吸啊，吃啊之类的；这个类我们将其接口话，所有implements动物的，都得有这些方法；你不重写就算错
 </code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Instrument</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> VALUE = <span class="number">5</span> ;</div><div class="line">    <span class="function"><span class="keyword">void</span>  <span class="title">play</span><span class="params">()</span></span>;</div><div class="line">    <span class="function"><span class="keyword">void</span>  <span class="title">adjust</span><span class="params">()</span></span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Wind</span> <span class="keyword">implements</span>  <span class="title">Instrument</span></span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span>  <span class="keyword">static</span>  <span class="keyword">void</span>  <span class="title">main</span><span class="params">(String a[])</span></span></div><div class="line">    &#123;</div><div class="line">        Instrument instrument = <span class="keyword">new</span> Wind();     <span class="comment">//这样就可以访问接口里的属性了；</span></div><div class="line">       <span class="keyword">int</span> b =  Wind.VALUE;                     <span class="comment">//虽然它是final&amp;static9</span></div><div class="line"></div><div class="line">    &#125;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">play</span><span class="params">()</span> </span>&#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">adjust</span><span class="params">()</span> </span>&#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>####完全解耦 与适配器类</p>
-<ol>
+<h2 id="完全解耦-与适配器类"><a href="#完全解耦-与适配器类" class="headerlink" title="## 完全解耦 与适配器类"></a>## 完全解耦 与适配器类</h2><ol>
 <li>书上写的太晕了，完全看不懂；解耦嘛，简单说就是通过接口，把只有继承关系中能用的开放出去；</li>
 <li>抽象类可以不实现接口的方法</li>
 <li>适配器</li>
 </ol>
-<p>####多重继承</p>
-<pre><code>1.当存在继承+接口时，接口不需要实现；
+<h2 id="多重继承"><a href="#多重继承" class="headerlink" title="## 多重继承"></a>## 多重继承</h2><pre><code>1.当存在继承+接口时，接口不需要实现；
 
 2. 接口的作用 向上转型为多个父类（接口类），同时防止创建对象
 </code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">CanFight</span> </span>&#123;       <span class="comment">//不可被创建对象</span></div><div class="line">    <span class="function"><span class="keyword">void</span>  <span class="title">fight</span><span class="params">()</span></span>;</div><div class="line">&#125;</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ActionCharacter</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span>  <span class="keyword">void</span>  <span class="title">fight</span><span class="params">()</span></span></div><div class="line">    &#123;</div><div class="line">        System.out.println(<span class="string">"fight1"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Hero</span> <span class="keyword">extends</span>  <span class="title">ActionCharacter</span> <span class="keyword">implements</span>  <span class="title">CanFight</span></span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">fight</span><span class="params">()</span> </span>&#123;            <span class="comment">//此处是不用写的,此处重写父类方法，而不是接口</span></div><div class="line">        <span class="keyword">super</span>.fight();</div><div class="line">        System.out.println(<span class="string">"fight"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Adventure</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span>  <span class="keyword">static</span>  <span class="keyword">void</span>  <span class="title">t</span><span class="params">(CanFight fight)</span></span></div><div class="line">    &#123;</div><div class="line">        fight.fight();</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span>  <span class="keyword">static</span>  <span class="keyword">void</span>  <span class="title">t2</span><span class="params">(ActionCharacter x )</span></span></div><div class="line">    &#123;</div><div class="line">        x.fight();</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span>  <span class="keyword">static</span>  <span class="keyword">void</span>  <span class="title">main</span><span class="params">(String a[])</span></span></div><div class="line">    &#123;</div><div class="line">        Hero hero = <span class="keyword">new</span> Hero();</div><div class="line">        t(hero);</div><div class="line">        t2(hero);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>####通过继承扩展接口</p>
-<pre><code>1. 接口可以通过继承保留父类接口的方法，同时加入自己的，这样接口的扩展性就变得很好；由于接口继承，方法都是未实现的，所以肯定没有重写什么的，也就不会出现c++多重继承不知道继承谁的问题了；
-</code></pre><p>####适配器 （需要重点复习）<br><a href="http://blog.csdn.net/zhangjg_blog/article/details/18735243" target="_blank" rel="external">插座示例</a></p>
-<p>####工厂类 </p>
-<ol>
+<h2 id="通过继承扩展接口"><a href="#通过继承扩展接口" class="headerlink" title="## 通过继承扩展接口"></a>## 通过继承扩展接口</h2><pre><code>1. 接口可以通过继承保留父类接口的方法，同时加入自己的，这样接口的扩展性就变得很好；由于接口继承，方法都是未实现的，所以肯定没有重写什么的，也就不会出现c++多重继承不知道继承谁的问题了；
+</code></pre><h2 id="适配器-（需要重点复习）"><a href="#适配器-（需要重点复习）" class="headerlink" title="## 适配器 （需要重点复习）"></a>## 适配器 （需要重点复习）</h2><p><a href="http://blog.csdn.net/zhangjg_blog/article/details/18735243" target="_blank" rel="external">插座示例</a></p>
+<h2 id="工厂类"><a href="#工厂类" class="headerlink" title="## 工厂类"></a>## 工厂类</h2><ol>
 <li>和适配器一样，属于模式上的事情；所以日后再说？</li>
 </ol>
 
@@ -344,6 +331,10 @@
   	          <a target="_blank" class="main-nav-link switch-friends-link" href="https://www.google.com.hk/">谷歌</a>
   	        
   	          <a target="_blank" class="main-nav-link switch-friends-link" href="https://stackoverflow.com/">stackoverflow</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://beyondtech.org/">泡饭</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="https://menyifan.com/">MYF</a>
   	        
   	        </div>
   		

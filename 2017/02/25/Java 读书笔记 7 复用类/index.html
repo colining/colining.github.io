@@ -6,25 +6,22 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <title>Java 读书笔记7 复用类 | colin</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="#####1.关于super的怨念
-1. 其实之前一直觉得super很神奇，不会用，今天终于明白了，其实他就是回去调用父类的相关函数了，
+  <meta name="description" content="## # 1.关于super的怨念1. 其实之前一直觉得super很神奇，不会用，今天终于明白了，其实他就是回去调用父类的相关函数了，
 2. super 和this 都是用来对构造函数而言，因为构造函数在构造函数无法直接调用；
-12345678910111213141516171819202122Drawing (int i )&amp;#123;    super(i);&amp;#125;Drawing()">
+12345678910111213141516171819202122Drawing (int i )&amp;#123;    super(i);&amp;#125;Drawing()&amp;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java 读书笔记7 复用类">
 <meta property="og:url" content="http://yoursite.com/2017/02/25/Java 读书笔记 7 复用类/index.html">
 <meta property="og:site_name" content="colin">
-<meta property="og:description" content="#####1.关于super的怨念
-1. 其实之前一直觉得super很神奇，不会用，今天终于明白了，其实他就是回去调用父类的相关函数了，
+<meta property="og:description" content="## # 1.关于super的怨念1. 其实之前一直觉得super很神奇，不会用，今天终于明白了，其实他就是回去调用父类的相关函数了，
 2. super 和this 都是用来对构造函数而言，因为构造函数在构造函数无法直接调用；
-12345678910111213141516171819202122Drawing (int i )&amp;#123;    super(i);&amp;#125;Drawing()">
-<meta property="og:updated_time" content="2017-03-15T11:32:06.710Z">
+12345678910111213141516171819202122Drawing (int i )&amp;#123;    super(i);&amp;#125;Drawing()&amp;">
+<meta property="og:updated_time" content="2017-03-17T10:30:04.163Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java 读书笔记7 复用类">
-<meta name="twitter:description" content="#####1.关于super的怨念
-1. 其实之前一直觉得super很神奇，不会用，今天终于明白了，其实他就是回去调用父类的相关函数了，
+<meta name="twitter:description" content="## # 1.关于super的怨念1. 其实之前一直觉得super很神奇，不会用，今天终于明白了，其实他就是回去调用父类的相关函数了，
 2. super 和this 都是用来对构造函数而言，因为构造函数在构造函数无法直接调用；
-12345678910111213141516171819202122Drawing (int i )&amp;#123;    super(i);&amp;#125;Drawing()">
+12345678910111213141516171819202122Drawing (int i )&amp;#123;    super(i);&amp;#125;Drawing()&amp;">
   
     <link rel="alternative" href="/atom.xml" title="colin" type="application/atom+xml">
   
@@ -158,33 +155,27 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>#####1.关于super的怨念</p>
-<pre><code>1. 其实之前一直觉得super很神奇，不会用，今天终于明白了，其实他就是回去调用父类的相关函数了，
+        <h2 id="1-关于super的怨念"><a href="#1-关于super的怨念" class="headerlink" title="## # 1.关于super的怨念"></a>## # 1.关于super的怨念</h2><pre><code>1. 其实之前一直觉得super很神奇，不会用，今天终于明白了，其实他就是回去调用父类的相关函数了，
 2. super 和this 都是用来对构造函数而言，因为构造函数在构造函数无法直接调用；
 </code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">Drawing (<span class="keyword">int</span> i )</div><div class="line">&#123;</div><div class="line">    <span class="keyword">super</span>(i);</div><div class="line">&#125;</div><div class="line"></div><div class="line">Drawing()</div><div class="line">&#123;</div><div class="line"></div><div class="line">    <span class="comment">//super(5);           //调用父类</span></div><div class="line">    <span class="comment">//this(1);            //调用子类其他</span></div><div class="line">    Drawing(<span class="number">5</span>);          <span class="comment">//这样写是不对的，不能这么调用</span></div><div class="line">&#125;</div><div class="line"><span class="comment">//对于普通重载函数</span></div><div class="line"></div><div class="line">   <span class="function"><span class="keyword">void</span> <span class="title">test</span><span class="params">(String a)</span></span></div><div class="line">&#123;</div><div class="line"></div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">test</span><span class="params">(<span class="keyword">int</span> a)</span></span></div><div class="line">&#123;</div><div class="line">    test(<span class="string">"aaa"</span>);          <span class="comment">//可以直接调用</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <a id="more"></a>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Animal</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">protected</span>   <span class="keyword">void</span>  <span class="title">test</span><span class="params">(String a)</span></span></div><div class="line">    &#123;</div><div class="line">        System.out.println(a);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Mouse</span> <span class="keyword">extends</span> <span class="title">Animal</span> </span>&#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">(String a)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.test(a);            <span class="comment">//只要符合规范，其实是随便调用的；</span></div><div class="line">        <span class="keyword">super</span>.test(<span class="string">"a"</span>);</div><div class="line">        <span class="keyword">super</span>.test(<span class="string">"b"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>#####2.老生常谈的继承构造方法顺序；</p>
-<pre><code>1. 首先是雷打不动的父类先构造，其实相当于父类可以先给一遍值，子类再自己改；
+<h2 id="2-老生常谈的继承构造方法顺序；"><a href="#2-老生常谈的继承构造方法顺序；" class="headerlink" title="## # 2.老生常谈的继承构造方法顺序；"></a>## # 2.老生常谈的继承构造方法顺序；</h2><pre><code>1. 首先是雷打不动的父类先构造，其实相当于父类可以先给一遍值，子类再自己改；
 2. 然后，比较新鲜的是，对象先创建，然后才是赋值；
 3. 突然发现了父类如果是带参数的构造函数，那么子类必须存在带参构造函数，并且要有super，这也是我一直无法理解的地方了； 
 </code></pre><p>//this也可以，不过只能用一个<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Art</span> </span>&#123;</div><div class="line">    Art (<span class="keyword">int</span> i)</div><div class="line">    &#123;</div><div class="line">        System.out.println(<span class="string">"Art Constructior"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">	<span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Drawing</span> <span class="keyword">extends</span>  <span class="title">Art</span> </span>&#123;</div><div class="line">    Drawing (<span class="keyword">int</span> i)            <span class="comment">//如果没有这个构造函数，就会报错</span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">super</span>(i);              <span class="comment">//这里的super是必须的</span></div><div class="line">        System.out.println(<span class="string">"Drawing Constructor"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Cartoon</span> <span class="keyword">extends</span>  <span class="title">Drawing</span> </span>&#123;</div><div class="line">    Main main = <span class="keyword">new</span> Main();</div><div class="line"></div><div class="line">    Cartoon(<span class="keyword">int</span> i) &#123;</div><div class="line">        <span class="keyword">super</span>(i);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span>  <span class="keyword">static</span>  <span class="keyword">void</span>  <span class="title">main</span><span class="params">(String arg[])</span></span></div><div class="line">    &#123;</div><div class="line">        Cartoon x = <span class="keyword">new</span> Cartoon(<span class="number">1</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>#####3.关于代理                </p>
-<pre><code>1. 这似乎是个新概念，也可能java课上略过了，我忽然发现这就是委托而已。。。；
+<h2 id="3-关于代理"><a href="#3-关于代理" class="headerlink" title="## # 3.关于代理"></a>## # 3.关于代理</h2><pre><code>1. 这似乎是个新概念，也可能java课上略过了，我忽然发现这就是委托而已。。。；
 </code></pre><p><a href="http://www.jianshu.com/p/6f6bb2f0ece9" target="_blank" rel="external">简书上关于代理的内容 </a></p>
-<p>#####4.关于重载和重写</p>
-<pre><code>1. 重载呢，简单地说，就是子类啊，父类啊，有一群类似的方法，子类可以调用父类的，反过来不行，但是重写就不一样了，因为他们名字完全相同，子类只能使用自己的，父类也只能使用自己的；
+<h2 id="4-关于重载和重写"><a href="#4-关于重载和重写" class="headerlink" title="## # 4.关于重载和重写"></a>## # 4.关于重载和重写</h2><pre><code>1. 重载呢，简单地说，就是子类啊，父类啊，有一群类似的方法，子类可以调用父类的，反过来不行，但是重写就不一样了，因为他们名字完全相同，子类只能使用自己的，父类也只能使用自己的；
 2. 相对的，我们大概也可以稍微把构造函数当成重写，不过只要父类构造函数带有参数，下面的构造函数不论带不带有参数，必须有super()方法；这样强制super可能是为了一定要调用父类方法；
 </code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Art</span> </span>&#123;</div><div class="line">    Art (<span class="keyword">int</span> i)</div><div class="line">    &#123;</div><div class="line">        System.out.println(<span class="string">"Art Constructior"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Drawing</span> <span class="keyword">extends</span>  <span class="title">Art</span> </span>&#123;</div><div class="line">   Drawing (String i)</div><div class="line">    &#123;</div><div class="line">       <span class="keyword">super</span>(<span class="number">5</span>);        <span class="comment">//必须有super()</span></div><div class="line"><span class="comment">//        super(i);</span></div><div class="line">        System.out.println(<span class="string">"Drawing Constructor"</span>);</div><div class="line">    &#125;</div><div class="line">    Drawing (<span class="keyword">int</span> i )</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">super</span>(i);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    Drawing()    </div><div class="line">    &#123;</div><div class="line">        <span class="keyword">super</span>(<span class="number">5</span>);       <span class="comment">//不写就报错</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>#####5关于final</p>
-<pre><code>1. 对于对象来说，final只是表示引用恒定不变（数组属于对象）；然而对象本身可以变化；
+<h2 id="5关于final"><a href="#5关于final" class="headerlink" title="## # 5关于final"></a>## # 5关于final</h2><pre><code>1. 对于对象来说，final只是表示引用恒定不变（数组属于对象）；然而对象本身可以变化；
 2. static +final 相当于最一般的C常量 通常大写 比如 VALUE_TEST = 1;
 3. 作用嘛，大概就是防止改变之类的
 4. final参数，这类参数，在函数中无法修改
 5. final方法，防止修改；
 6. final类，无法继承；
-</code></pre><p>#####初始化与类加载</p>
-<pre><code>1. .class文件在程序调用时才会加载，一般而言，就是构造函数，构造函数前面可以看成带有static关键字；
+</code></pre><h2 id="初始化与类加载"><a href="#初始化与类加载" class="headerlink" title="## # 初始化与类加载"></a>## # 初始化与类加载</h2><pre><code>1. .class文件在程序调用时才会加载，一般而言，就是构造函数，构造函数前面可以看成带有static关键字；
 2. 程序运行时，首先是main方法所在的类，如果存在继承，就向上加载，一直加载到最顶层的积累，接着创建对象，然后从父类到子类，依次初始化对象
 </code></pre>
       
@@ -346,6 +337,10 @@
   	          <a target="_blank" class="main-nav-link switch-friends-link" href="https://www.google.com.hk/">谷歌</a>
   	        
   	          <a target="_blank" class="main-nav-link switch-friends-link" href="https://stackoverflow.com/">stackoverflow</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://beyondtech.org/">泡饭</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="https://menyifan.com/">MYF</a>
   	        
   	        </div>
   		

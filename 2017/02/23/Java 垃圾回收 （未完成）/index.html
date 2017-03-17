@@ -6,25 +6,22 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <title>Java 垃圾回收 （未完成） | colin</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="###垃圾回收早就知道java会垃圾回收了，但是对其中道理一点都不了解，我想成为大神，还是必须要多懂一些，多会一些，多写一些吧；
-###垃圾回收的算法和思想
-
-引用计数法 这个相当于计数，因为java每个变量的名字实际上是一种引用，我们可以给一个对象很多引用，那么同时，当对象没有引用的时候，说明这个对象没有用了，可以扔掉了； ps：对象都没有引用了，说明这块地址，这个对象，程序已经使用不了，那就赶">
+  <meta name="description" content="# 垃圾回收早就知道java会垃圾回收了，但是对其中道理一点都不了解，我想成为大神，还是必须要多懂一些，多会一些，多写一些吧；
+# 垃圾回收的算法和思想
+引用计数法 这个相当于计数，因为java每个变量的名字实际上是一种引用，我们可以给一个对象很多引用，那么同时，当对象没有引用的时候，说明这个对象没有用了，可以扔掉了； ps：对象都没有引用了，说明这块地址，这个对象，程序已经使用不了，那就赶紧清理">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java 垃圾回收 （未完成）">
 <meta property="og:url" content="http://yoursite.com/2017/02/23/Java 垃圾回收 （未完成）/index.html">
 <meta property="og:site_name" content="colin">
-<meta property="og:description" content="###垃圾回收早就知道java会垃圾回收了，但是对其中道理一点都不了解，我想成为大神，还是必须要多懂一些，多会一些，多写一些吧；
-###垃圾回收的算法和思想
-
-引用计数法 这个相当于计数，因为java每个变量的名字实际上是一种引用，我们可以给一个对象很多引用，那么同时，当对象没有引用的时候，说明这个对象没有用了，可以扔掉了； ps：对象都没有引用了，说明这块地址，这个对象，程序已经使用不了，那就赶">
-<meta property="og:updated_time" content="2017-03-15T10:53:13.040Z">
+<meta property="og:description" content="# 垃圾回收早就知道java会垃圾回收了，但是对其中道理一点都不了解，我想成为大神，还是必须要多懂一些，多会一些，多写一些吧；
+# 垃圾回收的算法和思想
+引用计数法 这个相当于计数，因为java每个变量的名字实际上是一种引用，我们可以给一个对象很多引用，那么同时，当对象没有引用的时候，说明这个对象没有用了，可以扔掉了； ps：对象都没有引用了，说明这块地址，这个对象，程序已经使用不了，那就赶紧清理">
+<meta property="og:updated_time" content="2017-03-17T10:30:04.226Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java 垃圾回收 （未完成）">
-<meta name="twitter:description" content="###垃圾回收早就知道java会垃圾回收了，但是对其中道理一点都不了解，我想成为大神，还是必须要多懂一些，多会一些，多写一些吧；
-###垃圾回收的算法和思想
-
-引用计数法 这个相当于计数，因为java每个变量的名字实际上是一种引用，我们可以给一个对象很多引用，那么同时，当对象没有引用的时候，说明这个对象没有用了，可以扔掉了； ps：对象都没有引用了，说明这块地址，这个对象，程序已经使用不了，那就赶">
+<meta name="twitter:description" content="# 垃圾回收早就知道java会垃圾回收了，但是对其中道理一点都不了解，我想成为大神，还是必须要多懂一些，多会一些，多写一些吧；
+# 垃圾回收的算法和思想
+引用计数法 这个相当于计数，因为java每个变量的名字实际上是一种引用，我们可以给一个对象很多引用，那么同时，当对象没有引用的时候，说明这个对象没有用了，可以扔掉了； ps：对象都没有引用了，说明这块地址，这个对象，程序已经使用不了，那就赶紧清理">
   
     <link rel="alternative" href="/atom.xml" title="colin" type="application/atom+xml">
   
@@ -158,15 +155,14 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>###垃圾回收<br>早就知道java会垃圾回收了，但是对其中道理一点都不了解，我想成为大神，还是必须要多懂一些，多会一些，多写一些吧；</p>
-<p>###垃圾回收的算法和思想</p>
-<ol>
+        <h2 id="垃圾回收"><a href="#垃圾回收" class="headerlink" title="# 垃圾回收"></a># 垃圾回收</h2><p>早就知道java会垃圾回收了，但是对其中道理一点都不了解，我想成为大神，还是必须要多懂一些，多会一些，多写一些吧；</p>
+<h2 id="垃圾回收的算法和思想"><a href="#垃圾回收的算法和思想" class="headerlink" title="# 垃圾回收的算法和思想"></a># 垃圾回收的算法和思想</h2><ol>
 <li>引用计数法<br> 这个相当于计数，因为java每个变量的名字实际上是一种引用，我们可以给一个对象很多引用，那么同时，当对象没有引用的时候，说明这个对象没有用了，可以扔掉了；<br> ps：对象都没有引用了，说明这块地址，这个对象，程序已经使用不了，那就赶紧清理呗</li>
 <li>tracing算法 追踪算法<br>当我们通过计数这种方式，进行垃圾清理，我们会多出很多操作，每次都要加减，还要存储计数；那么可不可以不要这么麻烦呢，追踪算法，顾名思义，追踪，通过所有引用追踪对象，如果对象存在，将其标记；追踪结束后，回收那些没有标记的对象；</li>
 <li>compacting算法<br>对于一个对象，我们怎么知道他是不是活着呢？我们可以移动它呀。于是我们可以把对象移动至堆得一侧，那么另一侧就是不可操作的对象了；</li>
 <li>copying算法<br>上面说移到另一侧，这个呢直接就有好多堆，从这里移到哪里，然后清理旧的<br>5.generation算法<br> 简单来说，应该是说分堆，分代，新生成的对象，放在新代中，执行清理，存活的对象扔到旧代中；<br> 就像是你现在混黑社会，外圈是要淘汰的，比如说一分钟淘汰一次，滤掉的就是不合格的，剩下的升级；升级后清理密度变低，这样就节省了时间；</li>
 </ol>
-<p>####稍微深度一下：<br>我们在子函数建立一个对象a，当子函数运行完成时，返回时？这个a还存在吗？</p>
+<h2 id="稍微深度一下："><a href="#稍微深度一下：" class="headerlink" title="## 稍微深度一下："></a>## 稍微深度一下：</h2><p>我们在子函数建立一个对象a，当子函数运行完成时，返回时？这个a还存在吗？</p>
 <p>对象存不存在不一定，a一定不存在了，首先a是一个引用，他的作用于只在子函数运行时，函数结束，他就不存在了；但是这个对象存不存在就要看垃圾回收何时进行了；</p>
 
       
@@ -328,6 +324,10 @@
   	          <a target="_blank" class="main-nav-link switch-friends-link" href="https://www.google.com.hk/">谷歌</a>
   	        
   	          <a target="_blank" class="main-nav-link switch-friends-link" href="https://stackoverflow.com/">stackoverflow</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://beyondtech.org/">泡饭</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="https://menyifan.com/">MYF</a>
   	        
   	        </div>
   		

@@ -6,19 +6,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <title>Java 读书笔记3 | colin</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="#操作符
-1.赋值和引用（别名）；    =我们最常见；意思可以使等于，也可以是赋值，在Java中，赋值也是有坑的123456789101112131415161718public class Tank &amp;#123;    int level;&amp;#125;    public static void main(String[] args) &amp;#123; Tank tank1 = new Tank(">
+  <meta name="description" content="操作符1.赋值和引用（别名）；    =我们最常见；意思可以使等于，也可以是赋值，在Java中，赋值也是有坑的123456789101112131415161718public class Tank &amp;#123;    int level;&amp;#125;    public static void main(String[] args) &amp;#123; Tank tank1 = new Tank();">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java 读书笔记3">
 <meta property="og:url" content="http://yoursite.com/2017/02/22/Java 读书笔记3/index.html">
 <meta property="og:site_name" content="colin">
-<meta property="og:description" content="#操作符
-1.赋值和引用（别名）；    =我们最常见；意思可以使等于，也可以是赋值，在Java中，赋值也是有坑的123456789101112131415161718public class Tank &amp;#123;    int level;&amp;#125;    public static void main(String[] args) &amp;#123; Tank tank1 = new Tank(">
-<meta property="og:updated_time" content="2017-03-15T10:53:13.037Z">
+<meta property="og:description" content="操作符1.赋值和引用（别名）；    =我们最常见；意思可以使等于，也可以是赋值，在Java中，赋值也是有坑的123456789101112131415161718public class Tank &amp;#123;    int level;&amp;#125;    public static void main(String[] args) &amp;#123; Tank tank1 = new Tank();">
+<meta property="og:updated_time" content="2017-03-17T10:30:04.210Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java 读书笔记3">
-<meta name="twitter:description" content="#操作符
-1.赋值和引用（别名）；    =我们最常见；意思可以使等于，也可以是赋值，在Java中，赋值也是有坑的123456789101112131415161718public class Tank &amp;#123;    int level;&amp;#125;    public static void main(String[] args) &amp;#123; Tank tank1 = new Tank(">
+<meta name="twitter:description" content="操作符1.赋值和引用（别名）；    =我们最常见；意思可以使等于，也可以是赋值，在Java中，赋值也是有坑的123456789101112131415161718public class Tank &amp;#123;    int level;&amp;#125;    public static void main(String[] args) &amp;#123; Tank tank1 = new Tank();">
   
     <link rel="alternative" href="/atom.xml" title="colin" type="application/atom+xml">
   
@@ -152,8 +149,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>#操作符</p>
-<p>1.赋值和引用（别名）；<br>    =我们最常见；意思可以使等于，也可以是赋值，在Java中，赋值也是有坑的<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Tank</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> level;</div><div class="line">&#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line"> Tank tank1 = <span class="keyword">new</span> Tank();</div><div class="line">        tank1 .level = <span class="number">1</span>;</div><div class="line">        Tank tank2 = <span class="keyword">new</span> Tank();</div><div class="line">        tank2. level = <span class="number">2</span>;</div><div class="line">        System.out.println(tank1.level);<span class="comment">//输出1</span></div><div class="line">        System.out.println(tank2.level);<span class="comment">//输出2</span></div><div class="line">        tank1 = tank2;</div><div class="line">        <span class="comment">//tank1.level = tank2.level; 其实这么写才是对的</span></div><div class="line">        System.out.println(tank1.level);<span class="comment">//输出2</span></div><div class="line">        System.out.println(tank2.level);<span class="comment">//输出2</span></div><div class="line">        tank1.level = <span class="number">27</span>;</div><div class="line">		</div><div class="line">        System.out.println(tank2.level);<span class="comment">//输出27</span></div><div class="line">      &#125;</div></pre></td></tr></table></figure></p>
+        <h1 id="操作符"><a href="#操作符" class="headerlink" title="操作符"></a>操作符</h1><p>1.赋值和引用（别名）；<br>    =我们最常见；意思可以使等于，也可以是赋值，在Java中，赋值也是有坑的<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Tank</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> level;</div><div class="line">&#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line"> Tank tank1 = <span class="keyword">new</span> Tank();</div><div class="line">        tank1 .level = <span class="number">1</span>;</div><div class="line">        Tank tank2 = <span class="keyword">new</span> Tank();</div><div class="line">        tank2. level = <span class="number">2</span>;</div><div class="line">        System.out.println(tank1.level);<span class="comment">//输出1</span></div><div class="line">        System.out.println(tank2.level);<span class="comment">//输出2</span></div><div class="line">        tank1 = tank2;</div><div class="line">        <span class="comment">//tank1.level = tank2.level; 其实这么写才是对的</span></div><div class="line">        System.out.println(tank1.level);<span class="comment">//输出2</span></div><div class="line">        System.out.println(tank2.level);<span class="comment">//输出2</span></div><div class="line">        tank1.level = <span class="number">27</span>;</div><div class="line">		</div><div class="line">        System.out.println(tank2.level);<span class="comment">//输出27</span></div><div class="line">      &#125;</div></pre></td></tr></table></figure></p>
 <p>对上面的赋值 tank1=tank2 来说，好像是在说你以后什么值都和他相等就对了；但其实不是的，tank1 = tank2  是在讲tank1 以后和tank2 都指向同一个对象了；<br>tank1 和tank2 本质都是引用，现在他们指向同一个对象了，那么不管这个对象的level怎么变化，tank1和tank2 都是一个值；</p>
 <p>打个比方好了 不管叫做对象名或者引用什么的；我们将对象看成人，将引用看成名字或代号，说家里两兄弟，哥哥去打仗了，对弟弟说，这一去恐怕就回不来了，带着我的名字活下去吧；<br>那么从此以后弟弟就有了两个名字同时代表他；而哥哥恐怕就被当做不存在喽；</p>
 <p>ps:本章有很多关于操作符的相关内容能够，用到再看吧，反正记不住；</p>
@@ -317,6 +313,10 @@
   	          <a target="_blank" class="main-nav-link switch-friends-link" href="https://www.google.com.hk/">谷歌</a>
   	        
   	          <a target="_blank" class="main-nav-link switch-friends-link" href="https://stackoverflow.com/">stackoverflow</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://beyondtech.org/">泡饭</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="https://menyifan.com/">MYF</a>
   	        
   	        </div>
   		
