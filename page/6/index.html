@@ -129,7 +129,7 @@
       <div class="body-wrap">
         
   
-    <article id="post-Android 通知栏信息" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Java 读书笔记 9 接口" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -139,7 +139,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/10/05/Android 通知栏信息/">android 5 通知栏</a>
+      <a class="article-title" href="/2017/02/27/Java 读书笔记 9 接口/">Java 读书笔记9 接口</a>
     </h1>
   
 
@@ -147,21 +147,22 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="1"><a href="#1" class="headerlink" title="1"></a>1</h1><p>今天讲点简单的哦，再日后补坑，通知栏信息；<br>用Android的人，都应该知道通知栏是个什么东西，下拉会出来一些设置菜单，<br>当有新的消息时，就会跑到这里，或者比如云音乐，后台听歌，也会有这么一个通知栏信息；<br>今天就简单的说一下，以后再完善；<br>
+        <h2 id="接口"><a href="#接口" class="headerlink" title="# 接口"></a># 接口</h2><h2 id="抽象类："><a href="#抽象类：" class="headerlink" title="## 抽象类："></a>## 抽象类：</h2><pre><code>1. 理解起来很容易，比如父类是动物，子类是狗；动物嘛，肯定得会呼吸；
+</code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Animal</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">protected</span>  <span class="keyword">void</span> <span class="title">breath</span><span class="params">()</span>  </div><div class="line">    </span>&#123;</div><div class="line">        System.out.println(<span class="string">"breath"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Mouse</span> <span class="keyword">extends</span> <span class="title">Animal</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span>  <span class="keyword">static</span>  <span class="keyword">void</span>  <span class="title">main</span><span class="params">(String a[])</span></div><div class="line">    </span>&#123;</div><div class="line">        Animal mouse = <span class="keyword">new</span> Mouse(<span class="string">"11"</span>,<span class="number">1</span>);     </div><div class="line">        mouse.breath();     <span class="comment">//这里输出的实际上就是mousebreath ，通过父类我们可以随意访问详细对象的方法；</span></div><div class="line">        <span class="comment">//但是实际上，我们几乎不用父类初始化，这样breath方法就显得没有意义；</span></div><div class="line">        <span class="comment">//那把他定义为抽象有什么好处呢？一目了然，立马就知道子类需要具体实现；</span></div><div class="line">        <span class="comment">//这样就把声明和实现分开了</span></div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span>  <span class="title">Mouse</span><span class="params">(String myName, <span class="keyword">int</span> myid)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>(myName, myid);</div><div class="line">    &#125;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">breath</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="comment">//super.breath();</span></div><div class="line">        System.out.println(<span class="string">"mousebreath"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
         <p class="article-more-link">
-          <a  href="/2016/10/05/Android 通知栏信息/#more">more >></a>
+          <a  href="/2017/02/27/Java 读书笔记 9 接口/#more">more >></a>
         </p>
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2016/10/05/Android 通知栏信息/" class="archive-article-date">
-  	<time datetime="2016-10-05T11:42:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-05</time>
+      <a href="/2017/02/27/Java 读书笔记 9 接口/" class="archive-article-date">
+  	<time datetime="2017-02-27T13:38:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-27</time>
 </a>
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java编程思想/">Java编程思想</a></li></ul>
 	</div>
 
       
@@ -181,7 +182,7 @@
 
 
   
-    <article id="post-原-Android-Looper，handler，HandlerThread" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Java 读书笔记 8" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -191,7 +192,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/28/原-Android-Looper，handler，HandlerThread/">Android Looper，handler，HandlerThread</a>
+      <a class="article-title" href="/2017/02/26/Java 读书笔记 8/">Java 读书笔记8 多态</a>
     </h1>
   
 
@@ -199,29 +200,24 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="1"><a href="#1" class="headerlink" title="1"></a>1</h1><p>上回书说道，掌柜的饿了，叫大厨做饭去了；但一家客栈如果不冷清的话，就会有很多客人；跑堂的小二问完客观，记下来，会跟大厨喊：两斤酱牛肉，两斤烤鸭；至于茶水，跑堂的自己端过去就行了；那掌柜的是不是得记账啊；所以更可能的情况是小二用纸笔记下来，一份送到掌柜的，一份送到大厨那里；掌柜的可能就直接收起来，等晚些时候记账也行，大厨就不一样了，那就是铁定的任务了；看完这个消息，做个鱼香肉丝，再看哪个，做个清蒸红薯之类的。。。<br>相关访问，一定要看的；<br><a href="http://www.cnblogs.com/codingmyworld/archive/2011/09/14/2174255.html">http://www.cnblogs.com/codingmyworld/archive/2011/09/14/2174255.html</a></p>
-<h1 id="2"><a href="#2" class="headerlink" title="2"></a>2</h1><pre><code>主程序:可以看成是客栈的整个大堂，人来人往，小二忙的不亦乐乎
-线程：大厨做饭得有锅啊；但是此时的锅只能做一道菜，做完就不能用了，大厨就把它藏起来了；之后来的n多单子不接受；
-looper：掌柜的一看，说这不行啊，加钱！让锅一直待在厨房，有单子就炒菜，没有就等着单子的到来；于是线程就升级为循环线程；
-Message：小二递过来的单子
-MessageQueue：虽然大厨是处于循环工作状态，但是那么多单子总得有个序列吧，此处将单子排序，大厨就可以按照次序
-Handler：大厨，关键人物，小二将单子交给大厨，到了厨房，大厨就将其放入消息队列，到了的话，就炒菜；
-那假如客栈大，厨师好多，一个相同的消息队列 不同的菜交给不同厨师，一个厨师可以对应好几道菜，不过的按照顺序吵；
-</code></pre>
+        <h2 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h2><h2 id="动态绑定"><a href="#动态绑定" class="headerlink" title="## # 动态绑定"></a>## # 动态绑定</h2><ol>
+<li>也很好理解，简单地说，方法接受的是父类，方法里面具体用到的是什么就随便了<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">test</span><span class="params">(Parent a)</span></div><div class="line"></span>&#123;</div><div class="line">		a.find();       <span class="comment">//此处的a可以使子类对象，那么test整体方法最后绑定就是动态的啦，否则它不知道到底是谁调用的；</span></div><div class="line">		<span class="comment">//该方法动态的绑定到了子类的find方法；</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
         <p class="article-more-link">
-          <a  href="/2016/09/28/原-Android-Looper，handler，HandlerThread/#more">more >></a>
+          <a  href="/2017/02/26/Java 读书笔记 8/#more">more >></a>
         </p>
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2016/09/28/原-Android-Looper，handler，HandlerThread/" class="archive-article-date">
-  	<time datetime="2016-09-28T11:44:49.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-09-28</time>
+      <a href="/2017/02/26/Java 读书笔记 8/" class="archive-article-date">
+  	<time datetime="2017-02-26T08:08:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-26</time>
 </a>
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/线程/">线程</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java编程思想/">Java编程思想</a></li></ul>
 	</div>
 
       
@@ -241,7 +237,7 @@ Handler：大厨，关键人物，小二将单子交给大厨，到了厨房，�
 
 
   
-    <article id="post-原-Android-线程AsyncTask" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Java 读书笔记 7 复用类" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -251,7 +247,7 @@ Handler：大厨，关键人物，小二将单子交给大厨，到了厨房，�
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/28/原-Android-线程AsyncTask/">Android 线程AsyncTask</a>
+      <a class="article-title" href="/2017/02/25/Java 读书笔记 7 复用类/">Java 读书笔记7 复用类</a>
     </h1>
   
 
@@ -259,23 +255,23 @@ Handler：大厨，关键人物，小二将单子交给大厨，到了厨房，�
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="1-AsyncTask"><a href="#1-AsyncTask" class="headerlink" title="1.AsyncTask"></a>1.AsyncTask</h2><p>Android已经到了最后阶段，突然蹦出来线程这一难题，真的是把我弄晕了<br>首先我们明确为什么存在线程？ 我们已经存在一个主程序，为什么要加一个呢？当我们的程序在请求网络时，我们希望主程序还可以运行吗？现在的程序一般都是后台下载，那前台下载你见过吗？点完下载，程序就变成下载的进度条了，软件不能用了；这样当然是不好的，所以才有了线程；</p>
-<p>就像是一个客栈，有大厨，有掌柜的，有跑堂的；如果说这家客栈就一个人，那是不是就忙不过来了呢；</p>
-<p>我们要看的程序是一个从网站获取链接与信息的程序；<br>
+        <h2 id="1-关于super的怨念"><a href="#1-关于super的怨念" class="headerlink" title="## # 1.关于super的怨念"></a>## # 1.关于super的怨念</h2><pre><code>1. 其实之前一直觉得super很神奇，不会用，今天终于明白了，其实他就是回去调用父类的相关函数了，
+2. super 和this 都是用来对构造函数而言，因为构造函数在构造函数无法直接调用；
+</code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">Drawing (<span class="keyword">int</span> i )</div><div class="line">&#123;</div><div class="line">    <span class="keyword">super</span>(i);</div><div class="line">&#125;</div><div class="line"></div><div class="line">Drawing()</div><div class="line">&#123;</div><div class="line"></div><div class="line">    <span class="comment">//super(5);           //调用父类</span></div><div class="line">    <span class="comment">//this(1);            //调用子类其他</span></div><div class="line">    Drawing(<span class="number">5</span>);          <span class="comment">//这样写是不对的，不能这么调用</span></div><div class="line">&#125;</div><div class="line"><span class="comment">//对于普通重载函数</span></div><div class="line"></div><div class="line">   <span class="function"><span class="keyword">void</span> <span class="title">test</span><span class="params">(String a)</span></div><div class="line"></span>&#123;</div><div class="line"></div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">test</span><span class="params">(<span class="keyword">int</span> a)</span></div><div class="line"></span>&#123;</div><div class="line">    test(<span class="string">"aaa"</span>);          <span class="comment">//可以直接调用</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
         <p class="article-more-link">
-          <a  href="/2016/09/28/原-Android-线程AsyncTask/#more">more >></a>
+          <a  href="/2017/02/25/Java 读书笔记 7 复用类/#more">more >></a>
         </p>
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2016/09/28/原-Android-线程AsyncTask/" class="archive-article-date">
-  	<time datetime="2016-09-28T08:20:43.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-09-28</time>
+      <a href="/2017/02/25/Java 读书笔记 7 复用类/" class="archive-article-date">
+  	<time datetime="2017-02-25T14:05:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-25</time>
 </a>
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/线程/">线程</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java编程思想/">Java编程思想</a></li></ul>
 	</div>
 
       
@@ -295,7 +291,7 @@ Handler：大厨，关键人物，小二将单子交给大厨，到了厨房，�
 
 
   
-    <article id="post-原-标题栏-层级导航" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Java 读书笔记6" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -305,7 +301,7 @@ Handler：大厨，关键人物，小二将单子交给大厨，到了厨房，�
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/24/原-标题栏-层级导航/">标题栏 层级导航</a>
+      <a class="article-title" href="/2017/02/25/Java 读书笔记6/">Java 读书笔记6</a>
     </h1>
   
 
@@ -313,23 +309,21 @@ Handler：大厨，关键人物，小二将单子交给大厨，到了厨房，�
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="1"><a href="#1" class="headerlink" title="1"></a>1</h2><p>最初我们的标题栏导航是怎样的呢？</p>
-<p>点击标题栏按钮，触发事件，创建一个Intent ，打开新页面；<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Intent intent = <span class="keyword">new</span> Intent(getActivity(),CrimePagerActivity.class);</div><div class="line">intent.putExtra(CrimeFragment.EXTRA_CRIME_ID,crime.getmId());</div><div class="line">startActivityForResult(intent,<span class="number">0</span>);</div></pre></td></tr></table></figure></p>
-<p>Intent？我们知道用Intent可以随便打开那个页面，那么这种导航就没有明确的父子关系，且必须知道要去哪里；简单地说，小李坐车去女朋友家，司机说：“我知道你女朋友在那里，上车” 实际上去哪里，是司机说的算；<br>
-        <p class="article-more-link">
-          <a  href="/2016/09/24/原-标题栏-层级导航/#more">more >></a>
-        </p>
+        <h2 id="访问权限控制"><a href="#访问权限控制" class="headerlink" title="访问权限控制"></a>访问权限控制</h2><p>其实这部分已经不用像java编程思想中讲的那么麻烦了；</p>
+<p>1.java中关于编译的简单内容<br>    首先java程序跑起来，会生成.class,这个.class会在环境变量\包名这里；<br>    然后import的时候，找到这个class就可以啦；<br>2.以private构造方法的单例设计模式，日后再说喽，其实之前应该写过；</p>
+<p>3.protected的方法主要用来干啥呢？ 因为在继承中，可能子类在别的包中，你写public的话，谁都可以访问，不写public又访问不到，所以protected出现了；所有继承者都可以用；<br>ps：其实java语言真的很实际，你自己推一推，其实也会知道；但还是赞叹人家的设计想法啊；</p>
+
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2016/09/24/原-标题栏-层级导航/" class="archive-article-date">
-  	<time datetime="2016-09-24T08:44:04.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-09-24</time>
+      <a href="/2017/02/25/Java 读书笔记6/" class="archive-article-date">
+  	<time datetime="2017-02-25T06:39:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-25</time>
 </a>
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java编程思想/">Java编程思想</a></li></ul>
 	</div>
 
       
@@ -349,7 +343,7 @@ Handler：大厨，关键人物，小二将单子交给大厨，到了厨房，�
 
 
   
-    <article id="post-原-样式与include" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Java 垃圾回收 （未完成）" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -359,7 +353,7 @@ Handler：大厨，关键人物，小二将单子交给大厨，到了厨房，�
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/24/原-样式与include/">样式与include</a>
+      <a class="article-title" href="/2017/02/23/Java 垃圾回收 （未完成）/">Java 垃圾回收 （未完成）</a>
     </h1>
   
 
@@ -367,23 +361,27 @@ Handler：大厨，关键人物，小二将单子交给大厨，到了厨房，�
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="1"><a href="#1" class="headerlink" title="1"></a>1</h1><p>简单来说样式是为了复用;</p>
-<p>style 中创建样式<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">"RemoteButton"</span>&gt;</span><span class="xml"></div><div class="line">       <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:layout_width"</span>&gt;</span>0dp<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:layout_height"</span>&gt;</span>match_parent<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:textColor"</span>&gt;</span># 556699<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:textSize"</span>&gt;</span>20dp<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span> = <span class="string">"android:layout_margin"</span>&gt;</span>3dp<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line"></div><div class="line">   </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<p>控件使用某种样式；<br>
-        <p class="article-more-link">
-          <a  href="/2016/09/24/原-样式与include/#more">more >></a>
-        </p>
+        <h2 id="垃圾回收"><a href="#垃圾回收" class="headerlink" title="# 垃圾回收"></a># 垃圾回收</h2><p>早就知道java会垃圾回收了，但是对其中道理一点都不了解，我想成为大神，还是必须要多懂一些，多会一些，多写一些吧；</p>
+<h2 id="垃圾回收的算法和思想"><a href="#垃圾回收的算法和思想" class="headerlink" title="# 垃圾回收的算法和思想"></a># 垃圾回收的算法和思想</h2><ol>
+<li>引用计数法<br> 这个相当于计数，因为java每个变量的名字实际上是一种引用，我们可以给一个对象很多引用，那么同时，当对象没有引用的时候，说明这个对象没有用了，可以扔掉了；<br> ps：对象都没有引用了，说明这块地址，这个对象，程序已经使用不了，那就赶紧清理呗</li>
+<li>tracing算法 追踪算法<br>当我们通过计数这种方式，进行垃圾清理，我们会多出很多操作，每次都要加减，还要存储计数；那么可不可以不要这么麻烦呢，追踪算法，顾名思义，追踪，通过所有引用追踪对象，如果对象存在，将其标记；追踪结束后，回收那些没有标记的对象；</li>
+<li>compacting算法<br>对于一个对象，我们怎么知道他是不是活着呢？我们可以移动它呀。于是我们可以把对象移动至堆得一侧，那么另一侧就是不可操作的对象了；</li>
+<li>copying算法<br>上面说移到另一侧，这个呢直接就有好多堆，从这里移到哪里，然后清理旧的<br>5.generation算法<br> 简单来说，应该是说分堆，分代，新生成的对象，放在新代中，执行清理，存活的对象扔到旧代中；<br> 就像是你现在混黑社会，外圈是要淘汰的，比如说一分钟淘汰一次，滤掉的就是不合格的，剩下的升级；升级后清理密度变低，这样就节省了时间；</li>
+</ol>
+<h2 id="稍微深度一下："><a href="#稍微深度一下：" class="headerlink" title="## 稍微深度一下："></a>## 稍微深度一下：</h2><p>我们在子函数建立一个对象a，当子函数运行完成时，返回时？这个a还存在吗？</p>
+<p>对象存不存在不一定，a一定不存在了，首先a是一个引用，他的作用于只在子函数运行时，函数结束，他就不存在了；但是这个对象存不存在就要看垃圾回收何时进行了；</p>
+
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2016/09/24/原-样式与include/" class="archive-article-date">
-  	<time datetime="2016-09-24T08:15:17.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-09-24</time>
+      <a href="/2017/02/23/Java 垃圾回收 （未完成）/" class="archive-article-date">
+  	<time datetime="2017-02-23T11:44:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-23</time>
 </a>
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/随笔/">随笔</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java编程思想/">Java编程思想</a></li></ul>
 	</div>
 
       
@@ -405,7 +403,7 @@ Handler：大厨，关键人物，小二将单子交给大厨，到了厨房，�
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/5/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/7/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/5/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/7/">Next &raquo;</a>
     </nav>
   
 
@@ -467,7 +465,7 @@ Handler：大厨，关键人物，小二将单子交给大厨，到了厨房，�
     
     	<section class="tools-section tools-section-tag">
     			<div class="widget tagcloud" id="js-tagcloud">
-    				<a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/Beauty-of-Programming/" style="font-size: 16px;">Beauty of Programming</a> <a href="/tags/Java编程思想/" style="font-size: 18px;">Java编程思想</a> <a href="/tags/fragment/" style="font-size: 14px;">fragment</a> <a href="/tags/mvc/" style="font-size: 12px;">mvc</a> <a href="/tags/线程/" style="font-size: 12px;">线程</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/随笔/" style="font-size: 12px;">随笔</a>
+    				<a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/Beauty-of-Programming/" style="font-size: 15px;">Beauty of Programming</a> <a href="/tags/Java编程思想/" style="font-size: 18.33px;">Java编程思想</a> <a href="/tags/fragment/" style="font-size: 13.33px;">fragment</a> <a href="/tags/mvc/" style="font-size: 11.67px;">mvc</a> <a href="/tags/剑指Offer/" style="font-size: 16.67px;">剑指Offer</a> <a href="/tags/算法/" style="font-size: 16.67px;">算法</a> <a href="/tags/线程/" style="font-size: 11.67px;">线程</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/随笔/" style="font-size: 11.67px;">随笔</a>
     			</div>
     	</section>
     

@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>剑指Offer 14 *调整数组顺序使奇数位于偶数前面 | colin</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="题目描述输入一个整数数组，实现一个函数来调整该数组中数字的顺序，使得所有的奇数位于数组的前半部分，所有的偶数位于位于数组的后半部分，并保证奇数和奇数，偶数和偶数之间的相对位置不变。
+思路1.书上其实没要求调换完之后有序，所以实际上我是两个指针头尾；如果是前指针是偶数，后指针是奇数，就直接调换，可是没想到顺序的问题；2.如果是排序的话，最简单的的想法是新建一个数组，遍历先把奇数放进去，再放偶数，不过">
+<meta property="og:type" content="article">
+<meta property="og:title" content="剑指Offer 14 *调整数组顺序使奇数位于偶数前面">
+<meta property="og:url" content="http://yoursite.com/2017/03/22/剑指Offer 14 -调整数组顺序使奇数位于偶数前面/index.html">
+<meta property="og:site_name" content="colin">
+<meta property="og:description" content="题目描述输入一个整数数组，实现一个函数来调整该数组中数字的顺序，使得所有的奇数位于数组的前半部分，所有的偶数位于位于数组的后半部分，并保证奇数和奇数，偶数和偶数之间的相对位置不变。
+思路1.书上其实没要求调换完之后有序，所以实际上我是两个指针头尾；如果是前指针是偶数，后指针是奇数，就直接调换，可是没想到顺序的问题；2.如果是排序的话，最简单的的想法是新建一个数组，遍历先把奇数放进去，再放偶数，不过">
+<meta property="og:updated_time" content="2017-03-24T13:06:53.761Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="剑指Offer 14 *调整数组顺序使奇数位于偶数前面">
+<meta name="twitter:description" content="题目描述输入一个整数数组，实现一个函数来调整该数组中数字的顺序，使得所有的奇数位于数组的前半部分，所有的偶数位于位于数组的后半部分，并保证奇数和奇数，偶数和偶数之间的相对位置不变。
+思路1.书上其实没要求调换完之后有序，所以实际上我是两个指针头尾；如果是前指针是偶数，后指针是奇数，就直接调换，可是没想到顺序的问题；2.如果是排序的话，最简单的的想法是新建一个数组，遍历先把奇数放进去，再放偶数，不过">
+  
+    <link rel="alternative" href="/atom.xml" title="colin" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="//favicon.png">
+  
+  <script src="/style.js"></script>
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="/0.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">墨</a></h1>
+		</hgroup>
+
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/tags/随笔">随笔</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">所有文章</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="2" href="javascript:void(0)">友链</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="3" href="javascript:void(0)">关于我</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="https://github.com/colining" title="github">github</a>
+		        
+					<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/ren-tian-qi" title="zhihu">zhihu</a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<h1 class="header-author js-mobile-header hide">墨</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img src="/0.jpg" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">墨</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/tags/随笔">随笔</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/colining" title="github">github</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/ren-tian-qi" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap">
+        <article id="post-剑指Offer 14 -调整数组顺序使奇数位于偶数前面" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      剑指Offer 14 *调整数组顺序使奇数位于偶数前面
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>输入一个整数数组，实现一个函数来调整该数组中数字的顺序，使得所有的奇数位于数组的前半部分，所有的偶数位于位于数组的后半部分，并保证奇数和奇数，偶数和偶数之间的相对位置不变。</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>1.书上其实没要求调换完之后有序，所以实际上我是两个指针头尾；如果是前指针是偶数，后指针是奇数，就直接调换，可是没想到顺序的问题；<br>2.如果是排序的话，最简单的的想法是新建一个数组，遍历先把奇数放进去，再放偶数，不过开辟了新的数组<br>3.如果不想用数组，那就得使用一个神奇的相邻交换了；冒泡其实也是这样的，只不过他的条件是大于或者小于，有n个数，就遍历n个数，然后遍历n次，总会好的；<br>那么本体中我们要保证的就是偶数不能出现在奇数的前面；<br><a id="more"></a></p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p><strong>头尾指针 未完成版</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"> <span class="function"><span class="keyword">static</span> <span class="keyword">public</span> <span class="keyword">void</span> <span class="title">reOrderArray</span><span class="params">(<span class="keyword">int</span> [] array1)</span> </span>&#123;             <span class="comment">//头尾指针</span></div><div class="line">       <span class="keyword">int</span> array[] =array1;</div><div class="line">        <span class="keyword">int</span> k=<span class="number">0</span>;</div><div class="line">        <span class="keyword">int</span> i = <span class="number">0</span>;</div><div class="line">        <span class="keyword">int</span> index=array.length-<span class="number">1</span>;</div><div class="line">        <span class="keyword">while</span> (i&lt;index)</div><div class="line">        &#123;</div><div class="line">            <span class="keyword">while</span> ((array[index]&amp;<span class="number">1</span>)==<span class="number">0</span>) &#123;</div><div class="line">                index--;</div><div class="line">                <span class="keyword">if</span> (index&lt;i)</div><div class="line">                    <span class="keyword">break</span>;</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            <span class="keyword">if</span> ((array[i]&amp;<span class="number">1</span>)==<span class="number">0</span>)</div><div class="line">            &#123;</div><div class="line">                k=array[i];</div><div class="line">                array[i]=array[index];</div><div class="line">                array[index]=k;</div><div class="line">                index--;</div><div class="line">            &#125;</div><div class="line">            i++;</div><div class="line"><span class="comment">//            while (i&lt;index&amp;&amp;(array[i]&amp;1)==1)		//换成while更好一些</span></div><div class="line"><span class="comment">//                i++;</span></div><div class="line"><span class="comment">//                k=array[i];</span></div><div class="line"><span class="comment">//                array[i]=array[index];</span></div><div class="line"><span class="comment">//                array[index]=k;</span></div><div class="line"><span class="comment">//                index--;</span></div><div class="line">        &#125;</div><div class="line">       System.out.println(Arrays.toString(array));</div><div class="line"></div><div class="line">   &#125;</div></pre></td></tr></table></figure></p>
+<p><strong>相邻交换</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">static</span>  <span class="keyword">public</span>  <span class="keyword">void</span>  <span class="title">reOrderArray1</span><span class="params">(<span class="keyword">int</span> [] array)</span>    <span class="comment">//相邻交换</span></span></div><div class="line">  &#123;</div><div class="line">      <span class="keyword">int</span> k=<span class="number">0</span>;</div><div class="line">       <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span> ; i &lt;array.length-<span class="number">1</span>;i++)</div><div class="line">           <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span> ;j&lt;array.length-<span class="number">1</span>;j++)</div><div class="line">           &#123;</div><div class="line">               <span class="keyword">if</span> ((array[j]&amp;<span class="number">1</span>)==<span class="number">0</span>&amp;&amp;(array[j+<span class="number">1</span>]&amp;<span class="number">1</span>)==<span class="number">1</span>)</div><div class="line">               &#123;</div><div class="line">                   k=array[j];</div><div class="line">                   array[j]=array[j+<span class="number">1</span>];</div><div class="line">                   array[j+<span class="number">1</span>]=k;</div><div class="line">               &#125;</div><div class="line">           &#125;</div><div class="line"></div><div class="line">  &#125;</div></pre></td></tr></table></figure></p>
+<p><strong>开辟数组的解法</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">static</span>  <span class="keyword">public</span>  <span class="keyword">void</span>  <span class="title">reOrderArray2</span><span class="params">(<span class="keyword">int</span> [] array)</span>    <span class="comment">//开辟数组</span></span></div><div class="line"> &#123;</div><div class="line">     <span class="keyword">int</span> test[] = <span class="keyword">new</span> <span class="keyword">int</span>[array.length];</div><div class="line">     <span class="keyword">int</span> j = <span class="number">0</span>;</div><div class="line">     <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span> ; i &lt; array.length; i ++)         <span class="comment">//先倒腾奇数</span></div><div class="line">         <span class="keyword">if</span> ((array[i]&amp;<span class="number">1</span>)==<span class="number">1</span>)</div><div class="line">             test[j++]=array[i];</div><div class="line">     <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span> ; i &lt; array.length; i ++)         <span class="comment">//在倒腾偶数</span></div><div class="line">         <span class="keyword">if</span> ((array[i]&amp;<span class="number">1</span>)==<span class="number">0</span>)</div><div class="line">             test[j++]=array[i];</div><div class="line">      System.arraycopy(test, <span class="number">0</span>, array, <span class="number">0</span>, array.length);</div><div class="line">     <span class="comment">//System.out.println(Arrays.toString(array));</span></div><div class="line"> &#125;</div></pre></td></tr></table></figure></p>
+<p><strong>插排</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div></pre></td><td class="code"><pre><div class="line">  <span class="function"><span class="keyword">public</span>  <span class="keyword">static</span>  <span class="keyword">void</span>  <span class="title">reOrderArray4</span><span class="params">(<span class="keyword">int</span> [] array)</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">for</span> ( <span class="keyword">int</span> i =<span class="number">0</span> ; i &lt;array.length;i++)</div><div class="line">        &#123;   <span class="keyword">int</span> j ;</div><div class="line">            <span class="keyword">if</span> ((array[i]&amp;<span class="number">1</span>)==<span class="number">1</span>)</div><div class="line">            &#123;</div><div class="line">                j=i-<span class="number">1</span>;</div><div class="line">                <span class="keyword">int</span> temp=array[i];</div><div class="line">                <span class="keyword">while</span> (j&gt;=<span class="number">0</span>&amp;&amp;(array[j]&amp;<span class="number">1</span>)==<span class="number">0</span>)               <span class="comment">//插排中，直到前面没有偶数就停下来</span></div><div class="line">                &#123;                                           <span class="comment">//其实也就等于把那些元素全部向后移动了</span></div><div class="line">                    array[j+<span class="number">1</span>]=array[j];</div><div class="line">                    j--;</div><div class="line">                &#125;</div><div class="line">                array[j+<span class="number">1</span>]=temp;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        System.out.println(Arrays.toString(array));</div><div class="line">    &#125;</div><div class="line">```    </div><div class="line">**元素移动**</div><div class="line">```<span class="function">java</span></div><div class="line"> <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">reOrderArray3</span><span class="params">(<span class="keyword">int</span>[] a)</span> &#123;</div><div class="line">        <span class="keyword">if</span>(a==<span class="keyword">null</span>||a.length==<span class="number">0</span>)</div><div class="line">            <span class="keyword">return</span>;</div><div class="line">        <span class="keyword">int</span> i = <span class="number">0</span>,j;</div><div class="line">        <span class="keyword">while</span>(i&lt;a.length)&#123;</div><div class="line">            <span class="keyword">while</span>(i&lt;a.length&amp;&amp;!isEven(a[i]))</div><div class="line">                i++;</div><div class="line">            j = i+<span class="number">1</span>;</div><div class="line">            <span class="keyword">while</span>(j&lt;a.length&amp;&amp;isEven(a[j]))</div><div class="line">                j++;</div><div class="line">            <span class="keyword">if</span>(j&lt;a.length)&#123;</div><div class="line">                <span class="keyword">int</span> tmp = a[j];</div><div class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> j2 = j-<span class="number">1</span>; j2 &gt;=i; j2--) &#123;</div><div class="line">                    a[j2+<span class="number">1</span>] = a[j2];</div><div class="line">                &#125;</div><div class="line">                a[i++] = tmp;</div><div class="line">            &#125;<span class="keyword">else</span>&#123;<span class="comment">// 查找失敗</span></div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        System.out.println(Arrays.toString(a));</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">isEven</span><span class="params">(<span class="keyword">int</span> n)</span></span>&#123;</div><div class="line">        <span class="keyword">if</span>(n%<span class="number">2</span>==<span class="number">0</span>)</div><div class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">	&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="收获"><a href="#收获" class="headerlink" title="收获"></a>收获</h2><ol>
+<li>这道题真的是收获很多，首先是思</li>
+<li>路上的，有多种思路；</li>
+<li>关于冒泡的实践-相邻排序</li>
+<li>关于插排的实践</li>
+<li>为了保持位置 也可以逐个移动</li>
+</ol>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/03/22/剑指Offer 14 -调整数组顺序使奇数位于偶数前面/" class="archive-article-date">
+  	<time datetime="2017-03-22T11:37:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-03-22</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/剑指Offer/">剑指Offer</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2017/03/22/剑指Offer 15 输入一个链表，输出该链表中倒数第k个结点/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          剑指Offer 15 输入一个链表，输出该链表中倒数第k个结点
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/03/21/剑指Offer 12 打印1到最大的n位数/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">剑指Offer 12 打印1到最大的n位数</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="//v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="剑指Offer 14 -调整数组顺序使奇数位于偶数前面" data-title="剑指Offer 14 *调整数组顺序使奇数位于偶数前面" data-url="http://yoursite.com/2017/03/22/剑指Offer 14 -调整数组顺序使奇数位于偶数前面/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"colining.duoshuo.com"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 墨
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: false,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: "/"
+	}
+</script>
+
+<script src="/./main.js"></script>
+
+
+    
+<div class="tools-col">
+  <ul class="btn-wrap">
+    
+      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
+    
+    
+      <li data-hook="tools-section-tag"><span class="text">标签</span><i class="icon-price-tags"></i></li>
+    
+    
+      <li data-hook="tools-section-friends"><span class="text">友链</span><i class="icon-link"></i></li>
+    
+    
+      <li data-hook="tools-section-me"><span class="text">我</span><i class="icon-smile"></i></li>
+    
+  </ul>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all chose">
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-tag">
+    			<div class="widget tagcloud" id="js-tagcloud">
+    				<a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/Beauty-of-Programming/" style="font-size: 15px;">Beauty of Programming</a> <a href="/tags/Java编程思想/" style="font-size: 18.33px;">Java编程思想</a> <a href="/tags/fragment/" style="font-size: 13.33px;">fragment</a> <a href="/tags/mvc/" style="font-size: 11.67px;">mvc</a> <a href="/tags/剑指Offer/" style="font-size: 16.67px;">剑指Offer</a> <a href="/tags/算法/" style="font-size: 16.67px;">算法</a> <a href="/tags/线程/" style="font-size: 11.67px;">线程</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/随笔/" style="font-size: 11.67px;">随笔</a>
+    			</div>
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-friends">
+  		
+  			<div class="friends-wrap" id="js-friends">
+  			
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="https://www.google.com.hk/">谷歌</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="https://stackoverflow.com/">stackoverflow</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://beyondtech.org/">泡饭</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="https://menyifan.com/">MYF</a>
+  	        
+  	        </div>
+  		
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-me">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">继续跑&lt;br&gt;&lt;br&gt;带着赤子的骄傲</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div>
+</body>
+</html>
