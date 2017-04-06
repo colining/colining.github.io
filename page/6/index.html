@@ -129,7 +129,7 @@
       <div class="body-wrap">
         
   
-    <article id="post-Java 读书笔记 9 接口" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-剑指Offer 6 重建二叉树" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -139,7 +139,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/27/Java 读书笔记 9 接口/">Java 读书笔记9 接口</a>
+      <a class="article-title" href="/2017/03/19/剑指Offer 6 重建二叉树/">剑指Offer 6 重建二叉树</a>
     </h1>
   
 
@@ -147,22 +147,22 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="接口"><a href="#接口" class="headerlink" title="# 接口"></a># 接口</h2><h2 id="抽象类："><a href="#抽象类：" class="headerlink" title="## 抽象类："></a>## 抽象类：</h2><pre><code>1. 理解起来很容易，比如父类是动物，子类是狗；动物嘛，肯定得会呼吸；
-</code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Animal</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">protected</span>  <span class="keyword">void</span> <span class="title">breath</span><span class="params">()</span>  </div><div class="line">    </span>&#123;</div><div class="line">        System.out.println(<span class="string">"breath"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Mouse</span> <span class="keyword">extends</span> <span class="title">Animal</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span>  <span class="keyword">static</span>  <span class="keyword">void</span>  <span class="title">main</span><span class="params">(String a[])</span></div><div class="line">    </span>&#123;</div><div class="line">        Animal mouse = <span class="keyword">new</span> Mouse(<span class="string">"11"</span>,<span class="number">1</span>);     </div><div class="line">        mouse.breath();     <span class="comment">//这里输出的实际上就是mousebreath ，通过父类我们可以随意访问详细对象的方法；</span></div><div class="line">        <span class="comment">//但是实际上，我们几乎不用父类初始化，这样breath方法就显得没有意义；</span></div><div class="line">        <span class="comment">//那把他定义为抽象有什么好处呢？一目了然，立马就知道子类需要具体实现；</span></div><div class="line">        <span class="comment">//这样就把声明和实现分开了</span></div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span>  <span class="title">Mouse</span><span class="params">(String myName, <span class="keyword">int</span> myid)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>(myName, myid);</div><div class="line">    &#125;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">breath</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="comment">//super.breath();</span></div><div class="line">        System.out.println(<span class="string">"mousebreath"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        <p>##　题目描述<br>输入某二叉树的前序遍历和中序遍历的结果，请重建出该二叉树。假设输入的前序遍历和中序遍历的结果中都不含重复的数字。例如输入前序遍历序列{1,2,4,7,3,5,6,8}和中序遍历序列{4,7,2,1,5,3,8,6}，则重建二叉树并返回。</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>对于前序遍历，它的第一个元素就是根节点；<br>对于中序遍历，根节点左面是左子树，右面是右子树；<br>通过递归不断地分割，对每一个节点赋值；<br>
         <p class="article-more-link">
-          <a  href="/2017/02/27/Java 读书笔记 9 接口/#more">more >></a>
+          <a  href="/2017/03/19/剑指Offer 6 重建二叉树/#more">more >></a>
         </p>
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2017/02/27/Java 读书笔记 9 接口/" class="archive-article-date">
-  	<time datetime="2017-02-27T13:38:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-27</time>
+      <a href="/2017/03/19/剑指Offer 6 重建二叉树/" class="archive-article-date">
+  	<time datetime="2017-03-19T13:08:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-03-19</time>
 </a>
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java编程思想/">Java编程思想</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/剑指Offer/">剑指Offer</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
 	</div>
 
       
@@ -182,7 +182,7 @@
 
 
   
-    <article id="post-Java 读书笔记 8" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-剑指Offer 5 从尾到头打印链表" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -192,7 +192,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/26/Java 读书笔记 8/">Java 读书笔记8 多态</a>
+      <a class="article-title" href="/2017/03/18/剑指Offer 5 从尾到头打印链表/">剑指Offer 5 从尾到头打印链表</a>
     </h1>
   
 
@@ -200,24 +200,22 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h2><h2 id="动态绑定"><a href="#动态绑定" class="headerlink" title="## # 动态绑定"></a>## # 动态绑定</h2><ol>
-<li>也很好理解，简单地说，方法接受的是父类，方法里面具体用到的是什么就随便了<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">test</span><span class="params">(Parent a)</span></div><div class="line"></span>&#123;</div><div class="line">		a.find();       <span class="comment">//此处的a可以使子类对象，那么test整体方法最后绑定就是动态的啦，否则它不知道到底是谁调用的；</span></div><div class="line">		<span class="comment">//该方法动态的绑定到了子类的find方法；</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ol>
+        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>输入一个链表，从尾到头打印链表每个节点的值。</p>
+<h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><p>头-&gt;尾，遍历时先经过的，后输出，自然想到是一个栈了；于是就可以使用递归；<br>
         <p class="article-more-link">
-          <a  href="/2017/02/26/Java 读书笔记 8/#more">more >></a>
+          <a  href="/2017/03/18/剑指Offer 5 从尾到头打印链表/#more">more >></a>
         </p>
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2017/02/26/Java 读书笔记 8/" class="archive-article-date">
-  	<time datetime="2017-02-26T08:08:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-26</time>
+      <a href="/2017/03/18/剑指Offer 5 从尾到头打印链表/" class="archive-article-date">
+  	<time datetime="2017-03-18T13:47:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-03-18</time>
 </a>
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java编程思想/">Java编程思想</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/剑指Offer/">剑指Offer</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
 	</div>
 
       
@@ -237,7 +235,7 @@
 
 
   
-    <article id="post-Java 读书笔记 7 复用类" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-剑指Offer 4 替换空格" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -247,7 +245,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/25/Java 读书笔记 7 复用类/">Java 读书笔记7 复用类</a>
+      <a class="article-title" href="/2017/03/18/剑指Offer 4 替换空格/">剑指Offer 4 替换空格</a>
     </h1>
   
 
@@ -255,23 +253,22 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="1-关于super的怨念"><a href="#1-关于super的怨念" class="headerlink" title="## # 1.关于super的怨念"></a>## # 1.关于super的怨念</h2><pre><code>1. 其实之前一直觉得super很神奇，不会用，今天终于明白了，其实他就是回去调用父类的相关函数了，
-2. super 和this 都是用来对构造函数而言，因为构造函数在构造函数无法直接调用；
-</code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">Drawing (<span class="keyword">int</span> i )</div><div class="line">&#123;</div><div class="line">    <span class="keyword">super</span>(i);</div><div class="line">&#125;</div><div class="line"></div><div class="line">Drawing()</div><div class="line">&#123;</div><div class="line"></div><div class="line">    <span class="comment">//super(5);           //调用父类</span></div><div class="line">    <span class="comment">//this(1);            //调用子类其他</span></div><div class="line">    Drawing(<span class="number">5</span>);          <span class="comment">//这样写是不对的，不能这么调用</span></div><div class="line">&#125;</div><div class="line"><span class="comment">//对于普通重载函数</span></div><div class="line"></div><div class="line">   <span class="function"><span class="keyword">void</span> <span class="title">test</span><span class="params">(String a)</span></div><div class="line"></span>&#123;</div><div class="line"></div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">test</span><span class="params">(<span class="keyword">int</span> a)</span></div><div class="line"></span>&#123;</div><div class="line">    test(<span class="string">"aaa"</span>);          <span class="comment">//可以直接调用</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>请实现一个函数，将一个字符串中的空格替换成“%20”。例如，当字符串为We Are Happy.则经过替换之后的字符串为We%20Are%20Happy。</p>
+<h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><p>对于全部字符扫描，创建一个StringBuilder，字符不是空格就append()，是空格就append(%20);<br>
         <p class="article-more-link">
-          <a  href="/2017/02/25/Java 读书笔记 7 复用类/#more">more >></a>
+          <a  href="/2017/03/18/剑指Offer 4 替换空格/#more">more >></a>
         </p>
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2017/02/25/Java 读书笔记 7 复用类/" class="archive-article-date">
-  	<time datetime="2017-02-25T14:05:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-25</time>
+      <a href="/2017/03/18/剑指Offer 4 替换空格/" class="archive-article-date">
+  	<time datetime="2017-03-18T13:30:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-03-18</time>
 </a>
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java编程思想/">Java编程思想</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/剑指Offer/">剑指Offer</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
 	</div>
 
       
@@ -291,7 +288,7 @@
 
 
   
-    <article id="post-Java 读书笔记6" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-剑指Offer 3 二维数组中的查找" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -301,7 +298,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/25/Java 读书笔记6/">Java 读书笔记6</a>
+      <a class="article-title" href="/2017/03/18/剑指Offer 3 二维数组中的查找/">剑指Offer 3 二维数组中的查找</a>
     </h1>
   
 
@@ -309,21 +306,22 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="访问权限控制"><a href="#访问权限控制" class="headerlink" title="访问权限控制"></a>访问权限控制</h2><p>其实这部分已经不用像java编程思想中讲的那么麻烦了；</p>
-<p>1.java中关于编译的简单内容<br>    首先java程序跑起来，会生成.class,这个.class会在环境变量\包名这里；<br>    然后import的时候，找到这个class就可以啦；<br>2.以private构造方法的单例设计模式，日后再说喽，其实之前应该写过；</p>
-<p>3.protected的方法主要用来干啥呢？ 因为在继承中，可能子类在别的包中，你写public的话，谁都可以访问，不写public又访问不到，所以protected出现了；所有继承者都可以用；<br>ps：其实java语言真的很实际，你自己推一推，其实也会知道；但还是赞叹人家的设计想法啊；</p>
-
+        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>在一个二维数组中，每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。</p>
+<h2 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h2><p><img src="http://images.cnitblog.com/blog/457289/201303/01065754-360a04e422b14e489869d9c58867f2a1.jpg" alt="啦啦啦啦"><br>
+        <p class="article-more-link">
+          <a  href="/2017/03/18/剑指Offer 3 二维数组中的查找/#more">more >></a>
+        </p>
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2017/02/25/Java 读书笔记6/" class="archive-article-date">
-  	<time datetime="2017-02-25T06:39:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-25</time>
+      <a href="/2017/03/18/剑指Offer 3 二维数组中的查找/" class="archive-article-date">
+  	<time datetime="2017-03-18T13:20:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-03-18</time>
 </a>
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java编程思想/">Java编程思想</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/剑指Offer/">剑指Offer</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
 	</div>
 
       
@@ -343,7 +341,7 @@
 
 
   
-    <article id="post-Java 垃圾回收 （未完成）" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Java 读书笔记 21.2 并发" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -353,7 +351,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/23/Java 垃圾回收 （未完成）/">Java 垃圾回收 （未完成）</a>
+      <a class="article-title" href="/2017/03/14/Java 读书笔记 21.2 并发/">Java 读书笔记 21.2 并发</a>
     </h1>
   
 
@@ -361,22 +359,16 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="垃圾回收"><a href="#垃圾回收" class="headerlink" title="# 垃圾回收"></a># 垃圾回收</h2><p>早就知道java会垃圾回收了，但是对其中道理一点都不了解，我想成为大神，还是必须要多懂一些，多会一些，多写一些吧；</p>
-<h2 id="垃圾回收的算法和思想"><a href="#垃圾回收的算法和思想" class="headerlink" title="# 垃圾回收的算法和思想"></a># 垃圾回收的算法和思想</h2><ol>
-<li>引用计数法<br> 这个相当于计数，因为java每个变量的名字实际上是一种引用，我们可以给一个对象很多引用，那么同时，当对象没有引用的时候，说明这个对象没有用了，可以扔掉了；<br> ps：对象都没有引用了，说明这块地址，这个对象，程序已经使用不了，那就赶紧清理呗</li>
-<li>tracing算法 追踪算法<br>当我们通过计数这种方式，进行垃圾清理，我们会多出很多操作，每次都要加减，还要存储计数；那么可不可以不要这么麻烦呢，追踪算法，顾名思义，追踪，通过所有引用追踪对象，如果对象存在，将其标记；追踪结束后，回收那些没有标记的对象；</li>
-<li>compacting算法<br>对于一个对象，我们怎么知道他是不是活着呢？我们可以移动它呀。于是我们可以把对象移动至堆得一侧，那么另一侧就是不可操作的对象了；</li>
-<li>copying算法<br>上面说移到另一侧，这个呢直接就有好多堆，从这里移到哪里，然后清理旧的<br>5.generation算法<br> 简单来说，应该是说分堆，分代，新生成的对象，放在新代中，执行清理，存活的对象扔到旧代中；<br> 就像是你现在混黑社会，外圈是要淘汰的，比如说一分钟淘汰一次，滤掉的就是不合格的，剩下的升级；升级后清理密度变低，这样就节省了时间；</li>
-</ol>
-<h2 id="稍微深度一下："><a href="#稍微深度一下：" class="headerlink" title="## 稍微深度一下："></a>## 稍微深度一下：</h2><p>我们在子函数建立一个对象a，当子函数运行完成时，返回时？这个a还存在吗？</p>
-<p>对象存不存在不一定，a一定不存在了，首先a是一个引用，他的作用于只在子函数运行时，函数结束，他就不存在了；但是这个对象存不存在就要看垃圾回收何时进行了；</p>
-
+        <h2 id="并发"><a href="#并发" class="headerlink" title="并发"></a>并发</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">IntGenerator</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">volatile</span> <span class="keyword">boolean</span> canceled = <span class="keyword">false</span>;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">int</span> <span class="title">next</span><span class="params">()</span></span>;</div><div class="line">    <span class="comment">// Allow this to be canceled:</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">cancel</span><span class="params">()</span> </span>&#123; canceled = <span class="keyword">true</span>; &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isCanceled</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> canceled; &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        <p class="article-more-link">
+          <a  href="/2017/03/14/Java 读书笔记 21.2 并发/#more">more >></a>
+        </p>
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2017/02/23/Java 垃圾回收 （未完成）/" class="archive-article-date">
-  	<time datetime="2017-02-23T11:44:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-23</time>
+      <a href="/2017/03/14/Java 读书笔记 21.2 并发/" class="archive-article-date">
+  	<time datetime="2017-03-14T00:52:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-03-14</time>
 </a>
       
 	<div class="article-tag tagcloud">
@@ -403,7 +395,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/5/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/7/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/5/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/7/">Next &raquo;</a>
     </nav>
   
 
@@ -465,7 +457,7 @@
     
     	<section class="tools-section tools-section-tag">
     			<div class="widget tagcloud" id="js-tagcloud">
-    				<a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/Beauty-of-Programming/" style="font-size: 15px;">Beauty of Programming</a> <a href="/tags/Java编程思想/" style="font-size: 18.33px;">Java编程思想</a> <a href="/tags/fragment/" style="font-size: 13.33px;">fragment</a> <a href="/tags/mvc/" style="font-size: 11.67px;">mvc</a> <a href="/tags/剑指Offer/" style="font-size: 16.67px;">剑指Offer</a> <a href="/tags/算法/" style="font-size: 16.67px;">算法</a> <a href="/tags/线程/" style="font-size: 11.67px;">线程</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/随笔/" style="font-size: 11.67px;">随笔</a>
+    				<a href="/tags/Android/" style="font-size: 18.33px;">Android</a> <a href="/tags/Beauty-of-Programming/" style="font-size: 15px;">Beauty of Programming</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Java编程思想/" style="font-size: 16.67px;">Java编程思想</a> <a href="/tags/fragment/" style="font-size: 13.33px;">fragment</a> <a href="/tags/mvc/" style="font-size: 11.67px;">mvc</a> <a href="/tags/剑指Offer/" style="font-size: 20px;">剑指Offer</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a> <a href="/tags/线程/" style="font-size: 11.67px;">线程</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/随笔/" style="font-size: 11.67px;">随笔</a>
     			</div>
     	</section>
     

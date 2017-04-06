@@ -129,7 +129,7 @@
       <div class="body-wrap">
         
   
-    <article id="post-原-样式与include" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Java 读书笔记2" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -139,7 +139,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/24/原-样式与include/">样式与include</a>
+      <a class="article-title" href="/2017/02/22/Java 读书笔记2/">Java 读书笔记2</a>
     </h1>
   
 
@@ -147,23 +147,21 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="1"><a href="#1" class="headerlink" title="1"></a>1</h1><p>简单来说样式是为了复用;</p>
-<p>style 中创建样式<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">"RemoteButton"</span>&gt;</span><span class="xml"></div><div class="line">       <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:layout_width"</span>&gt;</span>0dp<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:layout_height"</span>&gt;</span>match_parent<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:textColor"</span>&gt;</span># 556699<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:textSize"</span>&gt;</span>20dp<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span> = <span class="string">"android:layout_margin"</span>&gt;</span>3dp<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line"></div><div class="line">   </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<p>控件使用某种样式；<br>
-        <p class="article-more-link">
-          <a  href="/2016/09/24/原-样式与include/#more">more >></a>
-        </p>
+        <h1 id="一切都是对象"><a href="#一切都是对象" class="headerlink" title="一切都是对象"></a>一切都是对象</h1><p>1.引用和对象（java编程思想中这样讲）</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Classa a;         <span class="comment">//此处可理解为引用，就是说起好名字啦，但是对象还没初始化呢</span></div><div class="line">a= <span class="keyword">new</span> Classa();     <span class="comment">//初始化后，对象才被创建成功；</span></div></pre></td></tr></table></figure>
+<p>2.储存中的堆与栈；<br>    <a href="http://stackoverflow.com/questions/79923/what-and-where-are-the-stack-and-heap" target="_blank" rel="external">http://stackoverflow.com/questions/79923/what-and-where-are-the-stack-and-heap</a><br>    栈呢，是先进后出；在函数调用中，被调用函数后进栈，先结束，所以先出栈；所以对内存来说，函数（function）使用栈这种空间；<br>    堆呢；以java为例，在调用某函数时，可能会创建新的对象；这些对象没有明确的先后之分（不重要），而且随时可能创建，销毁，所以就把他们都放在堆中管理啦；</p>
+
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2016/09/24/原-样式与include/" class="archive-article-date">
-  	<time datetime="2016-09-24T08:15:17.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-09-24</time>
+      <a href="/2017/02/22/Java 读书笔记2/" class="archive-article-date">
+  	<time datetime="2017-02-22T05:10:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-22</time>
 </a>
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/随笔/">随笔</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java编程思想/">Java编程思想</a></li></ul>
 	</div>
 
       
@@ -183,7 +181,7 @@
 
 
   
-    <article id="post-原-JSON数据保存与加载" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Java 读书笔记1" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -193,7 +191,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/24/原-JSON数据保存与加载/">JSON数据保存与加载</a>
+      <a class="article-title" href="/2017/02/20/Java 读书笔记1/">Java 读书笔记1</a>
     </h1>
   
 
@@ -201,24 +199,24 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>首先我们盘点一下参与者</p>
-<p>Crime 罪犯类，<br>CrimeLab 罪犯列表类<br>CriminalIntentJSONSerializer 罪犯json化 并且保存</p>
-<p>没有视图也没有控制的事 三个模型类玩游戏</p>
-<p>保存和加载自然归CriminalIntentJSONSerializer管理<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CriminalIntentJSONSerializer</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> Context context;</div><div class="line">    <span class="keyword">private</span> String Filename;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">CriminalIntentJSONSerializer</span><span class="params">(Context c, String f)</span></div><div class="line">    </span>&#123;</div><div class="line">        context = c;</div><div class="line">        Filename = f;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">saveCrimes</span><span class="params">(ArrayList&lt;Crime&gt; crimes)</span> <span class="keyword">throws</span> JSONException,IOException</div><div class="line">    </span>&#123;....&#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> ArrayList&lt;Crime&gt; <span class="title">loadCrimes</span><span class="params">()</span> <span class="keyword">throws</span>  IOException,JSONException</div><div class="line">    </span>&#123;....&#125;</div></pre></td></tr></table></figure></p>
-        <p class="article-more-link">
-          <a  href="/2016/09/24/原-JSON数据保存与加载/#more">more >></a>
-        </p>
+        <h1 id="对象导论"><a href="#对象导论" class="headerlink" title="对象导论"></a>对象导论</h1><p>1.类和类型实际上是同义的，整型，浮点型其实也是一种类；且対象定义方式都一样；</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> a;             <span class="comment">//整型</span></div><div class="line">Test test1;        <span class="comment">//Test类</span></div></pre></td></tr></table></figure>
+<p>2.刚刚傻了，居然在想子类是否可以拥有自己的方法、、、、而且还试了一下代码。当然可以了啊！但是再想想的话，其实父类能做的事一定小于等于子类所做的事情，子类相对父类可以进行扩展； uml设计模式中：子类可以出现在父类出现的任何地方也是这个原因，因为父类能做的所有事，子类都可以做；</p>
+<p>3.单根继承,我们知道java所有类最终都继承自Object类，这样所有类其实都是一个类型，这样就保证所有对象都具有某些功能，包括基本操作，在堆上创建，参数传递，以及垃圾回收；</p>
+<p>4.java不允许多继承，你不能有俩父亲，但是你可以有爷爷，有太爷爷；</p>
+<p>5.容器和参数化类型；<br>    容器呢，是一个可以容纳对象的器皿；在程序中，由于需要多少对象不确定，容器的大小就也不一定喽；<br>    那么假如容器什么都接受，在存放的时候，java一定会将其转化为Object；那么在拿出的时候就会存在向下转型这个问题了；Android经常会有；<br>    那么如果我们只想存放一种，就可以使用参数化类型；定好了能存猴子，就不能存猪；</p>
+
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2016/09/24/原-JSON数据保存与加载/" class="archive-article-date">
-  	<time datetime="2016-09-24T08:01:15.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-09-24</time>
+      <a href="/2017/02/20/Java 读书笔记1/" class="archive-article-date">
+  	<time datetime="2017-02-20T13:24:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-20</time>
 </a>
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java编程思想/">Java编程思想</a></li></ul>
 	</div>
 
       
@@ -238,7 +236,7 @@
 
 
   
-    <article id="post-原-mvc与音频播放" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-辗转相除法" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -248,7 +246,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/19/原-mvc与音频播放/">mvc与音频播放</a>
+      <a class="article-title" href="/2017/01/04/辗转相除法/">辗转相除法</a>
     </h1>
   
 
@@ -256,24 +254,25 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>mvc<br>m：模型<br>v ：视图<br>c ：控制</p>
-<p>模型层，可以粗略理解为是属于纯纯的类，绝不与v层有任何关系，就音频播放来说，音频是数据，绝对是属于m层，那么相对应的就有一些控制音频的方法；模型层最接近于java里面的类；<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AudioPlayer</span> </span>&#123;			<span class="comment">//音频播放器和管理它的方法</span></div><div class="line">    <span class="keyword">private</span> MediaPlayer player;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">stop</span><span class="params">()</span></span>&#123;...&#125;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">play</span><span class="params">(Context c)</span></div><div class="line">    </span>&#123;...&#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">pause</span><span class="params">()</span></div><div class="line">    </span>&#123;...&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>v层 视图层，主要用于展现视图，有页面，以xml为例，不管有没有人用，都是一个页面，fragment加载就叫做fragment ，activity加载就叫做activity；</p>
-<p>c层，最麻烦的一层，我们非常容易的能够看见c层有一大堆的代码，而且都是必须的；<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123; <span class="comment">//加载xml页面,此处是activity，fragment一布局形式加入activity中</span></div><div class="line">    <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">    setContentView(R.layout.activity_hello_moon);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-        <p class="article-more-link">
-          <a  href="/2016/09/19/原-mvc与音频播放/#more">more >></a>
-        </p>
+        <h1 id="1"><a href="#1" class="headerlink" title="1"></a>1</h1><p>由于实在记不得辗转相除法的原理，所以只能自己写一下 记录一下啦；<br><a href="https://zh.wikipedia.org/wiki/%E8%BC%BE%E8%BD%89%E7%9B%B8%E9%99%A4%E6%B3%95" target="_blank" rel="external">https://zh.wikipedia.org/wiki/%E8%BC%BE%E8%BD%89%E7%9B%B8%E9%99%A4%E6%B3%95</a></p>
+<p>两个整数的最大公约数是能够同时整除它们的最大的正整数。辗转相除法基于如下原理：两个整数的最大公约数等于其中较小的数和两数的差的最大公约数。例如，252和105的最大公约数是21（252 = 21 × 12；105 = 21 × 5）；因为252 − 105 = 21 × (12 − 5) = 147，所以147和105的最大公约数也是21。在这个过程中，较大的数缩小了，所以继续进行同样的计算可以不断缩小这两个数直至其中一个变成零。这时，所剩下的还没有变成零的数就是两数的最大公约数。由辗转相除法也可以推出，两数的最大公约数可以用两数的整数倍相加来表示，如21 = 5 × 105 + (−2) × 252。这个重要的结论叫做裴蜀定理。</p>
+<p>简单来说呢就是两个公约数<br>1：两个数的最大公约数</p>
+<p>2：两个数中其中小的那个数，和两个数差值 的最大公约数</p>
+<p>这两个公约数是相等的；</p>
+<p>所以我们可以让其一直减小；</p>
+<p>本来呢是得到差值，但是两个数如果差距比较大，就变为求余运算啦；</p>
+
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2016/09/19/原-mvc与音频播放/" class="archive-article-date">
-  	<time datetime="2016-09-19T08:33:06.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-09-19</time>
+      <a href="/2017/01/04/辗转相除法/" class="archive-article-date">
+  	<time datetime="2017-01-04T10:28:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-01-04</time>
 </a>
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mvc/">mvc</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Beauty-of-Programming/">Beauty of Programming</a></li></ul>
 	</div>
 
       
@@ -293,7 +292,7 @@
 
 
   
-    <article id="post-原-Fragment的实现方案" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-回溯法-素数环问题" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -303,7 +302,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/19/原-Fragment的实现方案/">Fragment的实现方案</a>
+      <a class="article-title" href="/2016/12/28/回溯法-素数环问题/">回溯法-素数环问题</a>
     </h1>
   
 
@@ -311,24 +310,23 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Fragment与Activity有几种方式，今天讲上一讲</p>
-<p>##1</p>
-<p>xml 布局fragment</p>
-<p>很简单，我们先造好fragment 然后再在activity的xml文件中加入<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">TableLayout</span> //这个是<span class="attr">fragment</span></div><div class="line"><span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></div><div class="line">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span> <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span>&gt;</span></div><div class="line">    </div><div class="line"><span class="tag">&lt;/<span class="name">TableLayout</span>&gt;</span></div></pre></td></tr></table></figure></p>
-        <p class="article-more-link">
-          <a  href="/2016/09/19/原-Fragment的实现方案/#more">more >></a>
-        </p>
+        <h2 id="1：问题描述"><a href="#1：问题描述" class="headerlink" title="1：问题描述"></a>1：问题描述</h2><p>一个环由一圈整数组成，要求是相邻的两个整数之和为素数；</p>
+<h2 id="2：问题思考"><a href="#2：问题思考" class="headerlink" title="2：问题思考"></a>2：问题思考</h2><p>对于回溯法来说，我们深度优先，也就是说的想法就是先找到一个能够全部填完的环；<br>1：如果填入一个数是成立的，我们就继续填写下一个位置，如果这个数不成立，我们就换下一个数填写，相当于我们剪掉了这个数的树枝，去寻找下一个；</p>
+<p>2：填写最后一个数时，应该考虑其应该和第一个数之和是素数；</p>
+<h2 id="3：acm要求："><a href="#3：acm要求：" class="headerlink" title="3：acm要求："></a>3：acm要求：</h2><p><a href="http://acm.cugb.edu.cn/problem_show.php?pid=1789" target="_blank" rel="external">http://acm.cugb.edu.cn/problem_show.php?pid=1789</a></p>
+<h2 id="4：代码"><a href="#4：代码" class="headerlink" title="4：代码"></a>4：代码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">import</span> java.util.ArrayList;</div><div class="line"><span class="keyword">import</span> java.util.Scanner;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * Created by asus on 2016/12/23.</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PrimeCircle</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> n ;</div><div class="line"><span class="comment">//    boolean flag = true;</span></div><div class="line">    <span class="function"><span class="keyword">public</span>  <span class="keyword">static</span>  <span class="keyword">void</span>  <span class="title">main</span><span class="params">(String arg[])</span></span></div><div class="line">    &#123;</div><div class="line">        PrimeCircle primeCircle = <span class="keyword">new</span> PrimeCircle();</div><div class="line">        Scanner cin = <span class="keyword">new</span> Scanner(System.in);</div><div class="line">        ArrayList list = <span class="keyword">new</span> ArrayList();</div><div class="line">        <span class="keyword">int</span> i = <span class="number">0</span>;</div><div class="line">        <span class="keyword">while</span>(cin.hasNextInt()) &#123;</div><div class="line">            list.add( cin.nextInt());</div><div class="line">            i++;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">for</span> (i=<span class="number">0</span>;i&lt;list.size();i++)</div><div class="line">        &#123;</div><div class="line">            System.out.println(<span class="string">"Case "</span>+(i+<span class="number">1</span>)+<span class="string">":"</span>);</div><div class="line">            primeCircle.PrimeCircle((<span class="keyword">int</span>)list.get(i));</div><div class="line">            <span class="keyword">if</span>(i!=list.size()-<span class="number">1</span>)System.out.println();</div><div class="line">        &#125;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">void</span>  <span class="title">PrimeCircle</span><span class="params">(<span class="keyword">int</span> n)</span>    <span class="comment">//输入为n，素数环从1到n；</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">if</span> (n==<span class="number">1</span>) &#123;                 <span class="comment">//防止输入为一，其实没有意义啦；</span></div><div class="line">            System.out.println(<span class="number">1</span>);</div><div class="line">            <span class="keyword">return</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">int</span> i ,k ;</div><div class="line">        <span class="keyword">this</span>.n = n;</div><div class="line">        <span class="keyword">int</span> a[] = <span class="keyword">new</span> <span class="keyword">int</span>[n];</div><div class="line">        <span class="keyword">for</span> ( i =<span class="number">0</span>; i &lt;n ;i++)      <span class="comment">//初始化数组a，用来储存素数环答案</span></div><div class="line">        &#123;</div><div class="line">            a[i]=<span class="number">0</span>;</div><div class="line">        &#125;</div><div class="line">        a[<span class="number">0</span>]= <span class="number">1</span> ; k =<span class="number">1</span>;             <span class="comment">//指定第一个位置为1；凡事总有开头的嘛</span></div><div class="line">            <span class="keyword">while</span> (k&gt;=<span class="number">1</span>)</div><div class="line">            &#123;</div><div class="line">                a[k] = a[k] +<span class="number">1</span>;</div><div class="line">                <span class="keyword">while</span> (a[k]&lt;=n) &#123;</div><div class="line">                    <span class="keyword">if</span> (Check(k, a) == <span class="number">1</span>)  <span class="comment">//如果满足要求，就跳出</span></div><div class="line">                        <span class="keyword">break</span>;</div><div class="line">                    <span class="keyword">else</span></div><div class="line">                        a[k] = a[k] + <span class="number">1</span>;       <span class="comment">//不满足，就试验下一个数</span></div><div class="line">                &#125;</div><div class="line"></div><div class="line">                <span class="keyword">if</span> (a[k]&lt;= n &amp;&amp;k==n-<span class="number">1</span>)          <span class="comment">//如果最后一个也成立，就输出啦</span></div><div class="line">                &#123;</div><div class="line">                    <span class="keyword">for</span> (i=<span class="number">0</span>;i&lt;n-<span class="number">1</span> ;i++)</div><div class="line">                    System.out.print(a[i]+<span class="string">" "</span>);</div><div class="line">                    System.out.print(a[n-<span class="number">1</span>]);           <span class="comment">//这样写会在最后输出换行，而不是空格</span></div><div class="line">                    System.out.println();</div><div class="line">                &#125;</div><div class="line">                <span class="keyword">if</span> (a[k]&lt;=n &amp;&amp; k &lt;n - <span class="number">1</span>)                <span class="comment">//如果没有完成，就继续下一个位置</span></div><div class="line">                    k+=<span class="number">1</span>;</div><div class="line">                <span class="keyword">else</span></div><div class="line">                    a[k--]=<span class="number">0</span>;                           <span class="comment">//说明这个树枝无法填写了，所以回到父节点；</span></div><div class="line">            &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">int</span> <span class="title">Prime</span><span class="params">( <span class="keyword">int</span> x)</span>       <span class="comment">//判断素数，素数返回1，合数返回0；</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">int</span> i , n ;</div><div class="line">        n = (<span class="keyword">int</span>) Math.sqrt(x);</div><div class="line">        <span class="keyword">for</span> (  i = <span class="number">2</span> ; i &lt;=n ; i++)</div><div class="line">        &#123;</div><div class="line">            <span class="keyword">if</span> (x%i==<span class="number">0</span>)</div><div class="line">                <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line"></div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">int</span> <span class="title">Check</span> <span class="params">(<span class="keyword">int</span> k,<span class="keyword">int</span> a[])</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">int</span> flag = <span class="number">0</span> ;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i =<span class="number">0</span>;i&lt;k;i++)          <span class="comment">//检查是否重复</span></div><div class="line">            <span class="keyword">if</span> (a[i] == a[k])</div><div class="line">                <span class="keyword">return</span>  <span class="number">0</span>;</div><div class="line"></div><div class="line">        flag = Prime(a[k]+a[k-<span class="number">1</span>]);  <span class="comment">//检验与相邻之和是否是素数</span></div><div class="line">        <span class="keyword">if</span> (flag ==<span class="number">1</span>&amp;&amp;k ==n-<span class="number">1</span>)          <span class="comment">//如果是最后一个，需要检查与开始值得和</span></div><div class="line">            flag = Prime(a[k]+a[<span class="number">0</span>]);</div><div class="line">        <span class="keyword">return</span> flag;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2016/09/19/原-Fragment的实现方案/" class="archive-article-date">
-  	<time datetime="2016-09-19T07:45:21.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-09-19</time>
+      <a href="/2016/12/28/回溯法-素数环问题/" class="archive-article-date">
+  	<time datetime="2016-12-28T10:39:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-28</time>
 </a>
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/fragment/">fragment</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Beauty-of-Programming/">Beauty of Programming</a></li></ul>
 	</div>
 
       
@@ -348,7 +346,7 @@
 
 
   
-    <article id="post-转-单例设计模式" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-归并排序 --分治初探" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -358,7 +356,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/12/转-单例设计模式/">[转]单例设计模式</a>
+      <a class="article-title" href="/2016/11/23/归并排序 --分治初探/">归并排序 --分治初探</a>
     </h1>
   
 
@@ -366,24 +364,21 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>版权声明：本文为 stormzhang 原创文章，可以随意转载，但必须在明确位置注明出处！！！</p>
-<p>经常有人问我说Android学习如何进阶？不管你怎么走，设计模式可谓是进阶必备，对设计模式的理解与运用对你之后的代码书写与架构设计有很多的帮助作用，那么从今天开始我就抽时间来给大家分享下设计模式系列。</p>
-<p>什么是设计模式？其实简单的理解就是前人留下来的一些经验总结而已，然后把这些经验起了个名字叫Design Pattern，翻译过来就是设计模式的意思，通过使用设计模式可以让我们的代码复用性更高，可维护性更高，让你的代码写的更优雅。设计模式理论上有23种，但是我只会针对Android平台上常用的一些设计模式做分享，今天就先来分享下最常用的单例模式。</p>
-<p>饿汉式<br>
+        <p>先上代码：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MergeSort</span> </span>&#123;					<span class="comment">//差不多照书敲得</span></div><div class="line">    <span class="keyword">private</span>  <span class="keyword">int</span>[] myarray = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">10</span>];</div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] getMyarray() &#123;</div><div class="line">        <span class="keyword">return</span> myarray2;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">private</span>  <span class="keyword">int</span> [] myarray2;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MergeSort</span><span class="params">()</span> </span>&#123;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span>  <span class="title">MergeSort</span><span class="params">(<span class="keyword">int</span> array[], <span class="keyword">int</span> start, <span class="keyword">int</span> end)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> mid;</div><div class="line">        <span class="keyword">if</span> (start == end)</div><div class="line">            <span class="keyword">return</span>;</div><div class="line">        <span class="keyword">else</span> &#123;</div><div class="line">            mid = (start + end) / <span class="number">2</span>;</div><div class="line">            MergeSort(array, start, mid);</div><div class="line">            MergeSort(array, mid + <span class="number">1</span>, end);</div><div class="line">            Merge(array, myarray,start,mid,end);</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = start; i &lt;= end; i++) &#123;</div><div class="line">               array[i]= myarray[i];</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        myarray2 = array;</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Merge</span><span class="params">(<span class="keyword">int</span> array[], <span class="keyword">int</span> r1[], <span class="keyword">int</span> start, <span class="keyword">int</span> mid, <span class="keyword">int</span> end)</span><span class="comment">//归并</span></div><div class="line">    </span>&#123;</div><div class="line">        <span class="keyword">int</span> first = start, second =mid+<span class="number">1</span>, k =start ;</div><div class="line">	    <span class="keyword">while</span> (first&lt;=mid &amp;&amp; second &lt;=end)          </div><div class="line">        &#123;</div><div class="line">            <span class="keyword">if</span> (array[first]&lt;= array[second])</div><div class="line">                r1[k++] = array[first++];</div><div class="line">            <span class="keyword">else</span></div><div class="line">                r1[k++] = array[second++];</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">while</span> (first&lt;=mid)</div><div class="line">        &#123;</div><div class="line">            r1[k++]= array[first++];</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">while</span> (second&lt;=end)</div><div class="line">        &#123;</div><div class="line">            r1[k++]= array[second++];</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
         <p class="article-more-link">
-          <a  href="/2016/09/12/转-单例设计模式/#more">more >></a>
+          <a  href="/2016/11/23/归并排序 --分治初探/#more">more >></a>
         </p>
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2016/09/12/转-单例设计模式/" class="archive-article-date">
-  	<time datetime="2016-09-12T05:56:36.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-09-12</time>
+      <a href="/2016/11/23/归并排序 --分治初探/" class="archive-article-date">
+  	<time datetime="2016-11-23T13:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-11-23</time>
 </a>
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Beauty-of-Programming/">Beauty of Programming</a></li></ul>
 	</div>
 
       
@@ -405,7 +400,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/9/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/11/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/9/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/11/">Next &raquo;</a>
     </nav>
   
 
@@ -467,7 +462,7 @@
     
     	<section class="tools-section tools-section-tag">
     			<div class="widget tagcloud" id="js-tagcloud">
-    				<a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/Beauty-of-Programming/" style="font-size: 15px;">Beauty of Programming</a> <a href="/tags/Java编程思想/" style="font-size: 18.33px;">Java编程思想</a> <a href="/tags/fragment/" style="font-size: 13.33px;">fragment</a> <a href="/tags/mvc/" style="font-size: 11.67px;">mvc</a> <a href="/tags/剑指Offer/" style="font-size: 16.67px;">剑指Offer</a> <a href="/tags/算法/" style="font-size: 16.67px;">算法</a> <a href="/tags/线程/" style="font-size: 11.67px;">线程</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/随笔/" style="font-size: 11.67px;">随笔</a>
+    				<a href="/tags/Android/" style="font-size: 18.33px;">Android</a> <a href="/tags/Beauty-of-Programming/" style="font-size: 15px;">Beauty of Programming</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Java编程思想/" style="font-size: 16.67px;">Java编程思想</a> <a href="/tags/fragment/" style="font-size: 13.33px;">fragment</a> <a href="/tags/mvc/" style="font-size: 11.67px;">mvc</a> <a href="/tags/剑指Offer/" style="font-size: 20px;">剑指Offer</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a> <a href="/tags/线程/" style="font-size: 11.67px;">线程</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/随笔/" style="font-size: 11.67px;">随笔</a>
     			</div>
     	</section>
     

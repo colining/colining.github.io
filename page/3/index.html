@@ -129,7 +129,7 @@
       <div class="body-wrap">
         
   
-    <article id="post-剑指Offer 8 旋转数组的最小数字" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-剑指Offer 20 顺时针打印矩阵" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -139,7 +139,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/20/剑指Offer 8 旋转数组的最小数字/">剑指Offer 8 旋转数组的最小数字</a>
+      <a class="article-title" href="/2017/03/25/剑指Offer 20 顺时针打印矩阵/">剑指Offer 20 顺时针打印矩阵</a>
     </h1>
   
 
@@ -147,20 +147,19 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>把一个数组最开始的若干个元素搬到数组的末尾，我们称之为数组的旋转。<br>输入一个非递减排序的数组的一个旋转，输出旋转数组的最小元素。<br>例如数组{3,4,5,1,2}为{1,2,3,4,5}的一个旋转，该数组的最小值为1。<br>NOTE：给出的所有元素都大于0，若数组大小为0，请返回0。</p>
+        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>输入一个矩阵，按照从外向里以顺时针的顺序依次打印出每一个数字，例如，如果输入如下矩阵： {1 2 3 4}，{ 5 6 7 8}，{ 9 10 11 12}，{ 13 14 15 16} 则依次打印出数字1,2,3,4,8,12,16,15,14,13,9,5,6,7,11,10.</p>
 <h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><ol>
-<li>遍历数组直接找到最小的</li>
-<li>遍历数组，找到相邻两个递减的</li>
-<li>分为两个递增的序列，二分查找
+<li>一圈一圈的话，从外向内是有停止条件的</li>
+<li>对于内圈的话，是存在不完全打印的，需要进行判定
         <p class="article-more-link">
-          <a  href="/2017/03/20/剑指Offer 8 旋转数组的最小数字/#more">more >></a>
+          <a  href="/2017/03/25/剑指Offer 20 顺时针打印矩阵/#more">more >></a>
         </p>
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2017/03/20/剑指Offer 8 旋转数组的最小数字/" class="archive-article-date">
-  	<time datetime="2017-03-20T10:18:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-03-20</time>
+      <a href="/2017/03/25/剑指Offer 20 顺时针打印矩阵/" class="archive-article-date">
+  	<time datetime="2017-03-25T12:33:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-03-25</time>
 </a>
       
 	<div class="article-tag tagcloud">
@@ -185,7 +184,7 @@
 
 
   
-    <article id="post-剑指Offer 7 用两个栈实现队列" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-网易笔试题两道" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -195,7 +194,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/19/剑指Offer 7 用两个栈实现队列/">剑指Offer 7 用两个栈实现队列</a>
+      <a class="article-title" href="/2017/03/25/网易笔试题两道/">网易笔试题两道</a>
     </h1>
   
 
@@ -203,17 +202,17 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>用两个栈来实现一个队列，完成队列的Push和Pop操作。 队列中的元素为int类型。</p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>栈是先进后出的，那么两个栈，一个叫做原始栈，push都到这里，另一个叫做队列栈，我们pop的时候，将原始栈中pop出的元素都push到队列栈中；整体顺序就调换了；<br>如果队列栈还有元素，那我们就直接pop队列栈；因为队列栈实际上就是队列了；</p>
+        <h1 id="赶去公司"><a href="#赶去公司" class="headerlink" title="赶去公司"></a>赶去公司</h1><p>终于到周末啦！小易走在市区的街道上准备找朋友聚会，突然服务器发来警报,小易需要立即回公司修复这个紧急bug。假设市区是一个无限大的区域，每条街道假设坐标是(X，Y)，小易当前在(0，0)街道，办公室在(gx,gy)街道上。小易周围有多个出租车打车点，小易赶去办公室有两种选择，一种就是走路去公司，另外一种就是走到一个出租车打车点，然后从打车点的位置坐出租车去公司。每次移动到相邻的街道(横向或者纵向)走路将会花费walkTime时间，打车将花费taxiTime时间。小易需要尽快赶到公司去，现在小易想知道他最快需要花费多少时间去公司。</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>各算各的即可求解<br>
         <p class="article-more-link">
-          <a  href="/2017/03/19/剑指Offer 7 用两个栈实现队列/#more">more >></a>
+          <a  href="/2017/03/25/网易笔试题两道/#more">more >></a>
         </p>
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2017/03/19/剑指Offer 7 用两个栈实现队列/" class="archive-article-date">
-  	<time datetime="2017-03-19T13:28:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-03-19</time>
+      <a href="/2017/03/25/网易笔试题两道/" class="archive-article-date">
+  	<time datetime="2017-03-25T10:06:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-03-25</time>
 </a>
       
 	<div class="article-tag tagcloud">
@@ -238,7 +237,7 @@
 
 
   
-    <article id="post-剑指Offer 6 重建二叉树" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-剑指Offer 19 二叉树的镜像" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -248,7 +247,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/19/剑指Offer 6 重建二叉树/">剑指Offer 6 重建二叉树</a>
+      <a class="article-title" href="/2017/03/25/剑指Offer 19 二叉树的镜像/">剑指Offer 19 二叉树的镜像</a>
     </h1>
   
 
@@ -256,17 +255,17 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>##　题目描述<br>输入某二叉树的前序遍历和中序遍历的结果，请重建出该二叉树。假设输入的前序遍历和中序遍历的结果中都不含重复的数字。例如输入前序遍历序列{1,2,4,7,3,5,6,8}和中序遍历序列{4,7,2,1,5,3,8,6}，则重建二叉树并返回。</p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>对于前序遍历，它的第一个元素就是根节点；<br>对于中序遍历，根节点左面是左子树，右面是右子树；<br>通过递归不断地分割，对每一个节点赋值；<br>
+        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>操作给定的二叉树，将其变换为源二叉树的镜像</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>画图可得：如果根节点下面有子节点的话，就把他们交换位置；比较难的还是一个递归的思想；<br>
         <p class="article-more-link">
-          <a  href="/2017/03/19/剑指Offer 6 重建二叉树/#more">more >></a>
+          <a  href="/2017/03/25/剑指Offer 19 二叉树的镜像/#more">more >></a>
         </p>
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2017/03/19/剑指Offer 6 重建二叉树/" class="archive-article-date">
-  	<time datetime="2017-03-19T13:08:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-03-19</time>
+      <a href="/2017/03/25/剑指Offer 19 二叉树的镜像/" class="archive-article-date">
+  	<time datetime="2017-03-25T05:44:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-03-25</time>
 </a>
       
 	<div class="article-tag tagcloud">
@@ -291,7 +290,7 @@
 
 
   
-    <article id="post-剑指Offer 5 从尾到头打印链表" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-牛客网笔试题3道" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -301,7 +300,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/18/剑指Offer 5 从尾到头打印链表/">剑指Offer 5 从尾到头打印链表</a>
+      <a class="article-title" href="/2017/03/24/牛客网笔试题3道/">牛客网笔试3道</a>
     </h1>
   
 
@@ -309,17 +308,17 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>输入一个链表，从尾到头打印链表每个节点的值。</p>
-<h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><p>头-&gt;尾，遍历时先经过的，后输出，自然想到是一个栈了；于是就可以使用递归；<br>
+        <h1 id="超级素数幂"><a href="#超级素数幂" class="headerlink" title="超级素数幂"></a>超级素数幂</h1><p>如果一个数字能表示为p^q(^表示幂运算)且p为一个素数,q为大于1的正整数就称这个数叫做超级素数幂。现在给出一个正整数n,如果n是一个超级素数幂需要找出对应的p,q。</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>直接进行循环开方运算；如果x恰好可以满足开方和乘方运算即可；<br>
         <p class="article-more-link">
-          <a  href="/2017/03/18/剑指Offer 5 从尾到头打印链表/#more">more >></a>
+          <a  href="/2017/03/24/牛客网笔试题3道/#more">more >></a>
         </p>
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2017/03/18/剑指Offer 5 从尾到头打印链表/" class="archive-article-date">
-  	<time datetime="2017-03-18T13:47:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-03-18</time>
+      <a href="/2017/03/24/牛客网笔试题3道/" class="archive-article-date">
+  	<time datetime="2017-03-24T12:45:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-03-24</time>
 </a>
       
 	<div class="article-tag tagcloud">
@@ -344,7 +343,7 @@
 
 
   
-    <article id="post-剑指Offer 4 替换空格" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-剑指Offer 18 树的子结构" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -354,7 +353,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/18/剑指Offer 4 替换空格/">剑指Offer 4 替换空格</a>
+      <a class="article-title" href="/2017/03/22/剑指Offer 18 树的子结构/">剑指Offer 18 树的子结构</a>
     </h1>
   
 
@@ -362,17 +361,17 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>请实现一个函数，将一个字符串中的空格替换成“%20”。例如，当字符串为We Are Happy.则经过替换之后的字符串为We%20Are%20Happy。</p>
-<h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><p>对于全部字符扫描，创建一个StringBuilder，字符不是空格就append()，是空格就append(%20);<br>
+        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>输入两棵二叉树A，B，判断B是不是A的子结构。（ps：我们约定空树不是任意一个树的子结构）</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>先遍历主树，找到和子结构中根节点一样的节点，然后检验左子树，检验右子树<br>
         <p class="article-more-link">
-          <a  href="/2017/03/18/剑指Offer 4 替换空格/#more">more >></a>
+          <a  href="/2017/03/22/剑指Offer 18 树的子结构/#more">more >></a>
         </p>
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2017/03/18/剑指Offer 4 替换空格/" class="archive-article-date">
-  	<time datetime="2017-03-18T13:30:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-03-18</time>
+      <a href="/2017/03/22/剑指Offer 18 树的子结构/" class="archive-article-date">
+  	<time datetime="2017-03-22T14:13:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-03-22</time>
 </a>
       
 	<div class="article-tag tagcloud">
@@ -399,7 +398,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
     </nav>
   
 
@@ -461,7 +460,7 @@
     
     	<section class="tools-section tools-section-tag">
     			<div class="widget tagcloud" id="js-tagcloud">
-    				<a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/Beauty-of-Programming/" style="font-size: 15px;">Beauty of Programming</a> <a href="/tags/Java编程思想/" style="font-size: 18.33px;">Java编程思想</a> <a href="/tags/fragment/" style="font-size: 13.33px;">fragment</a> <a href="/tags/mvc/" style="font-size: 11.67px;">mvc</a> <a href="/tags/剑指Offer/" style="font-size: 16.67px;">剑指Offer</a> <a href="/tags/算法/" style="font-size: 16.67px;">算法</a> <a href="/tags/线程/" style="font-size: 11.67px;">线程</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/随笔/" style="font-size: 11.67px;">随笔</a>
+    				<a href="/tags/Android/" style="font-size: 18.33px;">Android</a> <a href="/tags/Beauty-of-Programming/" style="font-size: 15px;">Beauty of Programming</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Java编程思想/" style="font-size: 16.67px;">Java编程思想</a> <a href="/tags/fragment/" style="font-size: 13.33px;">fragment</a> <a href="/tags/mvc/" style="font-size: 11.67px;">mvc</a> <a href="/tags/剑指Offer/" style="font-size: 20px;">剑指Offer</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a> <a href="/tags/线程/" style="font-size: 11.67px;">线程</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/随笔/" style="font-size: 11.67px;">随笔</a>
     			</div>
     	</section>
     

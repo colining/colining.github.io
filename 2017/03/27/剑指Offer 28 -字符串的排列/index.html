@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>剑指Offer 28 *字符串的排列 | colin</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="题目描述输入一个字符串,按字典序打印出该字符串中字符的所有排列。例如输入字符串abc,则打印出由字符a,b,c所能排列出来的所有字符串abc,acb,bac,bca,cab和cba。
+思路参考1.第一种是递归的想法；全排列就是从第一个数字起每个数分别与它后面的数字交换。听起来很难懂，反正我一看就懂了，但是还是不知道递归内部是怎么做的；我们先看一下核心代码">
+<meta property="og:type" content="article">
+<meta property="og:title" content="剑指Offer 28 *字符串的排列">
+<meta property="og:url" content="http://yoursite.com/2017/03/27/剑指Offer 28 -字符串的排列/index.html">
+<meta property="og:site_name" content="colin">
+<meta property="og:description" content="题目描述输入一个字符串,按字典序打印出该字符串中字符的所有排列。例如输入字符串abc,则打印出由字符a,b,c所能排列出来的所有字符串abc,acb,bac,bca,cab和cba。
+思路参考1.第一种是递归的想法；全排列就是从第一个数字起每个数分别与它后面的数字交换。听起来很难懂，反正我一看就懂了，但是还是不知道递归内部是怎么做的；我们先看一下核心代码">
+<meta property="og:updated_time" content="2017-04-06T14:13:50.002Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="剑指Offer 28 *字符串的排列">
+<meta name="twitter:description" content="题目描述输入一个字符串,按字典序打印出该字符串中字符的所有排列。例如输入字符串abc,则打印出由字符a,b,c所能排列出来的所有字符串abc,acb,bac,bca,cab和cba。
+思路参考1.第一种是递归的想法；全排列就是从第一个数字起每个数分别与它后面的数字交换。听起来很难懂，反正我一看就懂了，但是还是不知道递归内部是怎么做的；我们先看一下核心代码">
+  
+    <link rel="alternative" href="/atom.xml" title="colin" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="//favicon.png">
+  
+  <script src="/style.js"></script>
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="/0.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">墨</a></h1>
+		</hgroup>
+
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/tags/随笔">随笔</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">所有文章</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="2" href="javascript:void(0)">友链</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="3" href="javascript:void(0)">关于我</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="https://github.com/colining" title="github">github</a>
+		        
+					<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/ren-tian-qi" title="zhihu">zhihu</a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<h1 class="header-author js-mobile-header hide">墨</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img src="/0.jpg" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">墨</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/tags/随笔">随笔</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/colining" title="github">github</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/ren-tian-qi" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap">
+        <article id="post-剑指Offer 28 -字符串的排列" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      剑指Offer 28 *字符串的排列
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>输入一个字符串,按字典序打印出该字符串中字符的所有排列。例如输入字符串abc,则打印出由字符a,b,c所能排列出来的所有字符串abc,acb,bac,bca,cab和cba。</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p><a href="http://blog.csdn.net/baidu_22405691/article/details/51325385" target="_blank" rel="external">参考</a><br>1.第一种是递归的想法；全排列就是从第一个数字起每个数分别与它后面的数字交换。听起来很难懂，反正我一看就懂了，但是还是不知道递归内部是怎么做的；<br>我们先看一下核心代码<br><a id="more"></a><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">static</span>  <span class="keyword">public</span>  <span class="keyword">void</span>  <span class="title">Permutation</span><span class="params">(<span class="keyword">char</span>[] str,<span class="keyword">int</span> start)</span>             <span class="comment">//全排列函数</span></span></div><div class="line">   &#123;</div><div class="line">       <span class="keyword">if</span> (start==str.length-<span class="number">1</span>) &#123;</div><div class="line">           <span class="keyword">if</span> (hashSet.add(String.valueOf(str))) &#123;</div><div class="line">               arrayList.add(String.valueOf(str));</div><div class="line">           &#125;</div><div class="line">       &#125;</div><div class="line">       <span class="keyword">else</span></div><div class="line">           <span class="keyword">for</span> (<span class="keyword">int</span> j = start ; j&lt;str.length;++j)</div><div class="line">           &#123;</div><div class="line">                   swap(str, start, j);           <span class="comment">// 当前这个位置进行交换</span></div><div class="line">                   Permutation(str, start + <span class="number">1</span>);   <span class="comment">//然后紧接着是下一个位置</span></div><div class="line">                   swap(str, start, j);           <span class="comment">//还原当前位置</span></div><div class="line"></div><div class="line">           &#125;</div><div class="line">   &#125;</div></pre></td></tr></table></figure></p>
+<p>你看懂了没？反正我是没看懂，逐步调试都没弄明白；<br>我们先不管别的；假设现在有这么一个字符串 （a,b,c,d,e）;我们自己手写全排列怎么写呢？首先锁定第一位是a，然后锁定第二位，然后是第三位；这个锁定的值每次可以不一样的呀，那么这些值是哪里的呢？字符串的嘛；交换过来就可以用了嘛；<br>结合函数观察一下；Permutation()每次都在进行下一位的锁定；j每次+1，是说当前这个位置可以换成是谁；<br>比如说 (a,b,c,d,e);先去除递归的话，看看下面是在干嘛呢<br>很显然，就是换第一位嘛，a可以和（b,c,d,e）进行交换；<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">for (int j = start ; j&lt;str.length;++j)   //此时start=1</div><div class="line">           &#123;</div><div class="line">                   swap(str, start, j);           // 当前这个位置进行交换</div><div class="line">                   swap(str, start, j);           //还原当前位置</div><div class="line"></div><div class="line">           &#125;</div></pre></td></tr></table></figure></p>
+<p>然后我们看一下递归是在干嘛:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Permutation(str, start + <span class="number">1</span>);</div></pre></td></tr></table></figure></p>
+<p>进行下一位的锁定，也就是说递归的时候，当前start这个位置的元素已经锁定了；然后对于下一位来说，又可以锁定为不同的值；这就是递归的奥秘；</p>
+<h3 id="换个想法"><a href="#换个想法" class="headerlink" title="换个想法"></a><strong>换个想法</strong></h3><p>或者换一下，我们忽略什么换不换位置的；<br>（a,b,c,d,e）,对第一位来说 我们把它看成两个部分 锁定队列（），未锁定队列（a,b,c,d,e）;<br>然后我们就循环呗，看看谁可以锁定 于是就可以变成 （a）,（b,c,d,e）;<br>锁定队列的第一位是a,那自然也可以是b,c,d,e;但是起码有一个已经锁定了；那就把锁定队列补完呗；于是我们寻找下一位；<br>锁定队列就可以是（a,b）,（a,c）,（a,d），（a，e）;<br>对每一个情况又有下一步；所以换完一次，进行一次递归，这次递归一直到底，就会得到一个字符串；然后在递归结束，返回上层；先把交换恢复过来，然后进行循环，看一下还有谁可以锁定在这个位置</p>
+<p>另外，因为会存在重复情况，可以通过<strong>hashset</strong>或者<strong>从第一个数字起每个数分别与它后面非重复出现的数字交换</strong>这两个思路解决</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Eight</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span>  <span class="keyword">static</span>  <span class="keyword">void</span>  <span class="title">main</span><span class="params">(String [] arg)</span></span></div><div class="line">    &#123;</div><div class="line">            String a= <span class="string">"bbaa"</span>;</div><div class="line">            Permutation(a);</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arrayList.size(); i++) &#123;</div><div class="line">            System.out.println(arrayList.get(i));</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">static</span>   <span class="keyword">public</span> ArrayList&lt;String&gt; <span class="title">Permutation</span><span class="params">(String str)</span> </span>&#123;           <span class="comment">//用于进行用例判定，调用函数，以及返回结果</span></div><div class="line">        <span class="keyword">if</span> (str==<span class="keyword">null</span>||str.length()==<span class="number">0</span>)</div><div class="line">            <span class="keyword">return</span>  <span class="keyword">null</span>;</div><div class="line">        Permutation(str.toCharArray(),<span class="number">0</span>);</div><div class="line">      Collections.sort(arrayList);</div><div class="line">        <span class="keyword">return</span> arrayList;</div><div class="line">    &#125;</div><div class="line">   <span class="keyword">static</span> ArrayList &lt;String&gt;arrayList = <span class="keyword">new</span> ArrayList&lt;&gt;();</div><div class="line">    <span class="keyword">static</span> HashSet&lt;String&gt; hashSet  = <span class="keyword">new</span> HashSet&lt;&gt;();</div><div class="line">    <span class="function"><span class="keyword">static</span>  <span class="keyword">public</span>  <span class="keyword">void</span>  <span class="title">Permutation</span><span class="params">(<span class="keyword">char</span>[] str,<span class="keyword">int</span> start)</span>             <span class="comment">//全排列函数</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">if</span> (start==str.length-<span class="number">1</span>) &#123;</div><div class="line">            <span class="keyword">if</span> (hashSet.add(String.valueOf(str))) &#123;</div><div class="line">                arrayList.add(String.valueOf(str));</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">else</span></div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = start ; j&lt;str.length;++j)</div><div class="line">            &#123;</div><div class="line"></div><div class="line">                <span class="comment">//if (iscanswap(str,start,j))&#123;                  //可以通过判定j是否在前面出现过</span></div><div class="line">                    swap(str, start, j);</div><div class="line">                    Permutation(str, start + <span class="number">1</span>);</div><div class="line">                    swap(str, start, j);</div><div class="line"></div><div class="line">            &#125;</div><div class="line">    &#125;</div><div class="line">   <span class="function"><span class="keyword">static</span> <span class="keyword">public</span>  <span class="keyword">void</span>  <span class="title">swap</span><span class="params">(<span class="keyword">char</span> [] str,<span class="keyword">int</span> i ,<span class="keyword">int</span> j)</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">char</span> temp = str[i];</div><div class="line">        str[i]=str[j];</div><div class="line">        str[j]=temp;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">iscanswap</span><span class="params">(<span class="keyword">char</span>[] str , <span class="keyword">int</span> start , <span class="keyword">int</span> i)</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> k = start;k&lt;i;k++)</div><div class="line">        &#123;</div><div class="line">            <span class="keyword">if</span> (str[k]==str[i])</div><div class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span>  <span class="keyword">true</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="收获"><a href="#收获" class="headerlink" title="收获"></a>收获</h2><ol>
+<li>彻底弄明白了全排列的递归算法；</li>
+<li>使用了一下hashset</li>
+</ol>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/03/27/剑指Offer 28 -字符串的排列/" class="archive-article-date">
+  	<time datetime="2017-03-27T10:50:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-03-27</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/剑指Offer/">剑指Offer</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2017/03/27/算法基础 快速排序/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          算法基础 快速排序
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/03/26/剑指Offer 27 二叉搜索树与双向链表/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">剑指Offer 27 二叉搜索树与双向链表</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="//v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="剑指Offer 28 -字符串的排列" data-title="剑指Offer 28 *字符串的排列" data-url="http://yoursite.com/2017/03/27/剑指Offer 28 -字符串的排列/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"colining.duoshuo.com"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 墨
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: false,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: "/"
+	}
+</script>
+
+<script src="/./main.js"></script>
+
+
+    
+<div class="tools-col">
+  <ul class="btn-wrap">
+    
+      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
+    
+    
+      <li data-hook="tools-section-tag"><span class="text">标签</span><i class="icon-price-tags"></i></li>
+    
+    
+      <li data-hook="tools-section-friends"><span class="text">友链</span><i class="icon-link"></i></li>
+    
+    
+      <li data-hook="tools-section-me"><span class="text">我</span><i class="icon-smile"></i></li>
+    
+  </ul>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all chose">
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-tag">
+    			<div class="widget tagcloud" id="js-tagcloud">
+    				<a href="/tags/Android/" style="font-size: 18.33px;">Android</a> <a href="/tags/Beauty-of-Programming/" style="font-size: 15px;">Beauty of Programming</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Java编程思想/" style="font-size: 16.67px;">Java编程思想</a> <a href="/tags/fragment/" style="font-size: 13.33px;">fragment</a> <a href="/tags/mvc/" style="font-size: 11.67px;">mvc</a> <a href="/tags/剑指Offer/" style="font-size: 20px;">剑指Offer</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a> <a href="/tags/线程/" style="font-size: 11.67px;">线程</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/随笔/" style="font-size: 11.67px;">随笔</a>
+    			</div>
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-friends">
+  		
+  			<div class="friends-wrap" id="js-friends">
+  			
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="https://www.google.com.hk/">谷歌</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="https://stackoverflow.com/">stackoverflow</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://beyondtech.org/">泡饭</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="https://menyifan.com/">MYF</a>
+  	        
+  	        </div>
+  		
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-me">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">继续跑&lt;br&gt;&lt;br&gt;带着赤子的骄傲</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div>
+</body>
+</html>
