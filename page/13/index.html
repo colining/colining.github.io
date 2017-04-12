@@ -129,7 +129,7 @@
       <div class="body-wrap">
         
   
-    <article id="post-Android intent 和activity" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Java 读书笔记 14.1-14.6 RTTI" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -139,7 +139,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/10/15/Android intent 和activity/">android 5 通知栏</a>
+      <a class="article-title" href="/2017/03/08/Java 读书笔记 14.1-14.6 RTTI/">Java 读书笔记 14.1-14.6 RTTI</a>
     </h1>
   
 
@@ -147,23 +147,24 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="1-intent-intent-extra-activity"><a href="#1-intent-intent-extra-activity" class="headerlink" title="1 intent intent extra  activity"></a>1 intent intent extra  activity</h2><p>简单的说是，activity1 要启动activity2 ，并且传输一个值；</p>
-<p>常用方法肯定是：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function">Intent <span class="title">intent</span><span class="params">( activity1.<span class="keyword">this</span>,activity2.class)</span></div><div class="line">intent.<span class="title">putExtra</span><span class="params">(...)</span></span>;</div><div class="line">startActivity(intent)</div></pre></td></tr></table></figure></p>
-<p>将其改为 activity2<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Intent <span class="title">newIntent</span><span class="params">(Context packageContext,<span class="keyword">boolean</span> answerIsTrue)</span></span>&#123;</div><div class="line"><span class="function">Intent <span class="title">intent</span><span class="params">( packageContext,activity2.class)</span></div><div class="line">intent.<span class="title">putExtra</span><span class="params">(Extra,answerIsTrue)</span></span>;</div><div class="line"><span class="keyword">return</span> intetn</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+        <h1 id="RTTI"><a href="#RTTI" class="headerlink" title="RTTI"></a>RTTI</h1><p>Runtime Type Information<br>好吧，时隔多日我又来啃这块骨头了；</p>
+<p>RTTI顾名思义 运行时类型信息；编译的时候不知道，只有当具体运行时才知道是什么类型信息；Java编程思想好像也没说是怎么具体实现的；我也只能管中窥豹了；</p>
+<p>首先，我们知道多态，那么多态是啥呢？<br>维基百科说：<br>多态也可定义为“一种将不同的特殊行为和单个泛化记号相关联的能力”</p>
+<p>这就让我想起了继承关系；不论是哪个子类都可以用父类表示；编译时是父类，运行时就变成子类了；这就是RTTI了；厉害吧；</p>
         <p class="article-more-link">
-          <a  href="/2016/10/15/Android intent 和activity/#more">more >></a>
+          <a  href="/2017/03/08/Java 读书笔记 14.1-14.6 RTTI/#more">more >></a>
         </p>
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2016/10/15/Android intent 和activity/" class="archive-article-date">
-  	<time datetime="2016-10-15T07:40:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-15</time>
+      <a href="/2017/03/08/Java 读书笔记 14.1-14.6 RTTI/" class="archive-article-date">
+  	<time datetime="2017-03-08T12:37:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-03-08</time>
 </a>
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java编程思想/">Java编程思想</a></li></ul>
 	</div>
 
       
@@ -183,7 +184,7 @@
 
 
   
-    <article id="post-Android 广播接收器" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Java 读书笔记 14.7 动态代理" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -193,7 +194,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/10/07/Android 广播接收器/">android 5 通知栏</a>
+      <a class="article-title" href="/2017/03/05/Java 读书笔记 14.7 动态代理/">Java 读书笔记 14.7 动态代理</a>
     </h1>
   
 
@@ -201,24 +202,22 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="1"><a href="#1" class="headerlink" title="1"></a>1</h1><p>broadcast  receiver 广播，接收器  Android四大组件之一；<br>Android权威指南这本书的结构实在是，四大组件离得这么远，早忘记概念了。。</p>
-<p>broadcast intent 我们看一下自定义广播的发送<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span>  String ACTION_SHOW_NOTIFICATION=<span class="string">"com.example.asus.photogallery.SHOW_NOTIFICATION"</span>;</div><div class="line"> sendBroadcast(<span class="keyword">new</span> Intent(ACTION_SHOW_NOTIFICATION));</div></pre></td></tr></table></figure></p>
-<p>我们创建了一个inten 然后通过sendBroadcast 发送出去；那么谁来接收呢？</p>
-<p>我们对比一下intent的发送和接收：<br>
+        <h1 id="动态代理"><a href="#动态代理" class="headerlink" title="动态代理"></a>动态代理</h1><p>这一章的难度加上翻译的水准使得我实在好像是在看天书啊，所以分开写了；</p>
+<h2 id="静态代理"><a href="#静态代理" class="headerlink" title="静态代理"></a>静态代理</h2><p>首先我们来看看静态代理：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Sell</span>      //说呢，从古至今都有这么一个卖的接口，谁都可以卖东西；</div><div class="line"></span>&#123; </div><div class="line">	<span class="function"><span class="keyword">void</span> <span class="title">sell</span><span class="params">()</span></span>; </div><div class="line">	<span class="function"><span class="keyword">void</span> <span class="title">ad</span><span class="params">()</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
         <p class="article-more-link">
-          <a  href="/2016/10/07/Android 广播接收器/#more">more >></a>
+          <a  href="/2017/03/05/Java 读书笔记 14.7 动态代理/#more">more >></a>
         </p>
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2016/10/07/Android 广播接收器/" class="archive-article-date">
-  	<time datetime="2016-10-07T10:47:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-07</time>
+      <a href="/2017/03/05/Java 读书笔记 14.7 动态代理/" class="archive-article-date">
+  	<time datetime="2017-03-05T12:35:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-03-05</time>
 </a>
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java编程思想/">Java编程思想</a></li></ul>
 	</div>
 
       
@@ -238,7 +237,7 @@
 
 
   
-    <article id="post-Android 通知栏信息" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Java 读书笔记 13 字符串" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -248,7 +247,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/10/05/Android 通知栏信息/">android 5 通知栏</a>
+      <a class="article-title" href="/2017/03/04/Java 读书笔记 13 字符串/">Java 读书笔记13 字符串</a>
     </h1>
   
 
@@ -256,21 +255,21 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="1"><a href="#1" class="headerlink" title="1"></a>1</h1><p>今天讲点简单的哦，再日后补坑，通知栏信息；<br>用Android的人，都应该知道通知栏是个什么东西，下拉会出来一些设置菜单，<br>当有新的消息时，就会跑到这里，或者比如云音乐，后台听歌，也会有这么一个通知栏信息；<br>今天就简单的说一下，以后再完善；<br>
+        <h1 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h1><h2 id="不可变的字符串"><a href="#不可变的字符串" class="headerlink" title="不可变的字符串"></a>不可变的字符串</h2><p>早就听说java字符串是不变的；那么到底是怎么回事呢？<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Immutable</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span>  <span class="keyword">static</span>  String <span class="title">upcase</span><span class="params">(String s)</span></div><div class="line">    </span>&#123;</div><div class="line">        <span class="keyword">return</span>  s.toUpperCase();</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span>  <span class="keyword">static</span>  <span class="keyword">void</span>  <span class="title">main</span><span class="params">(String a[])</span></div><div class="line">    </span>&#123;</div><div class="line">        String q =<span class="string">"howdy"</span>;</div><div class="line">        System.out.println(q); <span class="comment">//howdy</span></div><div class="line">        <span class="comment">//String qq = new String("aaaa");</span></div><div class="line">        String qq = upcase(q);</div><div class="line">        System.out.println(qq);<span class="comment">//HOWDY</span></div><div class="line">        System.out.println(q);<span class="comment">//howdy</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
         <p class="article-more-link">
-          <a  href="/2016/10/05/Android 通知栏信息/#more">more >></a>
+          <a  href="/2017/03/04/Java 读书笔记 13 字符串/#more">more >></a>
         </p>
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2016/10/05/Android 通知栏信息/" class="archive-article-date">
-  	<time datetime="2016-10-05T11:42:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-05</time>
+      <a href="/2017/03/04/Java 读书笔记 13 字符串/" class="archive-article-date">
+  	<time datetime="2017-03-04T07:52:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-03-04</time>
 </a>
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java编程思想/">Java编程思想</a></li></ul>
 	</div>
 
       
@@ -290,7 +289,7 @@
 
 
   
-    <article id="post-原-Android-Looper，handler，HandlerThread" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Java 读书笔记 12 异常处理" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -300,7 +299,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/28/原-Android-Looper，handler，HandlerThread/">Android Looper，handler，HandlerThread</a>
+      <a class="article-title" href="/2017/03/02/Java 读书笔记 12 异常处理/">Java 读书笔记12 异常处理</a>
     </h1>
   
 
@@ -308,29 +307,22 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="1"><a href="#1" class="headerlink" title="1"></a>1</h1><p>上回书说道，掌柜的饿了，叫大厨做饭去了；但一家客栈如果不冷清的话，就会有很多客人；跑堂的小二问完客观，记下来，会跟大厨喊：两斤酱牛肉，两斤烤鸭；至于茶水，跑堂的自己端过去就行了；那掌柜的是不是得记账啊；所以更可能的情况是小二用纸笔记下来，一份送到掌柜的，一份送到大厨那里；掌柜的可能就直接收起来，等晚些时候记账也行，大厨就不一样了，那就是铁定的任务了；看完这个消息，做个鱼香肉丝，再看哪个，做个清蒸红薯之类的。。。<br>相关访问，一定要看的；<br><a href="http://www.cnblogs.com/codingmyworld/archive/2011/09/14/2174255.html">http://www.cnblogs.com/codingmyworld/archive/2011/09/14/2174255.html</a></p>
-<h1 id="2"><a href="#2" class="headerlink" title="2"></a>2</h1><pre><code>主程序:可以看成是客栈的整个大堂，人来人往，小二忙的不亦乐乎
-线程：大厨做饭得有锅啊；但是此时的锅只能做一道菜，做完就不能用了，大厨就把它藏起来了；之后来的n多单子不接受；
-looper：掌柜的一看，说这不行啊，加钱！让锅一直待在厨房，有单子就炒菜，没有就等着单子的到来；于是线程就升级为循环线程；
-Message：小二递过来的单子
-MessageQueue：虽然大厨是处于循环工作状态，但是那么多单子总得有个序列吧，此处将单子排序，大厨就可以按照次序
-Handler：大厨，关键人物，小二将单子交给大厨，到了厨房，大厨就将其放入消息队列，到了的话，就炒菜；
-那假如客栈大，厨师好多，一个相同的消息队列 不同的菜交给不同厨师，一个厨师可以对应好几道菜，不过的按照顺序吵；
-</code></pre>
+        <h1 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a>异常处理</h1><p>这章偏向实际，笔记没法记；真正多用就会了</p>
+<h2 id="try-catch-finally-规则-异常处理语句的语法规则）："><a href="#try-catch-finally-规则-异常处理语句的语法规则）：" class="headerlink" title="try-catch-finally 规则(异常处理语句的语法规则）："></a>try-catch-finally 规则(异常处理语句的语法规则）：</h2><p>1)  必须在 try 之后添加 catch 或 finally 块。try 块后可同时接 catch 和 finally 块，但至少有一个块。<br>2) 必须遵循块顺序：若代码同时使用 catch 和 finally 块，则必须将 catch 块放在 try 块之后。<br>3) catch 块与相应的异常类的类型相关。<br>4) 一个 try 块可能有多个 catch 块。若如此，则执行第一个匹配块。即Java虚拟机会把实际抛出的异常对象依次和各个catch代码块声明的异常类型匹配，如果异常对象为某个异常类型或其子类的实例，就执行这个catch代码块，不会再执行其他的 catch代码块<br>5) 可嵌套 try-catch-finally 结构。<br>6) 在 try-catch-finally 结构中，可重新抛出异常。<br>7) 除了下列情况，总将执行 finally 做为结束：JVM 过早终止（调用 System.exit(int)）；在 finally 块中抛出一个未处理的异常；计算机断电、失火、或遭遇病毒攻击。<br>
         <p class="article-more-link">
-          <a  href="/2016/09/28/原-Android-Looper，handler，HandlerThread/#more">more >></a>
+          <a  href="/2017/03/02/Java 读书笔记 12 异常处理/#more">more >></a>
         </p>
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2016/09/28/原-Android-Looper，handler，HandlerThread/" class="archive-article-date">
-  	<time datetime="2016-09-28T11:44:49.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-09-28</time>
+      <a href="/2017/03/02/Java 读书笔记 12 异常处理/" class="archive-article-date">
+  	<time datetime="2017-03-02T13:18:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-03-02</time>
 </a>
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/线程/">线程</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java编程思想/">Java编程思想</a></li></ul>
 	</div>
 
       
@@ -350,7 +342,7 @@ Handler：大厨，关键人物，小二将单子交给大厨，到了厨房，�
 
 
   
-    <article id="post-原-Android-线程AsyncTask" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Java 读书笔记 11 持有对象" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -360,7 +352,7 @@ Handler：大厨，关键人物，小二将单子交给大厨，到了厨房，�
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/28/原-Android-线程AsyncTask/">Android 线程AsyncTask</a>
+      <a class="article-title" href="/2017/03/01/Java 读书笔记 11 持有对象/">Java 读书笔记 11 持有对象</a>
     </h1>
   
 
@@ -368,23 +360,26 @@ Handler：大厨，关键人物，小二将单子交给大厨，到了厨房，�
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="1-AsyncTask"><a href="#1-AsyncTask" class="headerlink" title="1.AsyncTask"></a>1.AsyncTask</h2><p>Android已经到了最后阶段，突然蹦出来线程这一难题，真的是把我弄晕了<br>首先我们明确为什么存在线程？ 我们已经存在一个主程序，为什么要加一个呢？当我们的程序在请求网络时，我们希望主程序还可以运行吗？现在的程序一般都是后台下载，那前台下载你见过吗？点完下载，程序就变成下载的进度条了，软件不能用了；这样当然是不好的，所以才有了线程；</p>
-<p>就像是一个客栈，有大厨，有掌柜的，有跑堂的；如果说这家客栈就一个人，那是不是就忙不过来了呢；</p>
-<p>我们要看的程序是一个从网站获取链接与信息的程序；<br>
+        <h1 id="持有对象"><a href="#持有对象" class="headerlink" title="持有对象"></a>持有对象</h1><h2 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a>泛型</h2><p>1.简单来说 ArrayAlist<apple>可以限制只储存Apple类及其子类，限制其他类对象<br><img src="https://segmentfault.com/img/bVC4g8?w=786&amp;h=362" alt="容器整体结构"></p>
+<p><img src="https://segmentfault.com/img/bVC4ht?w=588&amp;h=324" alt="这里写图片描述"></p>
+<p>这部分偏向于介绍具体的操作，就简单写了；这种东西不写写，不可能记得住；</p>
+<h2 id="list"><a href="#list" class="headerlink" title="list"></a>list</h2><ol>
+<li>ArayList，基本和数组一个模式，随机访问简单，插入删除比较麻烦</li>
+<li>LinkedList，链表嘛，肯定是插入删除简单，随机访问麻烦；
         <p class="article-more-link">
-          <a  href="/2016/09/28/原-Android-线程AsyncTask/#more">more >></a>
+          <a  href="/2017/03/01/Java 读书笔记 11 持有对象/#more">more >></a>
         </p>
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2016/09/28/原-Android-线程AsyncTask/" class="archive-article-date">
-  	<time datetime="2016-09-28T08:20:43.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-09-28</time>
+      <a href="/2017/03/01/Java 读书笔记 11 持有对象/" class="archive-article-date">
+  	<time datetime="2017-03-01T13:57:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-03-01</time>
 </a>
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/线程/">线程</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java编程思想/">Java编程思想</a></li></ul>
 	</div>
 
       
@@ -406,7 +401,7 @@ Handler：大厨，关键人物，小二将单子交给大厨，到了厨房，�
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/12/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><span class="page-number current">13</span><a class="page-number" href="/page/14/">14</a><a class="page-number" href="/page/15/">15</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/14/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/12/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><span class="page-number current">13</span><a class="page-number" href="/page/14/">14</a><a class="page-number" href="/page/15/">15</a><span class="space">&hellip;</span><a class="page-number" href="/page/21/">21</a><a class="extend next" rel="next" href="/page/14/">Next &raquo;</a>
     </nav>
   
 
@@ -468,7 +463,7 @@ Handler：大厨，关键人物，小二将单子交给大厨，到了厨房，�
     
     	<section class="tools-section tools-section-tag">
     			<div class="widget tagcloud" id="js-tagcloud">
-    				<a href="/tags/Android/" style="font-size: 17.5px;">Android</a> <a href="/tags/Beauty-of-Programming/" style="font-size: 13.75px;">Beauty of Programming</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Java编程思想/" style="font-size: 16.25px;">Java编程思想</a> <a href="/tags/fragment/" style="font-size: 12.5px;">fragment</a> <a href="/tags/mvc/" style="font-size: 11.25px;">mvc</a> <a href="/tags/剑指Offer/" style="font-size: 18.75px;">剑指Offer</a> <a href="/tags/剑指offer/" style="font-size: 15px;">剑指offer</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a> <a href="/tags/线程/" style="font-size: 11.25px;">线程</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/随笔/" style="font-size: 11.25px;">随笔</a>
+    				<a href="/tags/Android/" style="font-size: 17.14px;">Android</a> <a href="/tags/Beauty-of-Programming/" style="font-size: 14.29px;">Beauty of Programming</a> <a href="/tags/Java/" style="font-size: 12.86px;">Java</a> <a href="/tags/Java知识点/" style="font-size: 11.43px;">Java知识点</a> <a href="/tags/Java编程思想/" style="font-size: 15.71px;">Java编程思想</a> <a href="/tags/fragment/" style="font-size: 12.86px;">fragment</a> <a href="/tags/mvc/" style="font-size: 11.43px;">mvc</a> <a href="/tags/刷题/" style="font-size: 11.43px;">刷题</a> <a href="/tags/剑指Offer/" style="font-size: 18.57px;">剑指Offer</a> <a href="/tags/剑指offer/" style="font-size: 17.14px;">剑指offer</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a> <a href="/tags/线程/" style="font-size: 11.43px;">线程</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/随笔/" style="font-size: 11.43px;">随笔</a>
     			</div>
     	</section>
     

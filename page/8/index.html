@@ -129,7 +129,7 @@
       <div class="body-wrap">
         
   
-    <article id="post-剑指Offer 4 替换空格" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-剑指Offer 23 从上往下打印二叉树" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -139,7 +139,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/18/剑指Offer 4 替换空格/">剑指Offer 4 替换空格</a>
+      <a class="article-title" href="/2017/03/26/剑指Offer 23 从上往下打印二叉树/">剑指Offer 23 从上往下打印二叉树</a>
     </h1>
   
 
@@ -147,17 +147,18 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>请实现一个函数，将一个字符串中的空格替换成“%20”。例如，当字符串为We Are Happy.则经过替换之后的字符串为We%20Are%20Happy。</p>
-<h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><p>对于全部字符扫描，创建一个StringBuilder，字符不是空格就append()，是空格就append(%20);<br>
+        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>从上往下打印出二叉树的每个节点，同层节点从左至右打印。</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>层序遍历二叉树；每一层从右开始输出；按照一般的遍历方法，左节点，右节点，那么在遍历左节点时，就应该将左节点的子节点保存下来，然后是右节点的子节点；然后统一输出；FIFO，先到先出即为队列；</p>
+<p>定义一个队列，将根节点放进去; 当队列不为空的时候， 获取队列的顶部元素，即当前的节点；有左子节点，就把左节点放进队列，有右子节点，放右节点；输出当前根节点的值；<br>
         <p class="article-more-link">
-          <a  href="/2017/03/18/剑指Offer 4 替换空格/#more">more >></a>
+          <a  href="/2017/03/26/剑指Offer 23 从上往下打印二叉树/#more">more >></a>
         </p>
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2017/03/18/剑指Offer 4 替换空格/" class="archive-article-date">
-  	<time datetime="2017-03-18T13:30:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-03-18</time>
+      <a href="/2017/03/26/剑指Offer 23 从上往下打印二叉树/" class="archive-article-date">
+  	<time datetime="2017-03-26T05:30:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-03-26</time>
 </a>
       
 	<div class="article-tag tagcloud">
@@ -182,7 +183,7 @@
 
 
   
-    <article id="post-剑指Offer 3 二维数组中的查找" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-剑指Offer 22 栈的压入，弹出序列" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -192,7 +193,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/18/剑指Offer 3 二维数组中的查找/">剑指Offer 3 二维数组中的查找</a>
+      <a class="article-title" href="/2017/03/25/剑指Offer 22 栈的压入，弹出序列/">剑指Offer 22 栈的压入，弹出序列</a>
     </h1>
   
 
@@ -200,17 +201,18 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>在一个二维数组中，每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。</p>
-<h2 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h2><p><img src="http://images.cnitblog.com/blog/457289/201303/01065754-360a04e422b14e489869d9c58867f2a1.jpg" alt="啦啦啦啦"><br>
+        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>输入两个整数序列，第一个序列表示栈的压入顺序，请判断第二个序列是否为该栈的弹出顺序。假设压入栈的所有数字均不相等。例如序列1,2,3,4,5是某栈的压入顺序，序列4，5,3,2,1是该压栈序列对应的一个弹出序列，但4,3,5,1,2就不可能是该压栈序列的弹出序列。（注意：这两个序列的长度是相等的）</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><ol>
+<li>我们直接创建一个辅助栈，然后还原栈的压入和弹出，如果最后栈是空的，说明成功了
         <p class="article-more-link">
-          <a  href="/2017/03/18/剑指Offer 3 二维数组中的查找/#more">more >></a>
+          <a  href="/2017/03/25/剑指Offer 22 栈的压入，弹出序列/#more">more >></a>
         </p>
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2017/03/18/剑指Offer 3 二维数组中的查找/" class="archive-article-date">
-  	<time datetime="2017-03-18T13:20:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-03-18</time>
+      <a href="/2017/03/25/剑指Offer 22 栈的压入，弹出序列/" class="archive-article-date">
+  	<time datetime="2017-03-25T13:47:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-03-25</time>
 </a>
       
 	<div class="article-tag tagcloud">
@@ -235,7 +237,7 @@
 
 
   
-    <article id="post-Java 读书笔记 21.2 并发" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-剑指Offer 21 包含min函数的栈" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -245,7 +247,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/14/Java 读书笔记 21.2 并发/">Java 读书笔记 21.2 并发</a>
+      <a class="article-title" href="/2017/03/25/剑指Offer 21 包含min函数的栈/">剑指Offer 21 包含min函数的栈</a>
     </h1>
   
 
@@ -253,21 +255,24 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="并发"><a href="#并发" class="headerlink" title="并发"></a>并发</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">IntGenerator</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">volatile</span> <span class="keyword">boolean</span> canceled = <span class="keyword">false</span>;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">int</span> <span class="title">next</span><span class="params">()</span></span>;</div><div class="line">    <span class="comment">// Allow this to be canceled:</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">cancel</span><span class="params">()</span> </span>&#123; canceled = <span class="keyword">true</span>; &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isCanceled</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> canceled; &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>定义栈的数据结构，请在该类型中实现一个能够得到栈最小元素的min函数</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><ol>
+<li>不考虑时间复杂度的话，直接通过Iterator 找到栈的最小值；</li>
+<li>如果考虑时间复杂度的话，就引入辅助栈，用于当前栈的最小值
         <p class="article-more-link">
-          <a  href="/2017/03/14/Java 读书笔记 21.2 并发/#more">more >></a>
+          <a  href="/2017/03/25/剑指Offer 21 包含min函数的栈/#more">more >></a>
         </p>
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2017/03/14/Java 读书笔记 21.2 并发/" class="archive-article-date">
-  	<time datetime="2017-03-14T00:52:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-03-14</time>
+      <a href="/2017/03/25/剑指Offer 21 包含min函数的栈/" class="archive-article-date">
+  	<time datetime="2017-03-25T13:19:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-03-25</time>
 </a>
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java编程思想/">Java编程思想</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/剑指Offer/">剑指Offer</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
 	</div>
 
       
@@ -287,7 +292,7 @@
 
 
   
-    <article id="post-Java 读书笔记 21.1并发" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-剑指Offer 20 顺时针打印矩阵" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -297,7 +302,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/12/Java 读书笔记 21.1并发/">Java 读书笔记 21.1并发</a>
+      <a class="article-title" href="/2017/03/25/剑指Offer 20 顺时针打印矩阵/">剑指Offer 20 顺时针打印矩阵</a>
     </h1>
   
 
@@ -305,22 +310,24 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="并发"><a href="#并发" class="headerlink" title="并发"></a>并发</h1><p>终于来到这里了，好开心；</p>
-<h2 id="线程定义"><a href="#线程定义" class="headerlink" title="线程定义"></a>线程定义</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Liftoff</span>  <span class="keyword">implements</span>  <span class="title">Runnable</span></span>&#123;   <span class="comment">//接口</span></div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;           <span class="comment">//实现run方法</span></div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">public</span>  <span class="keyword">static</span>  <span class="keyword">void</span>  <span class="title">main</span><span class="params">(String []arg)</span></span>&#123;</div><div class="line">       <span class="comment">//第一种</span></div><div class="line">       Liftoff liftoff = <span class="keyword">new</span> Liftoff();</div><div class="line">       liftoff.run();</div><div class="line">       <span class="comment">//第二种</span></div><div class="line">       Thread thread = <span class="keyword">new</span> Thread(<span class="keyword">new</span> Liftoff());</div><div class="line">       thread.start();</div><div class="line">       &#125;</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
+        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>输入一个矩阵，按照从外向里以顺时针的顺序依次打印出每一个数字，例如，如果输入如下矩阵： {1 2 3 4}，{ 5 6 7 8}，{ 9 10 11 12}，{ 13 14 15 16} 则依次打印出数字1,2,3,4,8,12,16,15,14,13,9,5,6,7,11,10.</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><ol>
+<li>一圈一圈的话，从外向内是有停止条件的</li>
+<li>对于内圈的话，是存在不完全打印的，需要进行判定
         <p class="article-more-link">
-          <a  href="/2017/03/12/Java 读书笔记 21.1并发/#more">more >></a>
+          <a  href="/2017/03/25/剑指Offer 20 顺时针打印矩阵/#more">more >></a>
         </p>
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2017/03/12/Java 读书笔记 21.1并发/" class="archive-article-date">
-  	<time datetime="2017-03-12T11:35:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-03-12</time>
+      <a href="/2017/03/25/剑指Offer 20 顺时针打印矩阵/" class="archive-article-date">
+  	<time datetime="2017-03-25T12:33:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-03-25</time>
 </a>
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java编程思想/">Java编程思想</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/剑指Offer/">剑指Offer</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
 	</div>
 
       
@@ -340,7 +347,7 @@
 
 
   
-    <article id="post-Java 读书笔记 15泛型" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-网易笔试题两道" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -350,7 +357,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/09/Java 读书笔记 15泛型/">Java 读书笔记 15泛型</a>
+      <a class="article-title" href="/2017/03/25/网易笔试题两道/">网易笔试题两道</a>
     </h1>
   
 
@@ -358,22 +365,22 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a>泛型</h2><p>泛型的来源，首先我们知道类是存在聚合的，就是这个类有其他类的对象；那么问题来了，我今天用你，明天用别人；怎么办呢？<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Automobile</span> </span>&#123;      <span class="comment">//普通模式有这么一个类</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Holder1</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span>  Automobile a;     <span class="comment">//类间聚合；但是你必须编译的时候就定义啊；</span></div><div class="line">    <span class="function"><span class="keyword">public</span>  <span class="title">Holder1</span><span class="params">(Automobile a)</span>   <span class="comment">//完全不能改变的时候</span></div><div class="line">    </span>&#123;</div><div class="line">        <span class="keyword">this</span>.a=a;</div><div class="line">    &#125;</div><div class="line">    <span class="function">Automobile <span class="title">get</span><span class="params">()</span></div><div class="line">    </span>&#123;</div><div class="line">        <span class="keyword">return</span>  a;</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">    <span class="keyword">private</span>  Object b;        <span class="comment">//定义Object可以通过向下转型的方式储存其他对象，但是自然是麻烦的；</span></div><div class="line">    <span class="function"><span class="keyword">public</span>  <span class="title">Holder1</span><span class="params">(Object b)</span></div><div class="line">    </span>&#123;</div><div class="line">        <span class="keyword">this</span>.b=b;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span>  <span class="keyword">void</span>  <span class="title">setB</span><span class="params">(Object b)</span></div><div class="line">    </span>&#123;</div><div class="line">        <span class="keyword">this</span>.b = b;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">getB</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> b;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        <h1 id="赶去公司"><a href="#赶去公司" class="headerlink" title="赶去公司"></a>赶去公司</h1><p>终于到周末啦！小易走在市区的街道上准备找朋友聚会，突然服务器发来警报,小易需要立即回公司修复这个紧急bug。假设市区是一个无限大的区域，每条街道假设坐标是(X，Y)，小易当前在(0，0)街道，办公室在(gx,gy)街道上。小易周围有多个出租车打车点，小易赶去办公室有两种选择，一种就是走路去公司，另外一种就是走到一个出租车打车点，然后从打车点的位置坐出租车去公司。每次移动到相邻的街道(横向或者纵向)走路将会花费walkTime时间，打车将花费taxiTime时间。小易需要尽快赶到公司去，现在小易想知道他最快需要花费多少时间去公司。</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>各算各的即可求解<br>
         <p class="article-more-link">
-          <a  href="/2017/03/09/Java 读书笔记 15泛型/#more">more >></a>
+          <a  href="/2017/03/25/网易笔试题两道/#more">more >></a>
         </p>
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2017/03/09/Java 读书笔记 15泛型/" class="archive-article-date">
-  	<time datetime="2017-03-09T14:19:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-03-09</time>
+      <a href="/2017/03/25/网易笔试题两道/" class="archive-article-date">
+  	<time datetime="2017-03-25T10:06:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-03-25</time>
 </a>
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java编程思想/">Java编程思想</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/剑指Offer/">剑指Offer</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
 	</div>
 
       
@@ -395,7 +402,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/7/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/9/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/7/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/21/">21</a><a class="extend next" rel="next" href="/page/9/">Next &raquo;</a>
     </nav>
   
 
@@ -457,7 +464,7 @@
     
     	<section class="tools-section tools-section-tag">
     			<div class="widget tagcloud" id="js-tagcloud">
-    				<a href="/tags/Android/" style="font-size: 17.5px;">Android</a> <a href="/tags/Beauty-of-Programming/" style="font-size: 13.75px;">Beauty of Programming</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Java编程思想/" style="font-size: 16.25px;">Java编程思想</a> <a href="/tags/fragment/" style="font-size: 12.5px;">fragment</a> <a href="/tags/mvc/" style="font-size: 11.25px;">mvc</a> <a href="/tags/剑指Offer/" style="font-size: 18.75px;">剑指Offer</a> <a href="/tags/剑指offer/" style="font-size: 15px;">剑指offer</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a> <a href="/tags/线程/" style="font-size: 11.25px;">线程</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/随笔/" style="font-size: 11.25px;">随笔</a>
+    				<a href="/tags/Android/" style="font-size: 17.14px;">Android</a> <a href="/tags/Beauty-of-Programming/" style="font-size: 14.29px;">Beauty of Programming</a> <a href="/tags/Java/" style="font-size: 12.86px;">Java</a> <a href="/tags/Java知识点/" style="font-size: 11.43px;">Java知识点</a> <a href="/tags/Java编程思想/" style="font-size: 15.71px;">Java编程思想</a> <a href="/tags/fragment/" style="font-size: 12.86px;">fragment</a> <a href="/tags/mvc/" style="font-size: 11.43px;">mvc</a> <a href="/tags/刷题/" style="font-size: 11.43px;">刷题</a> <a href="/tags/剑指Offer/" style="font-size: 18.57px;">剑指Offer</a> <a href="/tags/剑指offer/" style="font-size: 17.14px;">剑指offer</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a> <a href="/tags/线程/" style="font-size: 11.43px;">线程</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/随笔/" style="font-size: 11.43px;">随笔</a>
     			</div>
     	</section>
     

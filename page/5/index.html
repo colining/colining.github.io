@@ -129,7 +129,7 @@
       <div class="body-wrap">
         
   
-    <article id="post-剑指Offer 19 二叉树的镜像" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-剑指Offer 35 第一个只出现一次的字符" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -139,7 +139,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/25/剑指Offer 19 二叉树的镜像/">剑指Offer 19 二叉树的镜像</a>
+      <a class="article-title" href="/2017/04/01/剑指Offer 35 第一个只出现一次的字符/">剑指Offer 35 第一个只出现一次的字符</a>
     </h1>
   
 
@@ -147,22 +147,24 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>操作给定的二叉树，将其变换为源二叉树的镜像</p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>画图可得：如果根节点下面有子节点的话，就把他们交换位置；比较难的还是一个递归的思想；<br>
+        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>在一个字符串(1&lt;=字符串长度&lt;=10000，全部由字母组成)中找到第一个只出现一次的字符,并返回它的位置。如果字符串为空,返回-1</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><ol>
+<li>暴力法很好解得；</li>
+<li>你很容想到，遍历一遍记下出现的次数，由于字符不变，很容易也就想到了HashMap喽
         <p class="article-more-link">
-          <a  href="/2017/03/25/剑指Offer 19 二叉树的镜像/#more">more >></a>
+          <a  href="/2017/04/01/剑指Offer 35 第一个只出现一次的字符/#more">more >></a>
         </p>
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2017/03/25/剑指Offer 19 二叉树的镜像/" class="archive-article-date">
-  	<time datetime="2017-03-25T05:44:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-03-25</time>
+      <a href="/2017/04/01/剑指Offer 35 第一个只出现一次的字符/" class="archive-article-date">
+  	<time datetime="2017-04-01T08:15:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-04-01</time>
 </a>
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/剑指Offer/">剑指Offer</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/剑指offer/">剑指offer</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
 	</div>
 
       
@@ -182,7 +184,7 @@
 
 
   
-    <article id="post-牛客网笔试题3道" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-剑指Offer34 丑数" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -192,7 +194,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/24/牛客网笔试题3道/">牛客网笔试3道</a>
+      <a class="article-title" href="/2017/03/31/剑指Offer34 丑数/">剑指Offer34 丑数</a>
     </h1>
   
 
@@ -200,22 +202,24 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="超级素数幂"><a href="#超级素数幂" class="headerlink" title="超级素数幂"></a>超级素数幂</h1><p>如果一个数字能表示为p^q(^表示幂运算)且p为一个素数,q为大于1的正整数就称这个数叫做超级素数幂。现在给出一个正整数n,如果n是一个超级素数幂需要找出对应的p,q。</p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>直接进行循环开方运算；如果x恰好可以满足开方和乘方运算即可；<br>
+        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>把只包含因子2、3和5的数称作丑数（Ugly Number）。例如6、8都是丑数，但14不是，因为它包含因子7。 习惯上我们把1当做是第一个丑数。求按从小到大的顺序的第N个丑数。</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><ol>
+<li>第一反应肯定是暴力法呗；但是我们低估了丑数也不是那么多的；毕竟丑数相当于(2^x)<em>(3^y)</em>(5^z);所以数量级是非常大的；</li>
+<li>数组储存，这种方法书上说了半天也没看懂，还不如自己来呢；其实呢就相当于数组里已经存好了数，现在要加一个，这个数从哪里来的，其实就看当前，2为首，3为首，5为首他们的最新值谁最小；<br>举个例子啊<br>(2,3,4,5,6,8,9,10)<br>4是怎么来的，之前的数组已经有<strong>2，3</strong>了，然后我们对于2，3，5，都给<strong>2</strong>乘一下；找到最小值；这时肯定知道不能是<strong>3</strong>对吧；那么<strong>2*</strong>2=4；此时这个<strong>2</strong>在乘以2的次数就消耗掉了；比如<strong>6</strong>来说，此时对于这个<strong>2</strong>，就只能乘以3，或者5得到最小值；这样我们最后也是可以得到数组的；
         <p class="article-more-link">
-          <a  href="/2017/03/24/牛客网笔试题3道/#more">more >></a>
+          <a  href="/2017/03/31/剑指Offer34 丑数/#more">more >></a>
         </p>
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2017/03/24/牛客网笔试题3道/" class="archive-article-date">
-  	<time datetime="2017-03-24T12:45:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-03-24</time>
+      <a href="/2017/03/31/剑指Offer34 丑数/" class="archive-article-date">
+  	<time datetime="2017-03-31T14:53:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-03-31</time>
 </a>
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/剑指Offer/">剑指Offer</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/剑指offer/">剑指offer</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
 	</div>
 
       
@@ -235,7 +239,7 @@
 
 
   
-    <article id="post-剑指Offer 18 树的子结构" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-剑指Offer 33 把数组排成最小的数" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -245,7 +249,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/22/剑指Offer 18 树的子结构/">剑指Offer 18 树的子结构</a>
+      <a class="article-title" href="/2017/03/31/剑指Offer 33 把数组排成最小的数/">剑指Offer 33 把数组排成最小的数</a>
     </h1>
   
 
@@ -253,22 +257,25 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>输入两棵二叉树A，B，判断B是不是A的子结构。（ps：我们约定空树不是任意一个树的子结构）</p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>先遍历主树，找到和子结构中根节点一样的节点，然后检验左子树，检验右子树<br>
+        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>输入一个正整数数组，把数组里所有数字拼接起来排成一个数，打印能拼接出的所有数字中最小的一个。例如输入数组{3，32，321}，则打印出这三个数字能排成的最小数字为321323。</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><ol>
+<li>首先想到的是自然是暴力全拍列；</li>
+<li>然后想到了变成字符，通过Collections.sort()排序，后来发现，是数组；也就是说（3，32）只能组成332或者323；这个想法是不对的</li>
+<li>于是自然也就想到了，对每两个数变成string来比较，但是不会写。。。。然后就发现人家的代码是重写了sort方法，简单来说就是
         <p class="article-more-link">
-          <a  href="/2017/03/22/剑指Offer 18 树的子结构/#more">more >></a>
+          <a  href="/2017/03/31/剑指Offer 33 把数组排成最小的数/#more">more >></a>
         </p>
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2017/03/22/剑指Offer 18 树的子结构/" class="archive-article-date">
-  	<time datetime="2017-03-22T14:13:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-03-22</time>
+      <a href="/2017/03/31/剑指Offer 33 把数组排成最小的数/" class="archive-article-date">
+  	<time datetime="2017-03-31T13:25:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-03-31</time>
 </a>
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/剑指Offer/">剑指Offer</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/剑指offer/">剑指offer</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
 	</div>
 
       
@@ -288,7 +295,7 @@
 
 
   
-    <article id="post-剑指Offer 17 合并两个排序的链表" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-剑指Offer 32 从1到n整数中1出现的次数" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -298,7 +305,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/22/剑指Offer 17 合并两个排序的链表/">剑指Offer 17 合并两个排序的链表</a>
+      <a class="article-title" href="/2017/03/31/剑指Offer 32 从1到n整数中1出现的次数/">剑指Offer 32 从1到n整数中1出现的次数</a>
     </h1>
   
 
@@ -306,22 +313,44 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>输入两个单调递增的链表，输出两个链表合成后的链表，当然我们需要合成后的链表满足单调不减规则。</p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>两个链表，每次对比头指针，谁小就拿走，然后next补充为头指针；挨个比较；<br>
+        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>求出1~13的整数中1出现的次数,并算出100~1300的整数中1出现的次数？为此他特别数了一下1~13中包含1的数字有1、10、11、12、13因此共出现6次,但是对于后面问题他就没辙了。ACMer希望你们帮帮他,并把问题更加普遍化,可以很快的求出任意非负整数区间中1出现的次数。</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><ol>
+<li>暴力法，你可以对每一个数的每一位检查一下是否有1；</li>
+<li>暴力法，变成字符串，检查‘1’的个数；</li>
+<li>数学规律法</li>
+</ol>
+<p>核心思路：</p>
+<pre><code>1.分别判断每一位上1出现过的次数，从个位往高位递推；
+
+
+2.对于当前处理的位，需要根据其值是0,1，还是&gt;1 对应有不同的处理。
+
+
+    例如，假设当前考虑百位：
+
+
+    (1 )如果百位&gt;1,那么百位上1的次数 = (n/100 + 1) * 100;由高位和低位共同决定
+
+
+    (2)如果百位=1，那么百位上1的数次 = (n/100) * 100 + (n%100 + 1)；由高位和低位共同决定
+
+
+    (3)如果百位&lt;1，那么百位上1的次数 = (n/100) * 100;由高位决定。
+</code></pre>
         <p class="article-more-link">
-          <a  href="/2017/03/22/剑指Offer 17 合并两个排序的链表/#more">more >></a>
+          <a  href="/2017/03/31/剑指Offer 32 从1到n整数中1出现的次数/#more">more >></a>
         </p>
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2017/03/22/剑指Offer 17 合并两个排序的链表/" class="archive-article-date">
-  	<time datetime="2017-03-22T13:45:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-03-22</time>
+      <a href="/2017/03/31/剑指Offer 32 从1到n整数中1出现的次数/" class="archive-article-date">
+  	<time datetime="2017-03-31T07:16:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-03-31</time>
 </a>
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/剑指Offer/">剑指Offer</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/剑指offer/">剑指offer</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
 	</div>
 
       
@@ -341,7 +370,7 @@
 
 
   
-    <article id="post-剑指Offer  16 反转链表" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-剑指Offer 31 连续子数组的最大和" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -351,7 +380,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/22/剑指Offer  16 反转链表/">剑指Offer 16 反转链表</a>
+      <a class="article-title" href="/2017/03/30/剑指Offer 31 连续子数组的最大和/">剑指Offer 31 连续子数组的最大和</a>
     </h1>
   
 
@@ -359,22 +388,25 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>输入一个链表，反转链表后，输出链表的所有元素。</p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>就某一个节点来说，我们要将他的next赋给前面的节点，那么原本后面的节点就不见了；所以我们将其保存起来啦<br>
+        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>输入一个整形数组，数组里有正数也有负数。<br>数组中连续的一个或多个整数组成一个子数组，每个子数组都有一个和。<br>求所有子数组的和的最大值。要求时间复杂度为O(n)。</p>
+<p>例如输入的数组为1, -2, 3, 10, -4, 7, 2, -5，和最大的子数组为3, 10, -4, 7, 2，<br>因此输出为该子数组的和18。</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><ol>
+<li>这道题应该做过一遍，所以思路比较清楚，第一种是说直接将数从头加到尾，每一位都变成之前所有数的和；然后你就会发现，有些数是负的啊，一看就知道不应该要他；所以想法就是如果是负数，就变成当前值；<br>（1，-2，3）–&gt;（1，-1，2）；你-1加3肯定更小啊；所以是这样的<br>（1，-2，3）–&gt;（1，-1，3）；前边是负值，你就重新计算的啦；</li>
+<li>动态规划：<br>很明显的，如果前面是负的，就重新来，否则继续加；
         <p class="article-more-link">
-          <a  href="/2017/03/22/剑指Offer  16 反转链表/#more">more >></a>
+          <a  href="/2017/03/30/剑指Offer 31 连续子数组的最大和/#more">more >></a>
         </p>
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2017/03/22/剑指Offer  16 反转链表/" class="archive-article-date">
-  	<time datetime="2017-03-22T13:20:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-03-22</time>
+      <a href="/2017/03/30/剑指Offer 31 连续子数组的最大和/" class="archive-article-date">
+  	<time datetime="2017-03-30T13:33:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-03-30</time>
 </a>
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/剑指Offer/">剑指Offer</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/剑指offer/">剑指offer</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
 	</div>
 
       
@@ -396,7 +428,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/4/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/6/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/4/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/21/">21</a><a class="extend next" rel="next" href="/page/6/">Next &raquo;</a>
     </nav>
   
 
@@ -458,7 +490,7 @@
     
     	<section class="tools-section tools-section-tag">
     			<div class="widget tagcloud" id="js-tagcloud">
-    				<a href="/tags/Android/" style="font-size: 17.5px;">Android</a> <a href="/tags/Beauty-of-Programming/" style="font-size: 13.75px;">Beauty of Programming</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Java编程思想/" style="font-size: 16.25px;">Java编程思想</a> <a href="/tags/fragment/" style="font-size: 12.5px;">fragment</a> <a href="/tags/mvc/" style="font-size: 11.25px;">mvc</a> <a href="/tags/剑指Offer/" style="font-size: 18.75px;">剑指Offer</a> <a href="/tags/剑指offer/" style="font-size: 15px;">剑指offer</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a> <a href="/tags/线程/" style="font-size: 11.25px;">线程</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/随笔/" style="font-size: 11.25px;">随笔</a>
+    				<a href="/tags/Android/" style="font-size: 17.14px;">Android</a> <a href="/tags/Beauty-of-Programming/" style="font-size: 14.29px;">Beauty of Programming</a> <a href="/tags/Java/" style="font-size: 12.86px;">Java</a> <a href="/tags/Java知识点/" style="font-size: 11.43px;">Java知识点</a> <a href="/tags/Java编程思想/" style="font-size: 15.71px;">Java编程思想</a> <a href="/tags/fragment/" style="font-size: 12.86px;">fragment</a> <a href="/tags/mvc/" style="font-size: 11.43px;">mvc</a> <a href="/tags/刷题/" style="font-size: 11.43px;">刷题</a> <a href="/tags/剑指Offer/" style="font-size: 18.57px;">剑指Offer</a> <a href="/tags/剑指offer/" style="font-size: 17.14px;">剑指offer</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a> <a href="/tags/线程/" style="font-size: 11.43px;">线程</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/随笔/" style="font-size: 11.43px;">随笔</a>
     			</div>
     	</section>
     
