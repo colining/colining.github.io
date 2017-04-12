@@ -129,7 +129,7 @@
       <div class="body-wrap">
         
   
-    <article id="post-原-IntelliJ IDEA 与junit" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Java 垃圾回收 （未完成）" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -139,7 +139,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/11/22/原-IntelliJ IDEA 与junit/">IntelliJ IDEA 与junit</a>
+      <a class="article-title" href="/2017/02/23/Java 垃圾回收 （未完成）/">Java 垃圾回收 （未完成）</a>
     </h1>
   
 
@@ -147,22 +147,27 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="1"><a href="#1" class="headerlink" title="1"></a>1</h2><p>软件测试要来一个测试大作业，要用junit，在学习java的一年以后，再见过android studio 这种现代化IDE以后，我可是受不了jcreator 这种东西啦；</p>
-<p>所以让我们来使用IntelliJ IDEA 吧；虽说有点大材小用，但还是好用啊；你可以先去官网看看，如果和你胃口的话，跟着我做吧；<br><a href="https://www.jetbrains.com/idea/">https://www.jetbrains.com/idea/</a>
-        <p class="article-more-link">
-          <a  href="/2016/11/22/原-IntelliJ IDEA 与junit/#more">more >></a>
-        </p>
+        <h2 id="垃圾回收"><a href="#垃圾回收" class="headerlink" title="# 垃圾回收"></a># 垃圾回收</h2><p>早就知道java会垃圾回收了，但是对其中道理一点都不了解，我想成为大神，还是必须要多懂一些，多会一些，多写一些吧；</p>
+<h2 id="垃圾回收的算法和思想"><a href="#垃圾回收的算法和思想" class="headerlink" title="# 垃圾回收的算法和思想"></a># 垃圾回收的算法和思想</h2><ol>
+<li>引用计数法<br> 这个相当于计数，因为java每个变量的名字实际上是一种引用，我们可以给一个对象很多引用，那么同时，当对象没有引用的时候，说明这个对象没有用了，可以扔掉了；<br> ps：对象都没有引用了，说明这块地址，这个对象，程序已经使用不了，那就赶紧清理呗</li>
+<li>tracing算法 追踪算法<br>当我们通过计数这种方式，进行垃圾清理，我们会多出很多操作，每次都要加减，还要存储计数；那么可不可以不要这么麻烦呢，追踪算法，顾名思义，追踪，通过所有引用追踪对象，如果对象存在，将其标记；追踪结束后，回收那些没有标记的对象；</li>
+<li>compacting算法<br>对于一个对象，我们怎么知道他是不是活着呢？我们可以移动它呀。于是我们可以把对象移动至堆得一侧，那么另一侧就是不可操作的对象了；</li>
+<li>copying算法<br>上面说移到另一侧，这个呢直接就有好多堆，从这里移到哪里，然后清理旧的<br>5.generation算法<br> 简单来说，应该是说分堆，分代，新生成的对象，放在新代中，执行清理，存活的对象扔到旧代中；<br> 就像是你现在混黑社会，外圈是要淘汰的，比如说一分钟淘汰一次，滤掉的就是不合格的，剩下的升级；升级后清理密度变低，这样就节省了时间；</li>
+</ol>
+<h2 id="稍微深度一下："><a href="#稍微深度一下：" class="headerlink" title="## 稍微深度一下："></a>## 稍微深度一下：</h2><p>我们在子函数建立一个对象a，当子函数运行完成时，返回时？这个a还存在吗？</p>
+<p>对象存不存在不一定，a一定不存在了，首先a是一个引用，他的作用于只在子函数运行时，函数结束，他就不存在了；但是这个对象存不存在就要看垃圾回收何时进行了；</p>
+
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2016/11/22/原-IntelliJ IDEA 与junit/" class="archive-article-date">
-  	<time datetime="2016-11-22T09:39:01.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-11-22</time>
+      <a href="/2017/02/23/Java 垃圾回收 （未完成）/" class="archive-article-date">
+  	<time datetime="2017-02-23T11:44:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-23</time>
 </a>
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java编程思想/">Java编程思想</a></li></ul>
 	</div>
 
       
@@ -182,7 +187,7 @@
 
 
   
-    <article id="post-Android ToolBar and Listview" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Java 读书笔记 5" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -192,7 +197,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/10/23/Android ToolBar and Listview/">android 5 通知栏</a>
+      <a class="article-title" href="/2017/02/23/Java 读书笔记 5/">Java 读书笔记5</a>
     </h1>
   
 
@@ -200,23 +205,37 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="1"><a href="#1" class="headerlink" title="# 1"></a># 1</h2><p>不是讲理论的，就是遇到很多奇怪的问题；<br>没事做，决定自己仿个个魅族便签玩玩，体验一把开发app的过程；</p>
-<p>如何加入标题栏，我还是比较喜欢称之为标题栏，我也没弄明白actionbar 和toolbar改了什么，只提供解决方案；</p>
-<p>最初 的时候是这样的，因为toolbar是viewgroup ，也就是说在toolbar中可以直接添加其他控件/view，于是我就加了两个imagebutton；然后我们想啊，click事件怎么写呢？找到button，添加事件，这样做好像和toolbar没有半毛钱关系啊；<br>记得别忘了把主题修改为noactionbar<br>
-        <p class="article-more-link">
-          <a  href="/2016/10/23/Android ToolBar and Listview/#more">more >></a>
-        </p>
+        <h1 id="初始化与清理"><a href="#初始化与清理" class="headerlink" title="初始化与清理"></a>初始化与清理</h1><p>1.重载和区分重载<br>： 书上例子很好，洗衣服，洗车，洗狗；同样都是洗，却洗的是不一样的东西，似乎用一个名字做不同的事情，理所应当；<br>而且呢，还告诉我们为什么不一样，因为给的参数不一样，当来着是衣服的时候，就用洗衣服的方式来洗，如果是车，就用车的方式；<br>不可以通过返回值区分，你洗狗洗出来特干净，他就不干净，但是方法实际是相同的；<br>不可以通过访问修饰符区分，你就给你家洗衣服，洗衣店谁家衣服都洗，但是方法还是一样的；</p>
+<p>2.基本类型与重载；<br>    简单来说呢，基本类型在重载时，由于类型不同重载就会出现问题；<br>上代码喽<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span>  </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testfloat</span><span class="params">(<span class="keyword">float</span> a)</span></span></div><div class="line">    &#123;</div><div class="line">        System.out.println(<span class="string">"lll"</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span>  <span class="keyword">void</span>  <span class="title">testdouble</span><span class="params">(<span class="keyword">double</span> a)</span></span></div><div class="line">    &#123;</div><div class="line">        System.out.println(<span class="string">"222"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">        Test test = <span class="keyword">new</span> Test();</div><div class="line">        <span class="keyword">double</span> a = <span class="number">0</span>;</div><div class="line">        <span class="keyword">float</span> b= <span class="number">0</span>;</div><div class="line">        test.testfloat(a);<span class="comment">//这样写报错    大类型不能向下转换，直接报错</span></div><div class="line">        test.testfloat((<span class="keyword">float</span>) a);</div><div class="line">        test.testdouble(b);    小类型转化为大类型</div></pre></td></tr></table></figure></p>
+<p>其实想想就明白了，32位转化为64位。又没什么损失，反过来的话，就会丢失精度；况且如果能够来回转的话，我估计你最后都不知道出来的是哪个类型的；</p>
+<p>3.this关键字</p>
+<ul>
+<li><p>一般的this肯定这么用的最多，这时其实不写this也是一样的啦；写上this更加清晰，指的是本对象里的某个属性等于参数。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Hello</span> </span>&#123; </div><div class="line"></div><div class="line">    String s = <span class="string">"Hello"</span>; </div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Hello</span><span class="params">(String s)</span></span>&#123; </div><div class="line">        System.out.println(<span class="string">"s = "</span> + s); </div><div class="line">        System.out.println(<span class="string">"1 -&gt; this.s = "</span> + <span class="keyword">this</span>.s); </div><div class="line">        <span class="keyword">this</span>.s = s; </div><div class="line">        System.out.println(<span class="string">"2 -&gt; this.s = "</span> + <span class="keyword">this</span>.s); </div><div class="line">    &#125; </div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123; </div><div class="line">    Hello x=<span class="keyword">new</span> Hello(<span class="string">"HelloWorld!"</span>); </div><div class="line">    &#125; </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>还有就是调用自己的其他构造函数，继承什么的题目里经常会有的那种</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Flower</span></span>&#123; </div><div class="line">           Flower (<span class="keyword">int</span> petals)&#123;&#125; </div><div class="line">           Flower(String ss)&#123;&#125; </div><div class="line">           Flower(<span class="keyword">int</span> petals, Sting ss)&#123; </div><div class="line">                <span class="comment">//petals++;调用另一个构造函数的语句必须在最起始的位置 </span></div><div class="line">                <span class="keyword">this</span>(petals); </div><div class="line">               <span class="comment">//this(ss);会产生错误，因为在一个构造函数中只能调用一个构造函数 </span></div><div class="line">           &#125; </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>这次学到了这个</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123; </div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="title">A</span><span class="params">()</span> </span>&#123; </div><div class="line">    <span class="keyword">new</span> B(<span class="keyword">this</span>).print();     <span class="comment">//将自身当成参数传递过去</span></div><div class="line">  &#125; </div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">print</span><span class="params">()</span> </span>&#123; </div><div class="line">    System.out.println(<span class="string">"Hello from A!"</span>); </div><div class="line">  &#125; </div><div class="line">&#125; </div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">B</span> </span>&#123; </div><div class="line">  A a; </div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="title">B</span><span class="params">(A a)</span> </span>&#123; </div><div class="line">    <span class="keyword">this</span>.a = a; </div><div class="line">  &#125; </div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">print</span><span class="params">()</span> </span>&#123; </div><div class="line">    a.print(); </div><div class="line">    System.out.println(<span class="string">"Hello from B!"</span>); </div><div class="line">  &#125; </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>匿名类 this一般代表整个匿名类，日后再说</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123; </div><div class="line">    <span class="keyword">int</span> i = <span class="number">1</span>; </div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">A</span><span class="params">()</span> </span>&#123; </div><div class="line">        Thread thread = <span class="keyword">new</span> Thread() &#123; </div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123; </div><div class="line">                <span class="keyword">for</span>(;;) &#123; </div><div class="line">                    A.<span class="keyword">this</span>.run();       <span class="comment">//匿名类</span></div><div class="line">                    <span class="keyword">try</span> &#123; </div><div class="line">                        sleep(<span class="number">1000</span>); </div><div class="line">                    &#125; <span class="keyword">catch</span>(InterruptedException ie) &#123;     &#125;</div><div class="line"></div><div class="line">                &#125; </div><div class="line">           &#125; </div><div class="line">        &#125;; <span class="comment">//注意这里有; </span></div><div class="line">        thread.start(); </div><div class="line">    &#125; </div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123; </div><div class="line">        System.out.println(<span class="string">"i = "</span> + i); </div><div class="line">        i++; </div><div class="line">    &#125; </div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception </span>&#123; </div><div class="line">        <span class="keyword">new</span> A(); </div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="初始化顺序（对于类来说）"><a href="#初始化顺序（对于类来说）" class="headerlink" title="初始化顺序（对于类来说）"></a>初始化顺序（对于类来说）</h2><p>1.静态变量初始化            //由于static不可初始化局部变量，就没有小函数的担心啦；<br>2.普通变量初始化<br>3.变量都初始化后，方法开始执行                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               </p>
+
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2016/10/23/Android ToolBar and Listview/" class="archive-article-date">
-  	<time datetime="2016-10-23T07:41:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-23</time>
+      <a href="/2017/02/23/Java 读书笔记 5/" class="archive-article-date">
+  	<time datetime="2017-02-23T11:13:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-23</time>
 </a>
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java编程思想/">Java编程思想</a></li></ul>
 	</div>
 
       
@@ -236,7 +255,7 @@
 
 
   
-    <article id="post-Android intent 和activity" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Java 读书笔记3" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -246,7 +265,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/10/15/Android intent 和activity/">android 5 通知栏</a>
+      <a class="article-title" href="/2017/02/22/Java 读书笔记3/">Java 读书笔记3</a>
     </h1>
   
 
@@ -254,23 +273,22 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="1-intent-intent-extra-activity"><a href="#1-intent-intent-extra-activity" class="headerlink" title="1 intent intent extra  activity"></a>1 intent intent extra  activity</h2><p>简单的说是，activity1 要启动activity2 ，并且传输一个值；</p>
-<p>常用方法肯定是：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function">Intent <span class="title">intent</span><span class="params">( activity1.<span class="keyword">this</span>,activity2.class)</span></div><div class="line">intent.<span class="title">putExtra</span><span class="params">(...)</span></span>;</div><div class="line">startActivity(intent)</div></pre></td></tr></table></figure></p>
-<p>将其改为 activity2<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Intent <span class="title">newIntent</span><span class="params">(Context packageContext,<span class="keyword">boolean</span> answerIsTrue)</span></span>&#123;</div><div class="line"><span class="function">Intent <span class="title">intent</span><span class="params">( packageContext,activity2.class)</span></div><div class="line">intent.<span class="title">putExtra</span><span class="params">(Extra,answerIsTrue)</span></span>;</div><div class="line"><span class="keyword">return</span> intetn</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-        <p class="article-more-link">
-          <a  href="/2016/10/15/Android intent 和activity/#more">more >></a>
-        </p>
+        <h1 id="操作符"><a href="#操作符" class="headerlink" title="操作符"></a>操作符</h1><p>1.赋值和引用（别名）；<br>    =我们最常见；意思可以使等于，也可以是赋值，在Java中，赋值也是有坑的<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Tank</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> level;</div><div class="line">&#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line"> Tank tank1 = <span class="keyword">new</span> Tank();</div><div class="line">        tank1 .level = <span class="number">1</span>;</div><div class="line">        Tank tank2 = <span class="keyword">new</span> Tank();</div><div class="line">        tank2. level = <span class="number">2</span>;</div><div class="line">        System.out.println(tank1.level);<span class="comment">//输出1</span></div><div class="line">        System.out.println(tank2.level);<span class="comment">//输出2</span></div><div class="line">        tank1 = tank2;</div><div class="line">        <span class="comment">//tank1.level = tank2.level; 其实这么写才是对的</span></div><div class="line">        System.out.println(tank1.level);<span class="comment">//输出2</span></div><div class="line">        System.out.println(tank2.level);<span class="comment">//输出2</span></div><div class="line">        tank1.level = <span class="number">27</span>;</div><div class="line">		</div><div class="line">        System.out.println(tank2.level);<span class="comment">//输出27</span></div><div class="line">      &#125;</div></pre></td></tr></table></figure></p>
+<p>对上面的赋值 tank1=tank2 来说，好像是在说你以后什么值都和他相等就对了；但其实不是的，tank1 = tank2  是在讲tank1 以后和tank2 都指向同一个对象了；<br>tank1 和tank2 本质都是引用，现在他们指向同一个对象了，那么不管这个对象的level怎么变化，tank1和tank2 都是一个值；</p>
+<p>打个比方好了 不管叫做对象名或者引用什么的；我们将对象看成人，将引用看成名字或代号，说家里两兄弟，哥哥去打仗了，对弟弟说，这一去恐怕就回不来了，带着我的名字活下去吧；<br>那么从此以后弟弟就有了两个名字同时代表他；而哥哥恐怕就被当做不存在喽；</p>
+<p>ps:本章有很多关于操作符的相关内容能够，用到再看吧，反正记不住；</p>
+
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2016/10/15/Android intent 和activity/" class="archive-article-date">
-  	<time datetime="2016-10-15T07:40:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-15</time>
+      <a href="/2017/02/22/Java 读书笔记3/" class="archive-article-date">
+  	<time datetime="2017-02-22T06:39:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-22</time>
 </a>
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java编程思想/">Java编程思想</a></li></ul>
 	</div>
 
       
@@ -290,7 +308,7 @@
 
 
   
-    <article id="post-Android 广播接收器" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Java 读书笔记2" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -300,7 +318,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/10/07/Android 广播接收器/">android 5 通知栏</a>
+      <a class="article-title" href="/2017/02/22/Java 读书笔记2/">Java 读书笔记2</a>
     </h1>
   
 
@@ -308,24 +326,21 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="1"><a href="#1" class="headerlink" title="1"></a>1</h1><p>broadcast  receiver 广播，接收器  Android四大组件之一；<br>Android权威指南这本书的结构实在是，四大组件离得这么远，早忘记概念了。。</p>
-<p>broadcast intent 我们看一下自定义广播的发送<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span>  String ACTION_SHOW_NOTIFICATION=<span class="string">"com.example.asus.photogallery.SHOW_NOTIFICATION"</span>;</div><div class="line"> sendBroadcast(<span class="keyword">new</span> Intent(ACTION_SHOW_NOTIFICATION));</div></pre></td></tr></table></figure></p>
-<p>我们创建了一个inten 然后通过sendBroadcast 发送出去；那么谁来接收呢？</p>
-<p>我们对比一下intent的发送和接收：<br>
-        <p class="article-more-link">
-          <a  href="/2016/10/07/Android 广播接收器/#more">more >></a>
-        </p>
+        <h1 id="一切都是对象"><a href="#一切都是对象" class="headerlink" title="一切都是对象"></a>一切都是对象</h1><p>1.引用和对象（java编程思想中这样讲）</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Classa a;         <span class="comment">//此处可理解为引用，就是说起好名字啦，但是对象还没初始化呢</span></div><div class="line">a= <span class="keyword">new</span> Classa();     <span class="comment">//初始化后，对象才被创建成功；</span></div></pre></td></tr></table></figure>
+<p>2.储存中的堆与栈；<br>    <a href="http://stackoverflow.com/questions/79923/what-and-where-are-the-stack-and-heap" target="_blank" rel="external">http://stackoverflow.com/questions/79923/what-and-where-are-the-stack-and-heap</a><br>    栈呢，是先进后出；在函数调用中，被调用函数后进栈，先结束，所以先出栈；所以对内存来说，函数（function）使用栈这种空间；<br>    堆呢；以java为例，在调用某函数时，可能会创建新的对象；这些对象没有明确的先后之分（不重要），而且随时可能创建，销毁，所以就把他们都放在堆中管理啦；</p>
+
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2016/10/07/Android 广播接收器/" class="archive-article-date">
-  	<time datetime="2016-10-07T10:47:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-07</time>
+      <a href="/2017/02/22/Java 读书笔记2/" class="archive-article-date">
+  	<time datetime="2017-02-22T05:10:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-22</time>
 </a>
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java编程思想/">Java编程思想</a></li></ul>
 	</div>
 
       
@@ -345,7 +360,7 @@
 
 
   
-    <article id="post-Android 通知栏信息" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Java 读书笔记1" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -355,7 +370,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/10/05/Android 通知栏信息/">android 5 通知栏</a>
+      <a class="article-title" href="/2017/02/20/Java 读书笔记1/">Java 读书笔记1</a>
     </h1>
   
 
@@ -363,21 +378,24 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="1"><a href="#1" class="headerlink" title="1"></a>1</h1><p>今天讲点简单的哦，再日后补坑，通知栏信息；<br>用Android的人，都应该知道通知栏是个什么东西，下拉会出来一些设置菜单，<br>当有新的消息时，就会跑到这里，或者比如云音乐，后台听歌，也会有这么一个通知栏信息；<br>今天就简单的说一下，以后再完善；<br>
-        <p class="article-more-link">
-          <a  href="/2016/10/05/Android 通知栏信息/#more">more >></a>
-        </p>
+        <h1 id="对象导论"><a href="#对象导论" class="headerlink" title="对象导论"></a>对象导论</h1><p>1.类和类型实际上是同义的，整型，浮点型其实也是一种类；且対象定义方式都一样；</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> a;             <span class="comment">//整型</span></div><div class="line">Test test1;        <span class="comment">//Test类</span></div></pre></td></tr></table></figure>
+<p>2.刚刚傻了，居然在想子类是否可以拥有自己的方法、、、、而且还试了一下代码。当然可以了啊！但是再想想的话，其实父类能做的事一定小于等于子类所做的事情，子类相对父类可以进行扩展； uml设计模式中：子类可以出现在父类出现的任何地方也是这个原因，因为父类能做的所有事，子类都可以做；</p>
+<p>3.单根继承,我们知道java所有类最终都继承自Object类，这样所有类其实都是一个类型，这样就保证所有对象都具有某些功能，包括基本操作，在堆上创建，参数传递，以及垃圾回收；</p>
+<p>4.java不允许多继承，你不能有俩父亲，但是你可以有爷爷，有太爷爷；</p>
+<p>5.容器和参数化类型；<br>    容器呢，是一个可以容纳对象的器皿；在程序中，由于需要多少对象不确定，容器的大小就也不一定喽；<br>    那么假如容器什么都接受，在存放的时候，java一定会将其转化为Object；那么在拿出的时候就会存在向下转型这个问题了；Android经常会有；<br>    那么如果我们只想存放一种，就可以使用参数化类型；定好了能存猴子，就不能存猪；</p>
+
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2016/10/05/Android 通知栏信息/" class="archive-article-date">
-  	<time datetime="2016-10-05T11:42:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-05</time>
+      <a href="/2017/02/20/Java 读书笔记1/" class="archive-article-date">
+  	<time datetime="2017-02-20T13:24:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-20</time>
 </a>
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java编程思想/">Java编程思想</a></li></ul>
 	</div>
 
       
@@ -399,7 +417,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/10/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><a class="page-number" href="/page/13/">13</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/12/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/10/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><a class="page-number" href="/page/13/">13</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/12/">Next &raquo;</a>
     </nav>
   
 
@@ -461,7 +479,7 @@
     
     	<section class="tools-section tools-section-tag">
     			<div class="widget tagcloud" id="js-tagcloud">
-    				<a href="/tags/Android/" style="font-size: 18.33px;">Android</a> <a href="/tags/Beauty-of-Programming/" style="font-size: 15px;">Beauty of Programming</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Java编程思想/" style="font-size: 16.67px;">Java编程思想</a> <a href="/tags/fragment/" style="font-size: 13.33px;">fragment</a> <a href="/tags/mvc/" style="font-size: 11.67px;">mvc</a> <a href="/tags/剑指Offer/" style="font-size: 20px;">剑指Offer</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a> <a href="/tags/线程/" style="font-size: 11.67px;">线程</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/随笔/" style="font-size: 11.67px;">随笔</a>
+    				<a href="/tags/Android/" style="font-size: 17.5px;">Android</a> <a href="/tags/Beauty-of-Programming/" style="font-size: 13.75px;">Beauty of Programming</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Java编程思想/" style="font-size: 16.25px;">Java编程思想</a> <a href="/tags/fragment/" style="font-size: 12.5px;">fragment</a> <a href="/tags/mvc/" style="font-size: 11.25px;">mvc</a> <a href="/tags/剑指Offer/" style="font-size: 18.75px;">剑指Offer</a> <a href="/tags/剑指offer/" style="font-size: 15px;">剑指offer</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a> <a href="/tags/线程/" style="font-size: 11.25px;">线程</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/随笔/" style="font-size: 11.25px;">随笔</a>
     			</div>
     	</section>
     

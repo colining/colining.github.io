@@ -129,7 +129,7 @@
       <div class="body-wrap">
         
   
-    <article id="post-Android学习笔记4 图片和杂谈" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-原-Android-复习6-fragment-argument" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -139,7 +139,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/06/24/Android学习笔记4 图片和杂谈/">android4 图片和杂谈</a>
+      <a class="article-title" href="/2016/07/09/原-Android-复习6-fragment-argument/">Android 复习6 fragment argument</a>
     </h1>
   
 
@@ -147,19 +147,237 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="迷茫的一天"><a href="#迷茫的一天" class="headerlink" title="迷茫的一天"></a>迷茫的一天</h1><h2 id="关于图片的麻烦事"><a href="#关于图片的麻烦事" class="headerlink" title="关于图片的麻烦事"></a>关于图片的麻烦事</h2><p>学到自定义控件，图片真的是让人头大的事情，书上只写了加入某张图片，这可真是苦了我了，首先是要找图标；<br>下面是两个网站<br><a href="http://iconmonstr.com">http://iconmonstr.com</a><br><a href="http://iconfont.cn/">http://iconfont.cn/</a><br>还有一些网站，不过我现在就只是找和书上一样的，所以这俩就够了；<br>但问题来了。网站只有图标，现在需要的是标题栏的背景，于是我Google了好久，也许是关键词不对，最后才知道背景可以直接敲代码设置颜色；还可以设置高度；于是标题栏顺利解决；</p>
-<p>总感觉网上关于图片的资料略少，可能程序员都不关注，或者一次学会就不会有再问题，于是资料比较少；</p>
-<p>图标找到后，最头疼就是大小问题了。作为一个新人，就算我知道Android文档里写的是什么，我也不知道，到底哪个图标可以用，最好啊？于是只能把不同像素的同一图标都测试一次，最后知道了差不多50-70左右就差不多，<a href="http://iconmonstr.com可以调节px预览大小，还可以改变颜色，只是相对来说图标有点少；而假设dpi扩大一倍，那我们的图标像素也扩大一倍就可以了；">http://iconmonstr.com可以调节px预览大小，还可以改变颜色，只是相对来说图标有点少；而假设dpi扩大一倍，那我们的图标像素也扩大一倍就可以了；</a></p>
-<p>我感觉我自己审美现在挺好的，可是再编程是根本不会在乎图标是否漂亮，也许这就是大家吐槽程序员审美的原因吧；<br>
+        <p>这个传递真的是好难懂啊</p>
+<p>首先我们先来看一看参与人员</p>
+<p>1 firstactivity<br>2 seconactivity<br>3 firstfragment</p>
+<p>过程是这样的：</p>
+<p>secondactivity 向firstactivity 跳转 有个intent 。intent里面可以携带数据啊；</p>
+<p>在intent.putExtra() 方法中我们传入一个键值对</p>
+<p>获取方法有两种<br>
         <p class="article-more-link">
-          <a  href="/2016/06/24/Android学习笔记4 图片和杂谈/#more">more >></a>
+          <a  href="/2016/07/09/原-Android-复习6-fragment-argument/#more">more >></a>
         </p>
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2016/06/24/Android学习笔记4 图片和杂谈/" class="archive-article-date">
-  	<time datetime="2016-06-24T08:46:05.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-06-24</time>
+      <a href="/2016/07/09/原-Android-复习6-fragment-argument/" class="archive-article-date">
+  	<time datetime="2016-07-09T06:07:04.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-07-09</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-原-Android-复习笔记5-listView-ArrayList" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/08/原-Android-复习笔记5-listView-ArrayList/">Android 复习笔记5 listView ArrayList</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="列表-listview"><a href="#列表-listview" class="headerlink" title="列表 listview"></a>列表 listview</h1><p>列表应该算得上是最难的系统自带组件了；归根结底，是因为listview本质要完成mvc所有层次；</p>
+<h2 id="1"><a href="#1" class="headerlink" title="1"></a>1</h2><p>既然是一个列表，那就应该有列表项，所以数据就会很多。那不管你元数据有多少条，我要做的事是把你的数据想办法发到页面上；<br>既然有列表项，而我们需要一个中转站  一个能够将数据打包发给页面的<br>这就是ArrayAdapter&lt;&gt; 一个适配器 很明显它应该处于control层；控制数据传输给页面<br>
+        <p class="article-more-link">
+          <a  href="/2016/07/08/原-Android-复习笔记5-listView-ArrayList/#more">more >></a>
+        </p>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/07/08/原-Android-复习笔记5-listView-ArrayList/" class="archive-article-date">
+  	<time datetime="2016-07-08T08:29:48.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-07-08</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-原-Android-复习4-神奇的问题-杂谈" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/06/原-Android-复习4-神奇的问题-杂谈/">Android 复习4 神奇的问题 杂谈</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="关于fragment的问题"><a href="#关于fragment的问题" class="headerlink" title="关于fragment的问题"></a>关于fragment的问题</h1><p>我遇见一个问题 神奇的问题<br><img src="http://img.blog.csdn.net/20160706201115898" alt="这里写图片描述"><br>我写着match_parent<br>可为什么会这样呢；</p>
+<p>布局出现问题，本来match_parent，却没有到达要求。我就开始每一项每一项的检查，和书上一样啊。然后我就做了这么一个测试，放了一个应该占满屏幕的button，它居然还是有问题<br>我就开始意识到这可能是fragment的问题，就上网搜了一下，activity加载fragment的时候让其占满屏幕，查了半天也没有什么对口的答案，突然想到，fragment放在activity里面，那是不是activity本来就不够大呢？<br>没想到这才是问题的关键所在；<br>
+        <p class="article-more-link">
+          <a  href="/2016/07/06/原-Android-复习4-神奇的问题-杂谈/#more">more >></a>
+        </p>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/07/06/原-Android-复习4-神奇的问题-杂谈/" class="archive-article-date">
+  	<time datetime="2016-07-06T12:26:10.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-07-06</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-原-Android-复习-3-有关于fragment" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/05/原-Android-复习-3-有关于fragment/">Android 复习 3 有关于fragment</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="fragment"><a href="#fragment" class="headerlink" title="fragment"></a>fragment</h1><p>最初认识fragment 是说为了解决平板屏幕大，一个屏幕上可以展示不同的内容 看起来像是多个板块；多个板块互相不干涉，就像是网页的div 一样 ；</p>
+<p>fragment 碎片 可以认为是一种控件，和button什么的一样；<br>所以他是可以添加到acivtity上 </p>
+<p>比如 定义left_fragment.xml 和 right_fragment.xml后，我们可以直接在mainacivity中<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">fragment</span></div><div class="line"><span class="attr">android:name</span>=<span class="string">""</span> 标注这是从哪个<span class="attr">xml</span>拿来的</div><div class="line">一大堆的其他属性</div><div class="line">/&gt;</span></div></pre></td></tr></table></figure></p>
+        <p class="article-more-link">
+          <a  href="/2016/07/05/原-Android-复习-3-有关于fragment/#more">more >></a>
+        </p>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/07/05/原-Android-复习-3-有关于fragment/" class="archive-article-date">
+  	<time datetime="2016-07-05T12:15:19.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-07-05</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/fragment/">fragment</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-原-Android-复习2-有关activity" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/03/原-Android-复习2-有关activity/">Android 复习2 有关activity</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="activity-之间基于intent-的通信"><a href="#activity-之间基于intent-的通信" class="headerlink" title="activity 之间基于intent 的通信"></a>activity 之间基于intent 的通信</h1><h2 id="如何打开新活动"><a href="#如何打开新活动" class="headerlink" title="# 如何打开新活动"></a># 如何打开新活动</h2><p>我们的一个应用程序 是由多个活动的，那么在活动之间如何跳转就是一个很有趣的事情；<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">startActivity</span><span class="params">(Intent intent)</span></span></div></pre></td></tr></table></figure></p>
+<p>我们通过上面的函数来造访新的页面，该函数不是一个针对于activity的函数，而是针对操作系统，准确的说 它将intent发送给系统级别的ActivityManager</p>
+<p>ActivityManager主要就是用来管理众多Activity的 </p>
+<p>我们通过传递intent 告诉ActivityManager下面打开那个活动；<br>
+        <p class="article-more-link">
+          <a  href="/2016/07/03/原-Android-复习2-有关activity/#more">more >></a>
+        </p>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/07/03/原-Android-复习2-有关activity/" class="archive-article-date">
+  	<time datetime="2016-07-03T06:18:40.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-07-03</time>
 </a>
       
 	<div class="article-tag tagcloud">
@@ -186,7 +404,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/15/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="page-number" href="/page/15/">15</a><span class="page-number current">16</span>
+      <a class="extend prev" rel="prev" href="/page/15/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="page-number" href="/page/15/">15</a><span class="page-number current">16</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/17/">Next &raquo;</a>
     </nav>
   
 
@@ -248,7 +466,7 @@
     
     	<section class="tools-section tools-section-tag">
     			<div class="widget tagcloud" id="js-tagcloud">
-    				<a href="/tags/Android/" style="font-size: 18.33px;">Android</a> <a href="/tags/Beauty-of-Programming/" style="font-size: 15px;">Beauty of Programming</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Java编程思想/" style="font-size: 16.67px;">Java编程思想</a> <a href="/tags/fragment/" style="font-size: 13.33px;">fragment</a> <a href="/tags/mvc/" style="font-size: 11.67px;">mvc</a> <a href="/tags/剑指Offer/" style="font-size: 20px;">剑指Offer</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a> <a href="/tags/线程/" style="font-size: 11.67px;">线程</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/随笔/" style="font-size: 11.67px;">随笔</a>
+    				<a href="/tags/Android/" style="font-size: 17.5px;">Android</a> <a href="/tags/Beauty-of-Programming/" style="font-size: 13.75px;">Beauty of Programming</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Java编程思想/" style="font-size: 16.25px;">Java编程思想</a> <a href="/tags/fragment/" style="font-size: 12.5px;">fragment</a> <a href="/tags/mvc/" style="font-size: 11.25px;">mvc</a> <a href="/tags/剑指Offer/" style="font-size: 18.75px;">剑指Offer</a> <a href="/tags/剑指offer/" style="font-size: 15px;">剑指offer</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a> <a href="/tags/线程/" style="font-size: 11.25px;">线程</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/随笔/" style="font-size: 11.25px;">随笔</a>
     			</div>
     	</section>
     
