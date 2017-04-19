@@ -129,6 +129,61 @@
       <div class="body-wrap">
         
   
+    <article id="post-Android 广播接收器" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/10/07/Android 广播接收器/">android 5 通知栏</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1"><a href="#1" class="headerlink" title="1"></a>1</h1><p>broadcast  receiver 广播，接收器  Android四大组件之一；<br>Android权威指南这本书的结构实在是，四大组件离得这么远，早忘记概念了。。</p>
+<p>broadcast intent 我们看一下自定义广播的发送<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span>  String ACTION_SHOW_NOTIFICATION=<span class="string">"com.example.asus.photogallery.SHOW_NOTIFICATION"</span>;</div><div class="line"> sendBroadcast(<span class="keyword">new</span> Intent(ACTION_SHOW_NOTIFICATION));</div></pre></td></tr></table></figure></p>
+<p>我们创建了一个inten 然后通过sendBroadcast 发送出去；那么谁来接收呢？</p>
+<p>我们对比一下intent的发送和接收：<br>
+        <p class="article-more-link">
+          <a  href="/2016/10/07/Android 广播接收器/#more">more >></a>
+        </p>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/10/07/Android 广播接收器/" class="archive-article-date">
+  	<time datetime="2016-10-07T10:47:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-07</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-Android 通知栏信息" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -349,60 +404,6 @@ Handler：大厨，关键人物，小二将单子交给大厨，到了厨房，�
 
 
   
-    <article id="post-原-样式与include" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/24/原-样式与include/">样式与include</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="1"><a href="#1" class="headerlink" title="1"></a>1</h1><p>简单来说样式是为了复用;</p>
-<p>style 中创建样式<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">"RemoteButton"</span>&gt;</span><span class="xml"></div><div class="line">       <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:layout_width"</span>&gt;</span>0dp<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:layout_height"</span>&gt;</span>match_parent<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:textColor"</span>&gt;</span># 556699<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:textSize"</span>&gt;</span>20dp<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span> = <span class="string">"android:layout_margin"</span>&gt;</span>3dp<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line"></div><div class="line">   </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<p>控件使用某种样式；<br>
-        <p class="article-more-link">
-          <a  href="/2016/09/24/原-样式与include/#more">more >></a>
-        </p>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/09/24/原-样式与include/" class="archive-article-date">
-  	<time datetime="2016-09-24T08:15:17.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-09-24</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/随笔/">随笔</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/17/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="page-number" href="/page/17/">17</a><span class="page-number current">18</span><a class="page-number" href="/page/19/">19</a><a class="page-number" href="/page/20/">20</a><span class="space">&hellip;</span><a class="page-number" href="/page/22/">22</a><a class="extend next" rel="next" href="/page/19/">Next &raquo;</a>
@@ -467,7 +468,7 @@ Handler：大厨，关键人物，小二将单子交给大厨，到了厨房，�
     
     	<section class="tools-section tools-section-tag">
     			<div class="widget tagcloud" id="js-tagcloud">
-    				<a href="/tags/Android/" style="font-size: 17.14px;">Android</a> <a href="/tags/Beauty-of-Programming/" style="font-size: 14.29px;">Beauty of Programming</a> <a href="/tags/Java/" style="font-size: 14.29px;">Java</a> <a href="/tags/Java知识点/" style="font-size: 11.43px;">Java知识点</a> <a href="/tags/Java编程思想/" style="font-size: 15.71px;">Java编程思想</a> <a href="/tags/fragment/" style="font-size: 12.86px;">fragment</a> <a href="/tags/mvc/" style="font-size: 11.43px;">mvc</a> <a href="/tags/刷题/" style="font-size: 11.43px;">刷题</a> <a href="/tags/剑指Offer/" style="font-size: 18.57px;">剑指Offer</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a> <a href="/tags/线程/" style="font-size: 11.43px;">线程</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/随笔/" style="font-size: 11.43px;">随笔</a>
+    				<a href="/tags/Android/" style="font-size: 17.14px;">Android</a> <a href="/tags/Beauty-of-Programming/" style="font-size: 14.29px;">Beauty of Programming</a> <a href="/tags/Java/" style="font-size: 14.29px;">Java</a> <a href="/tags/Java知识点/" style="font-size: 11.43px;">Java知识点</a> <a href="/tags/Java编程思想/" style="font-size: 15.71px;">Java编程思想</a> <a href="/tags/fragment/" style="font-size: 12.86px;">fragment</a> <a href="/tags/mvc/" style="font-size: 11.43px;">mvc</a> <a href="/tags/刷题/" style="font-size: 11.43px;">刷题</a> <a href="/tags/剑指Offer/" style="font-size: 18.57px;">剑指Offer</a> <a href="/tags/笔试/" style="font-size: 10px;">笔试</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a> <a href="/tags/线程/" style="font-size: 11.43px;">线程</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/随笔/" style="font-size: 11.43px;">随笔</a>
     			</div>
     	</section>
     

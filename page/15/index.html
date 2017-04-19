@@ -129,6 +129,59 @@
       <div class="body-wrap">
         
   
+    <article id="post-Java 读书笔记 9 接口" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/27/Java 读书笔记 9 接口/">Java 读书笔记9 接口</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="接口"><a href="#接口" class="headerlink" title="# 接口"></a># 接口</h2><h2 id="抽象类："><a href="#抽象类：" class="headerlink" title="## 抽象类："></a>## 抽象类：</h2><pre><code>1. 理解起来很容易，比如父类是动物，子类是狗；动物嘛，肯定得会呼吸；
+</code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Animal</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">protected</span>  <span class="keyword">void</span> <span class="title">breath</span><span class="params">()</span>  </div><div class="line">    </span>&#123;</div><div class="line">        System.out.println(<span class="string">"breath"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Mouse</span> <span class="keyword">extends</span> <span class="title">Animal</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span>  <span class="keyword">static</span>  <span class="keyword">void</span>  <span class="title">main</span><span class="params">(String a[])</span></div><div class="line">    </span>&#123;</div><div class="line">        Animal mouse = <span class="keyword">new</span> Mouse(<span class="string">"11"</span>,<span class="number">1</span>);     </div><div class="line">        mouse.breath();     <span class="comment">//这里输出的实际上就是mousebreath ，通过父类我们可以随意访问详细对象的方法；</span></div><div class="line">        <span class="comment">//但是实际上，我们几乎不用父类初始化，这样breath方法就显得没有意义；</span></div><div class="line">        <span class="comment">//那把他定义为抽象有什么好处呢？一目了然，立马就知道子类需要具体实现；</span></div><div class="line">        <span class="comment">//这样就把声明和实现分开了</span></div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span>  <span class="title">Mouse</span><span class="params">(String myName, <span class="keyword">int</span> myid)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>(myName, myid);</div><div class="line">    &#125;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">breath</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="comment">//super.breath();</span></div><div class="line">        System.out.println(<span class="string">"mousebreath"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        <p class="article-more-link">
+          <a  href="/2017/02/27/Java 读书笔记 9 接口/#more">more >></a>
+        </p>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/02/27/Java 读书笔记 9 接口/" class="archive-article-date">
+  	<time datetime="2017-02-27T13:38:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-27</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java编程思想/">Java编程思想</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-Java 读书笔记 8" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -348,74 +401,6 @@
 
 
   
-    <article id="post-Java 读书笔记 5" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/23/Java 读书笔记 5/">Java 读书笔记5</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="初始化与清理"><a href="#初始化与清理" class="headerlink" title="初始化与清理"></a>初始化与清理</h1><p>1.重载和区分重载<br>： 书上例子很好，洗衣服，洗车，洗狗；同样都是洗，却洗的是不一样的东西，似乎用一个名字做不同的事情，理所应当；<br>而且呢，还告诉我们为什么不一样，因为给的参数不一样，当来着是衣服的时候，就用洗衣服的方式来洗，如果是车，就用车的方式；<br>不可以通过返回值区分，你洗狗洗出来特干净，他就不干净，但是方法实际是相同的；<br>不可以通过访问修饰符区分，你就给你家洗衣服，洗衣店谁家衣服都洗，但是方法还是一样的；</p>
-<p>2.基本类型与重载；<br>    简单来说呢，基本类型在重载时，由于类型不同重载就会出现问题；<br>上代码喽<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span>  </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testfloat</span><span class="params">(<span class="keyword">float</span> a)</span></span></div><div class="line">    &#123;</div><div class="line">        System.out.println(<span class="string">"lll"</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span>  <span class="keyword">void</span>  <span class="title">testdouble</span><span class="params">(<span class="keyword">double</span> a)</span></span></div><div class="line">    &#123;</div><div class="line">        System.out.println(<span class="string">"222"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">        Test test = <span class="keyword">new</span> Test();</div><div class="line">        <span class="keyword">double</span> a = <span class="number">0</span>;</div><div class="line">        <span class="keyword">float</span> b= <span class="number">0</span>;</div><div class="line">        test.testfloat(a);<span class="comment">//这样写报错    大类型不能向下转换，直接报错</span></div><div class="line">        test.testfloat((<span class="keyword">float</span>) a);</div><div class="line">        test.testdouble(b);    小类型转化为大类型</div></pre></td></tr></table></figure></p>
-<p>其实想想就明白了，32位转化为64位。又没什么损失，反过来的话，就会丢失精度；况且如果能够来回转的话，我估计你最后都不知道出来的是哪个类型的；</p>
-<p>3.this关键字</p>
-<ul>
-<li><p>一般的this肯定这么用的最多，这时其实不写this也是一样的啦；写上this更加清晰，指的是本对象里的某个属性等于参数。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Hello</span> </span>&#123; </div><div class="line"></div><div class="line">    String s = <span class="string">"Hello"</span>; </div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Hello</span><span class="params">(String s)</span></span>&#123; </div><div class="line">        System.out.println(<span class="string">"s = "</span> + s); </div><div class="line">        System.out.println(<span class="string">"1 -&gt; this.s = "</span> + <span class="keyword">this</span>.s); </div><div class="line">        <span class="keyword">this</span>.s = s; </div><div class="line">        System.out.println(<span class="string">"2 -&gt; this.s = "</span> + <span class="keyword">this</span>.s); </div><div class="line">    &#125; </div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123; </div><div class="line">    Hello x=<span class="keyword">new</span> Hello(<span class="string">"HelloWorld!"</span>); </div><div class="line">    &#125; </div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>还有就是调用自己的其他构造函数，继承什么的题目里经常会有的那种</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Flower</span></span>&#123; </div><div class="line">           Flower (<span class="keyword">int</span> petals)&#123;&#125; </div><div class="line">           Flower(String ss)&#123;&#125; </div><div class="line">           Flower(<span class="keyword">int</span> petals, Sting ss)&#123; </div><div class="line">                <span class="comment">//petals++;调用另一个构造函数的语句必须在最起始的位置 </span></div><div class="line">                <span class="keyword">this</span>(petals); </div><div class="line">               <span class="comment">//this(ss);会产生错误，因为在一个构造函数中只能调用一个构造函数 </span></div><div class="line">           &#125; </div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>这次学到了这个</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123; </div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="title">A</span><span class="params">()</span> </span>&#123; </div><div class="line">    <span class="keyword">new</span> B(<span class="keyword">this</span>).print();     <span class="comment">//将自身当成参数传递过去</span></div><div class="line">  &#125; </div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">print</span><span class="params">()</span> </span>&#123; </div><div class="line">    System.out.println(<span class="string">"Hello from A!"</span>); </div><div class="line">  &#125; </div><div class="line">&#125; </div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">B</span> </span>&#123; </div><div class="line">  A a; </div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="title">B</span><span class="params">(A a)</span> </span>&#123; </div><div class="line">    <span class="keyword">this</span>.a = a; </div><div class="line">  &#125; </div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">print</span><span class="params">()</span> </span>&#123; </div><div class="line">    a.print(); </div><div class="line">    System.out.println(<span class="string">"Hello from B!"</span>); </div><div class="line">  &#125; </div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>匿名类 this一般代表整个匿名类，日后再说</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123; </div><div class="line">    <span class="keyword">int</span> i = <span class="number">1</span>; </div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">A</span><span class="params">()</span> </span>&#123; </div><div class="line">        Thread thread = <span class="keyword">new</span> Thread() &#123; </div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123; </div><div class="line">                <span class="keyword">for</span>(;;) &#123; </div><div class="line">                    A.<span class="keyword">this</span>.run();       <span class="comment">//匿名类</span></div><div class="line">                    <span class="keyword">try</span> &#123; </div><div class="line">                        sleep(<span class="number">1000</span>); </div><div class="line">                    &#125; <span class="keyword">catch</span>(InterruptedException ie) &#123;     &#125;</div><div class="line"></div><div class="line">                &#125; </div><div class="line">           &#125; </div><div class="line">        &#125;; <span class="comment">//注意这里有; </span></div><div class="line">        thread.start(); </div><div class="line">    &#125; </div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123; </div><div class="line">        System.out.println(<span class="string">"i = "</span> + i); </div><div class="line">        i++; </div><div class="line">    &#125; </div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception </span>&#123; </div><div class="line">        <span class="keyword">new</span> A(); </div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="初始化顺序（对于类来说）"><a href="#初始化顺序（对于类来说）" class="headerlink" title="初始化顺序（对于类来说）"></a>初始化顺序（对于类来说）</h2><p>1.静态变量初始化            //由于static不可初始化局部变量，就没有小函数的担心啦；<br>2.普通变量初始化<br>3.变量都初始化后，方法开始执行                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               </p>
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2017/02/23/Java 读书笔记 5/" class="archive-article-date">
-  	<time datetime="2017-02-23T11:13:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-23</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java编程思想/">Java编程思想</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/14/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="page-number" href="/page/14/">14</a><span class="page-number current">15</span><a class="page-number" href="/page/16/">16</a><a class="page-number" href="/page/17/">17</a><span class="space">&hellip;</span><a class="page-number" href="/page/22/">22</a><a class="extend next" rel="next" href="/page/16/">Next &raquo;</a>
@@ -480,7 +465,7 @@
     
     	<section class="tools-section tools-section-tag">
     			<div class="widget tagcloud" id="js-tagcloud">
-    				<a href="/tags/Android/" style="font-size: 17.14px;">Android</a> <a href="/tags/Beauty-of-Programming/" style="font-size: 14.29px;">Beauty of Programming</a> <a href="/tags/Java/" style="font-size: 14.29px;">Java</a> <a href="/tags/Java知识点/" style="font-size: 11.43px;">Java知识点</a> <a href="/tags/Java编程思想/" style="font-size: 15.71px;">Java编程思想</a> <a href="/tags/fragment/" style="font-size: 12.86px;">fragment</a> <a href="/tags/mvc/" style="font-size: 11.43px;">mvc</a> <a href="/tags/刷题/" style="font-size: 11.43px;">刷题</a> <a href="/tags/剑指Offer/" style="font-size: 18.57px;">剑指Offer</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a> <a href="/tags/线程/" style="font-size: 11.43px;">线程</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/随笔/" style="font-size: 11.43px;">随笔</a>
+    				<a href="/tags/Android/" style="font-size: 17.14px;">Android</a> <a href="/tags/Beauty-of-Programming/" style="font-size: 14.29px;">Beauty of Programming</a> <a href="/tags/Java/" style="font-size: 14.29px;">Java</a> <a href="/tags/Java知识点/" style="font-size: 11.43px;">Java知识点</a> <a href="/tags/Java编程思想/" style="font-size: 15.71px;">Java编程思想</a> <a href="/tags/fragment/" style="font-size: 12.86px;">fragment</a> <a href="/tags/mvc/" style="font-size: 11.43px;">mvc</a> <a href="/tags/刷题/" style="font-size: 11.43px;">刷题</a> <a href="/tags/剑指Offer/" style="font-size: 18.57px;">剑指Offer</a> <a href="/tags/笔试/" style="font-size: 10px;">笔试</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a> <a href="/tags/线程/" style="font-size: 11.43px;">线程</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/随笔/" style="font-size: 11.43px;">随笔</a>
     			</div>
     	</section>
     
