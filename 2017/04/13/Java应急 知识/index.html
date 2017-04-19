@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>Java应急 知识 | colin</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="通配符相关：首先我们要明白类型擦出是怎么回事，也就是说，类型的确定是编译时确定的；编译时发现你往里存的对象有问题就报错；如果运行了你通过反射强制向里面添加元素其实是随便的；&amp;lt; T &amp;gt;表示某种类型，比如Integer；&amp;lt; ? &amp;gt;表示不知道具体那种类型；&amp;lt; T &amp;gt;简单啊，你添加，读取都是T类型；？呢，不知道是哪种类型，能放进去吗？显然不能啊，你总不能把电视和地球放">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java应急 知识">
+<meta property="og:url" content="http://yoursite.com/2017/04/13/Java应急 知识/index.html">
+<meta property="og:site_name" content="colin">
+<meta property="og:description" content="通配符相关：首先我们要明白类型擦出是怎么回事，也就是说，类型的确定是编译时确定的；编译时发现你往里存的对象有问题就报错；如果运行了你通过反射强制向里面添加元素其实是随便的；&amp;lt; T &amp;gt;表示某种类型，比如Integer；&amp;lt; ? &amp;gt;表示不知道具体那种类型；&amp;lt; T &amp;gt;简单啊，你添加，读取都是T类型；？呢，不知道是哪种类型，能放进去吗？显然不能啊，你总不能把电视和地球放">
+<meta property="og:updated_time" content="2017-04-19T11:24:36.592Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java应急 知识">
+<meta name="twitter:description" content="通配符相关：首先我们要明白类型擦出是怎么回事，也就是说，类型的确定是编译时确定的；编译时发现你往里存的对象有问题就报错；如果运行了你通过反射强制向里面添加元素其实是随便的；&amp;lt; T &amp;gt;表示某种类型，比如Integer；&amp;lt; ? &amp;gt;表示不知道具体那种类型；&amp;lt; T &amp;gt;简单啊，你添加，读取都是T类型；？呢，不知道是哪种类型，能放进去吗？显然不能啊，你总不能把电视和地球放">
+  
+    <link rel="alternative" href="/atom.xml" title="colin" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="//favicon.png">
+  
+  <script src="/style.js"></script>
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="/0.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">墨</a></h1>
+		</hgroup>
+
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/tags/随笔">随笔</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">所有文章</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="2" href="javascript:void(0)">友链</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="3" href="javascript:void(0)">关于我</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="https://github.com/colining" title="github">github</a>
+		        
+					<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/ren-tian-qi" title="zhihu">zhihu</a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<h1 class="header-author js-mobile-header hide">墨</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img src="/0.jpg" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">墨</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/tags/随笔">随笔</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/colining" title="github">github</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/ren-tian-qi" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap">
+        <article id="post-Java应急 知识" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Java应急 知识
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li>通配符相关：<br>首先我们要明白类型擦出是怎么回事，也就是说，类型的确定是编译时确定的；编译时发现你往里存的对象有问题就报错；如果运行了你通过反射强制向里面添加元素其实是随便的；<br>&lt; T &gt;表示某种类型，比如Integer；&lt; ? &gt;表示不知道具体那种类型；&lt; T &gt;简单啊，你添加，读取都是T类型；？呢，不知道是哪种类型，能放进去吗？显然不能啊，你总不能把电视和地球放在一起把，这样会很奇怪；但是？读取，就会很方便，因为集合里已经有了这么一些东西，我管它是啥呢，拿出来就好了；<br>以这种思想，我们来看一下上下界通配符；<br>&lt; ? extend A&gt;  也就是T是个A的子类，那是哪个呢？很显然，你没办法向里面储存A的全部子类吧；比如T是个A的其中大儿子的儿子；那么A小儿子的儿子，很显然存不进去的嘛；但是反过来我不管T是哪个类，它总可以向上转型为A，所以就可以读取并转型为A；（不可转型为A的子类）；<br>&lt; ? super B&gt; 就是说T是B得一个父类，那么很显然的，存什么我都可以把它转型为T嘛，因为T是B的父类嘛；但是当你读取的时候，T？B的父类，那是个什么玩意，到底是父亲，还是爷爷，还是Object呢？所以无法读取；除非你读取转型为Object；<a id="more"></a></li>
+<li><p>线程的状态</p>
+<ol>
+<li>正常运行的一种状态</li>
+<li>阻塞掉了，阻塞就分为三种了，一种是等待阻塞wait，就是等待有人唤醒了，一种是同步阻塞，等待锁的到来（线程当前活着呢）；一种就是io请求啊，sleep啊，还有就是join方法；</li>
+<li>对于运行来说，加上cpu的话，就有正在运行，和时间片用完，在外面的等待的情况；</li>
+</ol>
+</li>
+<li><p>sleep和wait的区别</p>
+<ol>
+<li>sleep是线程类Thread的方法，wait是Object的；</li>
+<li>sleep是占着锁睡觉的，wait是会释放锁的；</li>
+<li>一个是线程主动睡觉，另一个则是线程中的对象需要等待；</li>
+</ol>
+</li>
+<li>Synchronized与Lock锁的区别<ol>
+<li>Lock的粒度更小，可以尝试获取一下锁，尝试获取一段时间，如果你没有得到锁的话，也可以做别的事情</li>
+<li>当线程非常多的时候，Lock更加好用；</li>
+</ol>
+</li>
+<li>gc相关<ol>
+<li>几种gc的算法：标记法，对象有一个引用就计数1，如果计数为0的话，就可以回收了；根搜索标记清除，从根开始访问对象，给那些能访问到的标记，剩下的清除；复制算法，从一个区域移到另一个区域，这样没有移动的，就是死掉的对象；标记-整理算法，简单的说，就是先标记，然后向前移动，这样，另一端的肯定是死翘翘的对象；</li>
+<li>新生代的gc算法；先是伊甸园，然后是两个存活区；在没有满的情况，一个向另一个复制就是复制清除算法，剩下的使用标记-清楚；这叫做minor gc算法；</li>
+<li>年老代，如果新生代地方不够，就转移那些还活着的，放在年老代里；使用标记-整理清楚，叫做full gc /major gc；</li>
+<li>持久代，几乎不死的那种，使用标记-整理；</li>
+</ol>
+</li>
+<li>何时gc<ol>
+<li>伊甸园不够，就开始minor jc；</li>
+<li>老年代不够了；</li>
+<li>持久代不够了</li>
+<li>新生代上传到老年代过来的对象太大；</li>
+</ol>
+</li>
+</ol>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/04/13/Java应急 知识/" class="archive-article-date">
+  	<time datetime="2017-04-13T11:15:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-04-13</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2017/04/15/京东 一面记录/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          京东一面记录
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/04/10/剑指Offer 56 链表中环的入口结点/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">剑指Offer 56 链表中环的入口结点</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="//v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="Java应急 知识" data-title="Java应急 知识" data-url="http://yoursite.com/2017/04/13/Java应急 知识/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"colining.duoshuo.com"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 墨
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: false,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: "/"
+	}
+</script>
+
+<script src="/./main.js"></script>
+
+
+    
+<div class="tools-col">
+  <ul class="btn-wrap">
+    
+      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
+    
+    
+      <li data-hook="tools-section-tag"><span class="text">标签</span><i class="icon-price-tags"></i></li>
+    
+    
+      <li data-hook="tools-section-friends"><span class="text">友链</span><i class="icon-link"></i></li>
+    
+    
+      <li data-hook="tools-section-me"><span class="text">我</span><i class="icon-smile"></i></li>
+    
+  </ul>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all chose">
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-tag">
+    			<div class="widget tagcloud" id="js-tagcloud">
+    				<a href="/tags/Android/" style="font-size: 17.14px;">Android</a> <a href="/tags/Beauty-of-Programming/" style="font-size: 14.29px;">Beauty of Programming</a> <a href="/tags/Java/" style="font-size: 14.29px;">Java</a> <a href="/tags/Java知识点/" style="font-size: 11.43px;">Java知识点</a> <a href="/tags/Java编程思想/" style="font-size: 15.71px;">Java编程思想</a> <a href="/tags/fragment/" style="font-size: 12.86px;">fragment</a> <a href="/tags/mvc/" style="font-size: 11.43px;">mvc</a> <a href="/tags/刷题/" style="font-size: 11.43px;">刷题</a> <a href="/tags/剑指Offer/" style="font-size: 18.57px;">剑指Offer</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a> <a href="/tags/线程/" style="font-size: 11.43px;">线程</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/随笔/" style="font-size: 11.43px;">随笔</a>
+    			</div>
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-friends">
+  		
+  			<div class="friends-wrap" id="js-friends">
+  			
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="https://www.google.com.hk/">谷歌</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="https://stackoverflow.com/">stackoverflow</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://beyondtech.org/">泡饭</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="https://menyifan.com/">MYF</a>
+  	        
+  	        </div>
+  		
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-me">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">继续跑&lt;br&gt;&lt;br&gt;带着赤子的骄傲</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div>
+</body>
+</html>

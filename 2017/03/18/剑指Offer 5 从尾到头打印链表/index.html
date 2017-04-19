@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="colin">
 <meta property="og:description" content="题目描述输入一个链表，从尾到头打印链表每个节点的值。
 解法头-&amp;gt;尾，遍历时先经过的，后输出，自然想到是一个栈了；于是就可以使用递归；">
-<meta property="og:updated_time" content="2017-04-14T06:19:33.575Z">
+<meta property="og:updated_time" content="2017-04-14T06:31:32.877Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="剑指Offer 5 从尾到头打印链表">
 <meta name="twitter:description" content="题目描述输入一个链表，从尾到头打印链表每个节点的值。
@@ -154,31 +154,7 @@
       
         <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>输入一个链表，从尾到头打印链表每个节点的值。</p>
 <h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><p>头-&gt;尾，遍历时先经过的，后输出，自然想到是一个栈了；于是就可以使用递归；<br><a id="more"></a></p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre><code>    public class ListNode {
-         int val;
-         ListNode next = null;
-
-         ListNode(int val) {
-            this.val = val;
-        }
-     }
-public class Solution {
-    ArrayList arrayList= new ArrayList();
-    public ArrayList&lt;Integer&gt; printListFromTailToHead(ListNode listNode) {
-        solution(listNode);                    //进入递归
-        return arrayList;
-    }
-    void solution( ListNode listNode)          //递归函数
-    {
-        if (listNode!=null)             //当listcode不是尾节点时
-        {
-            solution(listNode.next);           //递归
-            arrayList.add(listNode.val);//添加到类的属性中，这样就不会丢失了
-        }
-        return ;
-    }
-}
-</code></pre><p>```</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">    public class ListNode &#123;</div><div class="line">         int val;</div><div class="line">         ListNode next = null;</div><div class="line"></div><div class="line">         ListNode(int val) &#123;</div><div class="line">            this.val = val;</div><div class="line">        &#125;</div><div class="line">     &#125;</div><div class="line">public class Solution &#123;</div><div class="line">    ArrayList arrayList= new ArrayList();</div><div class="line">    public ArrayList&lt;Integer&gt; printListFromTailToHead(ListNode listNode) &#123;</div><div class="line">        solution(listNode);                    //进入递归</div><div class="line">        return arrayList;</div><div class="line">    &#125;</div><div class="line">    void solution( ListNode listNode)          //递归函数</div><div class="line">    &#123;</div><div class="line">        if (listNode!=null)             //当listcode不是尾节点时</div><div class="line">        &#123;</div><div class="line">            solution(listNode.next);           //递归</div><div class="line">            arrayList.add(listNode.val);//添加到类的属性中，这样就不会丢失了</div><div class="line">        &#125;</div><div class="line">        return ;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h2 id="收获"><a href="#收获" class="headerlink" title="收获"></a>收获</h2><p>递归是很复杂的东西</p>
 <ol>
 <li>现在不太熟悉，返回值怎么写？一般看起来是说一个大的循环，携带几个递归，最后都做完了直接返回</li>
@@ -331,7 +307,7 @@ public class Solution {
     
     	<section class="tools-section tools-section-tag">
     			<div class="widget tagcloud" id="js-tagcloud">
-    				<a href="/tags/Android/" style="font-size: 17.14px;">Android</a> <a href="/tags/Beauty-of-Programming/" style="font-size: 14.29px;">Beauty of Programming</a> <a href="/tags/Java/" style="font-size: 12.86px;">Java</a> <a href="/tags/Java知识点/" style="font-size: 11.43px;">Java知识点</a> <a href="/tags/Java编程思想/" style="font-size: 15.71px;">Java编程思想</a> <a href="/tags/fragment/" style="font-size: 12.86px;">fragment</a> <a href="/tags/mvc/" style="font-size: 11.43px;">mvc</a> <a href="/tags/刷题/" style="font-size: 11.43px;">刷题</a> <a href="/tags/剑指Offer/" style="font-size: 18.57px;">剑指Offer</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a> <a href="/tags/线程/" style="font-size: 11.43px;">线程</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/随笔/" style="font-size: 11.43px;">随笔</a>
+    				<a href="/tags/Android/" style="font-size: 17.14px;">Android</a> <a href="/tags/Beauty-of-Programming/" style="font-size: 14.29px;">Beauty of Programming</a> <a href="/tags/Java/" style="font-size: 14.29px;">Java</a> <a href="/tags/Java知识点/" style="font-size: 11.43px;">Java知识点</a> <a href="/tags/Java编程思想/" style="font-size: 15.71px;">Java编程思想</a> <a href="/tags/fragment/" style="font-size: 12.86px;">fragment</a> <a href="/tags/mvc/" style="font-size: 11.43px;">mvc</a> <a href="/tags/刷题/" style="font-size: 11.43px;">刷题</a> <a href="/tags/剑指Offer/" style="font-size: 18.57px;">剑指Offer</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a> <a href="/tags/线程/" style="font-size: 11.43px;">线程</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/随笔/" style="font-size: 11.43px;">随笔</a>
     			</div>
     	</section>
     

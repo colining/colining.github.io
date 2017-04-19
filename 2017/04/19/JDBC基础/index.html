@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>JDBC基础 | colin</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="JDBC在任何语言中关于数据库方面的操作都是必须的，也是重要的，今天我们学习一下JDBC的相关操作；
+首先是不可缺少的JDBC要素
+
+连接，你必须先要和数据库建立连接，这样的话，你就肯定要加载一个数据库的驱动；
+sql语句，你得有操作啊，还是数据库懂得；
+然后很显然，你不能让一个连接和sql语句直接发生关系吧，所以出现了PreparedStatement；
+还有的话，就是你要是有结果的，得有地方存">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JDBC基础">
+<meta property="og:url" content="http://yoursite.com/2017/04/19/JDBC基础/index.html">
+<meta property="og:site_name" content="colin">
+<meta property="og:description" content="JDBC在任何语言中关于数据库方面的操作都是必须的，也是重要的，今天我们学习一下JDBC的相关操作；
+首先是不可缺少的JDBC要素
+
+连接，你必须先要和数据库建立连接，这样的话，你就肯定要加载一个数据库的驱动；
+sql语句，你得有操作啊，还是数据库懂得；
+然后很显然，你不能让一个连接和sql语句直接发生关系吧，所以出现了PreparedStatement；
+还有的话，就是你要是有结果的，得有地方存">
+<meta property="og:updated_time" content="2017-04-19T11:25:05.644Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JDBC基础">
+<meta name="twitter:description" content="JDBC在任何语言中关于数据库方面的操作都是必须的，也是重要的，今天我们学习一下JDBC的相关操作；
+首先是不可缺少的JDBC要素
+
+连接，你必须先要和数据库建立连接，这样的话，你就肯定要加载一个数据库的驱动；
+sql语句，你得有操作啊，还是数据库懂得；
+然后很显然，你不能让一个连接和sql语句直接发生关系吧，所以出现了PreparedStatement；
+还有的话，就是你要是有结果的，得有地方存">
+  
+    <link rel="alternative" href="/atom.xml" title="colin" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="//favicon.png">
+  
+  <script src="/style.js"></script>
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="/0.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">墨</a></h1>
+		</hgroup>
+
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/tags/随笔">随笔</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">所有文章</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="2" href="javascript:void(0)">友链</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="3" href="javascript:void(0)">关于我</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="https://github.com/colining" title="github">github</a>
+		        
+					<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/ren-tian-qi" title="zhihu">zhihu</a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<h1 class="header-author js-mobile-header hide">墨</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img src="/0.jpg" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">墨</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/tags/随笔">随笔</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/colining" title="github">github</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/ren-tian-qi" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap">
+        <article id="post-JDBC基础" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JDBC基础
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="JDBC"><a href="#JDBC" class="headerlink" title="JDBC"></a>JDBC</h2><p>在任何语言中关于数据库方面的操作都是必须的，也是重要的，今天我们学习一下JDBC的相关操作；</p>
+<p>首先是不可缺少的JDBC要素</p>
+<ol>
+<li>连接，你必须先要和数据库建立连接，这样的话，你就肯定要加载一个数据库的驱动；</li>
+<li>sql语句，你得有操作啊，还是数据库懂得；</li>
+<li>然后很显然，你不能让一个连接和sql语句直接发生关系吧，所以出现了PreparedStatement；</li>
+<li>还有的话，就是你要是有结果的，得有地方存，所以就有了结果集；<a id="more"></a>
+</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">try</span> &#123;</div><div class="line">		String sql = <span class="string">" select * from users"</span>;</div><div class="line">		Connection connection = JDBCUtils.getConnection(); <span class="comment">//连接</span></div><div class="line">		PreparedStatement ps = connection.prepareStatement(sql);<span class="comment">//有这么一个对象，在连接的基础上执行了sql语句，就是他了</span></div><div class="line">		ResultSet resultSet = ps.getResultSet(); <span class="comment">//取出结果集；</span></div><div class="line">		<span class="keyword">while</span> (resultSet.next())</div><div class="line">		&#123;</div><div class="line"></div><div class="line">		&#125;</div><div class="line">	&#125; <span class="keyword">catch</span> (SQLException e) &#123;</div><div class="line">		e.printStackTrace();</div><div class="line">	&#125;</div></pre></td></tr></table></figure>
+<h2 id="JDBC-驱动加载"><a href="#JDBC-驱动加载" class="headerlink" title="JDBC 驱动加载"></a>JDBC 驱动加载</h2><p>这样的话，JDBC基础坑就讲完了；但是有好玩的；你驱动是怎么加载的？连接是啥时候释放的呢？<br>这个就要依靠一个特别的类了<br>通过static方法，使得类装载时直接装载驱动<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JDBCUtils</span> </span>&#123;</div><div class="line">        <span class="keyword">private</span>  <span class="keyword">static</span> String drivername;          <span class="comment">//驱动名称</span></div><div class="line">        <span class="keyword">private</span>  <span class="keyword">static</span> String url;                 <span class="comment">//地址</span></div><div class="line">        <span class="keyword">private</span>  <span class="keyword">static</span> String username;            <span class="comment">//用户名</span></div><div class="line">        <span class="keyword">private</span>  <span class="keyword">static</span> String password;            <span class="comment">//密码;</span></div><div class="line">        <span class="keyword">private</span> <span class="keyword">static</span>  String whatdriver;          <span class="comment">//是啥驱动呢？</span></div><div class="line">    <span class="comment">/*</span></div><div class="line">    私有构造方法，不可实例化</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="title">JDBCUtils</span><span class="params">()</span> </span>&#123;</div><div class="line">    &#125;</div><div class="line">    <span class="comment">/*</span></div><div class="line">    类加载后执行。且执行一次，</div><div class="line">    加载配置文件</div><div class="line">     */</div><div class="line">    <span class="keyword">static</span></div><div class="line">    &#123;</div><div class="line">        InputStream inputStream = JDBCUtils.class.getClassLoader().getResourceAsStream(<span class="string">"db.properties"</span>);</div><div class="line">        Properties properties = <span class="keyword">new</span> Properties();</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            properties.load(inputStream);</div><div class="line">            drivername = properties.getProperty(<span class="string">"drivername"</span>);</div><div class="line">            url =properties.getProperty(<span class="string">"url"</span>);</div><div class="line">            username = properties.getProperty(<span class="string">"username"</span>);</div><div class="line">            password = properties.getProperty(<span class="string">"password"</span>);</div><div class="line"></div><div class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="comment">/*</span></div><div class="line">    建立数据库连接；</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span>  <span class="keyword">static</span> Connection <span class="title">getConnection</span><span class="params">()</span></span></div><div class="line">    &#123;</div><div class="line">        Connection connection = <span class="keyword">null</span>;</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            Class.forName(drivername);</div><div class="line">            connection = DriverManager.getConnection(url,username,password);</div><div class="line">        &#125; <span class="keyword">catch</span> (ClassNotFoundException e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125; <span class="keyword">catch</span> (SQLException e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> connection;</div><div class="line">    &#125;</div><div class="line">    <span class="comment">/*</span></div><div class="line">    释放数据库连接；</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">free</span><span class="params">(ResultSet resultSet, PreparedStatement preparedStatement,Connection connection)</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            <span class="keyword">if</span> (resultSet!=<span class="keyword">null</span>)</div><div class="line">            &#123;</div><div class="line">                resultSet.close();</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">if</span> (preparedStatement!=<span class="keyword">null</span>)</div><div class="line">            &#123;</div><div class="line">                preparedStatement.close();</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">if</span> (connection!=<span class="keyword">null</span>)</div><div class="line">            &#123;</div><div class="line">                connection.close();</div><div class="line">            &#125;</div><div class="line">        &#125; <span class="keyword">catch</span> (SQLException e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="工厂模式"><a href="#工厂模式" class="headerlink" title="工厂模式"></a>工厂模式</h2><p>然后我们又想到说数据库操作不能只对于一种数据啊，那必然得有不一样的地方吧；所以这里我们加入了工厂模式。动态加载相关数据的实例；<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DaoFactory</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> String classname = <span class="keyword">null</span>;</div><div class="line">    <span class="keyword">private</span>  <span class="keyword">static</span> Properties properties = <span class="keyword">null</span>;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="title">DaoFactory</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="comment">/*</span></div><div class="line">        不可实例化</div><div class="line">         */</div><div class="line">    &#125;</div><div class="line">    <span class="comment">/*</span></div><div class="line">    工厂加载配置文件</div><div class="line">     */</div><div class="line">    <span class="keyword">static</span> &#123;</div><div class="line">        InputStream inputStream = DaoFactory.class.getClassLoader().getResourceAsStream(<span class="string">"Daoconfig.properties"</span>);</div><div class="line">        properties = <span class="keyword">new</span> Properties();</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            properties.load(inputStream);</div><div class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">    <span class="comment">/*</span></div><div class="line">    进行类的实例化</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Object <span class="title">newIntance</span><span class="params">(String name)</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            classname = properties.getProperty(name);</div><div class="line">            <span class="keyword">return</span> Class.forName(classname).newInstance();</div><div class="line">        &#125; <span class="keyword">catch</span> (IllegalAccessException e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125; <span class="keyword">catch</span> (InstantiationException e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125; <span class="keyword">catch</span> (ClassNotFoundException e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="配置文件-反射"><a href="#配置文件-反射" class="headerlink" title="配置文件+反射"></a>配置文件+反射</h2><p>然后我们发现 Daoconfig.properties 是个啥，没错，他就是配置文件了。也就是说我们直接更改配置文件整个项目的类就可能完全不同，这就需要理解反射机制，就是在程序运行中动态加载类，然后产生实例化；这是非常厉害的；就是说jvm一直活着，我们改改配置文件，就完全不一样了；</p>
+<p>工厂实例化的代码<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">UserDao userDao = <span class="keyword">null</span>;</div><div class="line"></div><div class="line"><span class="meta">@Before</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setUp</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">    <span class="comment">//向下转型</span></div><div class="line">    userDao = (UserDao) DaoFactory.newIntance(<span class="string">"UserDao"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="题外话："><a href="#题外话：" class="headerlink" title="题外话："></a>题外话：</h2><p>1.equals如果不重写的话和==是完全一样的，因为他的内部代码是这样的：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object obj)</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> (<span class="keyword">this</span> == obj);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>其实就是==嘛，对比的就是内存地址是不是一样的；</p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/04/19/JDBC基础/" class="archive-article-date">
+  	<time datetime="2017-04-19T11:20:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-04-19</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2017/04/15/京东 一面记录/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">京东一面记录</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="//v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="JDBC基础" data-title="JDBC基础" data-url="http://yoursite.com/2017/04/19/JDBC基础/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"colining.duoshuo.com"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 墨
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: false,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: "/"
+	}
+</script>
+
+<script src="/./main.js"></script>
+
+
+    
+<div class="tools-col">
+  <ul class="btn-wrap">
+    
+      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
+    
+    
+      <li data-hook="tools-section-tag"><span class="text">标签</span><i class="icon-price-tags"></i></li>
+    
+    
+      <li data-hook="tools-section-friends"><span class="text">友链</span><i class="icon-link"></i></li>
+    
+    
+      <li data-hook="tools-section-me"><span class="text">我</span><i class="icon-smile"></i></li>
+    
+  </ul>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all chose">
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-tag">
+    			<div class="widget tagcloud" id="js-tagcloud">
+    				<a href="/tags/Android/" style="font-size: 17.14px;">Android</a> <a href="/tags/Beauty-of-Programming/" style="font-size: 14.29px;">Beauty of Programming</a> <a href="/tags/Java/" style="font-size: 14.29px;">Java</a> <a href="/tags/Java知识点/" style="font-size: 11.43px;">Java知识点</a> <a href="/tags/Java编程思想/" style="font-size: 15.71px;">Java编程思想</a> <a href="/tags/fragment/" style="font-size: 12.86px;">fragment</a> <a href="/tags/mvc/" style="font-size: 11.43px;">mvc</a> <a href="/tags/刷题/" style="font-size: 11.43px;">刷题</a> <a href="/tags/剑指Offer/" style="font-size: 18.57px;">剑指Offer</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a> <a href="/tags/线程/" style="font-size: 11.43px;">线程</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/随笔/" style="font-size: 11.43px;">随笔</a>
+    			</div>
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-friends">
+  		
+  			<div class="friends-wrap" id="js-friends">
+  			
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="https://www.google.com.hk/">谷歌</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="https://stackoverflow.com/">stackoverflow</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://beyondtech.org/">泡饭</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="https://menyifan.com/">MYF</a>
+  	        
+  	        </div>
+  		
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-me">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">继续跑&lt;br&gt;&lt;br&gt;带着赤子的骄傲</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div>
+</body>
+</html>

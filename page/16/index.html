@@ -129,6 +129,166 @@
       <div class="body-wrap">
         
   
+    <article id="post-Java 读书笔记3" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/22/Java 读书笔记3/">Java 读书笔记3</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="操作符"><a href="#操作符" class="headerlink" title="操作符"></a>操作符</h1><p>1.赋值和引用（别名）；<br>    =我们最常见；意思可以使等于，也可以是赋值，在Java中，赋值也是有坑的<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Tank</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> level;</div><div class="line">&#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line"> Tank tank1 = <span class="keyword">new</span> Tank();</div><div class="line">        tank1 .level = <span class="number">1</span>;</div><div class="line">        Tank tank2 = <span class="keyword">new</span> Tank();</div><div class="line">        tank2. level = <span class="number">2</span>;</div><div class="line">        System.out.println(tank1.level);<span class="comment">//输出1</span></div><div class="line">        System.out.println(tank2.level);<span class="comment">//输出2</span></div><div class="line">        tank1 = tank2;</div><div class="line">        <span class="comment">//tank1.level = tank2.level; 其实这么写才是对的</span></div><div class="line">        System.out.println(tank1.level);<span class="comment">//输出2</span></div><div class="line">        System.out.println(tank2.level);<span class="comment">//输出2</span></div><div class="line">        tank1.level = <span class="number">27</span>;</div><div class="line">		</div><div class="line">        System.out.println(tank2.level);<span class="comment">//输出27</span></div><div class="line">      &#125;</div></pre></td></tr></table></figure></p>
+<p>对上面的赋值 tank1=tank2 来说，好像是在说你以后什么值都和他相等就对了；但其实不是的，tank1 = tank2  是在讲tank1 以后和tank2 都指向同一个对象了；<br>tank1 和tank2 本质都是引用，现在他们指向同一个对象了，那么不管这个对象的level怎么变化，tank1和tank2 都是一个值；</p>
+<p>打个比方好了 不管叫做对象名或者引用什么的；我们将对象看成人，将引用看成名字或代号，说家里两兄弟，哥哥去打仗了，对弟弟说，这一去恐怕就回不来了，带着我的名字活下去吧；<br>那么从此以后弟弟就有了两个名字同时代表他；而哥哥恐怕就被当做不存在喽；</p>
+<p>ps:本章有很多关于操作符的相关内容能够，用到再看吧，反正记不住；</p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/02/22/Java 读书笔记3/" class="archive-article-date">
+  	<time datetime="2017-02-22T06:39:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-22</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java编程思想/">Java编程思想</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Java 读书笔记2" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/22/Java 读书笔记2/">Java 读书笔记2</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="一切都是对象"><a href="#一切都是对象" class="headerlink" title="一切都是对象"></a>一切都是对象</h1><p>1.引用和对象（java编程思想中这样讲）</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Classa a;         <span class="comment">//此处可理解为引用，就是说起好名字啦，但是对象还没初始化呢</span></div><div class="line">a= <span class="keyword">new</span> Classa();     <span class="comment">//初始化后，对象才被创建成功；</span></div></pre></td></tr></table></figure>
+<p>2.储存中的堆与栈；<br>    <a href="http://stackoverflow.com/questions/79923/what-and-where-are-the-stack-and-heap" target="_blank" rel="external">http://stackoverflow.com/questions/79923/what-and-where-are-the-stack-and-heap</a><br>    栈呢，是先进后出；在函数调用中，被调用函数后进栈，先结束，所以先出栈；所以对内存来说，函数（function）使用栈这种空间；<br>    堆呢；以java为例，在调用某函数时，可能会创建新的对象；这些对象没有明确的先后之分（不重要），而且随时可能创建，销毁，所以就把他们都放在堆中管理啦；</p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/02/22/Java 读书笔记2/" class="archive-article-date">
+  	<time datetime="2017-02-22T05:10:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-22</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java编程思想/">Java编程思想</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Java 读书笔记1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/20/Java 读书笔记1/">Java 读书笔记1</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="对象导论"><a href="#对象导论" class="headerlink" title="对象导论"></a>对象导论</h1><p>1.类和类型实际上是同义的，整型，浮点型其实也是一种类；且対象定义方式都一样；</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> a;             <span class="comment">//整型</span></div><div class="line">Test test1;        <span class="comment">//Test类</span></div></pre></td></tr></table></figure>
+<p>2.刚刚傻了，居然在想子类是否可以拥有自己的方法、、、、而且还试了一下代码。当然可以了啊！但是再想想的话，其实父类能做的事一定小于等于子类所做的事情，子类相对父类可以进行扩展； uml设计模式中：子类可以出现在父类出现的任何地方也是这个原因，因为父类能做的所有事，子类都可以做；</p>
+<p>3.单根继承,我们知道java所有类最终都继承自Object类，这样所有类其实都是一个类型，这样就保证所有对象都具有某些功能，包括基本操作，在堆上创建，参数传递，以及垃圾回收；</p>
+<p>4.java不允许多继承，你不能有俩父亲，但是你可以有爷爷，有太爷爷；</p>
+<p>5.容器和参数化类型；<br>    容器呢，是一个可以容纳对象的器皿；在程序中，由于需要多少对象不确定，容器的大小就也不一定喽；<br>    那么假如容器什么都接受，在存放的时候，java一定会将其转化为Object；那么在拿出的时候就会存在向下转型这个问题了；Android经常会有；<br>    那么如果我们只想存放一种，就可以使用参数化类型；定好了能存猴子，就不能存猪；</p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/02/20/Java 读书笔记1/" class="archive-article-date">
+  	<time datetime="2017-02-20T13:24:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-20</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java编程思想/">Java编程思想</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-辗转相除法" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -239,168 +399,9 @@
 
 
   
-    <article id="post-归并排序 --分治初探" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/11/23/归并排序 --分治初探/">归并排序 --分治初探</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>先上代码：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MergeSort</span> </span>&#123;					<span class="comment">//差不多照书敲得</span></div><div class="line">    <span class="keyword">private</span>  <span class="keyword">int</span>[] myarray = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">10</span>];</div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] getMyarray() &#123;</div><div class="line">        <span class="keyword">return</span> myarray2;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">private</span>  <span class="keyword">int</span> [] myarray2;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MergeSort</span><span class="params">()</span> </span>&#123;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span>  <span class="title">MergeSort</span><span class="params">(<span class="keyword">int</span> array[], <span class="keyword">int</span> start, <span class="keyword">int</span> end)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> mid;</div><div class="line">        <span class="keyword">if</span> (start == end)</div><div class="line">            <span class="keyword">return</span>;</div><div class="line">        <span class="keyword">else</span> &#123;</div><div class="line">            mid = (start + end) / <span class="number">2</span>;</div><div class="line">            MergeSort(array, start, mid);</div><div class="line">            MergeSort(array, mid + <span class="number">1</span>, end);</div><div class="line">            Merge(array, myarray,start,mid,end);</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = start; i &lt;= end; i++) &#123;</div><div class="line">               array[i]= myarray[i];</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        myarray2 = array;</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Merge</span><span class="params">(<span class="keyword">int</span> array[], <span class="keyword">int</span> r1[], <span class="keyword">int</span> start, <span class="keyword">int</span> mid, <span class="keyword">int</span> end)</span><span class="comment">//归并</span></div><div class="line">    </span>&#123;</div><div class="line">        <span class="keyword">int</span> first = start, second =mid+<span class="number">1</span>, k =start ;</div><div class="line">	    <span class="keyword">while</span> (first&lt;=mid &amp;&amp; second &lt;=end)          </div><div class="line">        &#123;</div><div class="line">            <span class="keyword">if</span> (array[first]&lt;= array[second])</div><div class="line">                r1[k++] = array[first++];</div><div class="line">            <span class="keyword">else</span></div><div class="line">                r1[k++] = array[second++];</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">while</span> (first&lt;=mid)</div><div class="line">        &#123;</div><div class="line">            r1[k++]= array[first++];</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">while</span> (second&lt;=end)</div><div class="line">        &#123;</div><div class="line">            r1[k++]= array[second++];</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-        <p class="article-more-link">
-          <a  href="/2016/11/23/归并排序 --分治初探/#more">more >></a>
-        </p>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/11/23/归并排序 --分治初探/" class="archive-article-date">
-  	<time datetime="2016-11-23T13:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-11-23</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Beauty-of-Programming/">Beauty of Programming</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-原-IntelliJ IDEA 与junit" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/11/22/原-IntelliJ IDEA 与junit/">IntelliJ IDEA 与junit</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="1"><a href="#1" class="headerlink" title="1"></a>1</h2><p>软件测试要来一个测试大作业，要用junit，在学习java的一年以后，再见过android studio 这种现代化IDE以后，我可是受不了jcreator 这种东西啦；</p>
-<p>所以让我们来使用IntelliJ IDEA 吧；虽说有点大材小用，但还是好用啊；你可以先去官网看看，如果和你胃口的话，跟着我做吧；<br><a href="https://www.jetbrains.com/idea/">https://www.jetbrains.com/idea/</a>
-        <p class="article-more-link">
-          <a  href="/2016/11/22/原-IntelliJ IDEA 与junit/#more">more >></a>
-        </p>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/11/22/原-IntelliJ IDEA 与junit/" class="archive-article-date">
-  	<time datetime="2016-11-22T09:39:01.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-11-22</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Android ToolBar and Listview" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/10/23/Android ToolBar and Listview/">android 5 通知栏</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="1"><a href="#1" class="headerlink" title="# 1"></a># 1</h2><p>不是讲理论的，就是遇到很多奇怪的问题；<br>没事做，决定自己仿个个魅族便签玩玩，体验一把开发app的过程；</p>
-<p>如何加入标题栏，我还是比较喜欢称之为标题栏，我也没弄明白actionbar 和toolbar改了什么，只提供解决方案；</p>
-<p>最初 的时候是这样的，因为toolbar是viewgroup ，也就是说在toolbar中可以直接添加其他控件/view，于是我就加了两个imagebutton；然后我们想啊，click事件怎么写呢？找到button，添加事件，这样做好像和toolbar没有半毛钱关系啊；<br>记得别忘了把主题修改为noactionbar<br>
-        <p class="article-more-link">
-          <a  href="/2016/10/23/Android ToolBar and Listview/#more">more >></a>
-        </p>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/10/23/Android ToolBar and Listview/" class="archive-article-date">
-  	<time datetime="2016-10-23T07:41:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-23</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/15/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="page-number" href="/page/15/">15</a><span class="page-number current">16</span><a class="page-number" href="/page/17/">17</a><a class="page-number" href="/page/18/">18</a><span class="space">&hellip;</span><a class="page-number" href="/page/21/">21</a><a class="extend next" rel="next" href="/page/17/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/15/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="page-number" href="/page/15/">15</a><span class="page-number current">16</span><a class="page-number" href="/page/17/">17</a><a class="page-number" href="/page/18/">18</a><span class="space">&hellip;</span><a class="page-number" href="/page/22/">22</a><a class="extend next" rel="next" href="/page/17/">Next &raquo;</a>
     </nav>
   
 
@@ -462,7 +463,7 @@
     
     	<section class="tools-section tools-section-tag">
     			<div class="widget tagcloud" id="js-tagcloud">
-    				<a href="/tags/Android/" style="font-size: 17.14px;">Android</a> <a href="/tags/Beauty-of-Programming/" style="font-size: 14.29px;">Beauty of Programming</a> <a href="/tags/Java/" style="font-size: 12.86px;">Java</a> <a href="/tags/Java知识点/" style="font-size: 11.43px;">Java知识点</a> <a href="/tags/Java编程思想/" style="font-size: 15.71px;">Java编程思想</a> <a href="/tags/fragment/" style="font-size: 12.86px;">fragment</a> <a href="/tags/mvc/" style="font-size: 11.43px;">mvc</a> <a href="/tags/刷题/" style="font-size: 11.43px;">刷题</a> <a href="/tags/剑指Offer/" style="font-size: 18.57px;">剑指Offer</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a> <a href="/tags/线程/" style="font-size: 11.43px;">线程</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/随笔/" style="font-size: 11.43px;">随笔</a>
+    				<a href="/tags/Android/" style="font-size: 17.14px;">Android</a> <a href="/tags/Beauty-of-Programming/" style="font-size: 14.29px;">Beauty of Programming</a> <a href="/tags/Java/" style="font-size: 14.29px;">Java</a> <a href="/tags/Java知识点/" style="font-size: 11.43px;">Java知识点</a> <a href="/tags/Java编程思想/" style="font-size: 15.71px;">Java编程思想</a> <a href="/tags/fragment/" style="font-size: 12.86px;">fragment</a> <a href="/tags/mvc/" style="font-size: 11.43px;">mvc</a> <a href="/tags/刷题/" style="font-size: 11.43px;">刷题</a> <a href="/tags/剑指Offer/" style="font-size: 18.57px;">剑指Offer</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a> <a href="/tags/线程/" style="font-size: 11.43px;">线程</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/随笔/" style="font-size: 11.43px;">随笔</a>
     			</div>
     	</section>
     
