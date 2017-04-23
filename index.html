@@ -129,6 +129,76 @@
       <div class="body-wrap">
         
   
+    <article id="post-计算机实验" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/23/计算机实验/">短进程优先算法实验</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="实验报告"><a href="#实验报告" class="headerlink" title="实验报告"></a>实验报告</h1><p>作者：墨</p>
+<h2 id="实验目的："><a href="#实验目的：" class="headerlink" title="实验目的："></a>实验目的：</h2><p>就绪进程数大于处理机数时，按照某种策略决定哪些进程优先占用处理机。实验模拟处理机调度，加深对处理机调度的理解。</p>
+<h2 id="实验内容："><a href="#实验内容：" class="headerlink" title="实验内容："></a>实验内容：</h2><p>实验一：模拟短进程优先调度</p>
+<h2 id="实验源代码"><a href="#实验源代码" class="headerlink" title="实验源代码"></a>实验源代码</h2><p>ps:您可以到colining.cn查看代码；<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//进程类</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Process</span> </span>&#123;</div><div class="line">    String processName;     <span class="comment">//进程名称</span></div><div class="line"></div><div class="line">    <span class="keyword">int</span> arrivalTime;        <span class="comment">//到达时间</span></div><div class="line">    <span class="keyword">int</span> starTime;           <span class="comment">//开始时间</span></div><div class="line">    <span class="keyword">int</span> finishTime;         <span class="comment">//实际完成时间</span></div><div class="line">    <span class="keyword">int</span> wholeTime;          <span class="comment">//运行所需要的的时间；</span></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getProcessName</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> processName;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getStarTime</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> starTime;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getFinishTime</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> finishTime;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getArrivalTime</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> arrivalTime;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setFinishTime</span><span class="params">(<span class="keyword">int</span> finishTime)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.finishTime = finishTime;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setStarTime</span><span class="params">(<span class="keyword">int</span> starTime)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.starTime = starTime;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getWholeTime</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> wholeTime;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Process</span><span class="params">(String processName, <span class="keyword">int</span> arrivalTime, <span class="keyword">int</span> wholeTime)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.processName = processName;</div><div class="line">        <span class="keyword">this</span>.arrivalTime = arrivalTime;</div><div class="line">        <span class="keyword">this</span>.wholeTime = wholeTime;</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Short_process</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        ArrayList&lt;Process&gt; arrayList = <span class="keyword">new</span> ArrayList&lt;&gt;();</div><div class="line">        Scanner in = <span class="keyword">new</span> Scanner(System.in);</div><div class="line">        System.out.println(<span class="string">"请输入有几个进程呢？"</span>);</div><div class="line">        <span class="keyword">int</span> numberofprocess = in.nextInt();</div><div class="line"></div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span> ; i&lt;numberofprocess;i++)</div><div class="line">        &#123;</div><div class="line">            System.out.println(<span class="string">"请输入进程"</span>+(i+<span class="number">1</span>)+<span class="string">"的进程名称"</span>);</div><div class="line">            String name = in.next();</div><div class="line">            System.out.println(<span class="string">"请输入进程"</span>+(i+<span class="number">1</span>)+<span class="string">"的到达时间"</span>);</div><div class="line">            <span class="keyword">int</span> arrivalTime = in.nextInt();</div><div class="line">            System.out.println(<span class="string">"请输入进程"</span>+(i+<span class="number">1</span>)+<span class="string">"的运行所需时间"</span>);</div><div class="line">            <span class="keyword">int</span> wholeTime = in.nextInt();</div><div class="line">            Process process = <span class="keyword">new</span> Process(name,arrivalTime,wholeTime);</div><div class="line">            arrayList.add(process);</div><div class="line">            <span class="comment">//System.out.println("----------------------------");</span></div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        test(arrayList);</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">test</span> <span class="params">(ArrayList&lt;Process&gt; arrayList)</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">int</span> nowtime =<span class="number">0</span>;                     <span class="comment">//当前时间</span></div><div class="line">        <span class="keyword">int</span> currentprocess=<span class="number">0</span>;               <span class="comment">//当前进程</span></div><div class="line">        <span class="keyword">int</span> remain = arrayList.size();      <span class="comment">//剩余进程数</span></div><div class="line">        <span class="keyword">int</span> numofprocess =arrayList.size();</div><div class="line">        ArrayList&lt;Process&gt; arrayList1 = <span class="keyword">new</span> ArrayList&lt;&gt;();</div><div class="line">        <span class="comment">/*</span></div><div class="line">        以到达时间给进程排序；</div><div class="line">         */</div><div class="line">        Collections.sort(arrayList, <span class="keyword">new</span> Comparator&lt;Process&gt;() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(Process o1, Process o2)</span> </span>&#123;</div><div class="line">                <span class="keyword">return</span> o1.getArrivalTime()&lt;o2.getArrivalTime()?-<span class="number">1</span>:<span class="number">1</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">        <span class="keyword">while</span> (remain&gt;<span class="number">0</span>)</div><div class="line">        &#123;</div><div class="line">            </div><div class="line">            System.out.println(remain);</div><div class="line">            <span class="keyword">int</span> shortTestArrival = arrayList.get(<span class="number">0</span>).getArrivalTime();</div><div class="line">            <span class="keyword">if</span> (nowtime&lt;shortTestArrival)                               <span class="comment">//当前时间没有进程排队</span></div><div class="line">                nowtime = shortTestArrival;</div><div class="line">            <span class="keyword">int</span> i = <span class="number">1</span>;</div><div class="line">            currentprocess = <span class="number">0</span>;</div><div class="line">            <span class="comment">/*</span></div><div class="line">            寻找到达中的最短进程</div><div class="line">             */</div><div class="line">            <span class="keyword">while</span> (arrayList.size()&gt;i &amp;&amp;arrayList.get(i).getArrivalTime()&lt;=nowtime)</div><div class="line">            &#123;</div><div class="line">                <span class="comment">/*</span></div><div class="line"></div><div class="line">                 */</div><div class="line">                <span class="keyword">if</span> (arrayList.get(i).getWholeTime()&lt;arrayList.get(currentprocess).getWholeTime())</div><div class="line">                &#123;</div><div class="line">                    currentprocess = i;</div><div class="line">                &#125;</div><div class="line">                <span class="keyword">if</span> (arrayList.get(i).getWholeTime()==arrayList.get(currentprocess).getWholeTime())</div><div class="line">                &#123;</div><div class="line">                   <span class="keyword">int</span> a = (<span class="keyword">int</span>) (Math.random()*<span class="number">1000</span>);                      <span class="comment">//模拟进程条件相同，cpu随便选取</span></div><div class="line">                    <span class="keyword">if</span> ((a&amp;<span class="number">1</span>)==<span class="number">0</span>)</div><div class="line">                    &#123;</div><div class="line">                        currentprocess =i;</div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">                i++;</div><div class="line">            &#125;</div><div class="line">            <span class="comment">//Process process = arrayList.get(currentprocess);</span></div><div class="line">            <span class="keyword">int</span> wholeTime = arrayList.get(currentprocess).getWholeTime();           <span class="comment">//运行时间</span></div><div class="line">            arrayList.get(currentprocess).setStarTime(nowtime);                     <span class="comment">//设置实际开始时间</span></div><div class="line">            nowtime+=wholeTime;                                                     <span class="comment">//当前时间更新</span></div><div class="line">            arrayList.get(currentprocess).setFinishTime(nowtime);                   <span class="comment">//设置完成时间</span></div><div class="line"></div><div class="line">            arrayList1.add(arrayList.get(currentprocess));                          <span class="comment">//加入完成队列</span></div><div class="line">            arrayList.remove(currentprocess);                                       <span class="comment">//等待队列删除；</span></div><div class="line">            remain--;                                                               <span class="comment">//剩余进程--</span></div><div class="line">        &#125;</div><div class="line">        <span class="keyword">double</span> sumTurnaround_time=<span class="number">0</span>;</div><div class="line">        <span class="keyword">double</span> sumTurnaround_time_withwight =<span class="number">0</span>;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arrayList1.size(); i++) &#123;</div><div class="line">            <span class="keyword">double</span> Turnaround_time;</div><div class="line">            <span class="keyword">double</span> Turnaround_time_withwight;</div><div class="line">            System.out.println(<span class="string">"进程"</span>+(i+<span class="number">1</span>)+arrayList1.get(i).getProcessName()+<span class="string">"的开始时间为"</span>);</div><div class="line">            System.out.println(arrayList1.get(i).getStarTime());</div><div class="line">            System.out.println(<span class="string">"进程"</span>+(i+<span class="number">1</span>)+<span class="string">"的完成时间为"</span>);</div><div class="line">            System.out.println(arrayList1.get(i).getFinishTime());</div><div class="line"></div><div class="line">            System.out.println(<span class="string">"进程"</span>+(i+<span class="number">1</span>)+<span class="string">"周转时间为"</span>);</div><div class="line">            Turnaround_time = arrayList1.get(i).getFinishTime() - arrayList1.get(i).getArrivalTime();</div><div class="line">            sumTurnaround_time+=Turnaround_time;</div><div class="line">            System.out.println(Turnaround_time);</div><div class="line"></div><div class="line">            System.out.println(<span class="string">"进程"</span>+(i+<span class="number">1</span>)+<span class="string">"带权周转时间为"</span>);</div><div class="line">            Turnaround_time_withwight = Turnaround_time / (<span class="keyword">double</span>) arrayList1.get(i).getWholeTime();</div><div class="line">            sumTurnaround_time_withwight+=Turnaround_time_withwight;</div><div class="line">            System.out.println(Turnaround_time_withwight);</div><div class="line">            System.out.println(<span class="string">"----------------------------------------------"</span>);</div><div class="line"></div><div class="line">        &#125;</div><div class="line">        System.out.println(<span class="string">"先后顺序为："</span>);</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arrayList1.size(); i++) &#123;</div><div class="line">            System.out.print(arrayList1.get(i).getProcessName()+<span class="string">" "</span>);</div><div class="line">        &#125;</div><div class="line">        System.out.println();</div><div class="line">        System.out.println(<span class="string">"这组进程的平均周转时间为"</span>);</div><div class="line">        System.out.println(sumTurnaround_time / numofprocess);</div><div class="line">        System.out.println(<span class="string">"这组进程的平均带权周转时间为"</span>);</div><div class="line">        System.out.println(sumTurnaround_time_withwight / numofprocess);</div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="结果贴图，"><a href="#结果贴图，" class="headerlink" title="结果贴图，"></a>结果贴图，</h2><p><img src="http://upload-images.jianshu.io/upload_images/3038083-e537969eab1cad1e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="进程"><br>简单来说：C,D条件一样，F，G条件一样，所以会存在不同的结果；</p>
+<h3 id="结果一："><a href="#结果一：" class="headerlink" title="结果一："></a>结果一：</h3><p><img src="http://upload-images.jianshu.io/upload_images/3038083-738c1d800b5a20dc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="结果1表格"></p>
+<h6 id="实际截图"><a href="#实际截图" class="headerlink" title="实际截图"></a>实际截图</h6><p><img src="http://upload-images.jianshu.io/upload_images/3038083-aa26e2e2ca21d421.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="结果1"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/3038083-920aed397babf3a5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="结果1.1"><br><img src="http://upload-images.jianshu.io/upload_images/3038083-b0cbafb987064e0e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="结果1.2"></p>
+<h3 id="结果二："><a href="#结果二：" class="headerlink" title="结果二："></a>结果二：</h3><p><img src="http://upload-images.jianshu.io/upload_images/3038083-1adb556526d5e296.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="结果二"></p>
+<h6 id="实际截图-1"><a href="#实际截图-1" class="headerlink" title="实际截图"></a>实际截图</h6><p><img src="http://upload-images.jianshu.io/upload_images/3038083-fe06f46db949e111.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="结果2"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/3038083-d1e29e574c0a7968.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="结果2.1"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/3038083-cdb438ce5e687f55.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="结果2.2"></p>
+<h2 id="实验结果分析："><a href="#实验结果分析：" class="headerlink" title="实验结果分析："></a>实验结果分析：</h2><p>算法特点，针对不同情况有什么样的优劣<br>优点: 短进程优先嘛，所以短进程肯定运行的更顺畅，更快结束；算法比较简单，只要在队列里找到运行时间短的就可以啦</p>
+<p>缺点：长进程很吃亏，可能会一直等待；完全不考虑等待时间，没有优先级，也没有紧迫感；需要预先知晓进程的运行所需时间；由于事先需要知晓运行时间，那么人机交互基本就不可能啦；</p>
+<h2 id="实验中发现的问题："><a href="#实验中发现的问题：" class="headerlink" title="实验中发现的问题："></a>实验中发现的问题：</h2><ol>
+<li>Java中关于Collections.sort的用法；</li>
+<li>关于相同条件进程的判断；</li>
+<li>进程太多，要输入的太多，老是输入错误；</li>
+<li>您可以那访问colining.cn查看实验报告，因为携带代码，所以我用markdown写的；</li>
+</ol>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/04/23/计算机实验/" class="archive-article-date">
+  	<time datetime="2017-04-23T11:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-04-23</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-职业规划" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -356,62 +426,6 @@
 
 
   
-    <article id="post-剑指Offer 56 链表中环的入口结点" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/10/剑指Offer 56 链表中环的入口结点/">剑指Offer 56 链表中环的入口结点</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>一个链表中包含环，请找出该链表的环的入口结点。</p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><ol>
-<li>hashset，最快的想法；重复检验嘛</li>
-<li>截断指针；因为什么呢？因为你会发现入口结点有两个入口，如果从头开始截断指针，最后的这个一定是入口结点；</li>
-<li>神奇的双指针：其实这个想法我稍微想过，不过步骤比较多，没想明白；首先我们进入了环中，就可以计算环的节点数目；第二个想法是在一个环中，两个结点追逐的话，在绕一圈以后，就会相遇；<br>那对这一题来说：<br>一个指针在头，另一个提前移动环节点数目，最后就会相遇；
-        <p class="article-more-link">
-          <a  href="/2017/04/10/剑指Offer 56 链表中环的入口结点/#more">more >></a>
-        </p>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2017/04/10/剑指Offer 56 链表中环的入口结点/" class="archive-article-date">
-  	<time datetime="2017-04-10T13:01:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-04-10</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/剑指Offer/">剑指Offer</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/22/">22</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -476,7 +490,7 @@
     
     	<section class="tools-section tools-section-tag">
     			<div class="widget tagcloud" id="js-tagcloud">
-    				<a href="/tags/Android/" style="font-size: 17.14px;">Android</a> <a href="/tags/Beauty-of-Programming/" style="font-size: 14.29px;">Beauty of Programming</a> <a href="/tags/Java/" style="font-size: 14.29px;">Java</a> <a href="/tags/Java知识点/" style="font-size: 11.43px;">Java知识点</a> <a href="/tags/Java编程思想/" style="font-size: 15.71px;">Java编程思想</a> <a href="/tags/fragment/" style="font-size: 12.86px;">fragment</a> <a href="/tags/mvc/" style="font-size: 11.43px;">mvc</a> <a href="/tags/刷题/" style="font-size: 11.43px;">刷题</a> <a href="/tags/剑指Offer/" style="font-size: 18.57px;">剑指Offer</a> <a href="/tags/笔试/" style="font-size: 10px;">笔试</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a> <a href="/tags/线程/" style="font-size: 11.43px;">线程</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/随笔/" style="font-size: 11.43px;">随笔</a>
+    				<a href="/tags/Android/" style="font-size: 17.5px;">Android</a> <a href="/tags/Beauty-of-Programming/" style="font-size: 13.75px;">Beauty of Programming</a> <a href="/tags/Java/" style="font-size: 15px;">Java</a> <a href="/tags/Java知识点/" style="font-size: 11.25px;">Java知识点</a> <a href="/tags/Java编程思想/" style="font-size: 16.25px;">Java编程思想</a> <a href="/tags/fragment/" style="font-size: 12.5px;">fragment</a> <a href="/tags/mvc/" style="font-size: 11.25px;">mvc</a> <a href="/tags/刷题/" style="font-size: 11.25px;">刷题</a> <a href="/tags/剑指Offer/" style="font-size: 18.75px;">剑指Offer</a> <a href="/tags/笔试/" style="font-size: 10px;">笔试</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a> <a href="/tags/线程/" style="font-size: 11.25px;">线程</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/随笔/" style="font-size: 11.25px;">随笔</a>
     			</div>
     	</section>
     

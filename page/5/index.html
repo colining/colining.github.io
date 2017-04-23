@@ -129,6 +129,61 @@
       <div class="body-wrap">
         
   
+    <article id="post-剑指Offer 40 数组中只出现一次的数字" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/02/剑指Offer 40 数组中只出现一次的数字/">剑指Offer 40 数组中只出现一次的数字</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>一个整型数组里除了两个数字之外，其他的数字都出现了两次。请写程序找出这两个只出现一次的数字。</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><ol>
+<li>这不是一道正常题，因为他的考点就是异或运算；我刚开始还在想先排个序，然后每次移动两位；这样就可以比较出来了；然而时间复杂度O（n）可以接受，空间复杂度O（1）是什么鬼？ 除了异或运算应该不可能做到的吧；</li>
+<li>讲讲异或运算，相同的数字亦或运算后就是零；1^0=0^1 = 1;0^0=1^1=0;<br>所以我们就获得了重要情报，一群出现两次的数和一个只出现一次的数进行异或运算就是这个只出现一次的；<br>那么两个怎么办呢？首先对全部进行异或运算，得到的肯定不是0，因为有两个不一样嘛，这个数中二进制1的位置，表现了两个只出现一次的数的不同，然后我们就可以据此分类；
+        <p class="article-more-link">
+          <a  href="/2017/04/02/剑指Offer 40 数组中只出现一次的数字/#more">more >></a>
+        </p>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/04/02/剑指Offer 40 数组中只出现一次的数字/" class="archive-article-date">
+  	<time datetime="2017-04-02T13:12:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-04-02</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/剑指Offer/">剑指Offer</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-剑指Offer 39 二叉树的深度+平衡二叉树" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -348,61 +403,6 @@
 
 
   
-    <article id="post-剑指Offer 35 第一个只出现一次的字符" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/01/剑指Offer 35 第一个只出现一次的字符/">剑指Offer 35 第一个只出现一次的字符</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>在一个字符串(1&lt;=字符串长度&lt;=10000，全部由字母组成)中找到第一个只出现一次的字符,并返回它的位置。如果字符串为空,返回-1</p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><ol>
-<li>暴力法很好解得；</li>
-<li>你很容想到，遍历一遍记下出现的次数，由于字符不变，很容易也就想到了HashMap喽
-        <p class="article-more-link">
-          <a  href="/2017/04/01/剑指Offer 35 第一个只出现一次的字符/#more">more >></a>
-        </p>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2017/04/01/剑指Offer 35 第一个只出现一次的字符/" class="archive-article-date">
-  	<time datetime="2017-04-01T08:15:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-04-01</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/剑指Offer/">剑指Offer</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/4/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/22/">22</a><a class="extend next" rel="next" href="/page/6/">Next &raquo;</a>
@@ -467,7 +467,7 @@
     
     	<section class="tools-section tools-section-tag">
     			<div class="widget tagcloud" id="js-tagcloud">
-    				<a href="/tags/Android/" style="font-size: 17.14px;">Android</a> <a href="/tags/Beauty-of-Programming/" style="font-size: 14.29px;">Beauty of Programming</a> <a href="/tags/Java/" style="font-size: 14.29px;">Java</a> <a href="/tags/Java知识点/" style="font-size: 11.43px;">Java知识点</a> <a href="/tags/Java编程思想/" style="font-size: 15.71px;">Java编程思想</a> <a href="/tags/fragment/" style="font-size: 12.86px;">fragment</a> <a href="/tags/mvc/" style="font-size: 11.43px;">mvc</a> <a href="/tags/刷题/" style="font-size: 11.43px;">刷题</a> <a href="/tags/剑指Offer/" style="font-size: 18.57px;">剑指Offer</a> <a href="/tags/笔试/" style="font-size: 10px;">笔试</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a> <a href="/tags/线程/" style="font-size: 11.43px;">线程</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/随笔/" style="font-size: 11.43px;">随笔</a>
+    				<a href="/tags/Android/" style="font-size: 17.5px;">Android</a> <a href="/tags/Beauty-of-Programming/" style="font-size: 13.75px;">Beauty of Programming</a> <a href="/tags/Java/" style="font-size: 15px;">Java</a> <a href="/tags/Java知识点/" style="font-size: 11.25px;">Java知识点</a> <a href="/tags/Java编程思想/" style="font-size: 16.25px;">Java编程思想</a> <a href="/tags/fragment/" style="font-size: 12.5px;">fragment</a> <a href="/tags/mvc/" style="font-size: 11.25px;">mvc</a> <a href="/tags/刷题/" style="font-size: 11.25px;">刷题</a> <a href="/tags/剑指Offer/" style="font-size: 18.75px;">剑指Offer</a> <a href="/tags/笔试/" style="font-size: 10px;">笔试</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a> <a href="/tags/线程/" style="font-size: 11.25px;">线程</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/随笔/" style="font-size: 11.25px;">随笔</a>
     			</div>
     	</section>
     

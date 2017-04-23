@@ -129,6 +129,60 @@
       <div class="body-wrap">
         
   
+    <article id="post-原-标题栏-层级导航" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/24/原-标题栏-层级导航/">标题栏 层级导航</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1"><a href="#1" class="headerlink" title="1"></a>1</h2><p>最初我们的标题栏导航是怎样的呢？</p>
+<p>点击标题栏按钮，触发事件，创建一个Intent ，打开新页面；<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Intent intent = <span class="keyword">new</span> Intent(getActivity(),CrimePagerActivity.class);</div><div class="line">intent.putExtra(CrimeFragment.EXTRA_CRIME_ID,crime.getmId());</div><div class="line">startActivityForResult(intent,<span class="number">0</span>);</div></pre></td></tr></table></figure></p>
+<p>Intent？我们知道用Intent可以随便打开那个页面，那么这种导航就没有明确的父子关系，且必须知道要去哪里；简单地说，小李坐车去女朋友家，司机说：“我知道你女朋友在那里，上车” 实际上去哪里，是司机说的算；<br>
+        <p class="article-more-link">
+          <a  href="/2016/09/24/原-标题栏-层级导航/#more">more >></a>
+        </p>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/09/24/原-标题栏-层级导航/" class="archive-article-date">
+  	<time datetime="2016-09-24T08:44:04.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-09-24</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-原-样式与include" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -348,61 +402,6 @@
 
 
   
-    <article id="post-转-单例设计模式" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/12/转-单例设计模式/">[转]单例设计模式</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>版权声明：本文为 stormzhang 原创文章，可以随意转载，但必须在明确位置注明出处！！！</p>
-<p>经常有人问我说Android学习如何进阶？不管你怎么走，设计模式可谓是进阶必备，对设计模式的理解与运用对你之后的代码书写与架构设计有很多的帮助作用，那么从今天开始我就抽时间来给大家分享下设计模式系列。</p>
-<p>什么是设计模式？其实简单的理解就是前人留下来的一些经验总结而已，然后把这些经验起了个名字叫Design Pattern，翻译过来就是设计模式的意思，通过使用设计模式可以让我们的代码复用性更高，可维护性更高，让你的代码写的更优雅。设计模式理论上有23种，但是我只会针对Android平台上常用的一些设计模式做分享，今天就先来分享下最常用的单例模式。</p>
-<p>饿汉式<br>
-        <p class="article-more-link">
-          <a  href="/2016/09/12/转-单例设计模式/#more">more >></a>
-        </p>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/09/12/转-单例设计模式/" class="archive-article-date">
-  	<time datetime="2016-09-12T05:56:36.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-09-12</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/18/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="page-number" href="/page/18/">18</a><span class="page-number current">19</span><a class="page-number" href="/page/20/">20</a><a class="page-number" href="/page/21/">21</a><a class="page-number" href="/page/22/">22</a><a class="extend next" rel="next" href="/page/20/">Next &raquo;</a>
@@ -467,7 +466,7 @@
     
     	<section class="tools-section tools-section-tag">
     			<div class="widget tagcloud" id="js-tagcloud">
-    				<a href="/tags/Android/" style="font-size: 17.14px;">Android</a> <a href="/tags/Beauty-of-Programming/" style="font-size: 14.29px;">Beauty of Programming</a> <a href="/tags/Java/" style="font-size: 14.29px;">Java</a> <a href="/tags/Java知识点/" style="font-size: 11.43px;">Java知识点</a> <a href="/tags/Java编程思想/" style="font-size: 15.71px;">Java编程思想</a> <a href="/tags/fragment/" style="font-size: 12.86px;">fragment</a> <a href="/tags/mvc/" style="font-size: 11.43px;">mvc</a> <a href="/tags/刷题/" style="font-size: 11.43px;">刷题</a> <a href="/tags/剑指Offer/" style="font-size: 18.57px;">剑指Offer</a> <a href="/tags/笔试/" style="font-size: 10px;">笔试</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a> <a href="/tags/线程/" style="font-size: 11.43px;">线程</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/随笔/" style="font-size: 11.43px;">随笔</a>
+    				<a href="/tags/Android/" style="font-size: 17.5px;">Android</a> <a href="/tags/Beauty-of-Programming/" style="font-size: 13.75px;">Beauty of Programming</a> <a href="/tags/Java/" style="font-size: 15px;">Java</a> <a href="/tags/Java知识点/" style="font-size: 11.25px;">Java知识点</a> <a href="/tags/Java编程思想/" style="font-size: 16.25px;">Java编程思想</a> <a href="/tags/fragment/" style="font-size: 12.5px;">fragment</a> <a href="/tags/mvc/" style="font-size: 11.25px;">mvc</a> <a href="/tags/刷题/" style="font-size: 11.25px;">刷题</a> <a href="/tags/剑指Offer/" style="font-size: 18.75px;">剑指Offer</a> <a href="/tags/笔试/" style="font-size: 10px;">笔试</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a> <a href="/tags/线程/" style="font-size: 11.25px;">线程</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/随笔/" style="font-size: 11.25px;">随笔</a>
     			</div>
     	</section>
     

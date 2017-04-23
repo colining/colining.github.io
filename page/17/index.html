@@ -129,6 +129,62 @@
       <div class="body-wrap">
         
   
+    <article id="post-辗转相除法" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/01/04/辗转相除法/">辗转相除法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1"><a href="#1" class="headerlink" title="1"></a>1</h1><p>由于实在记不得辗转相除法的原理，所以只能自己写一下 记录一下啦；<br><a href="https://zh.wikipedia.org/wiki/%E8%BC%BE%E8%BD%89%E7%9B%B8%E9%99%A4%E6%B3%95" target="_blank" rel="external">https://zh.wikipedia.org/wiki/%E8%BC%BE%E8%BD%89%E7%9B%B8%E9%99%A4%E6%B3%95</a></p>
+<p>两个整数的最大公约数是能够同时整除它们的最大的正整数。辗转相除法基于如下原理：两个整数的最大公约数等于其中较小的数和两数的差的最大公约数。例如，252和105的最大公约数是21（252 = 21 × 12；105 = 21 × 5）；因为252 − 105 = 21 × (12 − 5) = 147，所以147和105的最大公约数也是21。在这个过程中，较大的数缩小了，所以继续进行同样的计算可以不断缩小这两个数直至其中一个变成零。这时，所剩下的还没有变成零的数就是两数的最大公约数。由辗转相除法也可以推出，两数的最大公约数可以用两数的整数倍相加来表示，如21 = 5 × 105 + (−2) × 252。这个重要的结论叫做裴蜀定理。</p>
+<p>简单来说呢就是两个公约数<br>1：两个数的最大公约数</p>
+<p>2：两个数中其中小的那个数，和两个数差值 的最大公约数</p>
+<p>这两个公约数是相等的；</p>
+<p>所以我们可以让其一直减小；</p>
+<p>本来呢是得到差值，但是两个数如果差距比较大，就变为求余运算啦；</p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/01/04/辗转相除法/" class="archive-article-date">
+  	<time datetime="2017-01-04T10:28:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-01-04</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Beauty-of-Programming/">Beauty of Programming</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-回溯法-素数环问题" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -342,60 +398,6 @@
 
 
   
-    <article id="post-Android intent 和activity" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/10/15/Android intent 和activity/">android 5 通知栏</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="1-intent-intent-extra-activity"><a href="#1-intent-intent-extra-activity" class="headerlink" title="1 intent intent extra  activity"></a>1 intent intent extra  activity</h2><p>简单的说是，activity1 要启动activity2 ，并且传输一个值；</p>
-<p>常用方法肯定是：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function">Intent <span class="title">intent</span><span class="params">( activity1.<span class="keyword">this</span>,activity2.class)</span></div><div class="line">intent.<span class="title">putExtra</span><span class="params">(...)</span></span>;</div><div class="line">startActivity(intent)</div></pre></td></tr></table></figure></p>
-<p>将其改为 activity2<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Intent <span class="title">newIntent</span><span class="params">(Context packageContext,<span class="keyword">boolean</span> answerIsTrue)</span></span>&#123;</div><div class="line"><span class="function">Intent <span class="title">intent</span><span class="params">( packageContext,activity2.class)</span></div><div class="line">intent.<span class="title">putExtra</span><span class="params">(Extra,answerIsTrue)</span></span>;</div><div class="line"><span class="keyword">return</span> intetn</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-        <p class="article-more-link">
-          <a  href="/2016/10/15/Android intent 和activity/#more">more >></a>
-        </p>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/10/15/Android intent 和activity/" class="archive-article-date">
-  	<time datetime="2016-10-15T07:40:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-15</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/16/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="page-number" href="/page/16/">16</a><span class="page-number current">17</span><a class="page-number" href="/page/18/">18</a><a class="page-number" href="/page/19/">19</a><span class="space">&hellip;</span><a class="page-number" href="/page/22/">22</a><a class="extend next" rel="next" href="/page/18/">Next &raquo;</a>
@@ -460,7 +462,7 @@
     
     	<section class="tools-section tools-section-tag">
     			<div class="widget tagcloud" id="js-tagcloud">
-    				<a href="/tags/Android/" style="font-size: 17.14px;">Android</a> <a href="/tags/Beauty-of-Programming/" style="font-size: 14.29px;">Beauty of Programming</a> <a href="/tags/Java/" style="font-size: 14.29px;">Java</a> <a href="/tags/Java知识点/" style="font-size: 11.43px;">Java知识点</a> <a href="/tags/Java编程思想/" style="font-size: 15.71px;">Java编程思想</a> <a href="/tags/fragment/" style="font-size: 12.86px;">fragment</a> <a href="/tags/mvc/" style="font-size: 11.43px;">mvc</a> <a href="/tags/刷题/" style="font-size: 11.43px;">刷题</a> <a href="/tags/剑指Offer/" style="font-size: 18.57px;">剑指Offer</a> <a href="/tags/笔试/" style="font-size: 10px;">笔试</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a> <a href="/tags/线程/" style="font-size: 11.43px;">线程</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/随笔/" style="font-size: 11.43px;">随笔</a>
+    				<a href="/tags/Android/" style="font-size: 17.5px;">Android</a> <a href="/tags/Beauty-of-Programming/" style="font-size: 13.75px;">Beauty of Programming</a> <a href="/tags/Java/" style="font-size: 15px;">Java</a> <a href="/tags/Java知识点/" style="font-size: 11.25px;">Java知识点</a> <a href="/tags/Java编程思想/" style="font-size: 16.25px;">Java编程思想</a> <a href="/tags/fragment/" style="font-size: 12.5px;">fragment</a> <a href="/tags/mvc/" style="font-size: 11.25px;">mvc</a> <a href="/tags/刷题/" style="font-size: 11.25px;">刷题</a> <a href="/tags/剑指Offer/" style="font-size: 18.75px;">剑指Offer</a> <a href="/tags/笔试/" style="font-size: 10px;">笔试</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a> <a href="/tags/线程/" style="font-size: 11.25px;">线程</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/随笔/" style="font-size: 11.25px;">随笔</a>
     			</div>
     	</section>
     
