@@ -129,6 +129,123 @@
       <div class="body-wrap">
         
   
+    <article id="post-京东 一面记录" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/15/京东 一面记录/">京东一面记录</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="惨痛的经历"><a href="#惨痛的经历" class="headerlink" title="惨痛的经历"></a>惨痛的经历</h2><p>京东初试就在学校南边两公里，坐公交去的，因为不太会骑自行车；提前半个小时到了，10：30的面试，人很多，我的签到号码是466，所以你懂得；然后就是坐着等呗；接下来就是面试的过程了；</p>
+<ol>
+<li>项目</li>
+<li>问了equals和==，这种东西我怎么可能不知道呢，但是讲了半天也没讲清楚，可能还是紧张了；</li>
+<li>hashmap的结构</li>
+<li>static的作用，类，变量，方法，</li>
+<li>为啥main方法是static的；</li>
+<li>hashcode是怎么实现的 我不会，有啥作用，我大概讲了，equals会用到；</li>
+<li>把list消去重复，直接new hashset = hashset（list）；我不知道啊，我就写了个循环</li>
+<li>问了 io操作咋写。完全不会，因为我八百年没有写过的好吧。</li>
+<li>然后问多线程通信，内存共享的这么一种形式，我答的好像对了？我就说同一个对象，两个线程都可以访问；</li>
+<li>socket怎么写，完全不会，io还写过，socket基本只停留在知道中。。。</li>
+<li>序列化，我也只是说会变成xml；
+        <p class="article-more-link">
+          <a  href="/2017/04/15/京东 一面记录/#more">more >></a>
+        </p>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/04/15/京东 一面记录/" class="archive-article-date">
+  	<time datetime="2017-04-15T04:51:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-04-15</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Java应急 知识" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/13/Java应急 知识/">Java应急 知识</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li>通配符相关：<br>首先我们要明白类型擦出是怎么回事，也就是说，类型的确定是编译时确定的；编译时发现你往里存的对象有问题就报错；如果运行了你通过反射强制向里面添加元素其实是随便的；<br>&lt; T &gt;表示某种类型，比如Integer；&lt; ? &gt;表示不知道具体那种类型；&lt; T &gt;简单啊，你添加，读取都是T类型；？呢，不知道是哪种类型，能放进去吗？显然不能啊，你总不能把电视和地球放在一起把，这样会很奇怪；但是？读取，就会很方便，因为集合里已经有了这么一些东西，我管它是啥呢，拿出来就好了；<br>以这种思想，我们来看一下上下界通配符；<br>&lt; ? extend A&gt;  也就是T是个A的子类，那是哪个呢？很显然，你没办法向里面储存A的全部子类吧；比如T是个A的其中大儿子的儿子；那么A小儿子的儿子，很显然存不进去的嘛；但是反过来我不管T是哪个类，它总可以向上转型为A，所以就可以读取并转型为A；（不可转型为A的子类）；<br>&lt; ? super B&gt; 就是说T是B得一个父类，那么很显然的，存什么我都可以把它转型为T嘛，因为T是B的父类嘛；但是当你读取的时候，T？B的父类，那是个什么玩意，到底是父亲，还是爷爷，还是Object呢？所以无法读取；除非你读取转型为Object；
+        <p class="article-more-link">
+          <a  href="/2017/04/13/Java应急 知识/#more">more >></a>
+        </p>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/04/13/Java应急 知识/" class="archive-article-date">
+  	<time datetime="2017-04-13T11:15:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-04-13</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-剑指Offer 56 链表中环的入口结点" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -293,119 +410,9 @@
 
 
   
-    <article id="post-剑指Offer 51数组中重复的数字" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/09/剑指Offer 51数组中重复的数字/">剑指Offer 51数组中重复的数字</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>在一个长度为n的数组里的所有数字都在0到n-1的范围内。<br>        数组中某些数字是重复的，但不知道有几个数字是重复的。也不知道每个数字重复几次。请找出数组中任意一个重复的数字。<br>        例如，如果输入长度为7的数组{2,3,1,0,2,5,3}，那么对应的输出是重复的数字2或者3。</p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><ol>
-<li>我们来思考一下，0~n-1 如果不重复是什么情况，就是0~n-1这些数都有一个，排好序完全就是从小到大；如果存在重复，最后一个数肯定到不了n-1；</li>
-<li>i这个数的位置就在i这个位置，所以我们可以用调整位置，如果在这个位置上的数和i一样，就说明有两个i了呗</li>
-<li>hashset
-        <p class="article-more-link">
-          <a  href="/2017/04/09/剑指Offer 51数组中重复的数字/#more">more >></a>
-        </p>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2017/04/09/剑指Offer 51数组中重复的数字/" class="archive-article-date">
-  	<time datetime="2017-04-09T08:05:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-04-09</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/剑指Offer/">剑指Offer</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-剑指Offer 49 把字符串转换成整数" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/09/剑指Offer 49 把字符串转换成整数/">剑指Offer 49 把字符串转换成整数</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>将一个字符串转换成一个整数，要求不能使用字符串转换整数的库函数。 数值为0或者字符串不是一个合法的数值则返回0</p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><ol>
-<li>其实这道题就是要考虑周全就行，首先是字符串的鉴别啊，“+”和“-”的判别，然后我就写多了。。。。
-        <p class="article-more-link">
-          <a  href="/2017/04/09/剑指Offer 49 把字符串转换成整数/#more">more >></a>
-        </p>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2017/04/09/剑指Offer 49 把字符串转换成整数/" class="archive-article-date">
-  	<time datetime="2017-04-09T07:11:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-04-09</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/剑指Offer/">剑指Offer</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/22/">22</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/23/">23</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
     </nav>
   
 

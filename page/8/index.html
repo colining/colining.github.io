@@ -129,6 +129,116 @@
       <div class="body-wrap">
         
   
+    <article id="post-J2EE common-fileupload 的使用问题" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/28/J2EE common-fileupload 的使用问题/">J2EE common-fileupload 的使用问题</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="common-fileupload"><a href="#common-fileupload" class="headerlink" title="common-fileupload"></a>common-fileupload</h2><p>今天真的是多事的一天,问题真的是很多；<br>首先是上传，运行代码，死活都return<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">       <span class="comment">// 判断提交表单的类型是否为multipart/form-data</span></div><div class="line"><span class="comment">//        if (!upload.isMultipartContent(request)) &#123;</span></div><div class="line"><span class="comment">//</span></div><div class="line"><span class="comment">//            return;</span></div><div class="line"><span class="comment">//        &#125;</span></div></pre></td></tr></table></figure></p>
+        <p class="article-more-link">
+          <a  href="/2017/03/28/J2EE common-fileupload 的使用问题/#more">more >></a>
+        </p>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/03/28/J2EE common-fileupload 的使用问题/" class="archive-article-date">
+  	<time datetime="2017-03-28T12:36:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-03-28</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-算法基础 快速排序" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/27/算法基础 快速排序/">算法基础 快速排序</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="快排"><a href="#快排" class="headerlink" title="快排"></a>快排</h2><p><img src="http://img.blog.csdn.net/20170327213235821?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjM5NzQxNzU=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>引用维基百科的定义<br>步骤为：</p>
+<ol>
+<li>从数列中挑出一个元素，称为”基准”（pivot），<br>2.重新排序数列，所有比基准值小的元素摆放在基准前面，所有比基准值大的元素摆在基准后面（相同的数可以到任一边）。在这个分区结束之后，该基准就处于数列的中间位置。这个称为分区（partition）操作。</li>
+<li>递归地（recursively）把小于基准值元素的子数列和大于基准值元素的子数列排序。</li>
+<li>递归到最底部时，数列的大小是零或一，也就是已经排序好了。这个算法一定会结束，因为在每次的迭代（iteration）中，它至少会把一个元素摆到它最后的位置去。<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2>其实快排的思想很是简单；一个基准，一边大一边小；到底哪里难以理解呢？<br>就是他了—-&gt;<strong>原地分区</strong> <a href="http://blog.csdn.net/morewindows/article/details/6684558">参考</a></li>
+</ol>
+<p>简单的说，就是代码实现时比较复杂；因为递归，你总不好一直创建一个小堆，一个大堆用来储存分好区的元素吧；尤其是java，实现起来真的好烦；<br>所以就要使用原地分区的思路；<br>
+        <p class="article-more-link">
+          <a  href="/2017/03/27/算法基础 快速排序/#more">more >></a>
+        </p>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/03/27/算法基础 快速排序/" class="archive-article-date">
+  	<time datetime="2017-03-27T13:40:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-03-27</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/剑指Offer/">剑指Offer</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-剑指Offer 28 -字符串的排列" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -289,117 +399,9 @@
 
 
   
-    <article id="post-剑指Offer 25 -二叉树中和为某一值的路径" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/26/剑指Offer 25 -二叉树中和为某一值的路径/">剑指Offer 25 *二叉树中和为某一值的路径</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>输入一颗二叉树和一个整数，打印出二叉树中结点值的和为输入整数的所有路径。路径定义为从树的根结点开始往下一直到叶结点所经过的结点形成一条路径。</p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>这道题绝对就是递归了，但是你会发现一个问题，怎么做到已经找到一条路径然后还要继续找<br>
-        <p class="article-more-link">
-          <a  href="/2017/03/26/剑指Offer 25 -二叉树中和为某一值的路径/#more">more >></a>
-        </p>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2017/03/26/剑指Offer 25 -二叉树中和为某一值的路径/" class="archive-article-date">
-  	<time datetime="2017-03-26T08:41:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-03-26</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/剑指Offer/">剑指Offer</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-剑指Offer 24 二叉搜索树的后序遍历序列" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/26/剑指Offer 24 二叉搜索树的后序遍历序列/">剑指Offer 24 二叉搜索树的后序遍历序列</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>输入一个整数数组，判断该数组是不是某二叉搜索树的后序遍历的结果。如果是则输出Yes,否则输出No。假设输入的数组的任意两个数字都互不相同。</p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><ol>
-<li>后序遍历，最后一个数就是根节点，他的前面左部分，小于他的是左子树，大于他的是右子树；当满足后序遍历时，左子树在一边，右子树在另外一边；然后根节点向下移动；递归就出来了</li>
-<li>根据上面说的，整个数组，和最后一个数比较的话，应该大于的在一边，小于在一边，所以我们可以逐个比较即可
-        <p class="article-more-link">
-          <a  href="/2017/03/26/剑指Offer 24 二叉搜索树的后序遍历序列/#more">more >></a>
-        </p>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2017/03/26/剑指Offer 24 二叉搜索树的后序遍历序列/" class="archive-article-date">
-  	<time datetime="2017-03-26T06:56:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-03-26</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/剑指Offer/">剑指Offer</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/7/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/22/">22</a><a class="extend next" rel="next" href="/page/9/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/7/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/23/">23</a><a class="extend next" rel="next" href="/page/9/">Next &raquo;</a>
     </nav>
   
 

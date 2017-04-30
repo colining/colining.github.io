@@ -129,6 +129,137 @@
       <div class="body-wrap">
         
   
+    <article id="post-剑指Offer 32 从1到n整数中1出现的次数" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/31/剑指Offer 32 从1到n整数中1出现的次数/">剑指Offer 32 从1到n整数中1出现的次数</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>求出1~13的整数中1出现的次数,并算出100~1300的整数中1出现的次数？为此他特别数了一下1~13中包含1的数字有1、10、11、12、13因此共出现6次,但是对于后面问题他就没辙了。ACMer希望你们帮帮他,并把问题更加普遍化,可以很快的求出任意非负整数区间中1出现的次数。</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><ol>
+<li>暴力法，你可以对每一个数的每一位检查一下是否有1；</li>
+<li>暴力法，变成字符串，检查‘1’的个数；</li>
+<li>数学规律法</li>
+</ol>
+<p>核心思路：</p>
+<pre><code>1.分别判断每一位上1出现过的次数，从个位往高位递推；
+
+
+2.对于当前处理的位，需要根据其值是0,1，还是&gt;1 对应有不同的处理。
+
+
+    例如，假设当前考虑百位：
+
+
+    (1 )如果百位&gt;1,那么百位上1的次数 = (n/100 + 1) * 100;由高位和低位共同决定
+
+
+    (2)如果百位=1，那么百位上1的数次 = (n/100) * 100 + (n%100 + 1)；由高位和低位共同决定
+
+
+    (3)如果百位&lt;1，那么百位上1的次数 = (n/100) * 100;由高位决定。
+</code></pre>
+        <p class="article-more-link">
+          <a  href="/2017/03/31/剑指Offer 32 从1到n整数中1出现的次数/#more">more >></a>
+        </p>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/03/31/剑指Offer 32 从1到n整数中1出现的次数/" class="archive-article-date">
+  	<time datetime="2017-03-31T07:16:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-03-31</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/剑指Offer/">剑指Offer</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-剑指Offer 31 连续子数组的最大和" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/30/剑指Offer 31 连续子数组的最大和/">剑指Offer 31 连续子数组的最大和</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>输入一个整形数组，数组里有正数也有负数。<br>数组中连续的一个或多个整数组成一个子数组，每个子数组都有一个和。<br>求所有子数组的和的最大值。要求时间复杂度为O(n)。</p>
+<p>例如输入的数组为1, -2, 3, 10, -4, 7, 2, -5，和最大的子数组为3, 10, -4, 7, 2，<br>因此输出为该子数组的和18。</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><ol>
+<li>这道题应该做过一遍，所以思路比较清楚，第一种是说直接将数从头加到尾，每一位都变成之前所有数的和；然后你就会发现，有些数是负的啊，一看就知道不应该要他；所以想法就是如果是负数，就变成当前值；<br>（1，-2，3）–&gt;（1，-1，2）；你-1加3肯定更小啊；所以是这样的<br>（1，-2，3）–&gt;（1，-1，3）；前边是负值，你就重新计算的啦；</li>
+<li>动态规划：<br>很明显的，如果前面是负的，就重新来，否则继续加；
+        <p class="article-more-link">
+          <a  href="/2017/03/30/剑指Offer 31 连续子数组的最大和/#more">more >></a>
+        </p>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/03/30/剑指Offer 31 连续子数组的最大和/" class="archive-article-date">
+  	<time datetime="2017-03-30T13:33:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-03-30</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/剑指Offer/">剑指Offer</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-算法基础 大根堆与堆排序" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -300,119 +431,9 @@
 
 
   
-    <article id="post-J2EE common-fileupload 的使用问题" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/28/J2EE common-fileupload 的使用问题/">J2EE common-fileupload 的使用问题</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="common-fileupload"><a href="#common-fileupload" class="headerlink" title="common-fileupload"></a>common-fileupload</h2><p>今天真的是多事的一天,问题真的是很多；<br>首先是上传，运行代码，死活都return<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">       <span class="comment">// 判断提交表单的类型是否为multipart/form-data</span></div><div class="line"><span class="comment">//        if (!upload.isMultipartContent(request)) &#123;</span></div><div class="line"><span class="comment">//</span></div><div class="line"><span class="comment">//            return;</span></div><div class="line"><span class="comment">//        &#125;</span></div></pre></td></tr></table></figure></p>
-        <p class="article-more-link">
-          <a  href="/2017/03/28/J2EE common-fileupload 的使用问题/#more">more >></a>
-        </p>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2017/03/28/J2EE common-fileupload 的使用问题/" class="archive-article-date">
-  	<time datetime="2017-03-28T12:36:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-03-28</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-算法基础 快速排序" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/27/算法基础 快速排序/">算法基础 快速排序</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="快排"><a href="#快排" class="headerlink" title="快排"></a>快排</h2><p><img src="http://img.blog.csdn.net/20170327213235821?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjM5NzQxNzU=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>引用维基百科的定义<br>步骤为：</p>
-<ol>
-<li>从数列中挑出一个元素，称为”基准”（pivot），<br>2.重新排序数列，所有比基准值小的元素摆放在基准前面，所有比基准值大的元素摆在基准后面（相同的数可以到任一边）。在这个分区结束之后，该基准就处于数列的中间位置。这个称为分区（partition）操作。</li>
-<li>递归地（recursively）把小于基准值元素的子数列和大于基准值元素的子数列排序。</li>
-<li>递归到最底部时，数列的大小是零或一，也就是已经排序好了。这个算法一定会结束，因为在每次的迭代（iteration）中，它至少会把一个元素摆到它最后的位置去。<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2>其实快排的思想很是简单；一个基准，一边大一边小；到底哪里难以理解呢？<br>就是他了—-&gt;<strong>原地分区</strong> <a href="http://blog.csdn.net/morewindows/article/details/6684558">参考</a></li>
-</ol>
-<p>简单的说，就是代码实现时比较复杂；因为递归，你总不好一直创建一个小堆，一个大堆用来储存分好区的元素吧；尤其是java，实现起来真的好烦；<br>所以就要使用原地分区的思路；<br>
-        <p class="article-more-link">
-          <a  href="/2017/03/27/算法基础 快速排序/#more">more >></a>
-        </p>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2017/03/27/算法基础 快速排序/" class="archive-article-date">
-  	<time datetime="2017-03-27T13:40:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-03-27</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/剑指Offer/">剑指Offer</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/6/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/22/">22</a><a class="extend next" rel="next" href="/page/8/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/6/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/23/">23</a><a class="extend next" rel="next" href="/page/8/">Next &raquo;</a>
     </nav>
   
 

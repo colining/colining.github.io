@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>JDBC进阶 + 数据源 | colin</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="JDBC进阶上回我们知道了，通过工厂模式+配置文件动态连接数据库；这次的主要目的呢，则是将增删改查想办法重构掉；比如查询，到哪里的操作不都是一样的嘛；所以我们自然就想到了将查询操作重构掉；
+然后我们思考一下类的组织，有这么一个接口，其中声明了增删改查，我们的类实现这个接口== 我们的类必须实现增删改查，不实现这些，你也叫数据库操作吗？然后我们要将这个类的增删改查的实际操作重构掉；这个类只需要知道该">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JDBC进阶 + 数据源">
+<meta property="og:url" content="http://yoursite.com/2017/04/25/JDBC进阶 + 数据源/index.html">
+<meta property="og:site_name" content="colin">
+<meta property="og:description" content="JDBC进阶上回我们知道了，通过工厂模式+配置文件动态连接数据库；这次的主要目的呢，则是将增删改查想办法重构掉；比如查询，到哪里的操作不都是一样的嘛；所以我们自然就想到了将查询操作重构掉；
+然后我们思考一下类的组织，有这么一个接口，其中声明了增删改查，我们的类实现这个接口== 我们的类必须实现增删改查，不实现这些，你也叫数据库操作吗？然后我们要将这个类的增删改查的实际操作重构掉；这个类只需要知道该">
+<meta property="og:image" content="http://img.blog.csdn.net/20170425190732764?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjM5NzQxNzU=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:updated_time" content="2017-04-30T11:55:12.922Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JDBC进阶 + 数据源">
+<meta name="twitter:description" content="JDBC进阶上回我们知道了，通过工厂模式+配置文件动态连接数据库；这次的主要目的呢，则是将增删改查想办法重构掉；比如查询，到哪里的操作不都是一样的嘛；所以我们自然就想到了将查询操作重构掉；
+然后我们思考一下类的组织，有这么一个接口，其中声明了增删改查，我们的类实现这个接口== 我们的类必须实现增删改查，不实现这些，你也叫数据库操作吗？然后我们要将这个类的增删改查的实际操作重构掉；这个类只需要知道该">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20170425190732764?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjM5NzQxNzU=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+  
+    <link rel="alternative" href="/atom.xml" title="colin" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="//favicon.png">
+  
+  <script src="/style.js"></script>
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="/0.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">墨</a></h1>
+		</hgroup>
+
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/tags/随笔">随笔</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">所有文章</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="2" href="javascript:void(0)">友链</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="3" href="javascript:void(0)">关于我</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="https://github.com/colining" title="github">github</a>
+		        
+					<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/ren-tian-qi" title="zhihu">zhihu</a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<h1 class="header-author js-mobile-header hide">墨</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img src="/0.jpg" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">墨</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/tags/随笔">随笔</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/colining" title="github">github</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/ren-tian-qi" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap">
+        <article id="post-JDBC进阶 + 数据源" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JDBC进阶 + 数据源
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="JDBC进阶"><a href="#JDBC进阶" class="headerlink" title="JDBC进阶"></a>JDBC进阶</h1><p>上回我们知道了，通过工厂模式+配置文件动态连接数据库；<br>这次的主要目的呢，则是将增删改查想办法重构掉；比如查询，到哪里的操作不都是一样的嘛；所以我们自然就想到了将查询操作重构掉；</p>
+<p>然后我们思考一下类的组织，有这么一个接口，其中声明了增删改查，我们的类实现这个接口== 我们的类必须实现增删改查，不实现这些，你也叫数据库操作吗？然后我们要将这个类的增删改查的实际操作重构掉；这个类只需要知道该干什么，需要什么齐活；</p>
+<p>首先是接口，实现类必须实现增删改查；<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">UserDAO</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> ArrayList&lt;Users&gt; <span class="title">findUsers</span><span class="params">()</span></span>;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">findUser</span><span class="params">(Users users)</span></span>;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">insertUser</span><span class="params">(Users users)</span></span>;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">update</span><span class="params">(Users users)</span></span>;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">delete</span><span class="params">(Users users)</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<p>我们的目标是这样的，只需要参数，和做什么；<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserDAOImp1</span> <span class="keyword">extends</span> <span class="title">BaseDAO</span> <span class="keyword">implements</span> <span class="title">UserDAO</span> </span>&#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> ArrayList&lt;Users&gt; <span class="title">findUsers</span><span class="params">()</span> </span>&#123;</div><div class="line">       String sql = <span class="string">"select userid Userid ,username Username,userage Userage,"</span> +</div><div class="line">               <span class="string">"gender Gender,birthday Birthday,address Address  from users"</span>;</div><div class="line">       <span class="keyword">return</span> findObjs(sql,Users.class);</div><div class="line">    &#125;</div><div class="line">    	<span class="meta">@Override</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">findUser</span><span class="params">(Users user)</span> </span>&#123;</div><div class="line">		<span class="comment">// TODO Auto-generated method stub</span></div><div class="line">		<span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">	&#125;</div></pre></td></tr></table></figure></p>
+<p>然后就是重点的重构过程了：其实就是增加了一个父类；<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BaseDAO</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> ArrayList <span class="title">findObjs</span><span class="params">(String sql , Class clazz)</span></span></div><div class="line">    &#123;</div><div class="line">        Connection connection = <span class="keyword">null</span>;</div><div class="line">        PreparedStatement ps  = <span class="keyword">null</span>;</div><div class="line">        ResultSet rs = <span class="keyword">null</span>;</div><div class="line">        ArrayList objs = <span class="keyword">new</span> ArrayList();</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            connection = JDBCUtils.getConnection();</div><div class="line">            ps = connection.prepareStatement(sql);</div><div class="line">            System.out.println(sql);</div><div class="line">            rs = ps.executeQuery();</div><div class="line">            <span class="keyword">while</span>(rs.next())&#123;</div><div class="line">                Object obj = mappingObj(rs,clazz);              <span class="comment">//这里取结果集就厉害了；来什么取什么</span></div><div class="line">                objs.add(obj);</div><div class="line">            &#125;</div><div class="line">            JDBCUtils.free(rs, ps, connection);</div><div class="line"></div><div class="line"></div><div class="line">        &#125; <span class="keyword">catch</span> (SQLException e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125; <span class="keyword">catch</span> (IllegalArgumentException e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125; <span class="keyword">catch</span> (InstantiationException e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125; <span class="keyword">catch</span> (IllegalAccessException e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125; <span class="keyword">catch</span> (InvocationTargetException e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> objs;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">private</span> Object <span class="title">mappingObj</span><span class="params">(ResultSet rs,Class clazz)</span> <span class="keyword">throws</span> SQLException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException</span>&#123;</div><div class="line">        <span class="comment">//实例化映射对象</span></div><div class="line">        Object obj = clazz.newInstance();</div><div class="line">        <span class="comment">//获取映射对象的方法</span></div><div class="line">        Method[] methods = clazz.getMethods();</div><div class="line">        <span class="comment">//获取结果集中元数据信息</span></div><div class="line">        ResultSetMetaData meta = rs.getMetaData();</div><div class="line">        <span class="comment">// 按字段数目循环结果集中记录，进行对象映射</span></div><div class="line">        System.out.println(meta.getColumnCount());</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=<span class="number">4</span>;i++)&#123;</div><div class="line">            <span class="comment">// 构造当前列的set方法名称</span></div><div class="line">            String colname = meta.getColumnLabel(i);</div><div class="line">            String methodname = <span class="string">"set"</span> + colname;</div><div class="line">            System.out.println(methodname);</div><div class="line">            <span class="comment">// 循环查找同名方法，并通过反射调用该方法，设置属性</span></div><div class="line">            <span class="keyword">for</span>(Method method:methods)&#123;</div><div class="line">                <span class="keyword">if</span>(method.getName().equals(methodname))&#123;</div><div class="line">                    System.out.println(methodname+<span class="string">"find"</span>);</div><div class="line">                    method.invoke(obj, rs.getObject(i));</div><div class="line">                    <span class="keyword">break</span>;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line"></div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> obj;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>上面就是最重要的部分，反射+元数据；我们为什么重构，因为对任意一个表，查询操作是不是都只是将全部数据拿出来。然后放到结果集里；那我们将结果集抽象成对象，必然得set很多啊；比如这样：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">Users users = <span class="keyword">new</span> Users();</div><div class="line">             users.setUserid(resultSet.getInt(<span class="number">1</span>));</div><div class="line">             users.setUsername(resultSet.getString(<span class="number">2</span>));</div><div class="line">             users.setUserage(resultSet.getInt(<span class="number">3</span>));</div><div class="line">             users.setGender(resultSet.getInt(<span class="number">4</span>));</div><div class="line">             users.setBirthday(resultSet.getDate(<span class="number">5</span>));</div><div class="line">             users.setAddress(resultSet.getString(<span class="number">6</span>));</div><div class="line">             arrayList.add(users);</div></pre></td></tr></table></figure></p>
+<p>现在的情况是什么呢？<br>你给我你要将结果集放在什么对象里；我从结果集里看看元数据（我的数据长什么样，是不是符合要求）；如果符合，如果搭配就初始化到对象中的属性去；而结果集是怎么来的，通过sql语句，sql语句怎么来的？你自己传进去的；<br>你可以怎么想呢？，你找了一个函数，然后告诉他：去那边找找有没有足球，然后放到这个足球框里；要求和对象都是你给的；这个函数当然也就可以做找篮球，放篮球框里；如果是更改的话，就是：“你找找有没有没气的皮球”，用这个皮球代替一下；</p>
+<h2 id="JDBC-数据源"><a href="#JDBC-数据源" class="headerlink" title="JDBC 数据源"></a>JDBC 数据源</h2><p>其实这个也很好理解，就是连接是一种资源；在浏览网页的时候，和数据库建立的连接，要可以控制啊;就像A，B之间有5条路，每次一条路只能通过一个人；一旦有人走，就等于可用路线少了；反过来，如果这个人走完了，那么必然总路线有多了一个；<br><img src="http://img.blog.csdn.net/20170425190732764?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjM5NzQxNzU=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<p>数据源要做什么呢？ 首先来一个用户，是不是得申请一个连接，所以会有getConnection()方法；数据源有一大堆的连接，那么他们从哪里来的，一定得有创建的啊；还有就是数据源的数据结构，一大堆的数据结构，用的时候，就给一个，结束，就返回一个；所以建造了一个链表；<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyDataSource</span> <span class="keyword">implements</span> <span class="title">DataSource</span> </span>&#123;</div><div class="line">	<span class="keyword">private</span> LinkedList&lt;Connection&gt; connPool = <span class="keyword">new</span> LinkedList();</div><div class="line">	<span class="keyword">private</span> <span class="keyword">static</span> String url ;</div><div class="line">	<span class="keyword">private</span> <span class="keyword">static</span> String username ;</div><div class="line">	<span class="keyword">private</span> <span class="keyword">static</span> String password ;</div><div class="line">	<span class="comment">/*</span></div><div class="line">		创建Connection；</div><div class="line">	 */</div><div class="line">	<span class="function"><span class="keyword">private</span> Connection <span class="title">createConnection</span><span class="params">()</span></span>&#123;</div><div class="line">		Properties prop = <span class="keyword">new</span> Properties();</div><div class="line">		InputStream in = <span class="keyword">this</span>.getClass().getClassLoader()</div><div class="line">			.getResourceAsStream(<span class="string">"db.properties"</span>);</div><div class="line">		<span class="keyword">try</span> &#123;</div><div class="line">			prop.load(in);</div><div class="line">		&#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">			<span class="comment">// TODO Auto-generated catch block</span></div><div class="line">			e.printStackTrace();</div><div class="line">		&#125;</div><div class="line">		url = prop.getProperty(<span class="string">"url"</span>);</div><div class="line">		username = prop.getProperty(<span class="string">"username"</span>);</div><div class="line">		password = prop.getProperty(<span class="string">"password"</span>);</div><div class="line">		<span class="keyword">try</span> &#123;</div><div class="line">			Class.forName(prop.getProperty(<span class="string">"drivername"</span>));</div><div class="line">		&#125; <span class="keyword">catch</span> (ClassNotFoundException e) &#123;</div><div class="line">			<span class="comment">// TODO Auto-generated catch block</span></div><div class="line">			e.printStackTrace();</div><div class="line">		&#125;</div><div class="line">		Connection realConn = <span class="keyword">null</span>;</div><div class="line">		<span class="keyword">try</span> &#123;</div><div class="line">			realConn = DriverManager.getConnection(url,username,password);</div><div class="line">		&#125; <span class="keyword">catch</span> (SQLException e) &#123;</div><div class="line">			<span class="comment">// TODO Auto-generated catch block</span></div><div class="line">			e.printStackTrace();</div><div class="line">		&#125;</div><div class="line">		Connection myConn = <span class="keyword">new</span> MyConnection(realConn, <span class="keyword">this</span>.connPool);</div><div class="line">		<span class="keyword">return</span> myConn;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="comment">/*</span></div><div class="line">	获取一个connection，得到一个连接，</div><div class="line">	 */</div><div class="line">	<span class="meta">@Override</span></div><div class="line">	<span class="function"><span class="keyword">public</span> Connection <span class="title">getConnection</span><span class="params">()</span></span>&#123;</div><div class="line">		<span class="keyword">if</span>(<span class="keyword">this</span>.connPool.size()&gt;<span class="number">0</span>)&#123;</div><div class="line">			Connection conn = (Connection)<span class="keyword">this</span>.connPool.removeFirst();</div><div class="line"><span class="comment">//			System.out.println(conn.toString());</span></div><div class="line">			<span class="keyword">return</span>  conn;</div><div class="line">		&#125;<span class="keyword">else</span>&#123;</div><div class="line">			<span class="keyword">return</span> createConnection();</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="comment">/*</span></div><div class="line">	还有好多需要重写的方法；</div><div class="line">	*/</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>这里使用到了代理，一个连接，怎么也不应该结束连接的时候，还能放到连接池中吧；而很显然，这件事也不适合数据源去做；因为你可以创建连接，但是不能关闭连接，关闭连接是连接自己的行为；所以为了让连接和连接池发生关系，我们使用了代理；（不恰当的比喻）就像中介，既有我们的需求，又有市场的情况，所以就能调和两者；<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyConnection</span> <span class="keyword">implements</span> <span class="title">Connection</span> </span>&#123;</div><div class="line">	<span class="keyword">private</span> Connection realConn;</div><div class="line">	<span class="keyword">private</span> LinkedList&lt;Connection&gt; connPool;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="title">MyConnection</span><span class="params">(Connection rConn, LinkedList&lt;Connection&gt; cPool)</span></span>&#123;</div><div class="line">		<span class="keyword">this</span>.realConn=rConn;</div><div class="line">		<span class="keyword">this</span>.connPool=cPool;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="meta">@Override</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">clearWarnings</span><span class="params">()</span> <span class="keyword">throws</span> SQLException </span>&#123;</div><div class="line">		<span class="comment">// TODO Auto-generated method stub</span></div><div class="line">		<span class="keyword">this</span>.realConn.clearWarnings();</div><div class="line"></div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="meta">@Override</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">close</span><span class="params">()</span> <span class="keyword">throws</span> SQLException </span>&#123;</div><div class="line">		<span class="keyword">this</span>.connPool.addLast(<span class="keyword">this</span>);</div><div class="line"><span class="comment">//		System.out.println(realConn.toString());</span></div><div class="line"></div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="meta">@Override</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">commit</span><span class="params">()</span> <span class="keyword">throws</span> SQLException </span>&#123;</div><div class="line">		<span class="keyword">this</span>.realConn.commit();</div><div class="line"></div><div class="line">	&#125;</div><div class="line">	<span class="comment">/*</span></div><div class="line">	还有好多需要重写的方法；</div><div class="line">	*/</div><div class="line">	&#125;</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/04/25/JDBC进阶 + 数据源/" class="archive-article-date">
+  	<time datetime="2017-04-25T11:25:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-04-25</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2017/04/30/俄罗斯方块Demo/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          俄罗斯方块Demo
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/04/23/计算机实验/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">短进程优先算法实验</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="//v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="JDBC进阶 + 数据源" data-title="JDBC进阶 + 数据源" data-url="http://yoursite.com/2017/04/25/JDBC进阶 + 数据源/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"colining.duoshuo.com"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 墨
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: false,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: "/"
+	}
+</script>
+
+<script src="/./main.js"></script>
+
+
+    
+<div class="tools-col">
+  <ul class="btn-wrap">
+    
+      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
+    
+    
+      <li data-hook="tools-section-tag"><span class="text">标签</span><i class="icon-price-tags"></i></li>
+    
+    
+      <li data-hook="tools-section-friends"><span class="text">友链</span><i class="icon-link"></i></li>
+    
+    
+      <li data-hook="tools-section-me"><span class="text">我</span><i class="icon-smile"></i></li>
+    
+  </ul>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all chose">
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-tag">
+    			<div class="widget tagcloud" id="js-tagcloud">
+    				<a href="/tags/Android/" style="font-size: 17.5px;">Android</a> <a href="/tags/Beauty-of-Programming/" style="font-size: 13.75px;">Beauty of Programming</a> <a href="/tags/Java/" style="font-size: 15px;">Java</a> <a href="/tags/Java知识点/" style="font-size: 11.25px;">Java知识点</a> <a href="/tags/Java编程思想/" style="font-size: 16.25px;">Java编程思想</a> <a href="/tags/fragment/" style="font-size: 12.5px;">fragment</a> <a href="/tags/mvc/" style="font-size: 11.25px;">mvc</a> <a href="/tags/刷题/" style="font-size: 11.25px;">刷题</a> <a href="/tags/剑指Offer/" style="font-size: 18.75px;">剑指Offer</a> <a href="/tags/笔试/" style="font-size: 10px;">笔试</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a> <a href="/tags/线程/" style="font-size: 11.25px;">线程</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/随笔/" style="font-size: 11.25px;">随笔</a>
+    			</div>
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-friends">
+  		
+  			<div class="friends-wrap" id="js-friends">
+  			
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="https://www.google.com.hk/">谷歌</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="https://stackoverflow.com/">stackoverflow</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://beyondtech.org/">泡饭</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="https://menyifan.com/">MYF</a>
+  	        
+  	        </div>
+  		
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-me">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">继续跑&lt;br&gt;&lt;br&gt;带着赤子的骄傲</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div>
+</body>
+</html>
