@@ -129,6 +129,172 @@
       <div class="body-wrap">
         
   
+    <article id="post-剑指Offer 35 第一个只出现一次的字符" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/01/剑指Offer 35 第一个只出现一次的字符/">剑指Offer 35 第一个只出现一次的字符</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>在一个字符串(1&lt;=字符串长度&lt;=10000，全部由字母组成)中找到第一个只出现一次的字符,并返回它的位置。如果字符串为空,返回-1</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><ol>
+<li>暴力法很好解得；</li>
+<li>你很容想到，遍历一遍记下出现的次数，由于字符不变，很容易也就想到了HashMap喽
+        <p class="article-more-link">
+          <a  href="/2017/04/01/剑指Offer 35 第一个只出现一次的字符/#more">more >></a>
+        </p>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/04/01/剑指Offer 35 第一个只出现一次的字符/" class="archive-article-date">
+  	<time datetime="2017-04-01T08:15:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-04-01</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/剑指Offer/">剑指Offer</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-剑指Offer 34 丑数" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/31/剑指Offer 34 丑数/">剑指Offer34 丑数</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>把只包含因子2、3和5的数称作丑数（Ugly Number）。例如6、8都是丑数，但14不是，因为它包含因子7。 习惯上我们把1当做是第一个丑数。求按从小到大的顺序的第N个丑数。</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><ol>
+<li>第一反应肯定是暴力法呗；但是我们低估了丑数也不是那么多的；毕竟丑数相当于(2^x)<em>(3^y)</em>(5^z);所以数量级是非常大的；</li>
+<li>数组储存，这种方法书上说了半天也没看懂，还不如自己来呢；其实呢就相当于数组里已经存好了数，现在要加一个，这个数从哪里来的，其实就看当前，2为首，3为首，5为首他们的最新值谁最小；<br>举个例子啊<br>(2,3,4,5,6,8,9,10)<br>4是怎么来的，之前的数组已经有<strong>2，3</strong>了，然后我们对于2，3，5，都给<strong>2</strong>乘一下；找到最小值；这时肯定知道不能是<strong>3</strong>对吧；那么<strong>2*</strong>2=4；此时这个<strong>2</strong>在乘以2的次数就消耗掉了；比如<strong>6</strong>来说，此时对于这个<strong>2</strong>，就只能乘以3，或者5得到最小值；这样我们最后也是可以得到数组的；
+        <p class="article-more-link">
+          <a  href="/2017/03/31/剑指Offer 34 丑数/#more">more >></a>
+        </p>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/03/31/剑指Offer 34 丑数/" class="archive-article-date">
+  	<time datetime="2017-03-31T14:53:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-03-31</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/剑指Offer/">剑指Offer</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-剑指Offer 33 把数组排成最小的数" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/31/剑指Offer 33 把数组排成最小的数/">剑指Offer 33 把数组排成最小的数</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>输入一个正整数数组，把数组里所有数字拼接起来排成一个数，打印能拼接出的所有数字中最小的一个。例如输入数组{3，32，321}，则打印出这三个数字能排成的最小数字为321323。</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><ol>
+<li>首先想到的是自然是暴力全拍列；</li>
+<li>然后想到了变成字符，通过Collections.sort()排序，后来发现，是数组；也就是说（3，32）只能组成332或者323；这个想法是不对的</li>
+<li>于是自然也就想到了，对每两个数变成string来比较，但是不会写。。。。然后就发现人家的代码是重写了sort方法，简单来说就是
+        <p class="article-more-link">
+          <a  href="/2017/03/31/剑指Offer 33 把数组排成最小的数/#more">more >></a>
+        </p>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/03/31/剑指Offer 33 把数组排成最小的数/" class="archive-article-date">
+  	<time datetime="2017-03-31T13:25:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-03-31</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/剑指Offer/">剑指Offer</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-剑指Offer 32 从1到n整数中1出现的次数" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -236,177 +402,6 @@
       
       <a href="/2017/03/30/剑指Offer 31 连续子数组的最大和/" class="archive-article-date">
   	<time datetime="2017-03-30T13:33:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-03-30</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/剑指Offer/">剑指Offer</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-算法基础 大根堆与堆排序" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/30/算法基础 大根堆与堆排序/">算法基础 大根堆与堆排序</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="大根堆与堆排序"><a href="#大根堆与堆排序" class="headerlink" title="大根堆与堆排序"></a>大根堆与堆排序</h2><p>堆分为大根堆和小根堆，是完全二叉树。<br>完全二叉树我们知道，就是不太满的满二叉树；大根，小跟代表，父节点和子节点的关系；如果每一个父节点都不小于它的两个子节点，就可以认为是大根堆了；</p>
-<h2 id="堆排序的思路"><a href="#堆排序的思路" class="headerlink" title="堆排序的思路"></a>堆排序的思路</h2><p>从定义看，我们就知道了，对于大根堆来说，根节点一定是最大的，那我们就每次把根节点拿走，让大根堆重新排序，然后再取得最大值就可以了嘛；</p>
-<p>那么重要的问题就来了，大根堆是怎么从一个普通的堆转换过来的的呢？<br>其实也很简单，就是说父节点如果比子节点小，就交换一下，如果交换之后，发现下面还有一层，就继续；</p>
-<p>然后呢，由于是完全二叉树，就会有这么一个关系：<br>K[i]是K[2i]和K[2i+1]的父节点；也就是说父节点的位置，和子节点位置是固定的，所以就可以用数组来表示大根堆了；因为位置是确定的嘛；<br><strong>代码上的话，一定要注意边界，还有就是数组起始位置的0；</strong><br>
-        <p class="article-more-link">
-          <a  href="/2017/03/30/算法基础 大根堆与堆排序/#more">more >></a>
-        </p>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2017/03/30/算法基础 大根堆与堆排序/" class="archive-article-date">
-  	<time datetime="2017-03-30T12:20:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-03-30</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-剑指Offer 30 -最小的k个数" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/29/剑指Offer 30 -最小的k个数/">剑指Offer 30 *最小的k个数</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>输入n个整数，找出其中最小的K个数。例如输入4,5,1,6,2,7,3,8这8个数字，则最小的4个数字是1,2,3,4,。</p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><ol>
-<li>第一反应肯定是排序呗；冒泡啊，快排啊，反正排好序就行了，下面我写了一个用Treeset的，直接全扔进去，就是有序的了；时间复杂度？那肯定就不是我控制得了；</li>
-<li>快排，思路很简单，就是找寻哨兵呗；不过原来的数组会被改变；</li>
-<li>小根堆解法，每次跟都是最小值；调整几次，就得到几个最小值，就是这样；
-        <p class="article-more-link">
-          <a  href="/2017/03/29/剑指Offer 30 -最小的k个数/#more">more >></a>
-        </p>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2017/03/29/剑指Offer 30 -最小的k个数/" class="archive-article-date">
-  	<time datetime="2017-03-29T13:09:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-03-29</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/剑指Offer/">剑指Offer</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-剑指Offer 29 数组中出现次数超过一半的数字" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/29/剑指Offer 29 数组中出现次数超过一半的数字/">剑指Offer 29 数组中出现次数超过一半的数字</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>数组中有一个数字出现的次数超过数组长度的一半，请找出这个数字。例如输入一个长度为9的数组{1,2,3,2,2,2,5,4,2}。由于数字2在数组中出现了5次，超过数组长度的一半，因此输出2。如果不存在则输出0。</p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><ol>
-<li><p>快排，快排的思想就是分区，放置一个哨兵，左边比他小，右边比他大；<br>他自然就是中位数了，而出现超过一半的数，在排序的时候一定有一个会出现在中间；（2，3，2）–&gt;（2，2，3）大概就这个意思；<br>快排的想法除了分区以外就是递归的想法；一个哨兵，找出一大一小两个区，那么接着往下分解，最后到无法再分解时，就有序了；<br>而我们并不需要有序，我们只想得到中位数，左边小，右边大；所以我们只需要找到这么一个哨兵恰好在中间，而且分好区；这样他肯定就是中位数了；</p>
-</li>
-<li><p>智力的思考<br>简单地说，这种方法正常人恐怕想不到；</p>
-</li>
-</ol>
-<p>如果有符合条件的数字，则它出现的次数比其他所有数字出现的次数和还要多。 </p>
-<p>  在遍历数组时保存两个值：一是数组中一个数字，一是次数。遍历下一个数字时，若它与之前保存的数字相同，则次数加1，否则次数减1；若次数为0，则保存下一个数字，并将次数置为1。遍历结束后，所保存的数字即为所求。然后再判断它是否符合条件即可。<br>
-        <p class="article-more-link">
-          <a  href="/2017/03/29/剑指Offer 29 数组中出现次数超过一半的数字/#more">more >></a>
-        </p>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2017/03/29/剑指Offer 29 数组中出现次数超过一半的数字/" class="archive-article-date">
-  	<time datetime="2017-03-29T11:41:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-03-29</time>
 </a>
       
 	<div class="article-tag tagcloud">

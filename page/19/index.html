@@ -129,6 +129,167 @@
       <div class="body-wrap">
         
   
+    <article id="post-Android intent 和activity" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/10/15/Android intent 和activity/">android 5 通知栏</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-intent-intent-extra-activity"><a href="#1-intent-intent-extra-activity" class="headerlink" title="1 intent intent extra  activity"></a>1 intent intent extra  activity</h2><p>简单的说是，activity1 要启动activity2 ，并且传输一个值；</p>
+<p>常用方法肯定是：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function">Intent <span class="title">intent</span><span class="params">( activity1.<span class="keyword">this</span>,activity2.class)</span></div><div class="line">intent.<span class="title">putExtra</span><span class="params">(...)</span></span>;</div><div class="line">startActivity(intent)</div></pre></td></tr></table></figure></p>
+<p>将其改为 activity2<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Intent <span class="title">newIntent</span><span class="params">(Context packageContext,<span class="keyword">boolean</span> answerIsTrue)</span></span>&#123;</div><div class="line"><span class="function">Intent <span class="title">intent</span><span class="params">( packageContext,activity2.class)</span></div><div class="line">intent.<span class="title">putExtra</span><span class="params">(Extra,answerIsTrue)</span></span>;</div><div class="line"><span class="keyword">return</span> intetn</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+        <p class="article-more-link">
+          <a  href="/2016/10/15/Android intent 和activity/#more">more >></a>
+        </p>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/10/15/Android intent 和activity/" class="archive-article-date">
+  	<time datetime="2016-10-15T07:40:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-15</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Android 广播接收器" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/10/07/Android 广播接收器/">android 5 通知栏</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1"><a href="#1" class="headerlink" title="1"></a>1</h1><p>broadcast  receiver 广播，接收器  Android四大组件之一；<br>Android权威指南这本书的结构实在是，四大组件离得这么远，早忘记概念了。。</p>
+<p>broadcast intent 我们看一下自定义广播的发送<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span>  String ACTION_SHOW_NOTIFICATION=<span class="string">"com.example.asus.photogallery.SHOW_NOTIFICATION"</span>;</div><div class="line"> sendBroadcast(<span class="keyword">new</span> Intent(ACTION_SHOW_NOTIFICATION));</div></pre></td></tr></table></figure></p>
+<p>我们创建了一个inten 然后通过sendBroadcast 发送出去；那么谁来接收呢？</p>
+<p>我们对比一下intent的发送和接收：<br>
+        <p class="article-more-link">
+          <a  href="/2016/10/07/Android 广播接收器/#more">more >></a>
+        </p>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/10/07/Android 广播接收器/" class="archive-article-date">
+  	<time datetime="2016-10-07T10:47:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-07</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Android 通知栏信息" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/10/05/Android 通知栏信息/">android 5 通知栏</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1"><a href="#1" class="headerlink" title="1"></a>1</h1><p>今天讲点简单的哦，再日后补坑，通知栏信息；<br>用Android的人，都应该知道通知栏是个什么东西，下拉会出来一些设置菜单，<br>当有新的消息时，就会跑到这里，或者比如云音乐，后台听歌，也会有这么一个通知栏信息；<br>今天就简单的说一下，以后再完善；<br>
+        <p class="article-more-link">
+          <a  href="/2016/10/05/Android 通知栏信息/#more">more >></a>
+        </p>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/10/05/Android 通知栏信息/" class="archive-article-date">
+  	<time datetime="2016-10-05T11:42:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-05</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-原-Android-Looper，handler，HandlerThread" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -224,169 +385,6 @@ Handler：大厨，关键人物，小二将单子交给大厨，到了厨房，�
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/线程/">线程</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-原-标题栏-层级导航" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/24/原-标题栏-层级导航/">标题栏 层级导航</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="1"><a href="#1" class="headerlink" title="1"></a>1</h2><p>最初我们的标题栏导航是怎样的呢？</p>
-<p>点击标题栏按钮，触发事件，创建一个Intent ，打开新页面；<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Intent intent = <span class="keyword">new</span> Intent(getActivity(),CrimePagerActivity.class);</div><div class="line">intent.putExtra(CrimeFragment.EXTRA_CRIME_ID,crime.getmId());</div><div class="line">startActivityForResult(intent,<span class="number">0</span>);</div></pre></td></tr></table></figure></p>
-<p>Intent？我们知道用Intent可以随便打开那个页面，那么这种导航就没有明确的父子关系，且必须知道要去哪里；简单地说，小李坐车去女朋友家，司机说：“我知道你女朋友在那里，上车” 实际上去哪里，是司机说的算；<br>
-        <p class="article-more-link">
-          <a  href="/2016/09/24/原-标题栏-层级导航/#more">more >></a>
-        </p>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/09/24/原-标题栏-层级导航/" class="archive-article-date">
-  	<time datetime="2016-09-24T08:44:04.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-09-24</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-原-样式与include" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/24/原-样式与include/">样式与include</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="1"><a href="#1" class="headerlink" title="1"></a>1</h1><p>简单来说样式是为了复用;</p>
-<p>style 中创建样式<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">"RemoteButton"</span>&gt;</span><span class="xml"></div><div class="line">       <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:layout_width"</span>&gt;</span>0dp<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:layout_height"</span>&gt;</span>match_parent<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:textColor"</span>&gt;</span># 556699<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:textSize"</span>&gt;</span>20dp<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span> = <span class="string">"android:layout_margin"</span>&gt;</span>3dp<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line"></div><div class="line">   </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<p>控件使用某种样式；<br>
-        <p class="article-more-link">
-          <a  href="/2016/09/24/原-样式与include/#more">more >></a>
-        </p>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/09/24/原-样式与include/" class="archive-article-date">
-  	<time datetime="2016-09-24T08:15:17.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-09-24</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/随笔/">随笔</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-原-JSON数据保存与加载" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/24/原-JSON数据保存与加载/">JSON数据保存与加载</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>首先我们盘点一下参与者</p>
-<p>Crime 罪犯类，<br>CrimeLab 罪犯列表类<br>CriminalIntentJSONSerializer 罪犯json化 并且保存</p>
-<p>没有视图也没有控制的事 三个模型类玩游戏</p>
-<p>保存和加载自然归CriminalIntentJSONSerializer管理<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CriminalIntentJSONSerializer</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> Context context;</div><div class="line">    <span class="keyword">private</span> String Filename;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">CriminalIntentJSONSerializer</span><span class="params">(Context c, String f)</span></div><div class="line">    </span>&#123;</div><div class="line">        context = c;</div><div class="line">        Filename = f;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">saveCrimes</span><span class="params">(ArrayList&lt;Crime&gt; crimes)</span> <span class="keyword">throws</span> JSONException,IOException</div><div class="line">    </span>&#123;....&#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> ArrayList&lt;Crime&gt; <span class="title">loadCrimes</span><span class="params">()</span> <span class="keyword">throws</span>  IOException,JSONException</div><div class="line">    </span>&#123;....&#125;</div></pre></td></tr></table></figure></p>
-        <p class="article-more-link">
-          <a  href="/2016/09/24/原-JSON数据保存与加载/#more">more >></a>
-        </p>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/09/24/原-JSON数据保存与加载/" class="archive-article-date">
-  	<time datetime="2016-09-24T08:01:15.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-09-24</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
 	</div>
 
       

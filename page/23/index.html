@@ -129,6 +129,169 @@
       <div class="body-wrap">
         
   
+    <article id="post-原-Android-复习1-1-神奇的bundle" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/06/30/原-Android-复习1-1-神奇的bundle/">Android 复习1.1 神奇的bundle</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="有关Activity"><a href="#有关Activity" class="headerlink" title="有关Activity"></a>有关Activity</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">      <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">      setContentView(R.layout.activity_main);</div></pre></td></tr></table></figure>
+<p>活动的onCreate 有个很神奇的参数 bundle 它是用来干嘛的呢？</p>
+<p>看起来像是把什么传进来，那是什么东西要传进初始化的activity里呢？</p>
+<p>我们的app一般是竖屏的，一旦横屏，activity 就要重新加载，而在当前activity上的数据理所当然就不见了；是不是很不爽。Bundle 就是来解决这个问题的；让我们在横竖屏切换时传递数据的；<br>相信作用可以举一反三，不过目前还没用到；        </p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/06/30/原-Android-复习1-1-神奇的bundle/" class="archive-article-date">
+  	<time datetime="2016-06-30T11:51:38.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-06-30</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-原-Android-复习1-mvc设计模式" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/06/30/原-Android-复习1-mvc设计模式/">Android 复习1 mvc设计模式</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="有关MVC和string"><a href="#有关MVC和string" class="headerlink" title="有关MVC和string"></a>有关MVC和string</h1><p>Android 真的是有超级多的东西，学了后面忘了前面，希望这个能够让我以后看吧</p>
+<p>MVC是一种设计模式；学过面向对象后，就觉得我们的世界和平常人不一样了；</p>
+<p>在java中 是各个类，各个包之间的联系访问；<br>在Android中，是视图，模型，控制器之间的访问；<br>视图 最好理解 xml下的各种各样的视图对象；</p>
+<p>模型 是我们新建的那些奇怪的类，用来进行数据储存和业务逻辑；<br>
+        <p class="article-more-link">
+          <a  href="/2016/06/30/原-Android-复习1-mvc设计模式/#more">more >></a>
+        </p>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/06/30/原-Android-复习1-mvc设计模式/" class="archive-article-date">
+  	<time datetime="2016-06-30T10:43:36.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-06-30</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mvc/">mvc</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-原-android-5-通知栏" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/06/24/原-android-5-通知栏/">android 5 通知栏</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>书上有关于通知栏的说法 已经过时了 是时候来点新东西啦</p>
+<p>状态通知栏主要涉及到2个类：  <strong>Notification</strong> 和 <strong>NotificationManager</strong></p>
+<p>Notification为通知信息类，它里面对应了通知栏的各个属性；NotificationManager ：  是状态栏通知的管理类，负责发通知、清除通知等操作。</p>
+<p>NotificationManager 是一个系统Service，所以必须通过 getSystemService(NOTIFICATION_SERVICE)方法来获取：<br>
+        <p class="article-more-link">
+          <a  href="/2016/06/24/原-android-5-通知栏/#more">more >></a>
+        </p>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/06/24/原-android-5-通知栏/" class="archive-article-date">
+  	<time datetime="2016-06-24T08:46:06.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-06-24</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-Android学习笔记4 图片和杂谈" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     

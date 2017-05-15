@@ -129,6 +129,170 @@
       <div class="body-wrap">
         
   
+    <article id="post-原-Android-复习6-fragment-argument" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/09/原-Android-复习6-fragment-argument/">Android 复习6 fragment argument</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>这个传递真的是好难懂啊</p>
+<p>首先我们先来看一看参与人员</p>
+<p>1 firstactivity<br>2 seconactivity<br>3 firstfragment</p>
+<p>过程是这样的：</p>
+<p>secondactivity 向firstactivity 跳转 有个intent 。intent里面可以携带数据啊；</p>
+<p>在intent.putExtra() 方法中我们传入一个键值对</p>
+<p>获取方法有两种<br>
+        <p class="article-more-link">
+          <a  href="/2016/07/09/原-Android-复习6-fragment-argument/#more">more >></a>
+        </p>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/07/09/原-Android-复习6-fragment-argument/" class="archive-article-date">
+  	<time datetime="2016-07-09T06:07:04.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-07-09</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-原-Android-复习笔记5-listView-ArrayList" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/08/原-Android-复习笔记5-listView-ArrayList/">Android 复习笔记5 listView ArrayList</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="列表-listview"><a href="#列表-listview" class="headerlink" title="列表 listview"></a>列表 listview</h1><p>列表应该算得上是最难的系统自带组件了；归根结底，是因为listview本质要完成mvc所有层次；</p>
+<h2 id="1"><a href="#1" class="headerlink" title="1"></a>1</h2><p>既然是一个列表，那就应该有列表项，所以数据就会很多。那不管你元数据有多少条，我要做的事是把你的数据想办法发到页面上；<br>既然有列表项，而我们需要一个中转站  一个能够将数据打包发给页面的<br>这就是ArrayAdapter&lt;&gt; 一个适配器 很明显它应该处于control层；控制数据传输给页面<br>
+        <p class="article-more-link">
+          <a  href="/2016/07/08/原-Android-复习笔记5-listView-ArrayList/#more">more >></a>
+        </p>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/07/08/原-Android-复习笔记5-listView-ArrayList/" class="archive-article-date">
+  	<time datetime="2016-07-08T08:29:48.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-07-08</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-原-Android-复习4-神奇的问题-杂谈" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/06/原-Android-复习4-神奇的问题-杂谈/">Android 复习4 神奇的问题 杂谈</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="关于fragment的问题"><a href="#关于fragment的问题" class="headerlink" title="关于fragment的问题"></a>关于fragment的问题</h1><p>我遇见一个问题 神奇的问题<br><img src="http://img.blog.csdn.net/20160706201115898" alt="这里写图片描述"><br>我写着match_parent<br>可为什么会这样呢；</p>
+<p>布局出现问题，本来match_parent，却没有到达要求。我就开始每一项每一项的检查，和书上一样啊。然后我就做了这么一个测试，放了一个应该占满屏幕的button，它居然还是有问题<br>我就开始意识到这可能是fragment的问题，就上网搜了一下，activity加载fragment的时候让其占满屏幕，查了半天也没有什么对口的答案，突然想到，fragment放在activity里面，那是不是activity本来就不够大呢？<br>没想到这才是问题的关键所在；<br>
+        <p class="article-more-link">
+          <a  href="/2016/07/06/原-Android-复习4-神奇的问题-杂谈/#more">more >></a>
+        </p>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/07/06/原-Android-复习4-神奇的问题-杂谈/" class="archive-article-date">
+  	<time datetime="2016-07-06T12:26:10.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-07-06</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-原-Android-复习-3-有关于fragment" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -214,169 +378,6 @@
       
       <a href="/2016/07/03/原-Android-复习2-有关activity/" class="archive-article-date">
   	<time datetime="2016-07-03T06:18:40.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-07-03</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-原-Android-复习1-1-神奇的bundle" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/06/30/原-Android-复习1-1-神奇的bundle/">Android 复习1.1 神奇的bundle</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="有关Activity"><a href="#有关Activity" class="headerlink" title="有关Activity"></a>有关Activity</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">      <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">      setContentView(R.layout.activity_main);</div></pre></td></tr></table></figure>
-<p>活动的onCreate 有个很神奇的参数 bundle 它是用来干嘛的呢？</p>
-<p>看起来像是把什么传进来，那是什么东西要传进初始化的activity里呢？</p>
-<p>我们的app一般是竖屏的，一旦横屏，activity 就要重新加载，而在当前activity上的数据理所当然就不见了；是不是很不爽。Bundle 就是来解决这个问题的；让我们在横竖屏切换时传递数据的；<br>相信作用可以举一反三，不过目前还没用到；        </p>
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/06/30/原-Android-复习1-1-神奇的bundle/" class="archive-article-date">
-  	<time datetime="2016-06-30T11:51:38.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-06-30</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-原-Android-复习1-mvc设计模式" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/06/30/原-Android-复习1-mvc设计模式/">Android 复习1 mvc设计模式</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="有关MVC和string"><a href="#有关MVC和string" class="headerlink" title="有关MVC和string"></a>有关MVC和string</h1><p>Android 真的是有超级多的东西，学了后面忘了前面，希望这个能够让我以后看吧</p>
-<p>MVC是一种设计模式；学过面向对象后，就觉得我们的世界和平常人不一样了；</p>
-<p>在java中 是各个类，各个包之间的联系访问；<br>在Android中，是视图，模型，控制器之间的访问；<br>视图 最好理解 xml下的各种各样的视图对象；</p>
-<p>模型 是我们新建的那些奇怪的类，用来进行数据储存和业务逻辑；<br>
-        <p class="article-more-link">
-          <a  href="/2016/06/30/原-Android-复习1-mvc设计模式/#more">more >></a>
-        </p>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/06/30/原-Android-复习1-mvc设计模式/" class="archive-article-date">
-  	<time datetime="2016-06-30T10:43:36.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-06-30</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mvc/">mvc</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-原-android-5-通知栏" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/06/24/原-android-5-通知栏/">android 5 通知栏</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>书上有关于通知栏的说法 已经过时了 是时候来点新东西啦</p>
-<p>状态通知栏主要涉及到2个类：  <strong>Notification</strong> 和 <strong>NotificationManager</strong></p>
-<p>Notification为通知信息类，它里面对应了通知栏的各个属性；NotificationManager ：  是状态栏通知的管理类，负责发通知、清除通知等操作。</p>
-<p>NotificationManager 是一个系统Service，所以必须通过 getSystemService(NOTIFICATION_SERVICE)方法来获取：<br>
-        <p class="article-more-link">
-          <a  href="/2016/06/24/原-android-5-通知栏/#more">more >></a>
-        </p>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/06/24/原-android-5-通知栏/" class="archive-article-date">
-  	<time datetime="2016-06-24T08:46:06.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-06-24</time>
 </a>
       
 	<div class="article-tag tagcloud">

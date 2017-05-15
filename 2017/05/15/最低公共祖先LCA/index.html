@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>最低公共祖先LCA | colin</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="题目ps：这道题来源是剑指offer第50题；但是变种真的好多啊，所以就记录一下；
+####树中两个结点的最低公共祖先：
+
+首先我们要明白这个最低公共祖先是啥？对于一个结点，它上面能到达他的都叫做祖先，他的父结点和它的父结点的父结点；
+树，因为树的不同，这道题有很多变种；比如二叉树？二叉搜索树，或者只是树；">
+<meta property="og:type" content="article">
+<meta property="og:title" content="最低公共祖先LCA">
+<meta property="og:url" content="http://yoursite.com/2017/05/15/最低公共祖先LCA/index.html">
+<meta property="og:site_name" content="colin">
+<meta property="og:description" content="题目ps：这道题来源是剑指offer第50题；但是变种真的好多啊，所以就记录一下；
+####树中两个结点的最低公共祖先：
+
+首先我们要明白这个最低公共祖先是啥？对于一个结点，它上面能到达他的都叫做祖先，他的父结点和它的父结点的父结点；
+树，因为树的不同，这道题有很多变种；比如二叉树？二叉搜索树，或者只是树；">
+<meta property="og:image" content="http://img.blog.csdn.net/20170515174530786?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjM5NzQxNzU=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:updated_time" content="2017-05-15T14:06:04.616Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="最低公共祖先LCA">
+<meta name="twitter:description" content="题目ps：这道题来源是剑指offer第50题；但是变种真的好多啊，所以就记录一下；
+####树中两个结点的最低公共祖先：
+
+首先我们要明白这个最低公共祖先是啥？对于一个结点，它上面能到达他的都叫做祖先，他的父结点和它的父结点的父结点；
+树，因为树的不同，这道题有很多变种；比如二叉树？二叉搜索树，或者只是树；">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20170515174530786?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjM5NzQxNzU=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+  
+    <link rel="alternative" href="/atom.xml" title="colin" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="//favicon.png">
+  
+  <script src="/style.js"></script>
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="/0.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">墨</a></h1>
+		</hgroup>
+
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/tags/随笔">随笔</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">所有文章</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="2" href="javascript:void(0)">友链</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="3" href="javascript:void(0)">关于我</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="https://github.com/colining" title="github">github</a>
+		        
+					<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/ren-tian-qi" title="zhihu">zhihu</a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<h1 class="header-author js-mobile-header hide">墨</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img src="/0.jpg" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">墨</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/tags/随笔">随笔</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/colining" title="github">github</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/ren-tian-qi" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap">
+        <article id="post-最低公共祖先LCA" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      最低公共祖先LCA
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>ps：这道题来源是剑指offer第50题；但是变种真的好多啊，所以就记录一下；</p>
+<p>####树中两个结点的最低公共祖先：</p>
+<ol>
+<li>首先我们要明白这个最低公共祖先是啥？对于一个结点，它上面能到达他的都叫做祖先，他的父结点和它的父结点的父结点；</li>
+<li>树，因为树的不同，这道题有很多变种；比如二叉树？二叉搜索树，或者只是树；</li>
+</ol>
+<a id="more"></a>
+<h3 id="热身树-oj"><a href="#热身树-oj" class="headerlink" title="热身树 oj"></a>热身树 <a href="https://www.nowcoder.com/profile/6589111/codeBookDetail?submissionId=12076889" target="_blank" rel="external">oj</a></h3><p>有一棵无穷大的满二叉树，其结点按根结点一层一层地从左往右依次编号，根结点编号为1。现在有两个结点a，b。请设计一个算法，求出a和b点的最近公共祖先的编号。<br>给定两个int a,b。为给定结点的编号。请返回a和b的最近公共祖先的编号。注意这里结点本身也可认为是其祖先。</p>
+<p>这个就是比较简化的问题了，满二叉树，根结点为1；那么根结点和子结点一定是2倍的关系；k的两个子结点：2k，2k+1；根据这个关系两个子结点一直除以2，总会变成一的，往前推几步，也总会找到最低祖先的；另一种变形就是通过2进制，因为每次都是二倍，每次都相当于左移了一位，那么两个结点编号的二进制编码前面几位应该保持一致；</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getLCA1</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</div><div class="line">      <span class="keyword">while</span> (a != b) &#123;</div><div class="line">          <span class="keyword">if</span> (a &gt; b) &#123;</div><div class="line">              a &gt;&gt;= <span class="number">1</span>;</div><div class="line">          &#125; <span class="keyword">else</span></div><div class="line">              b &gt;&gt;= <span class="number">1</span>;</div><div class="line">      &#125;</div><div class="line">      <span class="keyword">return</span> a;</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getLCA2</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</div><div class="line">        <span class="keyword">char</span> [] chars1 = Integer.toBinaryString(a).toCharArray();</div><div class="line">        <span class="keyword">char</span> [] chars2 = Integer.toBinaryString(b).toCharArray();</div><div class="line">        <span class="keyword">int</span> i = <span class="number">0</span>;</div><div class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;</div><div class="line">        <span class="keyword">while</span> (i&lt;chars1.length&amp;&amp;i&lt;chars2.length)</div><div class="line">        &#123;</div><div class="line">            <span class="keyword">if</span> (chars1[i] != chars2[i]) &#123;</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            &#125;</div><div class="line">            sum = sum*<span class="number">2</span> +chars1[i] -<span class="string">'0'</span>;</div><div class="line">            i++;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> sum;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<h3 id="二叉搜索树-oj"><a href="#二叉搜索树-oj" class="headerlink" title="二叉搜索树 oj"></a>二叉搜索树 <a href="https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/#/description" target="_blank" rel="external">oj</a></h3><ol>
+<li>二叉搜索树的话就很简单了，因为这个排过序，左结点小，右结点大；只有两个结点宽度以内的结点符合比一个大，比另一个小，而最低祖先就是最先找到的；<br>比如说这个<br><img src="http://img.blog.csdn.net/20170515174530786?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjM5NzQxNzU=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>假设我们找 0 ，5 的最低祖先，从上面开始找，很明显先找到的就是2，那就是它了；</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> TreeNode <span class="title">findLCABST</span><span class="params">(TreeNode root, TreeNode p, TreeNode q)</span> </span>&#123;</div><div class="line">       <span class="keyword">int</span> a = p.val;</div><div class="line">       <span class="keyword">int</span> b = q.val;</div><div class="line">       <span class="keyword">if</span> (root != <span class="keyword">null</span>) &#123;</div><div class="line">           <span class="keyword">if</span> (root.val &gt; a &amp;&amp; root.val &gt; b)</div><div class="line">               findLCABST(root.left, p, q);</div><div class="line">           <span class="keyword">else</span> <span class="keyword">if</span> (root.val &lt; a &amp;&amp; root.val &lt; b)</div><div class="line">               findLCABST(root.right, p, q);</div><div class="line">           <span class="keyword">else</span></div><div class="line">               <span class="keyword">return</span> root;</div><div class="line">       &#125;</div><div class="line">       <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+<h3 id="一般二叉树-oj"><a href="#一般二叉树-oj" class="headerlink" title="一般二叉树 oj"></a>一般二叉树 <a href="https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/#/description" target="_blank" rel="external">oj</a></h3><p><strong>解法一</strong>：我们纠结一下祖先的定义，祖先是什么？祖先就是一个根，他可以遍历到和两个结点，就叫做祖先，于是我们就可以从上往下找；自顶向下</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> TreeNode <span class="title">findLCABT2</span><span class="params">(TreeNode root, TreeNode p, TreeNode q)</span> </span>&#123;</div><div class="line">       <span class="comment">/*</span></div><div class="line">       核心想法是这两个结点肯定是祖先的子结点，于是就从root开始寻找；root是祖先，</div><div class="line">       然后寻找root的左结点是不是祖先，有右结点是不是祖先；</div><div class="line">       最后我们找到，当前结点不是两个结点的祖先，那当前结点的父结点就是最低公共祖先了</div><div class="line">        */</div><div class="line">       <span class="keyword">if</span> (hasNode(root.left, p) &amp;&amp; hasNode(root.left, q))</div><div class="line">           <span class="keyword">return</span> findLCABT2(root.left, p, q);</div><div class="line">       <span class="keyword">if</span> (hasNode(root.right, p) &amp;&amp; hasNode(root.right, q))</div><div class="line">           <span class="keyword">return</span> findLCABT2(root.right, p, q);</div><div class="line">       <span class="keyword">return</span> root;</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+<p><strong>解法二</strong>：自顶向下做完了，我们还会发现好麻烦啊，重复遍历了很多东西，为啥不反过来呢？后序遍历，如果出现结点，就告知父结点，在后序遍历中递归向上返回时，这个信息就向上传递了；我们就知道某个结点的子树中既有结点一，又有结点二，那就是它了；<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> TreeNode <span class="title">lowestCommonAncestor</span><span class="params">(TreeNode root, TreeNode p, TreeNode q)</span> </span>&#123;</div><div class="line">       <span class="comment">/*</span></div><div class="line">       思路就是，自底向上走，后序遍历，先遍历最底下，如果有目标结点，在后序遍历后面，就层层向上标记，</div><div class="line">       说明有结点在这个子树中，假设同时标记了两次，说明当前结点的子树恰好含有两个结点，这样就找到了最低公共祖先；</div><div class="line">       在这道题中，left和right就相当于标记；由于每次找到结点就会返回，所以如果一个结点是另一个的父结点，不只有</div><div class="line">       一个标记；</div><div class="line">        */</div><div class="line">       <span class="keyword">if</span> (root == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">       <span class="keyword">if</span> (root == p) <span class="keyword">return</span> root;</div><div class="line">       <span class="keyword">if</span> (root == q) <span class="keyword">return</span> root;</div><div class="line">       TreeNode left = lowestCommonAncestor(root.left, p, q);</div><div class="line">       TreeNode right = lowestCommonAncestor(root.right, p, q);</div><div class="line">       <span class="keyword">if</span> (left == <span class="keyword">null</span>) <span class="keyword">return</span> right;</div><div class="line">       <span class="keyword">if</span> (right == <span class="keyword">null</span>) <span class="keyword">return</span> left;</div><div class="line">       <span class="keyword">return</span> root;</div><div class="line">   &#125;</div></pre></td></tr></table></figure></p>
+<p><strong>解法三</strong>：其实第二种就是通过一条路径，将含有结点的信息传到上面去，于是我们就可以主动造出链，然后就变成两个链表求公共结点啦；<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> TreeNode <span class="title">findLCABT1</span><span class="params">(TreeNode root, TreeNode p, TreeNode q)</span> </span>&#123;</div><div class="line">       ArrayList&lt;TreeNode&gt; path1 = <span class="keyword">new</span> ArrayList&lt;&gt;();</div><div class="line">       ArrayList&lt;TreeNode&gt; path2 = <span class="keyword">new</span> ArrayList&lt;&gt;();</div><div class="line">       <span class="comment">//寻找结点一的路径</span></div><div class="line">       findPath(root, p, path1);</div><div class="line">       <span class="comment">//寻找结点二的路径</span></div><div class="line">       findPath(root, q, path2);</div><div class="line">       <span class="comment">//两个链表寻找公共结点的部分</span></div><div class="line">       <span class="keyword">if</span> (path1 == <span class="keyword">null</span> || path2 == <span class="keyword">null</span> || path1.size() == <span class="number">0</span> || path2.size() == <span class="number">0</span>)</div><div class="line">           <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">       <span class="keyword">int</span> i;</div><div class="line">       <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; path1.size() &amp;&amp; i &lt; path2.size(); i++) &#123;</div><div class="line"></div><div class="line">           p = path1.get(i);</div><div class="line">           q = path2.get(i);</div><div class="line">           <span class="keyword">if</span> (p != q)</div><div class="line">               <span class="keyword">break</span>;</div><div class="line">       &#125;</div><div class="line">       <span class="keyword">return</span> path1.get(i - <span class="number">1</span>);</div><div class="line">   &#125;</div><div class="line"></div><div class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">findPath</span><span class="params">(TreeNode head, TreeNode node, List&lt;TreeNode&gt; path)</span> </span>&#123;</div><div class="line">       <span class="comment">//寻找路径的递归结束</span></div><div class="line">       <span class="keyword">if</span> (head == <span class="keyword">null</span>)</div><div class="line">           <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">       <span class="comment">//将当前结点放在链表里</span></div><div class="line">       path.add(head);</div><div class="line">       <span class="comment">//找到目标结点，就返回</span></div><div class="line">       <span class="keyword">if</span> (head == node)</div><div class="line">           <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">       <span class="comment">//用if包围，只要找到一个，就直接返回，这样就不用全部遍历了</span></div><div class="line">       <span class="keyword">if</span> (findPath(head.left, node, path))</div><div class="line">           <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">       <span class="keyword">if</span> (findPath(head.right, node, path))</div><div class="line">           <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">       path.remove(path.size() - <span class="number">1</span>);</div><div class="line">       <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line"></div><div class="line">   &#125;</div></pre></td></tr></table></figure></p>
+<h2 id="收获"><a href="#收获" class="headerlink" title="收获"></a>收获</h2><ol>
+<li>数据结构真的是很神奇的东西呀，一道题有很多种解法；</li>
+<li>沉下心来，慢慢来；</li>
+</ol>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/05/15/最低公共祖先LCA/" class="archive-article-date">
+  	<time datetime="2017-05-15T09:59:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-05-15</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2017/05/05/保龄球得分计算/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">保龄球得分计算</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="//v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="最低公共祖先LCA" data-title="最低公共祖先LCA" data-url="http://yoursite.com/2017/05/15/最低公共祖先LCA/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"colining.duoshuo.com"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 墨
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: false,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: "/"
+	}
+</script>
+
+<script src="/./main.js"></script>
+
+
+    
+<div class="tools-col">
+  <ul class="btn-wrap">
+    
+      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
+    
+    
+      <li data-hook="tools-section-tag"><span class="text">标签</span><i class="icon-price-tags"></i></li>
+    
+    
+      <li data-hook="tools-section-friends"><span class="text">友链</span><i class="icon-link"></i></li>
+    
+    
+      <li data-hook="tools-section-me"><span class="text">我</span><i class="icon-smile"></i></li>
+    
+  </ul>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all chose">
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-tag">
+    			<div class="widget tagcloud" id="js-tagcloud">
+    				<a href="/tags/Android/" style="font-size: 17.5px;">Android</a> <a href="/tags/Beauty-of-Programming/" style="font-size: 13.75px;">Beauty of Programming</a> <a href="/tags/Java/" style="font-size: 15px;">Java</a> <a href="/tags/Java知识点/" style="font-size: 11.25px;">Java知识点</a> <a href="/tags/Java编程思想/" style="font-size: 16.25px;">Java编程思想</a> <a href="/tags/fragment/" style="font-size: 12.5px;">fragment</a> <a href="/tags/mvc/" style="font-size: 11.25px;">mvc</a> <a href="/tags/刷题/" style="font-size: 11.25px;">刷题</a> <a href="/tags/剑指Offer/" style="font-size: 18.75px;">剑指Offer</a> <a href="/tags/笔试/" style="font-size: 10px;">笔试</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a> <a href="/tags/线程/" style="font-size: 11.25px;">线程</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/随笔/" style="font-size: 11.25px;">随笔</a>
+    			</div>
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-friends">
+  		
+  			<div class="friends-wrap" id="js-friends">
+  			
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="https://www.google.com.hk/">谷歌</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="https://stackoverflow.com/">stackoverflow</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://beyondtech.org/">泡饭</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="https://menyifan.com/">MYF</a>
+  	        
+  	        </div>
+  		
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-me">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">继续跑&lt;br&gt;&lt;br&gt;带着赤子的骄傲</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div>
+</body>
+</html>
