@@ -129,6 +129,110 @@
       <div class="body-wrap">
         
   
+    <article id="post-原-无聊又无趣的位运算" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/24/原-无聊又无趣的位运算/">无聊又无趣的位运算</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>开坑 待写</p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/07/24/原-无聊又无趣的位运算/" class="archive-article-date">
+  	<time datetime="2016-07-24T06:27:50.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-07-24</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Beauty-of-Programming/">Beauty of Programming</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/随笔/">随笔</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-原-Beauty-of-Programming-1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/19/原-Beauty-of-Programming-1/">Beauty of Programming 1</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>买了本编程之美 打算以后看看 也在这里记录一下有关算法方面的东西</p>
+<h2 id="有关象棋将帅的位置问题"><a href="#有关象棋将帅的位置问题" class="headerlink" title="有关象棋将帅的位置问题"></a>有关象棋将帅的位置问题</h2><p>　假设在中国象棋中只剩下将帅两个棋子，国人都知道基本规则：将帅不能出九宫格，只能上下左右移动，不能斜向移动，同时将帅不能照面。问在这样条件下，所有可能将帅位置。<strong>要求在代码中只能使用一个字节存储变量</strong>。<br><img src="http://img.blog.csdn.net/20160719182303946" alt="这里写图片描述"><br>将帅的田字格自然都可以分为就这样 问题就变成 两个一到九的循环 他们对于3的余数不能一样 一样的话将帅就碰面了</p>
+<p>这样的问题 我也花三分钟写完 但问题来了？<br>
+        <p class="article-more-link">
+          <a  href="/2016/07/19/原-Beauty-of-Programming-1/#more">more >></a>
+        </p>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/07/19/原-Beauty-of-Programming-1/" class="archive-article-date">
+  	<time datetime="2016-07-19T11:20:20.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-07-19</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Beauty-of-Programming/">Beauty of Programming</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-原-Android-复习6-fragment-argument" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -293,118 +397,9 @@
 
 
   
-    <article id="post-原-Android-复习-3-有关于fragment" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/05/原-Android-复习-3-有关于fragment/">Android 复习 3 有关于fragment</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="fragment"><a href="#fragment" class="headerlink" title="fragment"></a>fragment</h1><p>最初认识fragment 是说为了解决平板屏幕大，一个屏幕上可以展示不同的内容 看起来像是多个板块；多个板块互相不干涉，就像是网页的div 一样 ；</p>
-<p>fragment 碎片 可以认为是一种控件，和button什么的一样；<br>所以他是可以添加到acivtity上 </p>
-<p>比如 定义left_fragment.xml 和 right_fragment.xml后，我们可以直接在mainacivity中<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">fragment</span></div><div class="line"><span class="attr">android:name</span>=<span class="string">""</span> 标注这是从哪个<span class="attr">xml</span>拿来的</div><div class="line">一大堆的其他属性</div><div class="line">/&gt;</span></div></pre></td></tr></table></figure></p>
-        <p class="article-more-link">
-          <a  href="/2016/07/05/原-Android-复习-3-有关于fragment/#more">more >></a>
-        </p>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/07/05/原-Android-复习-3-有关于fragment/" class="archive-article-date">
-  	<time datetime="2016-07-05T12:15:19.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-07-05</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/fragment/">fragment</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-原-Android-复习2-有关activity" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/03/原-Android-复习2-有关activity/">Android 复习2 有关activity</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="activity-之间基于intent-的通信"><a href="#activity-之间基于intent-的通信" class="headerlink" title="activity 之间基于intent 的通信"></a>activity 之间基于intent 的通信</h1><h2 id="如何打开新活动"><a href="#如何打开新活动" class="headerlink" title="# 如何打开新活动"></a># 如何打开新活动</h2><p>我们的一个应用程序 是由多个活动的，那么在活动之间如何跳转就是一个很有趣的事情；<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">startActivity</span><span class="params">(Intent intent)</span></span></div></pre></td></tr></table></figure></p>
-<p>我们通过上面的函数来造访新的页面，该函数不是一个针对于activity的函数，而是针对操作系统，准确的说 它将intent发送给系统级别的ActivityManager</p>
-<p>ActivityManager主要就是用来管理众多Activity的 </p>
-<p>我们通过传递intent 告诉ActivityManager下面打开那个活动；<br>
-        <p class="article-more-link">
-          <a  href="/2016/07/03/原-Android-复习2-有关activity/#more">more >></a>
-        </p>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/07/03/原-Android-复习2-有关activity/" class="archive-article-date">
-  	<time datetime="2016-07-03T06:18:40.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-07-03</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/21/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/20/">20</a><a class="page-number" href="/page/21/">21</a><span class="page-number current">22</span><a class="page-number" href="/page/23/">23</a><a class="extend next" rel="next" href="/page/23/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/21/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/20/">20</a><a class="page-number" href="/page/21/">21</a><span class="page-number current">22</span><a class="page-number" href="/page/23/">23</a><a class="page-number" href="/page/24/">24</a><a class="extend next" rel="next" href="/page/23/">Next &raquo;</a>
     </nav>
   
 

@@ -4,14 +4,23 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>colin</title>
+  <title>REST api 的首次尝试 | colin</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="colin">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="REST api 的首次尝试起因这是一道研发岗的试题，据HR小姐姐说是社招的题，我做起来确实有点吃力；因为我不懂商品需要怎么分类，不知道rest api 是啥。。。代码传送门
+艰难的前行关于数据库：首先是数据库上的：我刚看到题实在不懂多层分级是什么鬼，然后去百度了；看见知乎上面淘宝的实现，真是吓人啊；目前应该搞不明白是啥，于是就搜着搜着，大概明白意思就是一张表存商品，具有商品Id，商品类别，还可以">
+<meta property="og:type" content="article">
+<meta property="og:title" content="REST api 的首次尝试">
+<meta property="og:url" content="http://yoursite.com/2017/05/24/rest api 的首次尝试/index.html">
 <meta property="og:site_name" content="colin">
+<meta property="og:description" content="REST api 的首次尝试起因这是一道研发岗的试题，据HR小姐姐说是社招的题，我做起来确实有点吃力；因为我不懂商品需要怎么分类，不知道rest api 是啥。。。代码传送门
+艰难的前行关于数据库：首先是数据库上的：我刚看到题实在不懂多层分级是什么鬼，然后去百度了；看见知乎上面淘宝的实现，真是吓人啊；目前应该搞不明白是啥，于是就搜着搜着，大概明白意思就是一张表存商品，具有商品Id，商品类别，还可以">
+<meta property="og:image" content="http://img.blog.csdn.net/20170524191832791?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjM5NzQxNzU=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:updated_time" content="2017-05-24T12:20:30.732Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="colin">
+<meta name="twitter:title" content="REST api 的首次尝试">
+<meta name="twitter:description" content="REST api 的首次尝试起因这是一道研发岗的试题，据HR小姐姐说是社招的题，我做起来确实有点吃力；因为我不懂商品需要怎么分类，不知道rest api 是啥。。。代码传送门
+艰难的前行关于数据库：首先是数据库上的：我刚看到题实在不懂多层分级是什么鬼，然后去百度了；看见知乎上面淘宝的实现，真是吓人啊；目前应该搞不明白是啥，于是就搜着搜着，大概明白意思就是一张表存商品，具有商品Id，商品类别，还可以">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20170524191832791?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjM5NzQxNzU=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
   
     <link rel="alternative" href="/atom.xml" title="colin" type="application/atom+xml">
   
@@ -127,9 +136,7 @@
 </nav>
 
       <div class="body-wrap">
-        
-  
-    <article id="post-rest api 的首次尝试" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-rest api 的首次尝试" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -138,8 +145,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/24/rest api 的首次尝试/">REST api 的首次尝试</a>
+    <h1 class="article-title" itemprop="name">
+      REST api 的首次尝试
     </h1>
   
 
@@ -147,11 +154,23 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="REST-api-的首次尝试"><a href="#REST-api-的首次尝试" class="headerlink" title="REST api 的首次尝试"></a>REST api 的首次尝试</h1><h2 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h2><p>这是一道研发岗的试题，据HR小姐姐说是社招的题，我做起来确实有点吃力；因为我不懂商品需要怎么分类，不知道rest api 是啥。。。<a href="https://github.com/colining/productmanage">代码传送门</a></p>
-<h2 id="艰难的前行"><a href="#艰难的前行" class="headerlink" title="艰难的前行"></a>艰难的前行</h2><h4 id="关于数据库："><a href="#关于数据库：" class="headerlink" title="关于数据库："></a>关于数据库：</h4><p>首先是数据库上的：我刚看到题实在不懂多层分级是什么鬼，然后去百度了；看见知乎上面淘宝的实现，真是吓人啊；目前应该搞不明白是啥，于是就搜着搜着，大概明白意思就是一张表存商品，具有商品Id，商品类别，还可以有其他的属性；还有一张类别表，拥有类别Id，父类别Id，还有类别的属性，然后商品和类别就可以加一些奇怪的属性，但是主体框架不变；<br>大概就像这样：<br><img src="http://img.blog.csdn.net/20170524191832791?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjM5NzQxNzU=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>
-        <p class="article-more-link">
-          <a  href="/2017/05/24/rest api 的首次尝试/#more">more >></a>
-        </p>
+        <h1 id="REST-api-的首次尝试"><a href="#REST-api-的首次尝试" class="headerlink" title="REST api 的首次尝试"></a>REST api 的首次尝试</h1><h2 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h2><p>这是一道研发岗的试题，据HR小姐姐说是社招的题，我做起来确实有点吃力；因为我不懂商品需要怎么分类，不知道rest api 是啥。。。<a href="https://github.com/colining/productmanage" target="_blank" rel="external">代码传送门</a></p>
+<h2 id="艰难的前行"><a href="#艰难的前行" class="headerlink" title="艰难的前行"></a>艰难的前行</h2><h4 id="关于数据库："><a href="#关于数据库：" class="headerlink" title="关于数据库："></a>关于数据库：</h4><p>首先是数据库上的：我刚看到题实在不懂多层分级是什么鬼，然后去百度了；看见知乎上面淘宝的实现，真是吓人啊；目前应该搞不明白是啥，于是就搜着搜着，大概明白意思就是一张表存商品，具有商品Id，商品类别，还可以有其他的属性；还有一张类别表，拥有类别Id，父类别Id，还有类别的属性，然后商品和类别就可以加一些奇怪的属性，但是主体框架不变；<br>大概就像这样：<br><img src="http://img.blog.csdn.net/20170524191832791?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjM5NzQxNzU=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br><a id="more"></a></p>
+<h4 id="REST-api"><a href="#REST-api" class="headerlink" title="REST api"></a>REST api</h4><p>其实我也拿不准我是不是理解题意了，反正就跑去看关于REST 的相关内容，然后发现又和SpringMVC有关,我前几天刚看了看Spring，还没看到mvc呢，不过控制反转我还是稍微懂一点的；<br><a href="http://www.yiibai.com/spring_mvc/spring-mvc-4-restful-web-services-crud-example-resttemplate.html" target="_blank" rel="external">参考</a><br>项目主体都是照着这个参考写的；写完之后觉得很简单，但是过程太艰难了；</p>
+<p>坑一：intellij idea 的默认上下文就是啥也没有，不会携带项目名；于是我在学习SpringMVC谷歌了好久这个问题；因为国内普遍用的是eclipse嘛；</p>
+<p>坑二：REST到底是干啥的啊？其实我现在理解，就是在线修改数据库的一种api，通过uri，不同设备都可以对数据库进行增删改查；当然我现在不知道它是咋实现的；所以我试验了半天发现它确实是需要服务器的；</p>
+<p>坑三：数据库到底该咋查询呢？增删改查很好实现，我也没写；但是题目中的呢？<br>对于查询一个类别的商品及子类的商品，我写了一个递归；数据量下看起来没问题，大的话肯定是不行的；</p>
+<p>对于查询一个商品的父类：这个比较简单，从底向上，因为我是用hashmap储存了类别和父类；所以依次向上查询即可；</p>
+<p>坑四：postman，对于REST ，好像Junit测试比较吃力，还是直接使用postman比较好；</p>
+<h2 id="迷思"><a href="#迷思" class="headerlink" title="迷思"></a>迷思</h2><ol>
+<li>可不可以使用二叉树来储存多级分类呢？这个源于一道题，就是二叉树头结点为1的话。那么所有子节点/2 =父节点；在数字上表现为二进制前缀是一样的；这样就会很简单啊；对于一个子类，他的父类别，就是类别Id右移右移，再右移；对于父类找子类的话，则是找找前缀一样的，那些就是子类啦；</li>
+<li>在使用postman的时候，我发现中文是？，然后调成utf-8，又好了一会儿；然后又乱码了。最后就索性把中文都改成英文了，另外就是Chrome 直接打开json，xml，会弹出下载链接的啊；不过由于时间紧迫，我就也没在意；</li>
+</ol>
+<h2 id="收获"><a href="#收获" class="headerlink" title="收获"></a>收获</h2><ol>
+<li>虽然照猫画虎写的，但是坑还是超级多，框架方面要学习一下；不过最近还比较忙；</li>
+<li>实际写项目还是蛮累的，毕竟有个deadline，而且还有好多不懂的知识，所以真的是很紧张；</li>
+</ol>
+
       
     </div>
     <div class="article-info article-info-index">
@@ -172,238 +191,64 @@
   </div>
 </article>
 
-
-
-
-
-
-
-
-
-
   
-    <article id="post-登录与JDBC" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/21/登录与JDBC/">登录与JDBC</a>
-    </h1>
   
+    <a href="/2017/05/21/登录与JDBC/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">登录与JDBC</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>我决定自顶向下讲一下，这样比较生动，也比较容易记住；</p>
-<h2 id="登录"><a href="#登录" class="headerlink" title="登录"></a>登录</h2><ol>
-<li>登录第一是要有个form，从网页哪里可以将数据提交到后台来；然后Servlet就来处理；
-        <p class="article-more-link">
-          <a  href="/2017/05/21/登录与JDBC/#more">more >></a>
-        </p>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2017/05/21/登录与JDBC/" class="archive-article-date">
-  	<time datetime="2017-05-21T13:11:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-05-21</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
+
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
 	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
+	<script type="text/javascript" src="//v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
 
 
 
 
 
 
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="rest api 的首次尝试" data-title="REST api 的首次尝试" data-url="http://yoursite.com/2017/05/24/rest api 的首次尝试/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"colining.duoshuo.com"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
 
 
 
-
-  
-    <article id="post-最低公共祖先LCA" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/15/最低公共祖先LCA/">最低公共祖先LCA</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>ps：这道题来源是剑指offer第50题；但是变种真的好多啊，所以就记录一下；</p>
-<p>####树中两个结点的最低公共祖先：</p>
-<ol>
-<li>首先我们要明白这个最低公共祖先是啥？对于一个结点，它上面能到达他的都叫做祖先，他的父结点和它的父结点的父结点；</li>
-<li>树，因为树的不同，这道题有很多变种；比如二叉树？二叉搜索树，或者只是树；</li>
-</ol>
-        <p class="article-more-link">
-          <a  href="/2017/05/15/最低公共祖先LCA/#more">more >></a>
-        </p>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2017/05/15/最低公共祖先LCA/" class="archive-article-date">
-  	<time datetime="2017-05-15T09:59:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-05-15</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-保龄球得分计算" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/05/保龄球得分计算/">保龄球得分计算</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h2><ol>
-<li>超无聊的一道题，保龄球得分真是麻烦；今天下午偶然看见结对编程，然后就申请了一下，写了这道题；
-        <p class="article-more-link">
-          <a  href="/2017/05/05/保龄球得分计算/#more">more >></a>
-        </p>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2017/05/05/保龄球得分计算/" class="archive-article-date">
-  	<time datetime="2017-05-05T14:12:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-05-05</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Java 套接字" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/02/Java 套接字/">Java 套接字</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h2><p>其实我不想写起因，一位面试人家让我写一个套接字，不会，输入输出，不会写。唉。。。 写代码吧，现在想想，我认真写java代码也没多久，慢慢来呗；</p>
-<h2 id="套接字"><a href="#套接字" class="headerlink" title="套接字"></a>套接字</h2><p>这个怎么理解呢，就是说tcp/udp在运输层，那么上层好多应用都要使用TCP，那么怎么区分呢？这时候就出现了套接字和端口，应用程序自己创建套接字，标记自己的端口，那么分包的时候就有了约束，传回的数据包，也可以根据端口找到位置；<a href="https://github.com/colining/SocketTest">代码传送门</a><br>
-        <p class="article-more-link">
-          <a  href="/2017/05/02/Java 套接字/#more">more >></a>
-        </p>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2017/05/02/Java 套接字/" class="archive-article-date">
-  	<time datetime="2017-05-02T14:05:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-05-02</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-  
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/24/">24</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
-    </nav>
-  
 
 
       </div>
@@ -425,8 +270,8 @@
 		fancybox: true,
 		mathjax: false,
 		animate: true,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,

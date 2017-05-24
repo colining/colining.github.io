@@ -129,6 +129,112 @@
       <div class="body-wrap">
         
   
+    <article id="post-Java 读书笔记 7 复用类" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/25/Java 读书笔记 7 复用类/">Java 读书笔记7 复用类</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-关于super的怨念"><a href="#1-关于super的怨念" class="headerlink" title="## # 1.关于super的怨念"></a>## # 1.关于super的怨念</h2><pre><code>1. 其实之前一直觉得super很神奇，不会用，今天终于明白了，其实他就是回去调用父类的相关函数了，
+2. super 和this 都是用来对构造函数而言，因为构造函数在构造函数无法直接调用；
+</code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">Drawing (<span class="keyword">int</span> i )</div><div class="line">&#123;</div><div class="line">    <span class="keyword">super</span>(i);</div><div class="line">&#125;</div><div class="line"></div><div class="line">Drawing()</div><div class="line">&#123;</div><div class="line"></div><div class="line">    <span class="comment">//super(5);           //调用父类</span></div><div class="line">    <span class="comment">//this(1);            //调用子类其他</span></div><div class="line">    Drawing(<span class="number">5</span>);          <span class="comment">//这样写是不对的，不能这么调用</span></div><div class="line">&#125;</div><div class="line"><span class="comment">//对于普通重载函数</span></div><div class="line"></div><div class="line">   <span class="function"><span class="keyword">void</span> <span class="title">test</span><span class="params">(String a)</span></div><div class="line"></span>&#123;</div><div class="line"></div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">test</span><span class="params">(<span class="keyword">int</span> a)</span></div><div class="line"></span>&#123;</div><div class="line">    test(<span class="string">"aaa"</span>);          <span class="comment">//可以直接调用</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        <p class="article-more-link">
+          <a  href="/2017/02/25/Java 读书笔记 7 复用类/#more">more >></a>
+        </p>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/02/25/Java 读书笔记 7 复用类/" class="archive-article-date">
+  	<time datetime="2017-02-25T14:05:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-25</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java编程思想/">Java编程思想</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Java 读书笔记6" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/25/Java 读书笔记6/">Java 读书笔记6</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="访问权限控制"><a href="#访问权限控制" class="headerlink" title="访问权限控制"></a>访问权限控制</h2><p>其实这部分已经不用像java编程思想中讲的那么麻烦了；</p>
+<p>1.java中关于编译的简单内容<br>    首先java程序跑起来，会生成.class,这个.class会在环境变量\包名这里；<br>    然后import的时候，找到这个class就可以啦；<br>2.以private构造方法的单例设计模式，日后再说喽，其实之前应该写过；</p>
+<p>3.protected的方法主要用来干啥呢？ 因为在继承中，可能子类在别的包中，你写public的话，谁都可以访问，不写public又访问不到，所以protected出现了；所有继承者都可以用；<br>ps：其实java语言真的很实际，你自己推一推，其实也会知道；但还是赞叹人家的设计想法啊；</p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/02/25/Java 读书笔记6/" class="archive-article-date">
+  	<time datetime="2017-02-25T06:39:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-25</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java编程思想/">Java编程思想</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-Java 垃圾回收 （未完成）" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -308,116 +414,9 @@
 
 
   
-    <article id="post-Java 读书笔记2" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/22/Java 读书笔记2/">Java 读书笔记2</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="一切都是对象"><a href="#一切都是对象" class="headerlink" title="一切都是对象"></a>一切都是对象</h1><p>1.引用和对象（java编程思想中这样讲）</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Classa a;         <span class="comment">//此处可理解为引用，就是说起好名字啦，但是对象还没初始化呢</span></div><div class="line">a= <span class="keyword">new</span> Classa();     <span class="comment">//初始化后，对象才被创建成功；</span></div></pre></td></tr></table></figure>
-<p>2.储存中的堆与栈；<br>    <a href="http://stackoverflow.com/questions/79923/what-and-where-are-the-stack-and-heap" target="_blank" rel="external">http://stackoverflow.com/questions/79923/what-and-where-are-the-stack-and-heap</a><br>    栈呢，是先进后出；在函数调用中，被调用函数后进栈，先结束，所以先出栈；所以对内存来说，函数（function）使用栈这种空间；<br>    堆呢；以java为例，在调用某函数时，可能会创建新的对象；这些对象没有明确的先后之分（不重要），而且随时可能创建，销毁，所以就把他们都放在堆中管理啦；</p>
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2017/02/22/Java 读书笔记2/" class="archive-article-date">
-  	<time datetime="2017-02-22T05:10:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-22</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java编程思想/">Java编程思想</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Java 读书笔记1" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/20/Java 读书笔记1/">Java 读书笔记1</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="对象导论"><a href="#对象导论" class="headerlink" title="对象导论"></a>对象导论</h1><p>1.类和类型实际上是同义的，整型，浮点型其实也是一种类；且対象定义方式都一样；</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> a;             <span class="comment">//整型</span></div><div class="line">Test test1;        <span class="comment">//Test类</span></div></pre></td></tr></table></figure>
-<p>2.刚刚傻了，居然在想子类是否可以拥有自己的方法、、、、而且还试了一下代码。当然可以了啊！但是再想想的话，其实父类能做的事一定小于等于子类所做的事情，子类相对父类可以进行扩展； uml设计模式中：子类可以出现在父类出现的任何地方也是这个原因，因为父类能做的所有事，子类都可以做；</p>
-<p>3.单根继承,我们知道java所有类最终都继承自Object类，这样所有类其实都是一个类型，这样就保证所有对象都具有某些功能，包括基本操作，在堆上创建，参数传递，以及垃圾回收；</p>
-<p>4.java不允许多继承，你不能有俩父亲，但是你可以有爷爷，有太爷爷；</p>
-<p>5.容器和参数化类型；<br>    容器呢，是一个可以容纳对象的器皿；在程序中，由于需要多少对象不确定，容器的大小就也不一定喽；<br>    那么假如容器什么都接受，在存放的时候，java一定会将其转化为Object；那么在拿出的时候就会存在向下转型这个问题了；Android经常会有；<br>    那么如果我们只想存放一种，就可以使用参数化类型；定好了能存猴子，就不能存猪；</p>
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2017/02/20/Java 读书笔记1/" class="archive-article-date">
-  	<time datetime="2017-02-20T13:24:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-20</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java编程思想/">Java编程思想</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/16/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="page-number" href="/page/16/">16</a><span class="page-number current">17</span><a class="page-number" href="/page/18/">18</a><a class="page-number" href="/page/19/">19</a><span class="space">&hellip;</span><a class="page-number" href="/page/23/">23</a><a class="extend next" rel="next" href="/page/18/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/16/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="page-number" href="/page/16/">16</a><span class="page-number current">17</span><a class="page-number" href="/page/18/">18</a><a class="page-number" href="/page/19/">19</a><span class="space">&hellip;</span><a class="page-number" href="/page/24/">24</a><a class="extend next" rel="next" href="/page/18/">Next &raquo;</a>
     </nav>
   
 

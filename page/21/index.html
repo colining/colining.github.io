@@ -129,6 +129,116 @@
       <div class="body-wrap">
         
   
+    <article id="post-原-mvc与音频播放" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/19/原-mvc与音频播放/">mvc与音频播放</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>mvc<br>m：模型<br>v ：视图<br>c ：控制</p>
+<p>模型层，可以粗略理解为是属于纯纯的类，绝不与v层有任何关系，就音频播放来说，音频是数据，绝对是属于m层，那么相对应的就有一些控制音频的方法；模型层最接近于java里面的类；<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AudioPlayer</span> </span>&#123;			<span class="comment">//音频播放器和管理它的方法</span></div><div class="line">    <span class="keyword">private</span> MediaPlayer player;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">stop</span><span class="params">()</span></span>&#123;...&#125;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">play</span><span class="params">(Context c)</span></div><div class="line">    </span>&#123;...&#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">pause</span><span class="params">()</span></div><div class="line">    </span>&#123;...&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>v层 视图层，主要用于展现视图，有页面，以xml为例，不管有没有人用，都是一个页面，fragment加载就叫做fragment ，activity加载就叫做activity；</p>
+<p>c层，最麻烦的一层，我们非常容易的能够看见c层有一大堆的代码，而且都是必须的；<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123; <span class="comment">//加载xml页面,此处是activity，fragment一布局形式加入activity中</span></div><div class="line">    <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">    setContentView(R.layout.activity_hello_moon);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+        <p class="article-more-link">
+          <a  href="/2016/09/19/原-mvc与音频播放/#more">more >></a>
+        </p>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/09/19/原-mvc与音频播放/" class="archive-article-date">
+  	<time datetime="2016-09-19T08:33:06.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-09-19</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mvc/">mvc</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-原-Fragment的实现方案" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/19/原-Fragment的实现方案/">Fragment的实现方案</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Fragment与Activity有几种方式，今天讲上一讲</p>
+<p>##1</p>
+<p>xml 布局fragment</p>
+<p>很简单，我们先造好fragment 然后再在activity的xml文件中加入<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">TableLayout</span> //这个是<span class="attr">fragment</span></div><div class="line"><span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></div><div class="line">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span> <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span>&gt;</span></div><div class="line">    </div><div class="line"><span class="tag">&lt;/<span class="name">TableLayout</span>&gt;</span></div></pre></td></tr></table></figure></p>
+        <p class="article-more-link">
+          <a  href="/2016/09/19/原-Fragment的实现方案/#more">more >></a>
+        </p>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/09/19/原-Fragment的实现方案/" class="archive-article-date">
+  	<time datetime="2016-09-19T07:45:21.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-09-19</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/fragment/">fragment</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-转-单例设计模式" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -287,113 +397,9 @@
 
 
   
-    <article id="post-原-无聊又无趣的位运算" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/24/原-无聊又无趣的位运算/">无聊又无趣的位运算</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>开坑 待写</p>
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/07/24/原-无聊又无趣的位运算/" class="archive-article-date">
-  	<time datetime="2016-07-24T06:27:50.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-07-24</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Beauty-of-Programming/">Beauty of Programming</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/随笔/">随笔</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-原-Beauty-of-Programming-1" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/19/原-Beauty-of-Programming-1/">Beauty of Programming 1</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>买了本编程之美 打算以后看看 也在这里记录一下有关算法方面的东西</p>
-<h2 id="有关象棋将帅的位置问题"><a href="#有关象棋将帅的位置问题" class="headerlink" title="有关象棋将帅的位置问题"></a>有关象棋将帅的位置问题</h2><p>　假设在中国象棋中只剩下将帅两个棋子，国人都知道基本规则：将帅不能出九宫格，只能上下左右移动，不能斜向移动，同时将帅不能照面。问在这样条件下，所有可能将帅位置。<strong>要求在代码中只能使用一个字节存储变量</strong>。<br><img src="http://img.blog.csdn.net/20160719182303946" alt="这里写图片描述"><br>将帅的田字格自然都可以分为就这样 问题就变成 两个一到九的循环 他们对于3的余数不能一样 一样的话将帅就碰面了</p>
-<p>这样的问题 我也花三分钟写完 但问题来了？<br>
-        <p class="article-more-link">
-          <a  href="/2016/07/19/原-Beauty-of-Programming-1/#more">more >></a>
-        </p>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/07/19/原-Beauty-of-Programming-1/" class="archive-article-date">
-  	<time datetime="2016-07-19T11:20:20.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-07-19</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Beauty-of-Programming/">Beauty of Programming</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/20/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/19/">19</a><a class="page-number" href="/page/20/">20</a><span class="page-number current">21</span><a class="page-number" href="/page/22/">22</a><a class="page-number" href="/page/23/">23</a><a class="extend next" rel="next" href="/page/22/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/20/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/19/">19</a><a class="page-number" href="/page/20/">20</a><span class="page-number current">21</span><a class="page-number" href="/page/22/">22</a><a class="page-number" href="/page/23/">23</a><a class="page-number" href="/page/24/">24</a><a class="extend next" rel="next" href="/page/22/">Next &raquo;</a>
     </nav>
   
 
