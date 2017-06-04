@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>ThoughtWorks 结对编程 | colin</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="起因技术博客写多了，不会起名字的说 ，可能写多了，最后写出来的东西偏向于冷冰冰吧；
+正经的起因
+可能就是某个懒散的下午，打开电脑，不知道做什么，打开牛客看了看，随即看到结对编程，不知道是做什么的，点开看了看；页面很好，不像国人写的风格；
+鬼使神差的就报名了，点进去看了看，居然还有题；而且第一道题还是 intellij idea 的快捷键，很感兴趣，就做了；其实当时应该好好学习一下的，因为现在视频点">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ThoughtWorks 结对编程">
+<meta property="og:url" content="http://yoursite.com/2017/06/04/ThoughtWorks 结对编程/index.html">
+<meta property="og:site_name" content="colin">
+<meta property="og:description" content="起因技术博客写多了，不会起名字的说 ，可能写多了，最后写出来的东西偏向于冷冰冰吧；
+正经的起因
+可能就是某个懒散的下午，打开电脑，不知道做什么，打开牛客看了看，随即看到结对编程，不知道是做什么的，点开看了看；页面很好，不像国人写的风格；
+鬼使神差的就报名了，点进去看了看，居然还有题；而且第一道题还是 intellij idea 的快捷键，很感兴趣，就做了；其实当时应该好好学习一下的，因为现在视频点">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3038083-143e7409faa62e63.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-06-04T14:11:59.644Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ThoughtWorks 结对编程">
+<meta name="twitter:description" content="起因技术博客写多了，不会起名字的说 ，可能写多了，最后写出来的东西偏向于冷冰冰吧；
+正经的起因
+可能就是某个懒散的下午，打开电脑，不知道做什么，打开牛客看了看，随即看到结对编程，不知道是做什么的，点开看了看；页面很好，不像国人写的风格；
+鬼使神差的就报名了，点进去看了看，居然还有题；而且第一道题还是 intellij idea 的快捷键，很感兴趣，就做了；其实当时应该好好学习一下的，因为现在视频点">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/3038083-143e7409faa62e63.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+  
+    <link rel="alternative" href="/atom.xml" title="colin" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="//favicon.png">
+  
+  <script src="/style.js"></script>
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="/0.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">墨</a></h1>
+		</hgroup>
+
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/tags/随笔">随笔</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">所有文章</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="2" href="javascript:void(0)">友链</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="3" href="javascript:void(0)">关于我</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="https://github.com/colining" title="github">github</a>
+		        
+					<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/ren-tian-qi" title="zhihu">zhihu</a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<h1 class="header-author js-mobile-header hide">墨</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img src="/0.jpg" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">墨</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/tags/随笔">随笔</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/colining" title="github">github</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/ren-tian-qi" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap">
+        <article id="post-ThoughtWorks 结对编程" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      ThoughtWorks 结对编程
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h1><p>技术博客写多了，不会起名字的说 ，可能写多了，最后写出来的东西偏向于冷冰冰吧；</p>
+<h3 id="正经的起因"><a href="#正经的起因" class="headerlink" title="正经的起因"></a>正经的起因</h3><ol>
+<li>可能就是某个懒散的下午，打开电脑，不知道做什么，打开牛客看了看，随即看到结对编程，不知道是做什么的，点开看了看；页面很好，不像国人写的风格；</li>
+<li>鬼使神差的就报名了，点进去看了看，居然还有题；而且第一道题还是 intellij idea 的快捷键，很感兴趣，就做了；其实当时应该好好学习一下的，因为现在视频点不进去嘞；之后就是保龄球，我觉得写了好久，完全没有重构，没有命名，就一个方法，不过我考虑了算法上的问题，一次扫描，ok；不过可能并不鲁棒，因为我是按着测试改了半天；</li>
+</ol>
+<a id="more"></a>
+<h1 id="我"><a href="#我" class="headerlink" title="我"></a>我</h1><p>现在讲讲我的实际情况</p>
+<ol>
+<li>大二其实对编程兴趣就起来了，但是学习的是很火的Android,后来越学越发现Java基础太弱，泛型转型统统不会；虽然给自己举了很生动的例子；但是总觉得是在堆叠别人的代码，学了半天，又发现有个什么React；我就很茫然，于是就重新学习Java，想要巩固基础；</li>
+<li>另外就是想早早出去实习，我不喜欢太学术，也不喜欢很多人功利的读研什么的，所以我高考的时候就决定我要去工作；</li>
+<li>CleanCode看过一点，积累很少，如果算的话，可能就只看过Java编程思想一本世界名著吧；</li>
+<li>所以我很慌张，前沿技术在革新，基础却还没有；而且这些还是大三才意识到的；就好像我大三下才知道互联网公司春招，招的是我们这一届的人；</li>
+</ol>
+<h1 id="结对编程"><a href="#结对编程" class="headerlink" title="结对编程"></a>结对编程</h1><ol>
+<li><p>很神奇吧，我和我的队友在这方面做的还不错呢；在做逻辑的时候，我们是多次交换，不过关于TDD和重构的思路都是队友给的；因为我在这方面完全是不懂的，在这之前我只知道一件事——逻辑和跑通；而在页面部分，则是队友占主要部分，因为我的Swing太渣了，虽然能看懂，但是我可不容易理解action和持有对象；</p>
+</li>
+<li><p>讲话太多，容易口干舌燥；</p>
+</li>
+<li><p>不宜过长时间，不知道是不是因为一直在搞图形界面，我的精力和耐心真的是要被消磨殆尽了，幸好我的队友很热情，一直在和我说，其实后面我已经完全跟不上思路了；因为MVC三层架构，所需要依赖的东西太多；</p>
+</li>
+<li><p>bug完全没有，这真的是神奇，TDD的方法，将任务切分，只要逻辑没错，还真的没有遇见到bug；真的是编写的超级顺利；</p>
+</li>
+</ol>
+<ol>
+<li><p>如果和女生结对就更好了，不过还是等我先成长为大牛好了；</p>
+</li>
+<li><p>可以了解不同人的想法，比如我的队友，真的是重构狂人啊，各种名词，幸好我全明白；不过这样冲突可能也会比较多，其实我还是比较在意性能，但是也不太好意思说出来；</p>
+</li>
+</ol>
+<h1 id="收获"><a href="#收获" class="headerlink" title="收获"></a>收获</h1><p>1.TDD，从队友那里学到的，测试驱动，问题分解；最后自然而然就解决掉了，而且代码还是高质量；神奇的方法；</p>
+<ol>
+<li><p>重构，我原先的重构就是改改名字，但没想到重构学问这么多；是时候读世界名著了；</p>
+</li>
+<li><p>项目重点，实际上对一个项目来说，代码鲁棒，重构和可扩展性才是开始编写时最关心的部分，因为对影响性能的方法，我们可以进行性能改进；现在再看原先的项目，真的是不堪入目；</p>
+</li>
+<li><p>git，maven，使用命令行吧，少年；不要太依赖IDE；</p>
+</li>
+<li><p>技术在不断地革新，掌握核心科技才能笑傲江湖哦；</p>
+</li>
+<li><p>TW的企业文化真的是超级棒，如果有可能我希望去TW进行文化初始化；</p>
+</li>
+<li><p>世界真的很大，去之前相当于我只知道有那么一些人，在默默做着为了人类的事情；去之后，我真的看到了，TW的三大支柱，社会公正和帮助社会弱势群体真的触动了我；我也希望自己成为这样的人；</p>
+</li>
+<li><p>不过呢，还是先好好学习吧；</p>
+</li>
+</ol>
+<h1 id="奖品"><a href="#奖品" class="headerlink" title="奖品"></a>奖品</h1><p>我们小组获得了第四名，所以还是很高兴的，因为参加的大多数是研究生，北航，北邮，还有两个北大的，我一个小小的地质大学只能颤抖了；虽然很期待无人机，但看起来只能自己挣钱买喽；<br><img src="http://upload-images.jianshu.io/upload_images/3038083-143e7409faa62e63.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="奖品.jpg"></p>
+<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><ol>
+<li><p>想成为一个卓越的工程师，首先成为一个卓越的人；</p>
+</li>
+<li><p>植根于内心的修养，无需提醒的自觉，以约束为前提的自由，为他人着想的善良；希望自己始终能按照这个标准成为一个有文化的人；</p>
+</li>
+</ol>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/06/04/ThoughtWorks 结对编程/" class="archive-article-date">
+  	<time datetime="2017-06-04T14:10:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-06-04</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/结对编程/">结对编程</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/随笔/">随笔</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2017/05/24/rest api 的首次尝试/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">REST api 的首次尝试</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="//v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="ThoughtWorks 结对编程" data-title="ThoughtWorks 结对编程" data-url="http://yoursite.com/2017/06/04/ThoughtWorks 结对编程/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"colining.duoshuo.com"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 墨
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: false,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: "/"
+	}
+</script>
+
+<script src="/./main.js"></script>
+
+
+    
+<div class="tools-col">
+  <ul class="btn-wrap">
+    
+      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
+    
+    
+      <li data-hook="tools-section-tag"><span class="text">标签</span><i class="icon-price-tags"></i></li>
+    
+    
+      <li data-hook="tools-section-friends"><span class="text">友链</span><i class="icon-link"></i></li>
+    
+    
+      <li data-hook="tools-section-me"><span class="text">我</span><i class="icon-smile"></i></li>
+    
+  </ul>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all chose">
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-tag">
+    			<div class="widget tagcloud" id="js-tagcloud">
+    				<a href="/tags/Android/" style="font-size: 17.5px;">Android</a> <a href="/tags/Beauty-of-Programming/" style="font-size: 13.75px;">Beauty of Programming</a> <a href="/tags/Java/" style="font-size: 15px;">Java</a> <a href="/tags/Java知识点/" style="font-size: 11.25px;">Java知识点</a> <a href="/tags/Java编程思想/" style="font-size: 16.25px;">Java编程思想</a> <a href="/tags/fragment/" style="font-size: 12.5px;">fragment</a> <a href="/tags/mvc/" style="font-size: 11.25px;">mvc</a> <a href="/tags/刷题/" style="font-size: 11.25px;">刷题</a> <a href="/tags/剑指Offer/" style="font-size: 18.75px;">剑指Offer</a> <a href="/tags/笔试/" style="font-size: 10px;">笔试</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a> <a href="/tags/线程/" style="font-size: 11.25px;">线程</a> <a href="/tags/结对编程/" style="font-size: 10px;">结对编程</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/随笔/" style="font-size: 12.5px;">随笔</a>
+    			</div>
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-friends">
+  		
+  			<div class="friends-wrap" id="js-friends">
+  			
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="https://www.google.com.hk/">谷歌</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="https://stackoverflow.com/">stackoverflow</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://beyondtech.org/">泡饭</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="https://menyifan.com/">MYF</a>
+  	        
+  	        </div>
+  		
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-me">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">继续跑&lt;br&gt;&lt;br&gt;带着赤子的骄傲</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div>
+</body>
+</html>
