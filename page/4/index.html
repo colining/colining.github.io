@@ -129,6 +129,169 @@
       <div class="body-wrap">
         
   
+    <article id="post-Java应急 知识" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/13/Java应急 知识/">Java应急 知识</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li>通配符相关：<br>首先我们要明白类型擦出是怎么回事，也就是说，类型的确定是编译时确定的；编译时发现你往里存的对象有问题就报错；如果运行了你通过反射强制向里面添加元素其实是随便的；<br>&lt; T &gt;表示某种类型，比如Integer；&lt; ? &gt;表示不知道具体那种类型；&lt; T &gt;简单啊，你添加，读取都是T类型；？呢，不知道是哪种类型，能放进去吗？显然不能啊，你总不能把电视和地球放在一起把，这样会很奇怪；但是？读取，就会很方便，因为集合里已经有了这么一些东西，我管它是啥呢，拿出来就好了；<br>以这种思想，我们来看一下上下界通配符；<br>&lt; ? extend A&gt;  也就是T是个A的子类，那是哪个呢？很显然，你没办法向里面储存A的全部子类吧；比如T是个A的其中大儿子的儿子；那么A小儿子的儿子，很显然存不进去的嘛；但是反过来我不管T是哪个类，它总可以向上转型为A，所以就可以读取并转型为A；（不可转型为A的子类）；<br>&lt; ? super B&gt; 就是说T是B得一个父类，那么很显然的，存什么我都可以把它转型为T嘛，因为T是B的父类嘛；但是当你读取的时候，T？B的父类，那是个什么玩意，到底是父亲，还是爷爷，还是Object呢？所以无法读取；除非你读取转型为Object；
+        <p class="article-more-link">
+          <a  href="/2017/04/13/Java应急 知识/#more">more >></a>
+        </p>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/04/13/Java应急 知识/" class="archive-article-date">
+  	<time datetime="2017-04-13T11:15:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-04-13</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-剑指Offer 56 链表中环的入口结点" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/10/剑指Offer 56 链表中环的入口结点/">剑指Offer 56 链表中环的入口结点</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>一个链表中包含环，请找出该链表的环的入口结点。</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><ol>
+<li>hashset，最快的想法；重复检验嘛</li>
+<li>截断指针；因为什么呢？因为你会发现入口结点有两个入口，如果从头开始截断指针，最后的这个一定是入口结点；</li>
+<li>神奇的双指针：其实这个想法我稍微想过，不过步骤比较多，没想明白；首先我们进入了环中，就可以计算环的节点数目；第二个想法是在一个环中，两个结点追逐的话，在绕一圈以后，就会相遇；<br>那对这一题来说：<br>一个指针在头，另一个提前移动环节点数目，最后就会相遇；
+        <p class="article-more-link">
+          <a  href="/2017/04/10/剑指Offer 56 链表中环的入口结点/#more">more >></a>
+        </p>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/04/10/剑指Offer 56 链表中环的入口结点/" class="archive-article-date">
+  	<time datetime="2017-04-10T13:01:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-04-10</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/剑指Offer/">剑指Offer</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-剑指Offer 53 正则表达式" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/10/剑指Offer 53 正则表达式/">剑指Offer 53 正则表达式</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>请实现一个函数用来匹配包括’.’和’<em>‘的正则表达式。模式中的字符’.’表示任意一个字符，而’</em>‘表示它前面的字符可以出现任意次（包含0次）。 在本题中，匹配是指字符串的所有字符匹配整个模式。例如，字符串”aaa”与模式”a.a”和”ab<em>ac</em>a”匹配，但是与”aa.a”和”ab*a”均不匹配</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><ol>
+<li>其实难点有两个，一个就是*的处理，因为包含三种情况；还有就是指针控制
+        <p class="article-more-link">
+          <a  href="/2017/04/10/剑指Offer 53 正则表达式/#more">more >></a>
+        </p>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/04/10/剑指Offer 53 正则表达式/" class="archive-article-date">
+  	<time datetime="2017-04-10T12:27:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-04-10</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/剑指Offer/">剑指Offer</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-剑指Offer 52 构建乘积数组" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -239,169 +402,6 @@
 
 
   
-    <article id="post-剑指Offer 49 把字符串转换成整数" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/09/剑指Offer 49 把字符串转换成整数/">剑指Offer 49 把字符串转换成整数</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>将一个字符串转换成一个整数，要求不能使用字符串转换整数的库函数。 数值为0或者字符串不是一个合法的数值则返回0</p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><ol>
-<li>其实这道题就是要考虑周全就行，首先是字符串的鉴别啊，“+”和“-”的判别，然后我就写多了。。。。
-        <p class="article-more-link">
-          <a  href="/2017/04/09/剑指Offer 49 把字符串转换成整数/#more">more >></a>
-        </p>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2017/04/09/剑指Offer 49 把字符串转换成整数/" class="archive-article-date">
-  	<time datetime="2017-04-09T07:11:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-04-09</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/剑指Offer/">剑指Offer</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-剑指Offer 47 不用加减乘除做加法" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/08/剑指Offer 47 不用加减乘除做加法/">剑指Offer 47 不用加减乘除做加法</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>写一个函数，求两个整数之和，要求在函数体内不得使用+、-、*、/四则运算符号。</p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><ol>
-<li>依靠位运算，其实真的很巧妙对于+运算，难点其实就在进位运算；<br>（101+10001）不考虑进位就是=10100；就是异或运算，只有一个1一个0才等于1；然后考虑进位，两个都是1才可能产生进位；也就是与运算；然后在左移一位即可；
-        <p class="article-more-link">
-          <a  href="/2017/04/08/剑指Offer 47 不用加减乘除做加法/#more">more >></a>
-        </p>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2017/04/08/剑指Offer 47 不用加减乘除做加法/" class="archive-article-date">
-  	<time datetime="2017-04-08T12:29:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-04-08</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/剑指Offer/">剑指Offer</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-剑指Offer 46 求1+2+3+....n" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/08/剑指Offer 46 求1+2+3+....n/">剑指Offer 46 求1+2+3+....n</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>求1+2+3+…+n，要求不能使用乘除法、for、while、if、else、switch、case等关键字及条件判断语句（A?B:C）。</p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><ol>
-<li>首先没了上面那些关键字你会发现，你不能循环了，所以你得想办法循环，书上给的是构造函数，但是java默认构造函数不初始化，除非你手动，所以说就不行了</li>
-<li>没有if，你会发现递归的条件不能控制了，和for，while一样，其实我们失去的就是控制边界；那么想法就是如何让程序顺利退出；<br>3.下面说三种方法，异常，&amp;&amp;短路运算符，次方运算
-        <p class="article-more-link">
-          <a  href="/2017/04/08/剑指Offer 46 求1+2+3+....n/#more">more >></a>
-        </p>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2017/04/08/剑指Offer 46 求1+2+3+....n/" class="archive-article-date">
-  	<time datetime="2017-04-08T12:12:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-04-08</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/剑指Offer/">剑指Offer</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/24/">24</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
@@ -466,7 +466,7 @@
     
     	<section class="tools-section tools-section-tag">
     			<div class="widget tagcloud" id="js-tagcloud">
-    				<a href="/tags/Android/" style="font-size: 17.5px;">Android</a> <a href="/tags/Beauty-of-Programming/" style="font-size: 13.75px;">Beauty of Programming</a> <a href="/tags/Java/" style="font-size: 15px;">Java</a> <a href="/tags/Java知识点/" style="font-size: 11.25px;">Java知识点</a> <a href="/tags/Java编程思想/" style="font-size: 16.25px;">Java编程思想</a> <a href="/tags/fragment/" style="font-size: 12.5px;">fragment</a> <a href="/tags/mvc/" style="font-size: 11.25px;">mvc</a> <a href="/tags/刷题/" style="font-size: 11.25px;">刷题</a> <a href="/tags/剑指Offer/" style="font-size: 18.75px;">剑指Offer</a> <a href="/tags/笔试/" style="font-size: 10px;">笔试</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a> <a href="/tags/线程/" style="font-size: 11.25px;">线程</a> <a href="/tags/结对编程/" style="font-size: 10px;">结对编程</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/随笔/" style="font-size: 12.5px;">随笔</a>
+    				<a href="/tags/Android/" style="font-size: 17.5px;">Android</a> <a href="/tags/Beauty-of-Programming/" style="font-size: 13.75px;">Beauty of Programming</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Java/" style="font-size: 15px;">Java</a> <a href="/tags/Java知识点/" style="font-size: 11.25px;">Java知识点</a> <a href="/tags/Java编程思想/" style="font-size: 16.25px;">Java编程思想</a> <a href="/tags/fragment/" style="font-size: 12.5px;">fragment</a> <a href="/tags/mvc/" style="font-size: 11.25px;">mvc</a> <a href="/tags/wenda/" style="font-size: 10px;">wenda</a> <a href="/tags/刷题/" style="font-size: 11.25px;">刷题</a> <a href="/tags/剑指Offer/" style="font-size: 18.75px;">剑指Offer</a> <a href="/tags/笔试/" style="font-size: 10px;">笔试</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a> <a href="/tags/线程/" style="font-size: 11.25px;">线程</a> <a href="/tags/结对编程/" style="font-size: 10px;">结对编程</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/随笔/" style="font-size: 12.5px;">随笔</a>
     			</div>
     	</section>
     

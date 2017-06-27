@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>spring-boot&amp;mvn&amp;terminal | colin</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="起因下午再看git，看了半天还是感觉有很多不懂的东西，用的时候再说吧；
+Maven
+maven原来没有配置过，直接用的Intellij 自己的，所以自然也不知到人家命令行是啥情况了呗；所以maven应该先下载，配置环境变量，然后就可以用命令行了；
+
+Terminal
+一直以来都不咋会用命令行，结果今天发现cmd是可以直接运行git，maven命令的，也就是配置环境的作用？
+Intellij 中te">
+<meta property="og:type" content="article">
+<meta property="og:title" content="spring-boot&mvn&terminal">
+<meta property="og:url" content="http://yoursite.com/2017/06/25/spring-boot&mvn&terminal/index.html">
+<meta property="og:site_name" content="colin">
+<meta property="og:description" content="起因下午再看git，看了半天还是感觉有很多不懂的东西，用的时候再说吧；
+Maven
+maven原来没有配置过，直接用的Intellij 自己的，所以自然也不知到人家命令行是啥情况了呗；所以maven应该先下载，配置环境变量，然后就可以用命令行了；
+
+Terminal
+一直以来都不咋会用命令行，结果今天发现cmd是可以直接运行git，maven命令的，也就是配置环境的作用？
+Intellij 中te">
+<meta property="og:updated_time" content="2017-06-27T03:06:48.553Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="spring-boot&mvn&terminal">
+<meta name="twitter:description" content="起因下午再看git，看了半天还是感觉有很多不懂的东西，用的时候再说吧；
+Maven
+maven原来没有配置过，直接用的Intellij 自己的，所以自然也不知到人家命令行是啥情况了呗；所以maven应该先下载，配置环境变量，然后就可以用命令行了；
+
+Terminal
+一直以来都不咋会用命令行，结果今天发现cmd是可以直接运行git，maven命令的，也就是配置环境的作用？
+Intellij 中te">
+  
+    <link rel="alternative" href="/atom.xml" title="colin" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="//favicon.png">
+  
+  <script src="/style.js"></script>
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="/0.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">墨</a></h1>
+		</hgroup>
+
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/tags/随笔">随笔</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">所有文章</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="2" href="javascript:void(0)">友链</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="3" href="javascript:void(0)">关于我</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="https://github.com/colining" title="github">github</a>
+		        
+					<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/ren-tian-qi" title="zhihu">zhihu</a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<h1 class="header-author js-mobile-header hide">墨</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img src="/0.jpg" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">墨</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/tags/随笔">随笔</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/colining" title="github">github</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/ren-tian-qi" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap">
+        <article id="post-spring-boot&amp;mvn&amp;terminal" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      spring-boot&amp;mvn&amp;terminal
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h1><p>下午再看git，看了半天还是感觉有很多不懂的东西，用的时候再说吧；</p>
+<h1 id="Maven"><a href="#Maven" class="headerlink" title="Maven"></a>Maven</h1><ol>
+<li>maven原来没有配置过，直接用的Intellij 自己的，所以自然也不知到人家命令行是啥情况了呗；所以maven应该先下载，配置环境变量，然后就可以用命令行了；</li>
+</ol>
+<h1 id="Terminal"><a href="#Terminal" class="headerlink" title="Terminal"></a>Terminal</h1><ol>
+<li>一直以来都不咋会用命令行，结果今天发现cmd是可以直接运行git，maven命令的，也就是配置环境的作用？</li>
+<li>Intellij 中terminal是有问题的，因为win10命令行是新的，没法用的说，所以需要使用旧版控制台；</li>
+<li>powershell 也可以修改配色啥的，以后用用那个也不错的；<a id="more"></a>
+<h1 id="Spring-boot"><a href="#Spring-boot" class="headerlink" title="Spring-boot"></a>Spring-boot</h1></li>
+<li><p>@SpringBootApplication</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * main函数 SpringBootApplication 是&lt;br&gt;</div><div class="line"> * 三个命令的替代写法</div><div class="line"> */</div><div class="line"><span class="meta">@SpringBootApplication</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WendaApplication</span> </span>&#123;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">		SpringApplication.run(WendaApplication.class, args);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>自动装配</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Autowired</span></div><div class="line"> WendaService wendaService;              <span class="comment">//自动装配</span></div></pre></td></tr></table></figure>
+</li>
+<li><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 通过path，可以指定多个路径到一个页面，method可以指定该页面的HTTP方法&lt;br&gt;</div><div class="line"> * ResponseBody 表示该方法的返回结果直接写入HTTP response body&lt;br&gt;</div><div class="line"> * 不调用静态模板，不会加载jsp啥的</div><div class="line"> * <span class="doctag">@return</span> 返回结果直接写入response body</div><div class="line"> */</div><div class="line"><span class="meta">@RequestMapping</span>(path = &#123;<span class="string">"/"</span>, <span class="string">"/index"</span>&#125;, method = &#123;RequestMethod.POST, RequestMethod.GET&#125;)</div><div class="line"><span class="meta">@ResponseBody</span></div><div class="line"><span class="function"><span class="keyword">public</span> String <span class="title">index</span><span class="params">(HttpSession httpSession)</span> </span>&#123;</div><div class="line">    LOGGER.info(<span class="string">"visit"</span>+<span class="keyword">new</span> Date());</div><div class="line">    <span class="keyword">return</span> <span class="string">"Hello World"</span> + httpSession.getAttribute(<span class="string">"msg"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>PathVariable,RequestParam<br>PathVariable,是从路径信息得到的变量 比如  *.net/admin/1; admin和1都可以认为是路劲变量<br>RequestParam 是request变量，跟着请求一起发来， ？type = 1；type通过链接传递参数，作为request变量；</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * PathVariable    是指从路径得到的参数 &lt;br&gt;</div><div class="line"> * RequestParam    是指从请求得到的参数</div><div class="line"> *</div><div class="line"> * <span class="doctag">@param</span> userId  用户Id</div><div class="line"> * <span class="doctag">@param</span> groupId 用户组</div><div class="line"> * <span class="doctag">@param</span> type    类型</div><div class="line"> * <span class="doctag">@param</span> key     key</div><div class="line"> * <span class="doctag">@return</span> 返回结果直接写入response body</div><div class="line"> */</div><div class="line"><span class="meta">@RequestMapping</span>(path = &#123;<span class="string">"/profile/&#123;groupId&#125;/&#123;userId&#125;"</span>&#125;)</div><div class="line"><span class="meta">@ResponseBody</span></div><div class="line"><span class="function"><span class="keyword">public</span> String <span class="title">profile</span><span class="params">(@PathVariable(<span class="string">"userId"</span>)</span> <span class="keyword">int</span> userId,</span></div><div class="line">                      @<span class="title">PathVariable</span><span class="params">(<span class="string">"groupId"</span>)</span> String groupId,</div><div class="line">                      @<span class="title">RequestParam</span><span class="params">(value = <span class="string">"type"</span>, defaultValue = <span class="string">"1"</span>, required = <span class="keyword">true</span>)</span> <span class="keyword">int</span> type,</div><div class="line">                      @<span class="title">RequestParam</span><span class="params">(value = <span class="string">"key"</span>, defaultValue = <span class="string">"zz"</span>, required = <span class="keyword">false</span>)</span> String key) &#123;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> String.format(<span class="string">"Profile Page of %s %d,&lt;br&gt; t: %d k: %s"</span>, groupId, userId, type, key);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>报头，cookie</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line">  <span class="comment">/**</span></div><div class="line">     * 打印了从cookie获取数据&lt;br&gt;</div><div class="line">     * 打印了请求头&lt;br&gt;</div><div class="line">     * response 添加了一个Header，添加了一个cookie</div><div class="line">     * <span class="doctag">@param</span> response  响应</div><div class="line">     * <span class="doctag">@param</span> request   请求</div><div class="line">     * <span class="doctag">@param</span> sessionId 从cookie获取的id</div><div class="line">     * <span class="doctag">@return</span></div><div class="line">     */</div><div class="line">    <span class="meta">@RequestMapping</span>(path = &#123;<span class="string">"/request"</span>&#125;, method = &#123;RequestMethod.GET&#125;)</div><div class="line">    <span class="meta">@ResponseBody</span></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">template</span><span class="params">( HttpServletResponse response,</span></span></div><div class="line">                           HttpServletRequest request,</div><div class="line">                           @CookieValue(<span class="string">"JSESSIONID"</span>) String sessionId) &#123;</div><div class="line">        StringBuilder stringBuilder = <span class="keyword">new</span> StringBuilder();</div><div class="line">        stringBuilder.append(<span class="string">"COOKIEVALUE"</span> + <span class="string">" "</span> + sessionId+<span class="string">"&lt;br&gt;"</span>);</div><div class="line"></div><div class="line">        Enumeration&lt;String&gt; headerNames = request.getHeaderNames();</div><div class="line">        <span class="keyword">while</span> (headerNames.hasMoreElements()) &#123;</div><div class="line">            String name = headerNames.nextElement();</div><div class="line">            stringBuilder.append(name + <span class="string">":"</span> + request.getHeader(name) + <span class="string">"&lt;br&gt;"</span>);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (request.getCookies() != <span class="keyword">null</span>) &#123;</div><div class="line">            <span class="keyword">for</span> (Cookie cookie : request.getCookies()) &#123;</div><div class="line">                stringBuilder.append(<span class="string">"Cookie:"</span> + cookie.getName() + <span class="string">"value"</span> + cookie.getValue());</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        stringBuilder.append(request.getMethod() + <span class="string">"&lt;br&gt;"</span>);</div><div class="line">        stringBuilder.append(request.getQueryString() + <span class="string">"&lt;br&gt;"</span>);</div><div class="line">        stringBuilder.append(request.getPathInfo() + <span class="string">"&lt;br&gt;"</span>);</div><div class="line">        stringBuilder.append(request.getRequestURI() + <span class="string">"&lt;br&gt;"</span>);</div><div class="line"></div><div class="line">        response.addHeader(<span class="string">"colin"</span>, <span class="string">"hello"</span>);</div><div class="line">        response.addCookie(<span class="keyword">new</span> Cookie(<span class="string">"username"</span>, <span class="string">"colin"</span>));</div><div class="line"></div><div class="line"><span class="comment">//        try &#123;</span></div><div class="line"><span class="comment">//            response.sendRedirect("/index");</span></div><div class="line"><span class="comment">//        &#125; catch (IOException e) &#123;</span></div><div class="line"><span class="comment">//            e.printStackTrace();</span></div><div class="line"><span class="comment">//        &#125;</span></div><div class="line">        <span class="keyword">return</span> stringBuilder.toString();</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h1 id="面向切面编程"><a href="#面向切面编程" class="headerlink" title="面向切面编程"></a>面向切面编程</h1><ol>
+<li>before &amp;after<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Aspect</span></div><div class="line"><span class="meta">@Component</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LogAspect</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Logger LOGGER = LoggerFactory.getLogger(LogAspect.class);</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 打印连接点的一大堆信息，before在方法调用前执行</div><div class="line">     * <span class="doctag">@param</span> joinPoint 连接点</div><div class="line">     */</div><div class="line">    <span class="meta">@Before</span>(<span class="string">"execution(* cn.colining.controller.*Controller.*(..))"</span>)</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">beforeMethod</span><span class="params">(JoinPoint joinPoint)</span> </span>&#123;</div><div class="line">        StringBuilder stringBuilder = <span class="keyword">new</span> StringBuilder();</div><div class="line">        <span class="keyword">for</span> (Object o : joinPoint.getArgs() ) &#123;</div><div class="line">            stringBuilder.append(<span class="string">"arg: "</span> + o.toString() + <span class="string">"|"</span>);</div><div class="line">        &#125;</div><div class="line">        LOGGER.info(<span class="string">"before method "</span>+stringBuilder.toString());</div><div class="line"></div><div class="line">    &#125;</div><div class="line">    <span class="meta">@After</span>(<span class="string">"execution(* cn.colining.controller.IndexController.*(..))"</span>)</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span>  <span class="title">afterMethod</span><span class="params">()</span></span>&#123;</div><div class="line">        LOGGER.info(<span class="string">"after method"</span>+<span class="keyword">new</span> Date());</div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h1 id="freemarker"><a href="#freemarker" class="headerlink" title="freemarker"></a>freemarker</h1><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line">Hello!</div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">pre</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">#--通过$&#123;xxx&#125;</span> 来表示变量<span class="attr">--</span>&gt;</span></div><div class="line">    $&#123;value1&#125;</div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">#--colors是从后台传来的对象，和foreach语法类似--</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">#list</span> <span class="attr">colors</span> <span class="attr">as</span> <span class="attr">color</span>&gt;</span></div><div class="line">        color $&#123;color&#125; $&#123;color_index&#125;</div><div class="line">    <span class="tag">&lt;/<span class="name">#list</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">#--map是后台对象，?key是map固定写法--</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">#list</span>  <span class="attr">map</span>?<span class="attr">keys</span> <span class="attr">as</span> <span class="attr">key</span>&gt;</span></div><div class="line">        key --&gt; $&#123;key&#125;</div><div class="line">        value --&gt; $&#123;map[key]&#125;</div><div class="line">    <span class="tag">&lt;/<span class="name">#list</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">#--得到属性的两种方法--</span>&gt;</span></div><div class="line">    $&#123;user.name&#125;</div><div class="line">    $&#123;user.getDescription()&#125;</div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">#--声明变量--</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">#assign</span> <span class="attr">title</span>= <span class="string">5</span>&gt;</span></div><div class="line">    $&#123;title&#125;</div><div class="line">    <span class="tag">&lt;<span class="name">#--在本页面加入其他页面--</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">#include</span> "<span class="attr">header.ftl</span>"&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">#--定义宏，colortest是宏的名字，color和index是参数--</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">#macro</span> <span class="attr">colortest</span> <span class="attr">color</span> <span class="attr">index</span>&gt;</span></div><div class="line">        render_macro: $&#123;color&#125; ,$&#123;index&#125;</div><div class="line">    <span class="tag">&lt;/<span class="name">#macro</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">#--相当于遍历时调用函数，注意参数不需要加$&#123;&#125;,我也不知道为啥--</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">#list</span> <span class="attr">colors</span> <span class="attr">as</span> <span class="attr">color</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">@colortest</span> <span class="attr">color</span> =<span class="string">color</span> <span class="attr">index</span> = <span class="string">color_index</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">@colortest</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">#list</span>&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">#macro</span> <span class="attr">greet</span> <span class="attr">a</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">font</span> <span class="attr">size</span>=<span class="string">’+2’</span>&gt;</span>HelloW Joe! $&#123;a&#125;<span class="tag">&lt;/<span class="name">font</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">#macro</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">@greet</span> <span class="attr">a</span> =<span class="string">title</span>&gt;</span><span class="tag">&lt;/<span class="name">@greet</span>&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">#--可以通过已定义变量定义新的变量--</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">#assign</span> <span class="attr">hello</span> = <span class="string">"hello"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">#assign</span> <span class="attr">helloWorld1</span> = <span class="string">"$&#123;hello&#125;1 world"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">#assign</span> <span class="attr">helloWorld2</span> = <span class="string">'$&#123;hello&#125;2 world'</span>&gt;</span></div><div class="line">    $&#123;helloWorld1&#125;</div><div class="line">    $&#123;helloWorld2&#125;</div><div class="line"><span class="tag">&lt;/<span class="name">pre</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/06/25/spring-boot&mvn&terminal/" class="archive-article-date">
+  	<time datetime="2017-06-25T12:56:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-06-25</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/wenda/">wenda</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2017/06/25/Git 常用命令记录/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Git 常用命令记录</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="//v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="spring-boot&amp;mvn&amp;terminal" data-title="spring-boot&amp;mvn&amp;terminal" data-url="http://yoursite.com/2017/06/25/spring-boot&amp;mvn&amp;terminal/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"colining.duoshuo.com"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 墨
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: false,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: "/"
+	}
+</script>
+
+<script src="/./main.js"></script>
+
+
+    
+<div class="tools-col">
+  <ul class="btn-wrap">
+    
+      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
+    
+    
+      <li data-hook="tools-section-tag"><span class="text">标签</span><i class="icon-price-tags"></i></li>
+    
+    
+      <li data-hook="tools-section-friends"><span class="text">友链</span><i class="icon-link"></i></li>
+    
+    
+      <li data-hook="tools-section-me"><span class="text">我</span><i class="icon-smile"></i></li>
+    
+  </ul>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all chose">
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-tag">
+    			<div class="widget tagcloud" id="js-tagcloud">
+    				<a href="/tags/Android/" style="font-size: 17.5px;">Android</a> <a href="/tags/Beauty-of-Programming/" style="font-size: 13.75px;">Beauty of Programming</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Java/" style="font-size: 15px;">Java</a> <a href="/tags/Java知识点/" style="font-size: 11.25px;">Java知识点</a> <a href="/tags/Java编程思想/" style="font-size: 16.25px;">Java编程思想</a> <a href="/tags/fragment/" style="font-size: 12.5px;">fragment</a> <a href="/tags/mvc/" style="font-size: 11.25px;">mvc</a> <a href="/tags/wenda/" style="font-size: 10px;">wenda</a> <a href="/tags/刷题/" style="font-size: 11.25px;">刷题</a> <a href="/tags/剑指Offer/" style="font-size: 18.75px;">剑指Offer</a> <a href="/tags/笔试/" style="font-size: 10px;">笔试</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a> <a href="/tags/线程/" style="font-size: 11.25px;">线程</a> <a href="/tags/结对编程/" style="font-size: 10px;">结对编程</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/随笔/" style="font-size: 12.5px;">随笔</a>
+    			</div>
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-friends">
+  		
+  			<div class="friends-wrap" id="js-friends">
+  			
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="https://www.google.com.hk/">谷歌</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="https://stackoverflow.com/">stackoverflow</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://beyondtech.org/">泡饭</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="https://menyifan.com/">MYF</a>
+  	        
+  	        </div>
+  		
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-me">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">继续跑&lt;br&gt;&lt;br&gt;带着赤子的骄傲</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div>
+</body>
+</html>
