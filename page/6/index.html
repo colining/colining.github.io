@@ -129,7 +129,7 @@
       <div class="body-wrap">
         
   
-    <article id="post-剑指Offer 44" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-剑指Offer 53 正则表达式" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -139,7 +139,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/05/剑指Offer 44/">剑指Offer 44 扑克牌顺子</a>
+      <a class="article-title" href="/2017/04/10/剑指Offer 53 正则表达式/">剑指Offer 53 正则表达式</a>
     </h1>
   
 
@@ -147,71 +147,18 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>LL今天心情特别好,因为他去买了一副扑克牌,发现里面居然有2个大王,2个小王(一副牌原本是54张^_^)…他随机从中抽出了5张牌,想测测自己的手气,看看能不能抽到顺子,如果抽到的话,他决定去买体育彩票,嘿嘿！！“红心A,黑桃3,小王,大王,方片5”,“Oh My God!”不是顺子…..LL不高兴了,他想了想,决定大\小 王可以看成任何数字,并且A看作1,J为11,Q为12,K为13。上面的5张牌就可以变成“1,2,3,4,5”(大小王分别看作2和4),“So Lucky!”。LL决定去买体育彩票啦。 现在,要求你使用这幅牌模拟上面的过程,然后告诉我们LL的运气如何。为了方便起见,你可以认为大小王是0。</p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>关键点就是大小王能用在相差为1的地方，所以需要统计一下断点大小，再看看大小王是不是足够；<br>
-        <p class="article-more-link">
-          <a  href="/2017/04/05/剑指Offer 44/#more">more >></a>
-        </p>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2017/04/05/剑指Offer 44/" class="archive-article-date">
-  	<time datetime="2017-04-05T14:03:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-04-05</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/剑指Offer/">剑指Offer</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-剑指Offer 42反转单词顺序 vs左旋转字符串" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/05/剑指Offer 42反转单词顺序 vs左旋转字符串/">剑指Offer 42反转单词顺序 vs左旋转字符串</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="反转单词顺序"><a href="#反转单词顺序" class="headerlink" title="反转单词顺序"></a>反转单词顺序</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>牛客最近来了一个新员工Fish，每天早晨总是会拿着一本英文杂志，写些句子在本子上。同事Cat对Fish写的内容颇感兴趣，有一天他向Fish借来翻看，但却读不懂它的意思。例如，“student. a am I”。后来才意识到，这家伙原来把句子单词的顺序翻转了，正确的句子应该是“I am a student.”。Cat对一一的翻转这些单词顺序可不在行，你能帮助他么？</p>
+        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>请实现一个函数用来匹配包括’.’和’<em>‘的正则表达式。模式中的字符’.’表示任意一个字符，而’</em>‘表示它前面的字符可以出现任意次（包含0次）。 在本题中，匹配是指字符串的所有字符匹配整个模式。例如，字符串”aaa”与模式”a.a”和”ab<em>ac</em>a”匹配，但是与”aa.a”和”ab*a”均不匹配</p>
 <h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><ol>
-<li>主要依靠的就是两次旋转，先对整体，这样整体都换了位置，那么此时单个单词的位置应该就没有问题了；然后将单个单词再进行反转即可；
+<li>其实难点有两个，一个就是*的处理，因为包含三种情况；还有就是指针控制
         <p class="article-more-link">
-          <a  href="/2017/04/05/剑指Offer 42反转单词顺序 vs左旋转字符串/#more">more >></a>
+          <a  href="/2017/04/10/剑指Offer 53 正则表达式/#more">more >></a>
         </p>
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2017/04/05/剑指Offer 42反转单词顺序 vs左旋转字符串/" class="archive-article-date">
-  	<time datetime="2017-04-05T12:57:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-04-05</time>
+      <a href="/2017/04/10/剑指Offer 53 正则表达式/" class="archive-article-date">
+  	<time datetime="2017-04-10T12:27:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-04-10</time>
 </a>
       
 	<div class="article-tag tagcloud">
@@ -236,7 +183,7 @@
 
 
   
-    <article id="post-剑指Offer 41 和为s的两个数字vs和为s的连续正整数列" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-剑指Offer 52 构建乘积数组" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -246,7 +193,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/05/剑指Offer 41 和为s的两个数字vs和为s的连续正整数列/">剑指Offer 41 和为s的两个数字vs和为s的连续正整数列</a>
+      <a class="article-title" href="/2017/04/09/剑指Offer 52 构建乘积数组/">剑指Offer 52 构建乘积数组</a>
     </h1>
   
 
@@ -254,19 +201,18 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="和为s的两个数字"><a href="#和为s的两个数字" class="headerlink" title="和为s的两个数字"></a>和为s的两个数字</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>输入一个递增排序的数组和一个数字S，在数组中查找两个数，是的他们的和正好是S，如果有多对数字的和等于S，输出两个数的乘积最小的。</p>
+        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定一个数组A[0,1,…,n-1],请构建一个数组B[0,1,…,n-1],其中B中的元素B[i]=A[0]<em>A[1]</em>…<em>A[i-1]</em>A[i+1]<em>…</em>A[n-1]。不能使用除法。</p>
 <h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><ol>
-<li>暴力法不说了</li>
-<li>头尾指针挨个扫呗，具体的想法是这样的，一个指针放在最后最大的值哪里，一个指针放在最前面最小的值哪里；如果此时小的话，你肯定不能移动尾指针吧，你就移动头指针；（1，2，3） 找到和为5 开始是这样的（<strong>1</strong>，2，<strong>3</strong>），可是这个小啊，移动指针（1，<strong>2</strong>，<strong>3</strong>）；基本就是这样，那如果大的话，就是移动尾指针了，向前移动
+<li>想想一个矩阵
         <p class="article-more-link">
-          <a  href="/2017/04/05/剑指Offer 41 和为s的两个数字vs和为s的连续正整数列/#more">more >></a>
+          <a  href="/2017/04/09/剑指Offer 52 构建乘积数组/#more">more >></a>
         </p>
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2017/04/05/剑指Offer 41 和为s的两个数字vs和为s的连续正整数列/" class="archive-article-date">
-  	<time datetime="2017-04-05T10:21:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-04-05</time>
+      <a href="/2017/04/09/剑指Offer 52 构建乘积数组/" class="archive-article-date">
+  	<time datetime="2017-04-09T09:32:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-04-09</time>
 </a>
       
 	<div class="article-tag tagcloud">
@@ -291,7 +237,7 @@
 
 
   
-    <article id="post-Java 知识点 集合+异常" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-剑指Offer 51数组中重复的数字" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -301,7 +247,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/04/Java 知识点 集合+异常/">Java 知识点 集合+异常</a>
+      <a class="article-title" href="/2017/04/09/剑指Offer 51数组中重复的数字/">剑指Offer 51数组中重复的数字</a>
     </h1>
   
 
@@ -309,22 +255,25 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h2><p>曾几何时，我还觉得集合好难，以后看吧，可是，我已经大三了啊；我要去找到工作啊，我得参加面试的啊；加油努力吧；</p>
-<h2 id=""><a href="#" class="headerlink" title=""></a>
+        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>在一个长度为n的数组里的所有数字都在0到n-1的范围内。<br>        数组中某些数字是重复的，但不知道有几个数字是重复的。也不知道每个数字重复几次。请找出数组中任意一个重复的数字。<br>        例如，如果输入长度为7的数组{2,3,1,0,2,5,3}，那么对应的输出是重复的数字2或者3。</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><ol>
+<li>我们来思考一下，0~n-1 如果不重复是什么情况，就是0~n-1这些数都有一个，排好序完全就是从小到大；如果存在重复，最后一个数肯定到不了n-1；</li>
+<li>i这个数的位置就在i这个位置，所以我们可以用调整位置，如果在这个位置上的数和i一样，就说明有两个i了呗</li>
+<li>hashset
         <p class="article-more-link">
-          <a  href="/2017/04/04/Java 知识点 集合+异常/#more">more >></a>
+          <a  href="/2017/04/09/剑指Offer 51数组中重复的数字/#more">more >></a>
         </p>
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2017/04/04/Java 知识点 集合+异常/" class="archive-article-date">
-  	<time datetime="2017-04-04T13:26:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-04-04</time>
+      <a href="/2017/04/09/剑指Offer 51数组中重复的数字/" class="archive-article-date">
+  	<time datetime="2017-04-09T08:05:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-04-09</time>
 </a>
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java知识点/">Java知识点</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/剑指Offer/">剑指Offer</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
 	</div>
 
       
@@ -344,7 +293,7 @@
 
 
   
-    <article id="post-Java 知识点 类，字符串" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-剑指Offer 49 把字符串转换成整数" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -354,7 +303,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/03/Java 知识点 类，字符串/">Java 知识点 类，字符串</a>
+      <a class="article-title" href="/2017/04/09/剑指Offer 49 把字符串转换成整数/">剑指Offer 49 把字符串转换成整数</a>
     </h1>
   
 
@@ -362,27 +311,77 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="知识点哦"><a href="#知识点哦" class="headerlink" title="知识点哦"></a>知识点哦</h2><ul>
-<li>实例变量和局部变量，名称什么的不重要，简单来说，一个是对象的，另一个是方法内部的；有两点需要注意，第一实例变量自动初始化，比如int初始化0，但是局部变量量不会进行初始化；还有就是局部变量是可以屏蔽实例变量的；<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">static</span> String b = <span class="string">"lalalla"</span>;</div><div class="line"><span class="keyword">static</span> </div><div class="line">&#123;</div><div class="line">    System.out.println(b);   <span class="comment">//这里就是类变量</span></div><div class="line">    String b=<span class="string">"buyaoa"</span>;       <span class="comment">//这里是局部变量 不会报错的</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>代码可以清楚地看出，局部变量确实会屏蔽掉全局的（实例变量或者类变量），这也就是说为啥要写this的原因；</p>
-<ul>
-<li><p>Java中不定参数调用<br>这个原来确实没用过</p>
+        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>将一个字符串转换成一个整数，要求不能使用字符串转换整数的库函数。 数值为0或者字符串不是一个合法的数值则返回0</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><ol>
+<li>其实这道题就是要考虑周全就行，首先是字符串的鉴别啊，“+”和“-”的判别，然后我就写多了。。。。
         <p class="article-more-link">
-          <a  href="/2017/04/03/Java 知识点 类，字符串/#more">more >></a>
+          <a  href="/2017/04/09/剑指Offer 49 把字符串转换成整数/#more">more >></a>
         </p>
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2017/04/03/Java 知识点 类，字符串/" class="archive-article-date">
-  	<time datetime="2017-04-03T15:29:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-04-03</time>
+      <a href="/2017/04/09/剑指Offer 49 把字符串转换成整数/" class="archive-article-date">
+  	<time datetime="2017-04-09T07:11:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-04-09</time>
 </a>
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java知识点/">Java知识点</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/剑指Offer/">剑指Offer</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-剑指Offer 47 不用加减乘除做加法" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/08/剑指Offer 47 不用加减乘除做加法/">剑指Offer 47 不用加减乘除做加法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>写一个函数，求两个整数之和，要求在函数体内不得使用+、-、*、/四则运算符号。</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><ol>
+<li>依靠位运算，其实真的很巧妙对于+运算，难点其实就在进位运算；<br>（101+10001）不考虑进位就是=10100；就是异或运算，只有一个1一个0才等于1；然后考虑进位，两个都是1才可能产生进位；也就是与运算；然后在左移一位即可；
+        <p class="article-more-link">
+          <a  href="/2017/04/08/剑指Offer 47 不用加减乘除做加法/#more">more >></a>
+        </p>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/04/08/剑指Offer 47 不用加减乘除做加法/" class="archive-article-date">
+  	<time datetime="2017-04-08T12:29:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-04-08</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/剑指Offer/">剑指Offer</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
 	</div>
 
       
@@ -404,7 +403,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/5/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/24/">24</a><a class="extend next" rel="next" href="/page/7/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/5/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/26/">26</a><a class="extend next" rel="next" href="/page/7/">Next &raquo;</a>
     </nav>
   
 
@@ -466,7 +465,7 @@
     
     	<section class="tools-section tools-section-tag">
     			<div class="widget tagcloud" id="js-tagcloud">
-    				<a href="/tags/Android/" style="font-size: 17.5px;">Android</a> <a href="/tags/Beauty-of-Programming/" style="font-size: 13.75px;">Beauty of Programming</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Java/" style="font-size: 15px;">Java</a> <a href="/tags/Java知识点/" style="font-size: 11.25px;">Java知识点</a> <a href="/tags/Java编程思想/" style="font-size: 16.25px;">Java编程思想</a> <a href="/tags/fragment/" style="font-size: 12.5px;">fragment</a> <a href="/tags/mvc/" style="font-size: 11.25px;">mvc</a> <a href="/tags/wenda/" style="font-size: 10px;">wenda</a> <a href="/tags/刷题/" style="font-size: 11.25px;">刷题</a> <a href="/tags/剑指Offer/" style="font-size: 18.75px;">剑指Offer</a> <a href="/tags/笔试/" style="font-size: 10px;">笔试</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a> <a href="/tags/线程/" style="font-size: 11.25px;">线程</a> <a href="/tags/结对编程/" style="font-size: 10px;">结对编程</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/随笔/" style="font-size: 12.5px;">随笔</a>
+    				<a href="/tags/Android/" style="font-size: 17.5px;">Android</a> <a href="/tags/Beauty-of-Programming/" style="font-size: 15px;">Beauty of Programming</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Java/" style="font-size: 16.25px;">Java</a> <a href="/tags/Java-wenda/" style="font-size: 10px;">Java,wenda</a> <a href="/tags/Java知识点/" style="font-size: 11.25px;">Java知识点</a> <a href="/tags/Java编程思想/" style="font-size: 16.25px;">Java编程思想</a> <a href="/tags/fragment/" style="font-size: 12.5px;">fragment</a> <a href="/tags/mvc/" style="font-size: 11.25px;">mvc</a> <a href="/tags/wenda/" style="font-size: 13.75px;">wenda</a> <a href="/tags/刷题/" style="font-size: 11.25px;">刷题</a> <a href="/tags/剑指Offer/" style="font-size: 18.75px;">剑指Offer</a> <a href="/tags/并发/" style="font-size: 10px;">并发</a> <a href="/tags/笔试/" style="font-size: 10px;">笔试</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a> <a href="/tags/线程/" style="font-size: 11.25px;">线程</a> <a href="/tags/结对编程/" style="font-size: 10px;">结对编程</a> <a href="/tags/计算机网络/" style="font-size: 11.25px;">计算机网络</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/随笔/" style="font-size: 12.5px;">随笔</a>
     			</div>
     	</section>
     

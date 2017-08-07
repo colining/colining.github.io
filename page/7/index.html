@@ -129,7 +129,7 @@
       <div class="body-wrap">
         
   
-    <article id="post-牛客网刷题笔记 1" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-剑指Offer 46 求1+2+3+....n" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -139,7 +139,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/03/牛客网刷题笔记 1/">牛客网刷题笔记 1</a>
+      <a class="article-title" href="/2017/04/08/剑指Offer 46 求1+2+3+....n/">剑指Offer 46 求1+2+3+....n</a>
     </h1>
   
 
@@ -147,19 +147,134 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="刷题"><a href="#刷题" class="headerlink" title="刷题"></a>刷题</h2><ol>
-<li>实验室锁门了，因为清明节，剑指Offer在教室，大话数据结构在教室，所有书都在教室。。。。除了电脑，所以刷刷题吧；记一下笔记；</li>
-</ol>
-<h3 id="1-多态是对于什么的？-未完成"><a href="#1-多态是对于什么的？-未完成" class="headerlink" title="1 多态是对于什么的？ (未完成)"></a>1 多态是对于什么的？ (未完成)</h3><p>下面函数到底输出什么呢？<br>
+        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>求1+2+3+…+n，要求不能使用乘除法、for、while、if、else、switch、case等关键字及条件判断语句（A?B:C）。</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><ol>
+<li>首先没了上面那些关键字你会发现，你不能循环了，所以你得想办法循环，书上给的是构造函数，但是java默认构造函数不初始化，除非你手动，所以说就不行了</li>
+<li>没有if，你会发现递归的条件不能控制了，和for，while一样，其实我们失去的就是控制边界；那么想法就是如何让程序顺利退出；<br>3.下面说三种方法，异常，&amp;&amp;短路运算符，次方运算
         <p class="article-more-link">
-          <a  href="/2017/04/03/牛客网刷题笔记 1/#more">more >></a>
+          <a  href="/2017/04/08/剑指Offer 46 求1+2+3+....n/#more">more >></a>
         </p>
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2017/04/03/牛客网刷题笔记 1/" class="archive-article-date">
-  	<time datetime="2017-04-03T07:45:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-04-03</time>
+      <a href="/2017/04/08/剑指Offer 46 求1+2+3+....n/" class="archive-article-date">
+  	<time datetime="2017-04-08T12:12:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-04-08</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/剑指Offer/">剑指Offer</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-剑指Offer 45圆圈中最后剩下的数字" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/08/剑指Offer 45圆圈中最后剩下的数字/">剑指Offer 45圆圈中最后剩下的数字</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>0，1。。。n-1这n个数字排成圈；从数字0开始报数（报数开始为1），报道m时，把它踢出去，然后继续从1报数，最后会剩下谁</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><ol>
+<li>模拟游戏过程，直接建一个循环列表，一个一个报数，不过显然这种方法比较复杂；</li>
+<li>不一个一个报数了，直接开上帝模式，指挥下一个出去</li>
+<li>公式的啦，数学之美；
+        <p class="article-more-link">
+          <a  href="/2017/04/08/剑指Offer 45圆圈中最后剩下的数字/#more">more >></a>
+        </p>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/04/08/剑指Offer 45圆圈中最后剩下的数字/" class="archive-article-date">
+  	<time datetime="2017-04-08T11:31:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-04-08</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/剑指Offer/">剑指Offer</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-牛客网刷题笔记 2" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/06/牛客网刷题笔记 2/">牛客网刷题笔记 2</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="笔记"><a href="#笔记" class="headerlink" title="笔记"></a>笔记</h2><ol>
+<li><p>Math.round() 取最近似的值，如果一样大，取偏大的值；<br>Math.round(11.5) 等于12. Math.round(-11.5) 等于11;</p>
+</li>
+<li><p>floor ： 意为地板，指向下取整，返回不大于它的最大整数 </p>
+</li>
+<li><p>ceil ： 意为天花板，指向上取整，返回不小于它的最小整数</p>
+</li>
+<li><p>java命令用来执行java程序；javac是编译；</p>
+        <p class="article-more-link">
+          <a  href="/2017/04/06/牛客网刷题笔记 2/#more">more >></a>
+        </p>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/04/06/牛客网刷题笔记 2/" class="archive-article-date">
+  	<time datetime="2017-04-06T13:39:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-04-06</time>
 </a>
       
 	<div class="article-tag tagcloud">
@@ -184,7 +299,7 @@
 
 
   
-    <article id="post-剑指Offer 40 数组中只出现一次的数字" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-剑指Offer 44" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -194,7 +309,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/02/剑指Offer 40 数组中只出现一次的数字/">剑指Offer 40 数组中只出现一次的数字</a>
+      <a class="article-title" href="/2017/04/05/剑指Offer 44/">剑指Offer 44 扑克牌顺子</a>
     </h1>
   
 
@@ -202,19 +317,17 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>一个整型数组里除了两个数字之外，其他的数字都出现了两次。请写程序找出这两个只出现一次的数字。</p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><ol>
-<li>这不是一道正常题，因为他的考点就是异或运算；我刚开始还在想先排个序，然后每次移动两位；这样就可以比较出来了；然而时间复杂度O（n）可以接受，空间复杂度O（1）是什么鬼？ 除了异或运算应该不可能做到的吧；</li>
-<li>讲讲异或运算，相同的数字亦或运算后就是零；1^0=0^1 = 1;0^0=1^1=0;<br>所以我们就获得了重要情报，一群出现两次的数和一个只出现一次的数进行异或运算就是这个只出现一次的；<br>那么两个怎么办呢？首先对全部进行异或运算，得到的肯定不是0，因为有两个不一样嘛，这个数中二进制1的位置，表现了两个只出现一次的数的不同，然后我们就可以据此分类；
+        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>LL今天心情特别好,因为他去买了一副扑克牌,发现里面居然有2个大王,2个小王(一副牌原本是54张^_^)…他随机从中抽出了5张牌,想测测自己的手气,看看能不能抽到顺子,如果抽到的话,他决定去买体育彩票,嘿嘿！！“红心A,黑桃3,小王,大王,方片5”,“Oh My God!”不是顺子…..LL不高兴了,他想了想,决定大\小 王可以看成任何数字,并且A看作1,J为11,Q为12,K为13。上面的5张牌就可以变成“1,2,3,4,5”(大小王分别看作2和4),“So Lucky!”。LL决定去买体育彩票啦。 现在,要求你使用这幅牌模拟上面的过程,然后告诉我们LL的运气如何。为了方便起见,你可以认为大小王是0。</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>关键点就是大小王能用在相差为1的地方，所以需要统计一下断点大小，再看看大小王是不是足够；<br>
         <p class="article-more-link">
-          <a  href="/2017/04/02/剑指Offer 40 数组中只出现一次的数字/#more">more >></a>
+          <a  href="/2017/04/05/剑指Offer 44/#more">more >></a>
         </p>
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2017/04/02/剑指Offer 40 数组中只出现一次的数字/" class="archive-article-date">
-  	<time datetime="2017-04-02T13:12:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-04-02</time>
+      <a href="/2017/04/05/剑指Offer 44/" class="archive-article-date">
+  	<time datetime="2017-04-05T14:03:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-04-05</time>
 </a>
       
 	<div class="article-tag tagcloud">
@@ -239,7 +352,7 @@
 
 
   
-    <article id="post-剑指Offer 39 二叉树的深度+平衡二叉树" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-剑指Offer 42反转单词顺序 vs左旋转字符串" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -249,7 +362,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/02/剑指Offer 39 二叉树的深度+平衡二叉树/">剑指Offer 39 二叉树的深度+平衡二叉树</a>
+      <a class="article-title" href="/2017/04/05/剑指Offer 42反转单词顺序 vs左旋转字符串/">剑指Offer 42反转单词顺序 vs左旋转字符串</a>
     </h1>
   
 
@@ -257,130 +370,18 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>#二叉树的深度</p>
-<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>输入一棵二叉树，求该树的深度。从根结点到叶结点依次经过的结点（含根、叶结点）形成树的一条路径，最长路径的长度为树的深度。</p>
+        <h1 id="反转单词顺序"><a href="#反转单词顺序" class="headerlink" title="反转单词顺序"></a>反转单词顺序</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>牛客最近来了一个新员工Fish，每天早晨总是会拿着一本英文杂志，写些句子在本子上。同事Cat对Fish写的内容颇感兴趣，有一天他向Fish借来翻看，但却读不懂它的意思。例如，“student. a am I”。后来才意识到，这家伙原来把句子单词的顺序翻转了，正确的句子应该是“I am a student.”。Cat对一一的翻转这些单词顺序可不在行，你能帮助他么？</p>
 <h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><ol>
-<li>递归的方法，简单说，就是左右节点分别遍历自己的左右子节点；</li>
-<li>层次遍历，很麻烦的一种算法；你可以想想那么一个队列，扫到节点，就加进来，然后依次找他们的子节点，在加进来，最后肯定能够成功把全部节点都遍历到
+<li>主要依靠的就是两次旋转，先对整体，这样整体都换了位置，那么此时单个单词的位置应该就没有问题了；然后将单个单词再进行反转即可；
         <p class="article-more-link">
-          <a  href="/2017/04/02/剑指Offer 39 二叉树的深度+平衡二叉树/#more">more >></a>
+          <a  href="/2017/04/05/剑指Offer 42反转单词顺序 vs左旋转字符串/#more">more >></a>
         </p>
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2017/04/02/剑指Offer 39 二叉树的深度+平衡二叉树/" class="archive-article-date">
-  	<time datetime="2017-04-02T11:02:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-04-02</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/剑指Offer/">剑指Offer</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-剑指Offer 38 数字在排序数组中出现的次数" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/02/剑指Offer 38 数字在排序数组中出现的次数/">剑指Offer 38 数字在排序数组中出现的次数</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>统计一个数字在排序数组中出现的次数</p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><ol>
-<li>暴力法其实也很简单 O（n）的复杂度，但是谁让我们厉害呢</li>
-<li>优化其实也就是两个二分，一个找开始，一个找结束，注意边界值的就好了
-        <p class="article-more-link">
-          <a  href="/2017/04/02/剑指Offer 38 数字在排序数组中出现的次数/#more">more >></a>
-        </p>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2017/04/02/剑指Offer 38 数字在排序数组中出现的次数/" class="archive-article-date">
-  	<time datetime="2017-04-02T07:50:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-04-02</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/剑指Offer/">剑指Offer</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-剑指Offer 37 两个链表的第一个公共结点" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/02/剑指Offer 37 两个链表的第一个公共结点/">剑指Offer 37 两个链表的第一个公共结点</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>输入两个链表，找出它们的第一个公共结点。</p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><ol>
-<li>暴力法，当然是首先想到的，两层循环嘛；</li>
-<li>链表特性，简单来说链表如果存在交点，那么后面他两一定就都一样了，也就是说交点过后的公共链是一样的
-        <p class="article-more-link">
-          <a  href="/2017/04/02/剑指Offer 37 两个链表的第一个公共结点/#more">more >></a>
-        </p>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2017/04/02/剑指Offer 37 两个链表的第一个公共结点/" class="archive-article-date">
-  	<time datetime="2017-04-02T05:56:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-04-02</time>
+      <a href="/2017/04/05/剑指Offer 42反转单词顺序 vs左旋转字符串/" class="archive-article-date">
+  	<time datetime="2017-04-05T12:57:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-04-05</time>
 </a>
       
 	<div class="article-tag tagcloud">
@@ -407,7 +408,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/6/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/24/">24</a><a class="extend next" rel="next" href="/page/8/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/6/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/26/">26</a><a class="extend next" rel="next" href="/page/8/">Next &raquo;</a>
     </nav>
   
 
@@ -469,7 +470,7 @@
     
     	<section class="tools-section tools-section-tag">
     			<div class="widget tagcloud" id="js-tagcloud">
-    				<a href="/tags/Android/" style="font-size: 17.5px;">Android</a> <a href="/tags/Beauty-of-Programming/" style="font-size: 13.75px;">Beauty of Programming</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Java/" style="font-size: 15px;">Java</a> <a href="/tags/Java知识点/" style="font-size: 11.25px;">Java知识点</a> <a href="/tags/Java编程思想/" style="font-size: 16.25px;">Java编程思想</a> <a href="/tags/fragment/" style="font-size: 12.5px;">fragment</a> <a href="/tags/mvc/" style="font-size: 11.25px;">mvc</a> <a href="/tags/wenda/" style="font-size: 10px;">wenda</a> <a href="/tags/刷题/" style="font-size: 11.25px;">刷题</a> <a href="/tags/剑指Offer/" style="font-size: 18.75px;">剑指Offer</a> <a href="/tags/笔试/" style="font-size: 10px;">笔试</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a> <a href="/tags/线程/" style="font-size: 11.25px;">线程</a> <a href="/tags/结对编程/" style="font-size: 10px;">结对编程</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/随笔/" style="font-size: 12.5px;">随笔</a>
+    				<a href="/tags/Android/" style="font-size: 17.5px;">Android</a> <a href="/tags/Beauty-of-Programming/" style="font-size: 15px;">Beauty of Programming</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Java/" style="font-size: 16.25px;">Java</a> <a href="/tags/Java-wenda/" style="font-size: 10px;">Java,wenda</a> <a href="/tags/Java知识点/" style="font-size: 11.25px;">Java知识点</a> <a href="/tags/Java编程思想/" style="font-size: 16.25px;">Java编程思想</a> <a href="/tags/fragment/" style="font-size: 12.5px;">fragment</a> <a href="/tags/mvc/" style="font-size: 11.25px;">mvc</a> <a href="/tags/wenda/" style="font-size: 13.75px;">wenda</a> <a href="/tags/刷题/" style="font-size: 11.25px;">刷题</a> <a href="/tags/剑指Offer/" style="font-size: 18.75px;">剑指Offer</a> <a href="/tags/并发/" style="font-size: 10px;">并发</a> <a href="/tags/笔试/" style="font-size: 10px;">笔试</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a> <a href="/tags/线程/" style="font-size: 11.25px;">线程</a> <a href="/tags/结对编程/" style="font-size: 10px;">结对编程</a> <a href="/tags/计算机网络/" style="font-size: 11.25px;">计算机网络</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/随笔/" style="font-size: 12.5px;">随笔</a>
     			</div>
     	</section>
     

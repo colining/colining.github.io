@@ -129,7 +129,7 @@
       <div class="body-wrap">
         
   
-    <article id="post-剑指Offer 5 从尾到头打印链表" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-剑指Offer 14 -调整数组顺序使奇数位于偶数前面" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -139,7 +139,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/18/剑指Offer 5 从尾到头打印链表/">剑指Offer 5 从尾到头打印链表</a>
+      <a class="article-title" href="/2017/03/22/剑指Offer 14 -调整数组顺序使奇数位于偶数前面/">剑指Offer 14 *调整数组顺序使奇数位于偶数前面</a>
     </h1>
   
 
@@ -147,17 +147,17 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>输入一个链表，从尾到头打印链表每个节点的值。</p>
-<h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><p>头-&gt;尾，遍历时先经过的，后输出，自然想到是一个栈了；于是就可以使用递归；<br>
+        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>输入一个整数数组，实现一个函数来调整该数组中数字的顺序，使得所有的奇数位于数组的前半部分，所有的偶数位于位于数组的后半部分，并保证奇数和奇数，偶数和偶数之间的相对位置不变。</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>1.书上其实没要求调换完之后有序，所以实际上我是两个指针头尾；如果是前指针是偶数，后指针是奇数，就直接调换，可是没想到顺序的问题；<br>2.如果是排序的话，最简单的的想法是新建一个数组，遍历先把奇数放进去，再放偶数，不过开辟了新的数组<br>3.如果不想用数组，那就得使用一个神奇的相邻交换了；冒泡其实也是这样的，只不过他的条件是大于或者小于，有n个数，就遍历n个数，然后遍历n次，总会好的；<br>那么本体中我们要保证的就是偶数不能出现在奇数的前面；<br>
         <p class="article-more-link">
-          <a  href="/2017/03/18/剑指Offer 5 从尾到头打印链表/#more">more >></a>
+          <a  href="/2017/03/22/剑指Offer 14 -调整数组顺序使奇数位于偶数前面/#more">more >></a>
         </p>
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2017/03/18/剑指Offer 5 从尾到头打印链表/" class="archive-article-date">
-  	<time datetime="2017-03-18T13:47:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-03-18</time>
+      <a href="/2017/03/22/剑指Offer 14 -调整数组顺序使奇数位于偶数前面/" class="archive-article-date">
+  	<time datetime="2017-03-22T11:37:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-03-22</time>
 </a>
       
 	<div class="article-tag tagcloud">
@@ -182,7 +182,7 @@
 
 
   
-    <article id="post-剑指Offer 4 替换空格" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-剑指Offer 12 打印1到最大的n位数" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -192,7 +192,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/18/剑指Offer 4 替换空格/">剑指Offer 4 替换空格</a>
+      <a class="article-title" href="/2017/03/21/剑指Offer 12 打印1到最大的n位数/">剑指Offer 12 打印1到最大的n位数</a>
     </h1>
   
 
@@ -200,17 +200,17 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>请实现一个函数，将一个字符串中的空格替换成“%20”。例如，当字符串为We Are Happy.则经过替换之后的字符串为We%20Are%20Happy。</p>
-<h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><p>对于全部字符扫描，创建一个StringBuilder，字符不是空格就append()，是空格就append(%20);<br>
+        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>输入数字n，按顺序输出1到n位的最大十进制数；比如输入3，就输出1，2，3~999；</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>全排列<br>
         <p class="article-more-link">
-          <a  href="/2017/03/18/剑指Offer 4 替换空格/#more">more >></a>
+          <a  href="/2017/03/21/剑指Offer 12 打印1到最大的n位数/#more">more >></a>
         </p>
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2017/03/18/剑指Offer 4 替换空格/" class="archive-article-date">
-  	<time datetime="2017-03-18T13:30:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-03-18</time>
+      <a href="/2017/03/21/剑指Offer 12 打印1到最大的n位数/" class="archive-article-date">
+  	<time datetime="2017-03-21T14:24:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-03-21</time>
 </a>
       
 	<div class="article-tag tagcloud">
@@ -235,7 +235,7 @@
 
 
   
-    <article id="post-剑指Offer 3 二维数组中的查找" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-剑指Offer 11 数值的整数次方" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -245,7 +245,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/18/剑指Offer 3 二维数组中的查找/">剑指Offer 3 二维数组中的查找</a>
+      <a class="article-title" href="/2017/03/21/剑指Offer 11 数值的整数次方/">剑指Offer 11 数值的整数次方</a>
     </h1>
   
 
@@ -253,17 +253,17 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>在一个二维数组中，每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。</p>
-<h2 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h2><p><img src="http://images.cnitblog.com/blog/457289/201303/01065754-360a04e422b14e489869d9c58867f2a1.jpg" alt="啦啦啦啦"><br>
+        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定一个double类型的浮点数base和int类型的整数exponent。求base的exponent次方。</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>如书中所言，我就是那种上来就要写循环的人，完全没有考虑过负数和0；</p>
         <p class="article-more-link">
-          <a  href="/2017/03/18/剑指Offer 3 二维数组中的查找/#more">more >></a>
+          <a  href="/2017/03/21/剑指Offer 11 数值的整数次方/#more">more >></a>
         </p>
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2017/03/18/剑指Offer 3 二维数组中的查找/" class="archive-article-date">
-  	<time datetime="2017-03-18T13:20:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-03-18</time>
+      <a href="/2017/03/21/剑指Offer 11 数值的整数次方/" class="archive-article-date">
+  	<time datetime="2017-03-21T12:58:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-03-21</time>
 </a>
       
 	<div class="article-tag tagcloud">
@@ -288,7 +288,7 @@
 
 
   
-    <article id="post-Java 读书笔记 21.2 并发" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-剑指Offer 10 二进制中1得个数" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -298,7 +298,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/14/Java 读书笔记 21.2 并发/">Java 读书笔记 21.2 并发</a>
+      <a class="article-title" href="/2017/03/20/剑指Offer 10 二进制中1得个数/">剑指Offer 10 二进制中1得个数</a>
     </h1>
   
 
@@ -306,21 +306,24 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="并发"><a href="#并发" class="headerlink" title="并发"></a>并发</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">IntGenerator</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">volatile</span> <span class="keyword">boolean</span> canceled = <span class="keyword">false</span>;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">int</span> <span class="title">next</span><span class="params">()</span></span>;</div><div class="line">    <span class="comment">// Allow this to be canceled:</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">cancel</span><span class="params">()</span> </span>&#123; canceled = <span class="keyword">true</span>; &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isCanceled</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> canceled; &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>输入一个整数，输出该数二进制表示中1的个数。其中负数用补码表示。</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>我表示说，我自己完全没有思路，因为我不太喜欢也不太懂二进制有关内容；</p>
+<ol>
+<li>最开始的时候说除法，我说这个好啊；又说什么负数不行，我一试才想起来负数是补码形式存放的；
         <p class="article-more-link">
-          <a  href="/2017/03/14/Java 读书笔记 21.2 并发/#more">more >></a>
+          <a  href="/2017/03/20/剑指Offer 10 二进制中1得个数/#more">more >></a>
         </p>
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2017/03/14/Java 读书笔记 21.2 并发/" class="archive-article-date">
-  	<time datetime="2017-03-14T00:52:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-03-14</time>
+      <a href="/2017/03/20/剑指Offer 10 二进制中1得个数/" class="archive-article-date">
+  	<time datetime="2017-03-20T13:10:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-03-20</time>
 </a>
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java编程思想/">Java编程思想</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/剑指Offer/">剑指Offer</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
 	</div>
 
       
@@ -340,7 +343,7 @@
 
 
   
-    <article id="post-Java 读书笔记 21.1并发" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-剑指Offer 9 斐波那契数列" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -350,7 +353,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/12/Java 读书笔记 21.1并发/">Java 读书笔记 21.1并发</a>
+      <a class="article-title" href="/2017/03/20/剑指Offer 9 斐波那契数列/">剑指Offer 9 斐波那契数列</a>
     </h1>
   
 
@@ -358,22 +361,24 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="并发"><a href="#并发" class="headerlink" title="并发"></a>并发</h1><p>终于来到这里了，好开心；</p>
-<h2 id="线程定义"><a href="#线程定义" class="headerlink" title="线程定义"></a>线程定义</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Liftoff</span>  <span class="keyword">implements</span>  <span class="title">Runnable</span></span>&#123;   <span class="comment">//接口</span></div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;           <span class="comment">//实现run方法</span></div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">public</span>  <span class="keyword">static</span>  <span class="keyword">void</span>  <span class="title">main</span><span class="params">(String []arg)</span></span>&#123;</div><div class="line">       <span class="comment">//第一种</span></div><div class="line">       Liftoff liftoff = <span class="keyword">new</span> Liftoff();</div><div class="line">       liftoff.run();</div><div class="line">       <span class="comment">//第二种</span></div><div class="line">       Thread thread = <span class="keyword">new</span> Thread(<span class="keyword">new</span> Liftoff());</div><div class="line">       thread.start();</div><div class="line">       &#125;</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
+        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>大家都知道斐波那契数列，现在要求输入一个整数n，请你输出斐波那契数列的第n项。</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><ol>
+<li>斐波那契数列在讲的时候就是为了引入递归，f(n)=f(n-1)+f(n-2),天生的递归啊，但问题是，递归需要消耗大量栈的空间，所有递归都需要等待底层的运算完毕；</li>
+<li>递归不行，那就循环呗
         <p class="article-more-link">
-          <a  href="/2017/03/12/Java 读书笔记 21.1并发/#more">more >></a>
+          <a  href="/2017/03/20/剑指Offer 9 斐波那契数列/#more">more >></a>
         </p>
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2017/03/12/Java 读书笔记 21.1并发/" class="archive-article-date">
-  	<time datetime="2017-03-12T11:35:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-03-12</time>
+      <a href="/2017/03/20/剑指Offer 9 斐波那契数列/" class="archive-article-date">
+  	<time datetime="2017-03-20T11:24:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-03-20</time>
 </a>
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java编程思想/">Java编程思想</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/剑指Offer/">剑指Offer</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
 	</div>
 
       
@@ -395,7 +400,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/14/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="page-number" href="/page/14/">14</a><span class="page-number current">15</span><a class="page-number" href="/page/16/">16</a><a class="page-number" href="/page/17/">17</a><span class="space">&hellip;</span><a class="page-number" href="/page/24/">24</a><a class="extend next" rel="next" href="/page/16/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/14/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="page-number" href="/page/14/">14</a><span class="page-number current">15</span><a class="page-number" href="/page/16/">16</a><a class="page-number" href="/page/17/">17</a><span class="space">&hellip;</span><a class="page-number" href="/page/26/">26</a><a class="extend next" rel="next" href="/page/16/">Next &raquo;</a>
     </nav>
   
 
@@ -457,7 +462,7 @@
     
     	<section class="tools-section tools-section-tag">
     			<div class="widget tagcloud" id="js-tagcloud">
-    				<a href="/tags/Android/" style="font-size: 17.5px;">Android</a> <a href="/tags/Beauty-of-Programming/" style="font-size: 13.75px;">Beauty of Programming</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Java/" style="font-size: 15px;">Java</a> <a href="/tags/Java知识点/" style="font-size: 11.25px;">Java知识点</a> <a href="/tags/Java编程思想/" style="font-size: 16.25px;">Java编程思想</a> <a href="/tags/fragment/" style="font-size: 12.5px;">fragment</a> <a href="/tags/mvc/" style="font-size: 11.25px;">mvc</a> <a href="/tags/wenda/" style="font-size: 10px;">wenda</a> <a href="/tags/刷题/" style="font-size: 11.25px;">刷题</a> <a href="/tags/剑指Offer/" style="font-size: 18.75px;">剑指Offer</a> <a href="/tags/笔试/" style="font-size: 10px;">笔试</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a> <a href="/tags/线程/" style="font-size: 11.25px;">线程</a> <a href="/tags/结对编程/" style="font-size: 10px;">结对编程</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/随笔/" style="font-size: 12.5px;">随笔</a>
+    				<a href="/tags/Android/" style="font-size: 17.5px;">Android</a> <a href="/tags/Beauty-of-Programming/" style="font-size: 15px;">Beauty of Programming</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Java/" style="font-size: 16.25px;">Java</a> <a href="/tags/Java-wenda/" style="font-size: 10px;">Java,wenda</a> <a href="/tags/Java知识点/" style="font-size: 11.25px;">Java知识点</a> <a href="/tags/Java编程思想/" style="font-size: 16.25px;">Java编程思想</a> <a href="/tags/fragment/" style="font-size: 12.5px;">fragment</a> <a href="/tags/mvc/" style="font-size: 11.25px;">mvc</a> <a href="/tags/wenda/" style="font-size: 13.75px;">wenda</a> <a href="/tags/刷题/" style="font-size: 11.25px;">刷题</a> <a href="/tags/剑指Offer/" style="font-size: 18.75px;">剑指Offer</a> <a href="/tags/并发/" style="font-size: 10px;">并发</a> <a href="/tags/笔试/" style="font-size: 10px;">笔试</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a> <a href="/tags/线程/" style="font-size: 11.25px;">线程</a> <a href="/tags/结对编程/" style="font-size: 10px;">结对编程</a> <a href="/tags/计算机网络/" style="font-size: 11.25px;">计算机网络</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/随笔/" style="font-size: 12.5px;">随笔</a>
     			</div>
     	</section>
     

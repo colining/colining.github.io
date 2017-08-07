@@ -129,7 +129,7 @@
       <div class="body-wrap">
         
   
-    <article id="post-JDBC进阶 + 数据源" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Effective Java 笔记1" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -139,7 +139,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/25/JDBC进阶 + 数据源/">JDBC进阶 + 数据源</a>
+      <a class="article-title" href="/2017/06/07/Effective Java 笔记1/">Effective Java 笔记1</a>
     </h1>
   
 
@@ -147,18 +147,133 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="JDBC进阶"><a href="#JDBC进阶" class="headerlink" title="JDBC进阶"></a>JDBC进阶</h1><p>上回我们知道了，通过工厂模式+配置文件动态连接数据库；<br>这次的主要目的呢，则是将增删改查想办法重构掉；比如查询，到哪里的操作不都是一样的嘛；所以我们自然就想到了将查询操作重构掉；</p>
-<p>然后我们思考一下类的组织，有这么一个接口，其中声明了增删改查，我们的类实现这个接口== 我们的类必须实现增删改查，不实现这些，你也叫数据库操作吗？然后我们要将这个类的增删改查的实际操作重构掉；这个类只需要知道该干什么，需要什么齐活；</p>
-<p>首先是接口，实现类必须实现增删改查；<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">UserDAO</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> ArrayList&lt;Users&gt; <span class="title">findUsers</span><span class="params">()</span></span>;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">findUser</span><span class="params">(Users users)</span></span>;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">insertUser</span><span class="params">(Users users)</span></span>;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">update</span><span class="params">(Users users)</span></span>;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">delete</span><span class="params">(Users users)</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+        <h2 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h2><ol>
+<li>Effective Java 这本书早就买了，然后发现太难，就又买了Java编程思想；现在再看，还是很难啊，不过我决定不求甚解，能看懂就看；反正各种知识其实是交错的，经验多了以后，总还是会懂的吧；</li>
+<li>我也就是大概记一下，现在理解的，比较好懂的，这样虽然记性不好，但总也会有点印象吧；</li>
+</ol>
+<h1 id="创建和销毁"><a href="#创建和销毁" class="headerlink" title="创建和销毁"></a>创建和销毁</h1><h2 id="笔记"><a href="#笔记" class="headerlink" title="笔记"></a>笔记</h2><h4 id="静态工厂方法代替构造器"><a href="#静态工厂方法代替构造器" class="headerlink" title="静态工厂方法代替构造器"></a>静态工厂方法代替构造器</h4><ol>
+<li>有名字，构造器需要以参数类型进行区别，但实际上我们可不太能记得住有啥参数，名字更加直观；</li>
+<li>不用每次调用都创建一个新的对象；构造函数没有返回值，因为默认会返回一个对象啊，静态方法，比如单例，就不一定了</li>
+<li>返回原返回类型的子类型；</li>
+<li>创建参数型实例时，代码更加简单；
         <p class="article-more-link">
-          <a  href="/2017/04/25/JDBC进阶 + 数据源/#more">more >></a>
+          <a  href="/2017/06/07/Effective Java 笔记1/#more">more >></a>
         </p>
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2017/04/25/JDBC进阶 + 数据源/" class="archive-article-date">
-  	<time datetime="2017-04-25T11:25:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-04-25</time>
+      <a href="/2017/06/07/Effective Java 笔记1/" class="archive-article-date">
+  	<time datetime="2017-06-07T13:27:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-06-07</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java编程思想/">Java编程思想</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-ThoughtWorks 结对编程" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/04/ThoughtWorks 结对编程/">ThoughtWorks 结对编程</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h1><p>技术博客写多了，不会起名字的说 ，可能写多了，最后写出来的东西偏向于冷冰冰吧；</p>
+<h3 id="正经的起因"><a href="#正经的起因" class="headerlink" title="正经的起因"></a>正经的起因</h3><ol>
+<li>可能就是某个懒散的下午，打开电脑，不知道做什么，打开牛客看了看，随即看到结对编程，不知道是做什么的，点开看了看；页面很好，不像国人写的风格；</li>
+<li>鬼使神差的就报名了，点进去看了看，居然还有题；而且第一道题还是 intellij idea 的快捷键，很感兴趣，就做了；其实当时应该好好学习一下的，因为现在视频点不进去嘞；之后就是保龄球，我觉得写了好久，完全没有重构，没有命名，就一个方法，不过我考虑了算法上的问题，一次扫描，ok；不过可能并不鲁棒，因为我是按着测试改了半天；</li>
+</ol>
+        <p class="article-more-link">
+          <a  href="/2017/06/04/ThoughtWorks 结对编程/#more">more >></a>
+        </p>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/06/04/ThoughtWorks 结对编程/" class="archive-article-date">
+  	<time datetime="2017-06-04T14:10:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-06-04</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/结对编程/">结对编程</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/随笔/">随笔</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-rest api 的首次尝试" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/05/24/rest api 的首次尝试/">REST api 的首次尝试</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="REST-api-的首次尝试"><a href="#REST-api-的首次尝试" class="headerlink" title="REST api 的首次尝试"></a>REST api 的首次尝试</h1><h2 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h2><p>这是一道研发岗的试题，据HR小姐姐说是社招的题，我做起来确实有点吃力；因为我不懂商品需要怎么分类，不知道rest api 是啥。。。<a href="https://github.com/colining/productmanage">代码传送门</a></p>
+<h2 id="艰难的前行"><a href="#艰难的前行" class="headerlink" title="艰难的前行"></a>艰难的前行</h2><h4 id="关于数据库："><a href="#关于数据库：" class="headerlink" title="关于数据库："></a>关于数据库：</h4><p>首先是数据库上的：我刚看到题实在不懂多层分级是什么鬼，然后去百度了；看见知乎上面淘宝的实现，真是吓人啊；目前应该搞不明白是啥，于是就搜着搜着，大概明白意思就是一张表存商品，具有商品Id，商品类别，还可以有其他的属性；还有一张类别表，拥有类别Id，父类别Id，还有类别的属性，然后商品和类别就可以加一些奇怪的属性，但是主体框架不变；<br>大概就像这样：<br><img src="http://img.blog.csdn.net/20170524191832791?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjM5NzQxNzU=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>
+        <p class="article-more-link">
+          <a  href="/2017/05/24/rest api 的首次尝试/#more">more >></a>
+        </p>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/05/24/rest api 的首次尝试/" class="archive-article-date">
+  	<time datetime="2017-05-24T12:04:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-05-24</time>
 </a>
       
 	<div class="article-tag tagcloud">
@@ -183,7 +298,7 @@
 
 
   
-    <article id="post-计算机实验" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-登录与JDBC" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -193,7 +308,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/23/计算机实验/">短进程优先算法实验</a>
+      <a class="article-title" href="/2017/05/21/登录与JDBC/">登录与JDBC</a>
     </h1>
   
 
@@ -201,18 +316,18 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="实验报告"><a href="#实验报告" class="headerlink" title="实验报告"></a>实验报告</h1><p>班级：10041461<br>姓名：任天起<br>学号：1004146111</p>
-<h2 id="实验目的："><a href="#实验目的：" class="headerlink" title="实验目的："></a>实验目的：</h2><p>就绪进程数大于处理机数时，按照某种策略决定哪些进程优先占用处理机。实验模拟处理机调度，加深对处理机调度的理解。</p>
-<h2 id="实验内容："><a href="#实验内容：" class="headerlink" title="实验内容："></a>实验内容：</h2><p>实验一模拟短进程优先调度<br>进程8 个,到达时间和服务时间(用户输入)<br>至少两种结果: 1 到达时间:0,1,2,….<br>             2 到达时间:其他</p>
+        <h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>我决定自顶向下讲一下，这样比较生动，也比较容易记住；</p>
+<h2 id="登录"><a href="#登录" class="headerlink" title="登录"></a>登录</h2><ol>
+<li>登录第一是要有个form，从网页哪里可以将数据提交到后台来；然后Servlet就来处理；
         <p class="article-more-link">
-          <a  href="/2017/04/23/计算机实验/#more">more >></a>
+          <a  href="/2017/05/21/登录与JDBC/#more">more >></a>
         </p>
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2017/04/23/计算机实验/" class="archive-article-date">
-  	<time datetime="2017-04-23T11:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-04-23</time>
+      <a href="/2017/05/21/登录与JDBC/" class="archive-article-date">
+  	<time datetime="2017-05-21T13:11:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-05-21</time>
 </a>
       
 	<div class="article-tag tagcloud">
@@ -237,7 +352,7 @@
 
 
   
-    <article id="post-职业规划" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-最低公共祖先LCA" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -247,7 +362,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/19/职业规划/">职业规划</a>
+      <a class="article-title" href="/2017/05/15/最低公共祖先LCA/">最低公共祖先LCA</a>
     </h1>
   
 
@@ -255,143 +370,26 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="京东面试"><a href="#京东面试" class="headerlink" title="京东面试"></a>京东面试</h2><p>　　   说来也比较巧，我们在周二拍摄视频，我扮演的是一个从京东离职的同学，我们拍摄视频也没有剧本，我完全就是临场发挥，随便胡说的；因为之前看过京东hr的直播，所以就投了京东的简历；从这个学期，我就开始准备笔试了，因为天天混知乎，就发现各种互联网公司都在内推；所以我也就开始准备了；后来京东hr直播的时候，说道，对于互联网公司，对次年的毕业生，都是秋招定生死；因为互联网公司抢人比较严重，所以招聘不断的提前；总之我听了京东hr的直播，就投了京东；之前也投了很多家，都做过笔试，只有京东理我了；别的所有公司都挂掉了，连面试通知都没有，所有公司，想去面试，你必须首先进行在线笔试，简历也是在线形式的；<br>
-        <p class="article-more-link">
-          <a  href="/2017/04/19/职业规划/#more">more >></a>
-        </p>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2017/04/19/职业规划/" class="archive-article-date">
-  	<time datetime="2017-04-19T13:24:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-04-19</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/笔试/">笔试</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-JDBC基础" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/19/JDBC基础/">JDBC基础</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="JDBC"><a href="#JDBC" class="headerlink" title="JDBC"></a>JDBC</h2><p>在任何语言中关于数据库方面的操作都是必须的，也是重要的，今天我们学习一下JDBC的相关操作；</p>
-<p>首先是不可缺少的JDBC要素</p>
+        <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>ps：这道题来源是剑指offer第50题；但是变种真的好多啊，所以就记录一下；</p>
+<p>####树中两个结点的最低公共祖先：</p>
 <ol>
-<li>连接，你必须先要和数据库建立连接，这样的话，你就肯定要加载一个数据库的驱动；</li>
-<li>sql语句，你得有操作啊，还是数据库懂得；</li>
-<li>然后很显然，你不能让一个连接和sql语句直接发生关系吧，所以出现了PreparedStatement；</li>
-<li>还有的话，就是你要是有结果的，得有地方存，所以就有了结果集；
+<li>首先我们要明白这个最低公共祖先是啥？对于一个结点，它上面能到达他的都叫做祖先，他的父结点和它的父结点的父结点；</li>
+<li>树，因为树的不同，这道题有很多变种；比如二叉树？二叉搜索树，或者只是树；</li>
+</ol>
         <p class="article-more-link">
-          <a  href="/2017/04/19/JDBC基础/#more">more >></a>
+          <a  href="/2017/05/15/最低公共祖先LCA/#more">more >></a>
         </p>
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2017/04/19/JDBC基础/" class="archive-article-date">
-  	<time datetime="2017-04-19T11:20:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-04-19</time>
+      <a href="/2017/05/15/最低公共祖先LCA/" class="archive-article-date">
+  	<time datetime="2017-05-15T09:59:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-05-15</time>
 </a>
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-京东 一面记录" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/15/京东 一面记录/">京东一面记录</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="惨痛的经历"><a href="#惨痛的经历" class="headerlink" title="惨痛的经历"></a>惨痛的经历</h2><p>京东初试就在学校南边两公里，坐公交去的，因为不太会骑自行车；提前半个小时到了，10：30的面试，人很多，我的签到号码是466，所以你懂得；然后就是坐着等呗；接下来就是面试的过程了；</p>
-<ol>
-<li>项目</li>
-<li>问了equals和==，这种东西我怎么可能不知道呢，但是讲了半天也没讲清楚，可能还是紧张了；</li>
-<li>hashmap的结构</li>
-<li>static的作用，类，变量，方法，</li>
-<li>为啥main方法是static的；</li>
-<li>hashcode是怎么实现的 我不会，有啥作用，我大概讲了，equals会用到；</li>
-<li>把list消去重复，直接new hashset = hashset（list）；我不知道啊，我就写了个循环</li>
-<li>问了 io操作咋写。完全不会，因为我八百年没有写过的好吧。</li>
-<li>然后问多线程通信，内存共享的这么一种形式，我答的好像对了？我就说同一个对象，两个线程都可以访问；</li>
-<li>socket怎么写，完全不会，io还写过，socket基本只停留在知道中。。。</li>
-<li>序列化，我也只是说会变成xml；
-        <p class="article-more-link">
-          <a  href="/2017/04/15/京东 一面记录/#more">more >></a>
-        </p>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2017/04/15/京东 一面记录/" class="archive-article-date">
-  	<time datetime="2017-04-15T04:51:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-04-15</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
 	</div>
 
       
@@ -413,7 +411,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/24/">24</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/26/">26</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
     </nav>
   
 
@@ -475,7 +473,7 @@
     
     	<section class="tools-section tools-section-tag">
     			<div class="widget tagcloud" id="js-tagcloud">
-    				<a href="/tags/Android/" style="font-size: 17.5px;">Android</a> <a href="/tags/Beauty-of-Programming/" style="font-size: 13.75px;">Beauty of Programming</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Java/" style="font-size: 15px;">Java</a> <a href="/tags/Java知识点/" style="font-size: 11.25px;">Java知识点</a> <a href="/tags/Java编程思想/" style="font-size: 16.25px;">Java编程思想</a> <a href="/tags/fragment/" style="font-size: 12.5px;">fragment</a> <a href="/tags/mvc/" style="font-size: 11.25px;">mvc</a> <a href="/tags/wenda/" style="font-size: 10px;">wenda</a> <a href="/tags/刷题/" style="font-size: 11.25px;">刷题</a> <a href="/tags/剑指Offer/" style="font-size: 18.75px;">剑指Offer</a> <a href="/tags/笔试/" style="font-size: 10px;">笔试</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a> <a href="/tags/线程/" style="font-size: 11.25px;">线程</a> <a href="/tags/结对编程/" style="font-size: 10px;">结对编程</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/随笔/" style="font-size: 12.5px;">随笔</a>
+    				<a href="/tags/Android/" style="font-size: 17.5px;">Android</a> <a href="/tags/Beauty-of-Programming/" style="font-size: 15px;">Beauty of Programming</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Java/" style="font-size: 16.25px;">Java</a> <a href="/tags/Java-wenda/" style="font-size: 10px;">Java,wenda</a> <a href="/tags/Java知识点/" style="font-size: 11.25px;">Java知识点</a> <a href="/tags/Java编程思想/" style="font-size: 16.25px;">Java编程思想</a> <a href="/tags/fragment/" style="font-size: 12.5px;">fragment</a> <a href="/tags/mvc/" style="font-size: 11.25px;">mvc</a> <a href="/tags/wenda/" style="font-size: 13.75px;">wenda</a> <a href="/tags/刷题/" style="font-size: 11.25px;">刷题</a> <a href="/tags/剑指Offer/" style="font-size: 18.75px;">剑指Offer</a> <a href="/tags/并发/" style="font-size: 10px;">并发</a> <a href="/tags/笔试/" style="font-size: 10px;">笔试</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a> <a href="/tags/线程/" style="font-size: 11.25px;">线程</a> <a href="/tags/结对编程/" style="font-size: 10px;">结对编程</a> <a href="/tags/计算机网络/" style="font-size: 11.25px;">计算机网络</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/随笔/" style="font-size: 12.5px;">随笔</a>
     			</div>
     	</section>
     

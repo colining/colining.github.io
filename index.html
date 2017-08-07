@@ -129,7 +129,7 @@
       <div class="body-wrap">
         
   
-    <article id="post-spring-boot&amp;mvn&amp;terminal" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-volatile" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -139,7 +139,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/25/spring-boot&mvn&terminal/">spring-boot&amp;mvn&amp;terminal</a>
+      <a class="article-title" href="/2017/08/07/volatile/">volatile</a>
     </h1>
   
 
@@ -147,89 +147,216 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h1><p>下午再看git，看了半天还是感觉有很多不懂的东西，用的时候再说吧；</p>
-<h1 id="Maven"><a href="#Maven" class="headerlink" title="Maven"></a>Maven</h1><ol>
-<li>maven原来没有配置过，直接用的Intellij 自己的，所以自然也不知到人家命令行是啥情况了呗；所以maven应该先下载，配置环境变量，然后就可以用命令行了；</li>
-</ol>
-<h1 id="Terminal"><a href="#Terminal" class="headerlink" title="Terminal"></a>Terminal</h1><ol>
-<li>一直以来都不咋会用命令行，结果今天发现cmd是可以直接运行git，maven命令的，也就是配置环境的作用？</li>
-<li>Intellij 中terminal是有问题的，因为win10命令行是新的，没法用的说，所以需要使用旧版控制台；</li>
-<li>powershell 也可以修改配色啥的，以后用用那个也不错的；
-        <p class="article-more-link">
-          <a  href="/2017/06/25/spring-boot&mvn&terminal/#more">more >></a>
-        </p>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2017/06/25/spring-boot&mvn&terminal/" class="archive-article-date">
-  	<time datetime="2017-06-25T12:56:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-06-25</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/wenda/">wenda</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Git 常用命令记录" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/25/Git 常用命令记录/">Git 常用命令记录</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h1><ol>
-<li>记性太不好了，还是自己写写，记下来吧；</li>
-<li>intellij直接是使用的图形界面，命令啥的也不清楚；</li>
-</ol>
-<h2 id="一些命令"><a href="#一些命令" class="headerlink" title="一些命令"></a>一些命令</h2><ol>
-<li><p>git init<br>用来初始化目录为git目录，告诉git，这个目录归你管了；</p>
+        <h1 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h1><ul>
+<li>我相信volatile是非常有必要记录一下的；</li>
+</ul>
+<h1 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a>实现原理</h1><ul>
+<li>首先我们知道volatile能保证原子性，但是又不能保证同步，很奇怪吧；但是我写过一个例子，i++；非volatile会存在后面的值比前面小的情况，volatile不存在，只会存在相同的情形；这是为什么呢？<ul>
+<li>首先我们假定就是多个cpu，每cpu一个线程，我们知道内存里面放了成堆的数据，cpu每次取要用的放在寄存器里，那么多个线程一起处理一个变量，每个cpu的值很可能就是不一样的；</li>
+<li>然后我们的想法是，大家必须都应该是最新的数据，这就要求cpu运行时，做了什么操作，寄存器需要立马回写到内存，而且其他cpu此时不可以写；然后就是一个cpu对变量发生操作，其他cpu所持有的这个变量值就失效；</li>
+</ul>
 </li>
-<li><p>git add readme.txt<br>git add将文件提交给git，放在临时区；就是说，诶，这个文件是我要准备提交的啊，你得跟踪一下；</p>
+<li>通过这两个步骤我们就实现了读/写原子性，我们读的时候，这个值一定是最新的，但是加入我们10个线程同时读到最新的值为1，然后同时++；然后再各自写回内存，那么就会出现不同步的情况；但是不会出现后面的值比前面的值小的情况；
+        <p class="article-more-link">
+          <a  href="/2017/08/07/volatile/#more">more >></a>
+        </p>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/08/07/volatile/" class="archive-article-date">
+  	<time datetime="2017-08-07T13:53:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-08-07</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/并发/">并发</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-redis 与赞和踩" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/07/redis 与赞和踩/">redis 与赞和踩</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><ul>
+<li>系统到了要实现赞和踩的阶段了；</li>
+</ul>
+<h1 id="REDIS"><a href="#REDIS" class="headerlink" title="REDIS"></a>REDIS</h1><ul>
+<li>总是听nosql，但还真不懂啊原来nosql真的和传统数据库不一样；是依赖与传统中的集合来的</li>
+<li>redis的应用与集合的特性<ul>
+<li>hash：在一个hash表里面，键是string，值又是一个hash，然后就可以加很多很多东西；因为hash表本身就可以扩容的嘛；好处就是可以随着对象随便的增多属性或者减少属性；</li>
+<li>set 和普通的set一样，用于去重，求交集啥的，都是很厉害的；比如我们的点赞功能，把一群人放在一个集合里，算一下有多少，就得到赞数</li>
+<li>sortedset 排序的set，相当于优先队列，搞个什么排行榜的不错</li>
+<li>list 一个普通的双向队列，最普通的列表呗</li>
+<li>kv ，过期时间啥的
+        <p class="article-more-link">
+          <a  href="/2017/08/07/redis 与赞和踩/#more">more >></a>
+        </p>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/08/07/redis 与赞和踩/" class="archive-article-date">
+  	<time datetime="2017-08-07T13:13:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-08-07</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/wenda/">wenda</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-计算机网络-运输层" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/07/24/计算机网络-运输层/">计算机网络-运输层</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><ul>
+<li>计算机网络不管怎样，都是一个好难的学科啊；各种纷繁复杂的协议，要考虑的问题也实在是太多了；</li>
+</ul>
+<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><ul>
+<li>运输层提供逻辑通信，服务主体是应用层的各种应用程序，让我们感觉我们所享用的服务就是自己电脑上的，而实际上却是超级远的地方；</li>
+<li>由于运输层是服务于各种应用程序的，所以分解与合并就是必然的；注意分解并不是分解成报文段，报文分解为小的报文段，主要原因是因为网络需求；报文段中的端口号才促使了分解与合并，运输层来来往往一大堆的报文段，将它们准确的发往某个主机的套接字，后者接受到某个套接字上，这才是多路分解的本质；</li>
+<li>两家人寄信为例，年龄大的姐姐把信都收到然后分发给其他人，或者收集信，一起发出去</li>
+<li>udp套接字是由一个二元组标识的，目的ip和目地端口号；也就是说不管从哪里来的报文段，只要ip+端口一样，处理它们的套接字就一定相同；但是这不代表报文段中就没有端口和ip</li>
+<li>tcp套接字有四元组标识，以http为例，要不然大家访问百度，就一个ip+端口，就映射一个套接字，那不累死了；
+        <p class="article-more-link">
+          <a  href="/2017/07/24/计算机网络-运输层/#more">more >></a>
+        </p>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/07/24/计算机网络-运输层/" class="archive-article-date">
+  	<time datetime="2017-07-24T11:27:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-07-24</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/计算机网络/">计算机网络</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-评论中心+站内信" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/07/23/评论中心+站内信/">评论中心+站内信</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h1><ul>
+<li>没有起因</li>
+<li>其实这节课主要是在将web开发中，一个全新功能是怎么一步一步完成的</li>
+</ul>
+<h1 id="评论中心"><a href="#评论中心" class="headerlink" title="评论中心"></a>评论中心</h1><ul>
+<li>数据库中comment的几个索引：<ul>
+<li>创建日期所构成的索引</li>
+<li>评论实体类型，和评论的id，比如针对问题的评论，问题的id是27，这些就是针对问题27的所有评论，比如针对评论的评论，评论的id也是27，但这量个就有很大的区别了</li>
+<li>用户id构成的索引，我们可以轻松的获取一个用户的全部评论，就可以放在用户最近动态里之类的；</li>
+</ul>
 </li>
-<li><p>git commit -m “this is a message”<br>commit就是提交了，不过是提交到本地；这时就存在版本了； </p>
+<li>在service层调用DAO层时，可以先过滤一下内容</li>
+<li>通过entityType和entityId 我们就构建了评论中心，不管是针对什么的评论，在数据库的一张表中就都可以放得下了；
         <p class="article-more-link">
-          <a  href="/2017/06/25/Git 常用命令记录/#more">more >></a>
+          <a  href="/2017/07/23/评论中心+站内信/#more">more >></a>
         </p>
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2017/06/25/Git 常用命令记录/" class="archive-article-date">
-  	<time datetime="2017-06-25T06:39:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-06-25</time>
+      <a href="/2017/07/23/评论中心+站内信/" class="archive-article-date">
+  	<time datetime="2017-07-23T11:42:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-07-23</time>
 </a>
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git/">Git</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java-wenda/">Java,wenda</a></li></ul>
 	</div>
 
       
@@ -249,7 +376,7 @@
 
 
   
-    <article id="post-Effective Java 笔记1" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-问题发布与敏感词过滤" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -259,7 +386,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/07/Effective Java 笔记1/">Effective Java 笔记1</a>
+      <a class="article-title" href="/2017/07/23/问题发布与敏感词过滤/">问题发布与敏感词过滤</a>
     </h1>
   
 
@@ -267,138 +394,28 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h2><ol>
-<li>Effective Java 这本书早就买了，然后发现太难，就又买了Java编程思想；现在再看，还是很难啊，不过我决定不求甚解，能看懂就看；反正各种知识其实是交错的，经验多了以后，总还是会懂的吧；</li>
-<li>我也就是大概记一下，现在理解的，比较好懂的，这样虽然记性不好，但总也会有点印象吧；</li>
-</ol>
-<h1 id="创建和销毁"><a href="#创建和销毁" class="headerlink" title="创建和销毁"></a>创建和销毁</h1><h2 id="笔记"><a href="#笔记" class="headerlink" title="笔记"></a>笔记</h2><h4 id="静态工厂方法代替构造器"><a href="#静态工厂方法代替构造器" class="headerlink" title="静态工厂方法代替构造器"></a>静态工厂方法代替构造器</h4><ol>
-<li>有名字，构造器需要以参数类型进行区别，但实际上我们可不太能记得住有啥参数，名字更加直观；</li>
-<li>不用每次调用都创建一个新的对象；构造函数没有返回值，因为默认会返回一个对象啊，静态方法，比如单例，就不一定了</li>
-<li>返回原返回类型的子类型；</li>
-<li>创建参数型实例时，代码更加简单；
+        <h1 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h1><p>这其实是上节课的内容了，不过还是记录一下好了；</p>
+<h2 id="问题发布"><a href="#问题发布" class="headerlink" title="问题发布"></a>问题发布</h2><h3 id="题外话"><a href="#题外话" class="headerlink" title="题外话"></a>题外话</h3><ul>
+<li>对一个web程序，架构是不变的，service负责拿数据，上层也不在意你是怎么取得的；所以一个功能的实现，要从建立数据库开始，然后是与之对应的model，然后是DAO层，service，然后controller就可以去的数据了，然后再通过model传到页面上，数据量大的话，可以使用ViewObject 来进行传输；</li>
+<li>切面可以让我们在业务中横插一刀，不管是打印log信息，还是做什么，都很好用；拦截器则是针对请求，我们可以在拦截器中检验用户状态，也可以进行重定向；</li>
+</ul>
+<h3 id="部分重点"><a href="#部分重点" class="headerlink" title="部分重点"></a>部分重点</h3><ul>
+<li>发布问题其实就是在数据库中添加一条记录，然后刷新页面，页面又会提取几条最新的数据，这样就发布了问题，代码上没什么困难；</li>
+<li>问题表有一个created_date的索引，据说如果想要找到一个范围的数据，这个索引还是有用处的；
         <p class="article-more-link">
-          <a  href="/2017/06/07/Effective Java 笔记1/#more">more >></a>
+          <a  href="/2017/07/23/问题发布与敏感词过滤/#more">more >></a>
         </p>
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2017/06/07/Effective Java 笔记1/" class="archive-article-date">
-  	<time datetime="2017-06-07T13:27:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-06-07</time>
+      <a href="/2017/07/23/问题发布与敏感词过滤/" class="archive-article-date">
+  	<time datetime="2017-07-23T10:59:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-07-23</time>
 </a>
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java编程思想/">Java编程思想</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-ThoughtWorks 结对编程" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/04/ThoughtWorks 结对编程/">ThoughtWorks 结对编程</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h1><p>技术博客写多了，不会起名字的说 ，可能写多了，最后写出来的东西偏向于冷冰冰吧；</p>
-<h3 id="正经的起因"><a href="#正经的起因" class="headerlink" title="正经的起因"></a>正经的起因</h3><ol>
-<li>可能就是某个懒散的下午，打开电脑，不知道做什么，打开牛客看了看，随即看到结对编程，不知道是做什么的，点开看了看；页面很好，不像国人写的风格；</li>
-<li>鬼使神差的就报名了，点进去看了看，居然还有题；而且第一道题还是 intellij idea 的快捷键，很感兴趣，就做了；其实当时应该好好学习一下的，因为现在视频点不进去嘞；之后就是保龄球，我觉得写了好久，完全没有重构，没有命名，就一个方法，不过我考虑了算法上的问题，一次扫描，ok；不过可能并不鲁棒，因为我是按着测试改了半天；</li>
-</ol>
-        <p class="article-more-link">
-          <a  href="/2017/06/04/ThoughtWorks 结对编程/#more">more >></a>
-        </p>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2017/06/04/ThoughtWorks 结对编程/" class="archive-article-date">
-  	<time datetime="2017-06-04T14:10:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-06-04</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/结对编程/">结对编程</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/随笔/">随笔</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-rest api 的首次尝试" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/24/rest api 的首次尝试/">REST api 的首次尝试</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="REST-api-的首次尝试"><a href="#REST-api-的首次尝试" class="headerlink" title="REST api 的首次尝试"></a>REST api 的首次尝试</h1><h2 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h2><p>这是一道研发岗的试题，据HR小姐姐说是社招的题，我做起来确实有点吃力；因为我不懂商品需要怎么分类，不知道rest api 是啥。。。<a href="https://github.com/colining/productmanage">代码传送门</a></p>
-<h2 id="艰难的前行"><a href="#艰难的前行" class="headerlink" title="艰难的前行"></a>艰难的前行</h2><h4 id="关于数据库："><a href="#关于数据库：" class="headerlink" title="关于数据库："></a>关于数据库：</h4><p>首先是数据库上的：我刚看到题实在不懂多层分级是什么鬼，然后去百度了；看见知乎上面淘宝的实现，真是吓人啊；目前应该搞不明白是啥，于是就搜着搜着，大概明白意思就是一张表存商品，具有商品Id，商品类别，还可以有其他的属性；还有一张类别表，拥有类别Id，父类别Id，还有类别的属性，然后商品和类别就可以加一些奇怪的属性，但是主体框架不变；<br>大概就像这样：<br><img src="http://img.blog.csdn.net/20170524191832791?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjM5NzQxNzU=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>
-        <p class="article-more-link">
-          <a  href="/2017/05/24/rest api 的首次尝试/#more">more >></a>
-        </p>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2017/05/24/rest api 的首次尝试/" class="archive-article-date">
-  	<time datetime="2017-05-24T12:04:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-05-24</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/wenda/">wenda</a></li></ul>
 	</div>
 
       
@@ -420,7 +437,7 @@
   
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/24/">24</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/26/">26</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 
@@ -482,7 +499,7 @@
     
     	<section class="tools-section tools-section-tag">
     			<div class="widget tagcloud" id="js-tagcloud">
-    				<a href="/tags/Android/" style="font-size: 17.5px;">Android</a> <a href="/tags/Beauty-of-Programming/" style="font-size: 13.75px;">Beauty of Programming</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Java/" style="font-size: 15px;">Java</a> <a href="/tags/Java知识点/" style="font-size: 11.25px;">Java知识点</a> <a href="/tags/Java编程思想/" style="font-size: 16.25px;">Java编程思想</a> <a href="/tags/fragment/" style="font-size: 12.5px;">fragment</a> <a href="/tags/mvc/" style="font-size: 11.25px;">mvc</a> <a href="/tags/wenda/" style="font-size: 10px;">wenda</a> <a href="/tags/刷题/" style="font-size: 11.25px;">刷题</a> <a href="/tags/剑指Offer/" style="font-size: 18.75px;">剑指Offer</a> <a href="/tags/笔试/" style="font-size: 10px;">笔试</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a> <a href="/tags/线程/" style="font-size: 11.25px;">线程</a> <a href="/tags/结对编程/" style="font-size: 10px;">结对编程</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/随笔/" style="font-size: 12.5px;">随笔</a>
+    				<a href="/tags/Android/" style="font-size: 17.5px;">Android</a> <a href="/tags/Beauty-of-Programming/" style="font-size: 15px;">Beauty of Programming</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Java/" style="font-size: 16.25px;">Java</a> <a href="/tags/Java-wenda/" style="font-size: 10px;">Java,wenda</a> <a href="/tags/Java知识点/" style="font-size: 11.25px;">Java知识点</a> <a href="/tags/Java编程思想/" style="font-size: 16.25px;">Java编程思想</a> <a href="/tags/fragment/" style="font-size: 12.5px;">fragment</a> <a href="/tags/mvc/" style="font-size: 11.25px;">mvc</a> <a href="/tags/wenda/" style="font-size: 13.75px;">wenda</a> <a href="/tags/刷题/" style="font-size: 11.25px;">刷题</a> <a href="/tags/剑指Offer/" style="font-size: 18.75px;">剑指Offer</a> <a href="/tags/并发/" style="font-size: 10px;">并发</a> <a href="/tags/笔试/" style="font-size: 10px;">笔试</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a> <a href="/tags/线程/" style="font-size: 11.25px;">线程</a> <a href="/tags/结对编程/" style="font-size: 10px;">结对编程</a> <a href="/tags/计算机网络/" style="font-size: 11.25px;">计算机网络</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/随笔/" style="font-size: 12.5px;">随笔</a>
     			</div>
     	</section>
     

@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>reglogin + interceptor | colin</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="登陆注册
+核心思路就是你登陆注册，我判断是否合法，然后创建Ticket，下发Ticket；">
+<meta property="og:type" content="article">
+<meta property="og:title" content="reglogin + interceptor">
+<meta property="og:url" content="http://yoursite.com/2017/07/08/reglogin + interceptor/index.html">
+<meta property="og:site_name" content="colin">
+<meta property="og:description" content="登陆注册
+核心思路就是你登陆注册，我判断是否合法，然后创建Ticket，下发Ticket；">
+<meta property="og:updated_time" content="2017-08-07T14:02:05.672Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="reglogin + interceptor">
+<meta name="twitter:description" content="登陆注册
+核心思路就是你登陆注册，我判断是否合法，然后创建Ticket，下发Ticket；">
+  
+    <link rel="alternative" href="/atom.xml" title="colin" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="//favicon.png">
+  
+  <script src="/style.js"></script>
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="/0.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">墨</a></h1>
+		</hgroup>
+
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/tags/随笔">随笔</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">所有文章</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="2" href="javascript:void(0)">友链</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="3" href="javascript:void(0)">关于我</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="https://github.com/colining" title="github">github</a>
+		        
+					<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/ren-tian-qi" title="zhihu">zhihu</a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<h1 class="header-author js-mobile-header hide">墨</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img src="/0.jpg" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">墨</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/tags/随笔">随笔</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/colining" title="github">github</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/ren-tian-qi" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap">
+        <article id="post-reglogin + interceptor" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      reglogin + interceptor
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="登陆注册"><a href="#登陆注册" class="headerlink" title="登陆注册"></a>登陆注册</h1><ul>
+<li>核心思路就是你登陆注册，我判断是否合法，然后创建Ticket，下发Ticket；<a id="more"></a>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Controller</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LoginController</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Logger logger = LoggerFactory.getLogger(LoginController.class);</div><div class="line"></div><div class="line">    <span class="meta">@Autowired</span></div><div class="line">    UserService userService;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * regLogin 注册和登陆的处理；默认会跳转到登录页面</div><div class="line">     * 该页面可以登陆也可以注册</div><div class="line">     *</div><div class="line">     * <span class="doctag">@param</span> model 通过model传递到view，view再通过input传递next值</div><div class="line">     * <span class="doctag">@param</span> next  指之前浏览的页面，登陆注册完就可以跳转过去</div><div class="line">     * <span class="doctag">@return</span></div><div class="line">     */</div><div class="line">    <span class="meta">@RequestMapping</span>(path = &#123;<span class="string">"/reglogin"</span>&#125;, method = &#123;RequestMethod.GET&#125;)</div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">regLogin</span><span class="params">(Model model,</span></span></div><div class="line">                           @RequestParam(value = <span class="string">"next"</span>, defaultValue = <span class="string">""</span>) String next) &#123;</div><div class="line">        model.addAttribute(<span class="string">"next"</span>, next);</div><div class="line">        <span class="keyword">return</span> <span class="string">"login"</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * reg register的简写；</div><div class="line">     * 主要功能就是看看用户能不能进行注册；</div><div class="line">     * 通过map得到的ticket跳转响应的页面</div><div class="line">     *</div><div class="line">     * <span class="doctag">@param</span> model      model</div><div class="line">     * <span class="doctag">@param</span> username   用户名</div><div class="line">     * <span class="doctag">@param</span> password   密码</div><div class="line">     * <span class="doctag">@param</span> next       下一个跳转的页面</div><div class="line">     * <span class="doctag">@param</span> rememberme 是否记住</div><div class="line">     * <span class="doctag">@param</span> response   响应</div><div class="line">     * <span class="doctag">@return</span></div><div class="line">     */</div><div class="line">    <span class="meta">@RequestMapping</span>(path = &#123;<span class="string">"/reg"</span>&#125;, method = RequestMethod.POST)</div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">reg</span><span class="params">(Model model,</span></span></div><div class="line">                      @RequestParam(<span class="string">"username"</span>) String username,</div><div class="line">                      @<span class="title">RequestParam</span><span class="params">(<span class="string">"password"</span>)</span> String password,</div><div class="line">                      @<span class="title">RequestParam</span><span class="params">(value = <span class="string">"next"</span>, defaultValue = <span class="string">""</span>)</span> String next,</div><div class="line">                      @<span class="title">RequestParam</span><span class="params">(value = <span class="string">"rememberme"</span>, defaultValue = <span class="string">"false"</span>)</span> <span class="keyword">boolean</span> rememberme,</div><div class="line">                      HttpServletResponse response) &#123;</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            Map&lt;String, String&gt; map = userService.register(username, password);</div><div class="line">            <span class="keyword">return</span> checkTicket(model, next, rememberme, response, map);</div><div class="line"></div><div class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">            logger.error(<span class="string">"注册异常"</span> + e.getMessage());</div><div class="line">            <span class="keyword">return</span> <span class="string">"login"</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 登陆主要就是需要查看用户是不是合法的；</div><div class="line">     * 通过userService返回的map，来获取ticket，</div><div class="line">     * 然后做出相应跳转</div><div class="line">     *</div><div class="line">     * <span class="doctag">@param</span> model</div><div class="line">     * <span class="doctag">@param</span> username</div><div class="line">     * <span class="doctag">@param</span> password</div><div class="line">     * <span class="doctag">@param</span> rememberme 是否记住，决定于是否下发cookie</div><div class="line">     * <span class="doctag">@param</span> next       登录后要跳转的页面</div><div class="line">     * <span class="doctag">@param</span> response   通过响应来下发cookie</div><div class="line">     * <span class="doctag">@return</span></div><div class="line">     */</div><div class="line">    <span class="meta">@RequestMapping</span>(path = &#123;<span class="string">"/login"</span>&#125;, method = RequestMethod.POST)</div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">login</span><span class="params">(Model model,</span></span></div><div class="line">                        @RequestParam(<span class="string">"username"</span>) String username,</div><div class="line">                        @<span class="title">RequestParam</span><span class="params">(<span class="string">"password"</span>)</span> String password,</div><div class="line">                        @<span class="title">RequestParam</span><span class="params">(value = <span class="string">"rememberme"</span>, defaultValue = <span class="string">"false"</span>)</span> <span class="keyword">boolean</span> rememberme,</div><div class="line">                        @<span class="title">RequestParam</span><span class="params">(value = <span class="string">"next"</span>, defaultValue = <span class="string">""</span>)</span> String next,</div><div class="line">                        HttpServletResponse response) &#123;</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            Map&lt;String, String&gt; map = userService.login(username, password);</div><div class="line">            <span class="keyword">return</span> checkTicket(model, next, rememberme, response, map);</div><div class="line"></div><div class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">            logger.error(<span class="string">"注册异常"</span> + e.getMessage());</div><div class="line">            <span class="keyword">return</span> <span class="string">"login"</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 将ticket的status置为0，也就是说不能用了，</div><div class="line">     * 这样用户就需要重新登陆了，因为本地的cookie值 已经失效；</div><div class="line">     * 因为服务器表示你这ticket不能用啊；</div><div class="line">     *</div><div class="line">     * <span class="doctag">@param</span> ticket</div><div class="line">     * <span class="doctag">@return</span></div><div class="line">     */</div><div class="line">    <span class="meta">@RequestMapping</span>(path = &#123;<span class="string">"/logout"</span>&#125;, method = RequestMethod.GET)</div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">logout</span><span class="params">(@CookieValue(<span class="string">"ticket"</span>)</span> String ticket) </span>&#123;</div><div class="line">        userService.logout(ticket);</div><div class="line">        <span class="keyword">return</span> <span class="string">"redirect:/"</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 检验ticket，通过map得到ticket，如果map没有ticket</div><div class="line">     * 说明这注册或者登陆不合法，返回map中的msg给view，显示错误信息；</div><div class="line">     * 拿到ticket就下发cookie，默认是session，如果点击记住我，时间就是</div><div class="line">     * 5天，然后进行跳转，如果有next就跳转next</div><div class="line">     * <span class="doctag">@param</span> model</div><div class="line">     * <span class="doctag">@param</span> next</div><div class="line">     * <span class="doctag">@param</span> rememberme</div><div class="line">     * <span class="doctag">@param</span> response</div><div class="line">     * <span class="doctag">@param</span> map</div><div class="line">     * <span class="doctag">@return</span></div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">private</span> String <span class="title">checkTicket</span><span class="params">(Model model, @RequestParam(value = <span class="string">"next"</span>, defaultValue = <span class="string">""</span>)</span> String next, @<span class="title">RequestParam</span><span class="params">(value = <span class="string">"rememberme"</span>, defaultValue = <span class="string">"false"</span>)</span> <span class="keyword">boolean</span> rememberme, HttpServletResponse response, Map&lt;String, String&gt; map) </span>&#123;</div><div class="line">        <span class="keyword">if</span> (map.containsKey(<span class="string">"ticket"</span>)) &#123;</div><div class="line">            Cookie cookie = <span class="keyword">new</span> Cookie(<span class="string">"ticket"</span>, map.get(<span class="string">"ticket"</span>));</div><div class="line">            cookie.setPath(<span class="string">"/"</span>);</div><div class="line">            <span class="keyword">if</span> (rememberme) &#123;</div><div class="line">                cookie.setMaxAge(<span class="number">3600</span> * <span class="number">24</span> * <span class="number">5</span>);</div><div class="line">            &#125;</div><div class="line">            response.addCookie(cookie);</div><div class="line">            <span class="keyword">if</span> (StringUtils.isNotBlank(next)) &#123;</div><div class="line">                <span class="keyword">return</span> <span class="string">"redirect:"</span> + next;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">return</span> <span class="string">"redirect:/"</span>;</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            model.addAttribute(<span class="string">"msg"</span>, map.get(<span class="string">"msg"</span>));</div><div class="line">            <span class="keyword">return</span> <span class="string">"login"</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="Ticket"><a href="#Ticket" class="headerlink" title="Ticket"></a>Ticket</h1><ul>
+<li><p>把Ticket叫做T票也不是没有道理的；简单来说就是服务器会制造门票，然后下发给客户端，如果你丢了（cookie过期T票就没了），就不能访问了；服务器也可以主动的将门票设置为不合法，要求你重新登陆一遍</p>
+</li>
+<li><p>因此存放在服务器里的ticket有一个过期时间，本地cookie也有一个过期时间；</p>
+</li>
+<li>可以通过UUID来生成ticket；<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line">     * 判断注册是否合法的函数</div><div class="line">     * 如果合法的话，就添加盐，盐+password通过md5算法增加保密性；</div><div class="line">     * 将用户加入数据库，添加ticket（服务器），然后下发（客户端）</div><div class="line">     * <span class="doctag">@param</span> username</div><div class="line">     * <span class="doctag">@param</span> password</div><div class="line">     * <span class="doctag">@return</span></div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> Map&lt;String, String&gt; <span class="title">register</span><span class="params">(String username, String password)</span> </span>&#123;</div><div class="line">        Map&lt;String, String&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</div><div class="line">        <span class="keyword">if</span> (StringUtils.isBlank(username)) &#123;</div><div class="line">            map.put(<span class="string">"msg"</span>, <span class="string">"用户名不能为空"</span>);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (StringUtils.isBlank(password)) &#123;</div><div class="line">            map.put(<span class="string">"msg"</span>, <span class="string">"密码不能为空"</span>);</div><div class="line">        &#125;</div><div class="line">        User user = userDAO.selectByName(username);</div><div class="line">        <span class="keyword">if</span> (user != <span class="keyword">null</span>) &#123;</div><div class="line">            map.put(<span class="string">"msg"</span>, <span class="string">"该用户已经被注册"</span>);</div><div class="line">            <span class="keyword">return</span> map;</div><div class="line">        &#125;</div><div class="line">        user = <span class="keyword">new</span> User();</div><div class="line">        user.setName(username);</div><div class="line">        user.setSalt(UUID.randomUUID().toString().substring(<span class="number">0</span>, <span class="number">5</span>));</div><div class="line">        user.setHeadUrl(String.format(<span class="string">"http://images.nowcoder.com/head/%dt.png"</span>, <span class="keyword">new</span> Random().nextInt(<span class="number">1000</span>)));</div><div class="line">        <span class="comment">//md5 需要重看</span></div><div class="line">        user.setPassword(WendaUtil.MD5(password + user.getSalt()));</div><div class="line">        userDAO.addUser(user);</div><div class="line"></div><div class="line">        String ticket = addLoginTicket(user.getId());</div><div class="line">        map.put(<span class="string">"ticket"</span>, ticket);</div><div class="line">        <span class="keyword">return</span> map;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 验证的登陆是否合法，添加ticket，下发ticket</div><div class="line">     * <span class="doctag">@param</span> username</div><div class="line">     * <span class="doctag">@param</span> password</div><div class="line">     * <span class="doctag">@return</span></div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> Map&lt;String, String&gt; <span class="title">login</span><span class="params">(String username, String password)</span> </span>&#123;</div><div class="line">        Map&lt;String, String&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</div><div class="line">        <span class="keyword">if</span> (StringUtils.isBlank(username)) &#123;</div><div class="line">            map.put(<span class="string">"msg"</span>, <span class="string">"用户名不能为空"</span>);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (StringUtils.isBlank(password)) &#123;</div><div class="line">            map.put(<span class="string">"msg"</span>, <span class="string">"密码不能为空"</span>);</div><div class="line">        &#125;</div><div class="line">        User user = userDAO.selectByName(username);</div><div class="line">        <span class="keyword">if</span> (user == <span class="keyword">null</span>) &#123;</div><div class="line">            map.put(<span class="string">"msg"</span>, <span class="string">"用户名不存在"</span>);</div><div class="line">            <span class="keyword">return</span> map;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (!WendaUtil.MD5(password + user.getSalt()).equals(user.getPassword())) &#123;</div><div class="line">            map.put(<span class="string">"msg"</span>, <span class="string">"用户密码错误"</span>);</div><div class="line">            <span class="keyword">return</span> map;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        String ticket = addLoginTicket(user.getId());</div><div class="line">        map.put(<span class="string">"ticket"</span>, ticket);</div><div class="line">        <span class="keyword">return</span> map;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 增加ticket，注意日期</div><div class="line">     * <span class="doctag">@param</span> userId</div><div class="line">     * <span class="doctag">@return</span></div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">addLoginTicket</span><span class="params">(<span class="keyword">int</span> userId)</span> </span>&#123;</div><div class="line">        LoginTicket loginTicket = <span class="keyword">new</span> LoginTicket();</div><div class="line">        loginTicket.setUserId(userId);</div><div class="line">        Date now = <span class="keyword">new</span> Date();</div><div class="line">        now.setTime(now.getTime() + <span class="number">3600L</span> * <span class="number">24</span> * <span class="number">1000</span> * <span class="number">1000</span>);</div><div class="line">        loginTicket.setExpired(now);</div><div class="line">        loginTicket.setStatus(<span class="number">0</span>);</div><div class="line">        loginTicket.setTicket(UUID.randomUUID().toString().replace(<span class="string">"-"</span>, <span class="string">""</span>));</div><div class="line">        loginTicketDao.addTicket(loginTicket);</div><div class="line">        <span class="keyword">return</span> loginTicket.getTicket();</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 将ticket的status置为1</div><div class="line">     *</div><div class="line">     * <span class="doctag">@param</span> ticket</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">logout</span><span class="params">(String ticket)</span> </span>&#123;</div><div class="line">        loginTicketDao.updateStatus(ticket, <span class="number">1</span>);</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="Interceptor"><a href="#Interceptor" class="headerlink" title="Interceptor"></a>Interceptor</h1><ul>
+<li><p>拦截器需要注册</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Component</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WendaWebConfiguration</span> <span class="keyword">extends</span> <span class="title">WebMvcConfigurerAdapter</span> </span>&#123;</div><div class="line">    <span class="meta">@Autowired</span></div><div class="line">    PassportInterceptor passportInterceptor;</div><div class="line"></div><div class="line">    <span class="meta">@Autowired</span></div><div class="line">    LoginRequiredInterceptor loginRequiredInterceptor;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 添加拦截器，拦截器会按照顺序执行</div><div class="line">     * <span class="doctag">@param</span> registry</div><div class="line">     */</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addInterceptors</span><span class="params">(InterceptorRegistry registry)</span> </span>&#123;</div><div class="line">        registry.addInterceptor(passportInterceptor);</div><div class="line">        registry.addInterceptor(loginRequiredInterceptor).addPathPatterns(<span class="string">"/user/*"</span>);</div><div class="line">        <span class="keyword">super</span>.addInterceptors(registry);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>拦截器针对request</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Component</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PassportInterceptor</span> <span class="keyword">implements</span> <span class="title">HandlerInterceptor</span> </span>&#123;</div><div class="line">    <span class="meta">@Autowired</span></div><div class="line">    LoginTicketDao loginTicketDao;</div><div class="line"></div><div class="line">    <span class="meta">@Autowired</span></div><div class="line">    UserDAO userDAO;</div><div class="line"></div><div class="line">    <span class="meta">@Autowired</span></div><div class="line">    HostHolder hostHolder;</div><div class="line">    <span class="comment">//拦截器是针对request的，有多少次request，就经历多少次拦截器</span></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">preHandle</span><span class="params">(HttpServletRequest request, HttpServletResponse response, Object handler)</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">        String ticket = <span class="keyword">null</span>;</div><div class="line">        <span class="keyword">if</span> (request.getCookies() != <span class="keyword">null</span>) &#123;</div><div class="line">            <span class="keyword">for</span> (Cookie cookie : request.getCookies()) &#123;</div><div class="line">                <span class="keyword">if</span> (cookie.getName().equals(<span class="string">"ticket"</span>)) &#123;</div><div class="line">                    ticket = cookie.getValue();</div><div class="line">                    <span class="keyword">break</span>;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (ticket != <span class="keyword">null</span>) &#123;</div><div class="line">            LoginTicket loginTicket = loginTicketDao.selectByTicket(ticket);</div><div class="line">            <span class="keyword">if</span> (loginTicket == <span class="keyword">null</span> || loginTicket.getExpired().before(<span class="keyword">new</span> Date()) || loginTicket.getStatus() != <span class="number">0</span>) &#123;</div><div class="line">                <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">            &#125;</div><div class="line">            User user = userDAO.selectById(loginTicket.getUserId());</div><div class="line">            hostHolder.setUser(user);</div><div class="line"></div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">postHandle</span><span class="params">(HttpServletRequest request, HttpServletResponse response, Object handler, @Nullable ModelAndView modelAndView)</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">        <span class="keyword">if</span> (modelAndView != <span class="keyword">null</span>) &#123;</div><div class="line">            modelAndView.addObject(<span class="string">"user"</span>, hostHolder.getUser());</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">afterCompletion</span><span class="params">(HttpServletRequest request, HttpServletResponse response, Object handler, @Nullable Exception ex)</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">        hostHolder.clear();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></li>
+</ul>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/07/08/reglogin + interceptor/" class="archive-article-date">
+  	<time datetime="2017-07-08T06:02:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-07-08</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/wenda/">wenda</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2017/07/17/计算机网络 --应用层/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          计算机网络 --应用层
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/07/01/mybatis + 首页开发/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">mybatis + 首页开发</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="//v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="reglogin + interceptor" data-title="reglogin + interceptor" data-url="http://yoursite.com/2017/07/08/reglogin + interceptor/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"colining.duoshuo.com"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 墨
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: false,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: "/"
+	}
+</script>
+
+<script src="/./main.js"></script>
+
+
+    
+<div class="tools-col">
+  <ul class="btn-wrap">
+    
+      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
+    
+    
+      <li data-hook="tools-section-tag"><span class="text">标签</span><i class="icon-price-tags"></i></li>
+    
+    
+      <li data-hook="tools-section-friends"><span class="text">友链</span><i class="icon-link"></i></li>
+    
+    
+      <li data-hook="tools-section-me"><span class="text">我</span><i class="icon-smile"></i></li>
+    
+  </ul>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all chose">
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-tag">
+    			<div class="widget tagcloud" id="js-tagcloud">
+    				<a href="/tags/Android/" style="font-size: 17.5px;">Android</a> <a href="/tags/Beauty-of-Programming/" style="font-size: 15px;">Beauty of Programming</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Java/" style="font-size: 16.25px;">Java</a> <a href="/tags/Java-wenda/" style="font-size: 10px;">Java,wenda</a> <a href="/tags/Java知识点/" style="font-size: 11.25px;">Java知识点</a> <a href="/tags/Java编程思想/" style="font-size: 16.25px;">Java编程思想</a> <a href="/tags/fragment/" style="font-size: 12.5px;">fragment</a> <a href="/tags/mvc/" style="font-size: 11.25px;">mvc</a> <a href="/tags/wenda/" style="font-size: 13.75px;">wenda</a> <a href="/tags/刷题/" style="font-size: 11.25px;">刷题</a> <a href="/tags/剑指Offer/" style="font-size: 18.75px;">剑指Offer</a> <a href="/tags/并发/" style="font-size: 10px;">并发</a> <a href="/tags/笔试/" style="font-size: 10px;">笔试</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a> <a href="/tags/线程/" style="font-size: 11.25px;">线程</a> <a href="/tags/结对编程/" style="font-size: 10px;">结对编程</a> <a href="/tags/计算机网络/" style="font-size: 11.25px;">计算机网络</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/随笔/" style="font-size: 12.5px;">随笔</a>
+    			</div>
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-friends">
+  		
+  			<div class="friends-wrap" id="js-friends">
+  			
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="https://www.google.com.hk/">谷歌</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="https://stackoverflow.com/">stackoverflow</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://beyondtech.org/">泡饭</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="https://menyifan.com/">MYF</a>
+  	        
+  	        </div>
+  		
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-me">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">继续跑&lt;br&gt;&lt;br&gt;带着赤子的骄傲</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div>
+</body>
+</html>

@@ -129,7 +129,7 @@
       <div class="body-wrap">
         
   
-    <article id="post-原-Android-复习2-有关activity" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-转-关于fragment" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -139,7 +139,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/03/原-Android-复习2-有关activity/">Android 复习2 有关activity</a>
+      <a class="article-title" href="/2016/09/12/转-关于fragment/">[转]关于fragment</a>
     </h1>
   
 
@@ -147,24 +147,22 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="activity-之间基于intent-的通信"><a href="#activity-之间基于intent-的通信" class="headerlink" title="activity 之间基于intent 的通信"></a>activity 之间基于intent 的通信</h1><h2 id="如何打开新活动"><a href="#如何打开新活动" class="headerlink" title="# 如何打开新活动"></a># 如何打开新活动</h2><p>我们的一个应用程序 是由多个活动的，那么在活动之间如何跳转就是一个很有趣的事情；<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">startActivity</span><span class="params">(Intent intent)</span></span></div></pre></td></tr></table></figure></p>
-<p>我们通过上面的函数来造访新的页面，该函数不是一个针对于activity的函数，而是针对操作系统，准确的说 它将intent发送给系统级别的ActivityManager</p>
-<p>ActivityManager主要就是用来管理众多Activity的 </p>
-<p>我们通过传递intent 告诉ActivityManager下面打开那个活动；<br>
+        <p>版权声明：本文为博主原创文章，未经博主允许不得转载。</p>
+<div></div><div><br><br><span>目录<a href="#" title="系统根据文章中H1到H6标签自动生成文章目录">(?)</a></span><a href="#" title="展开">[+]</a><br><br>1.  <a href="# t0">Fragment的产生与介绍</a><br>2.  <a href="# t1">Fragment的生命周期</a><br>3.  <a href="# t2">静态的使用Fragment</a><br>4.  <a href="# t3">动态的使用Fragment</a><br>5.  <a href="# t4">Fragment家族常用的API</a><br>6.  <a href="# t5"></a></div><div></div><div id="article_content" class="article_content"><br><br>转载请标明出处：<a href="http://blog.csdn.net/lmj623565791/article/details/37970961">http://blog.csdn.net/lmj623565791/article/details/37970961</a><br>
         <p class="article-more-link">
-          <a  href="/2016/07/03/原-Android-复习2-有关activity/#more">more >></a>
+          <a  href="/2016/09/12/转-关于fragment/#more">more >></a>
         </p>
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2016/07/03/原-Android-复习2-有关activity/" class="archive-article-date">
-  	<time datetime="2016-07-03T06:18:40.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-07-03</time>
+      <a href="/2016/09/12/转-关于fragment/" class="archive-article-date">
+  	<time datetime="2016-09-12T04:21:06.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-09-12</time>
 </a>
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/fragment/">fragment</a></li></ul>
 	</div>
 
       
@@ -184,7 +182,7 @@
 
 
   
-    <article id="post-原-Android-复习1-1-神奇的bundle" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-原-麻烦的素数" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -194,7 +192,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/06/30/原-Android-复习1-1-神奇的bundle/">Android 复习1.1 神奇的bundle</a>
+      <a class="article-title" href="/2016/09/12/原-麻烦的素数/">麻烦的素数</a>
     </h1>
   
 
@@ -202,22 +200,19 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="有关Activity"><a href="#有关Activity" class="headerlink" title="有关Activity"></a>有关Activity</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">      <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">      setContentView(R.layout.activity_main);</div></pre></td></tr></table></figure>
-<p>活动的onCreate 有个很神奇的参数 bundle 它是用来干嘛的呢？</p>
-<p>看起来像是把什么传进来，那是什么东西要传进初始化的activity里呢？</p>
-<p>我们的app一般是竖屏的，一旦横屏，activity 就要重新加载，而在当前activity上的数据理所当然就不见了；是不是很不爽。Bundle 就是来解决这个问题的；让我们在横竖屏切换时传递数据的；<br>相信作用可以举一反三，不过目前还没用到；        </p>
+        <p>素数真的是很神奇 求素数更麻烦<br>最傻的方法<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span>  <span class="title">Prime</span><span class="params">(<span class="keyword">int</span> n)</span>				<span class="comment">//n=25 程序运行时间： 296415ns</span></span></div><div class="line">	&#123;</div><div class="line">		<span class="keyword">boolean</span>  flag;</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i =<span class="number">2</span> ;i&lt;=n;i++)</div><div class="line">		&#123;	flag=<span class="keyword">true</span>;</div><div class="line">		</div><div class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">2</span>;j&lt;i;j++)</div><div class="line">			&#123;</div><div class="line">				<span class="keyword">if</span>(i%j==<span class="number">0</span>)</div><div class="line">				&#123;		</div><div class="line">					flag=<span class="keyword">false</span>;</div><div class="line">						<span class="keyword">break</span>;</div><div class="line">				&#125;</div><div class="line">			&#125;	</div><div class="line">			<span class="keyword">if</span>(flag)</div><div class="line">			&#123;</div><div class="line">			System.out.print(i+<span class="string">" "</span>);</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2016/06/30/原-Android-复习1-1-神奇的bundle/" class="archive-article-date">
-  	<time datetime="2016-06-30T11:51:38.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-06-30</time>
+      <a href="/2016/09/12/原-麻烦的素数/" class="archive-article-date">
+  	<time datetime="2016-09-12T04:09:47.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-09-12</time>
 </a>
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Beauty-of-Programming/">Beauty of Programming</a></li></ul>
 	</div>
 
       
@@ -237,7 +232,7 @@
 
 
   
-    <article id="post-原-Android-复习1-mvc设计模式" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-原-无聊又无趣的位运算" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -247,7 +242,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/06/30/原-Android-复习1-mvc设计模式/">Android 复习1 mvc设计模式</a>
+      <a class="article-title" href="/2016/07/24/原-无聊又无趣的位运算/">无聊又无趣的位运算</a>
     </h1>
   
 
@@ -255,24 +250,19 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="有关MVC和string"><a href="#有关MVC和string" class="headerlink" title="有关MVC和string"></a>有关MVC和string</h1><p>Android 真的是有超级多的东西，学了后面忘了前面，希望这个能够让我以后看吧</p>
-<p>MVC是一种设计模式；学过面向对象后，就觉得我们的世界和平常人不一样了；</p>
-<p>在java中 是各个类，各个包之间的联系访问；<br>在Android中，是视图，模型，控制器之间的访问；<br>视图 最好理解 xml下的各种各样的视图对象；</p>
-<p>模型 是我们新建的那些奇怪的类，用来进行数据储存和业务逻辑；<br>
-        <p class="article-more-link">
-          <a  href="/2016/06/30/原-Android-复习1-mvc设计模式/#more">more >></a>
-        </p>
+        <p>开坑 待写</p>
+
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2016/06/30/原-Android-复习1-mvc设计模式/" class="archive-article-date">
-  	<time datetime="2016-06-30T10:43:36.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-06-30</time>
+      <a href="/2016/07/24/原-无聊又无趣的位运算/" class="archive-article-date">
+  	<time datetime="2016-07-24T06:27:50.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-07-24</time>
 </a>
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mvc/">mvc</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Beauty-of-Programming/">Beauty of Programming</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/随笔/">随笔</a></li></ul>
 	</div>
 
       
@@ -292,7 +282,7 @@
 
 
   
-    <article id="post-原-android-5-通知栏" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-原-Beauty-of-Programming-1" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -302,7 +292,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/06/24/原-android-5-通知栏/">android 5 通知栏</a>
+      <a class="article-title" href="/2016/07/19/原-Beauty-of-Programming-1/">Beauty of Programming 1</a>
     </h1>
   
 
@@ -310,24 +300,23 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>书上有关于通知栏的说法 已经过时了 是时候来点新东西啦</p>
-<p>状态通知栏主要涉及到2个类：  <strong>Notification</strong> 和 <strong>NotificationManager</strong></p>
-<p>Notification为通知信息类，它里面对应了通知栏的各个属性；NotificationManager ：  是状态栏通知的管理类，负责发通知、清除通知等操作。</p>
-<p>NotificationManager 是一个系统Service，所以必须通过 getSystemService(NOTIFICATION_SERVICE)方法来获取：<br>
+        <p>买了本编程之美 打算以后看看 也在这里记录一下有关算法方面的东西</p>
+<h2 id="有关象棋将帅的位置问题"><a href="#有关象棋将帅的位置问题" class="headerlink" title="有关象棋将帅的位置问题"></a>有关象棋将帅的位置问题</h2><p>　假设在中国象棋中只剩下将帅两个棋子，国人都知道基本规则：将帅不能出九宫格，只能上下左右移动，不能斜向移动，同时将帅不能照面。问在这样条件下，所有可能将帅位置。<strong>要求在代码中只能使用一个字节存储变量</strong>。<br><img src="http://img.blog.csdn.net/20160719182303946" alt="这里写图片描述"><br>将帅的田字格自然都可以分为就这样 问题就变成 两个一到九的循环 他们对于3的余数不能一样 一样的话将帅就碰面了</p>
+<p>这样的问题 我也花三分钟写完 但问题来了？<br>
         <p class="article-more-link">
-          <a  href="/2016/06/24/原-android-5-通知栏/#more">more >></a>
+          <a  href="/2016/07/19/原-Beauty-of-Programming-1/#more">more >></a>
         </p>
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2016/06/24/原-android-5-通知栏/" class="archive-article-date">
-  	<time datetime="2016-06-24T08:46:06.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-06-24</time>
+      <a href="/2016/07/19/原-Beauty-of-Programming-1/" class="archive-article-date">
+  	<time datetime="2016-07-19T11:20:20.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-07-19</time>
 </a>
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Beauty-of-Programming/">Beauty of Programming</a></li></ul>
 	</div>
 
       
@@ -347,7 +336,7 @@
 
 
   
-    <article id="post-Android学习笔记4 图片和杂谈" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-原-Android-复习6-fragment-argument" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -357,7 +346,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/06/24/Android学习笔记4 图片和杂谈/">android4 图片和杂谈</a>
+      <a class="article-title" href="/2016/07/09/原-Android-复习6-fragment-argument/">Android 复习6 fragment argument</a>
     </h1>
   
 
@@ -365,19 +354,22 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="迷茫的一天"><a href="#迷茫的一天" class="headerlink" title="迷茫的一天"></a>迷茫的一天</h1><h2 id="关于图片的麻烦事"><a href="#关于图片的麻烦事" class="headerlink" title="关于图片的麻烦事"></a>关于图片的麻烦事</h2><p>学到自定义控件，图片真的是让人头大的事情，书上只写了加入某张图片，这可真是苦了我了，首先是要找图标；<br>下面是两个网站<br><a href="http://iconmonstr.com">http://iconmonstr.com</a><br><a href="http://iconfont.cn/">http://iconfont.cn/</a><br>还有一些网站，不过我现在就只是找和书上一样的，所以这俩就够了；<br>但问题来了。网站只有图标，现在需要的是标题栏的背景，于是我Google了好久，也许是关键词不对，最后才知道背景可以直接敲代码设置颜色；还可以设置高度；于是标题栏顺利解决；</p>
-<p>总感觉网上关于图片的资料略少，可能程序员都不关注，或者一次学会就不会有再问题，于是资料比较少；</p>
-<p>图标找到后，最头疼就是大小问题了。作为一个新人，就算我知道Android文档里写的是什么，我也不知道，到底哪个图标可以用，最好啊？于是只能把不同像素的同一图标都测试一次，最后知道了差不多50-70左右就差不多，<a href="http://iconmonstr.com可以调节px预览大小，还可以改变颜色，只是相对来说图标有点少；而假设dpi扩大一倍，那我们的图标像素也扩大一倍就可以了；">http://iconmonstr.com可以调节px预览大小，还可以改变颜色，只是相对来说图标有点少；而假设dpi扩大一倍，那我们的图标像素也扩大一倍就可以了；</a></p>
-<p>我感觉我自己审美现在挺好的，可是再编程是根本不会在乎图标是否漂亮，也许这就是大家吐槽程序员审美的原因吧；<br>
+        <p>这个传递真的是好难懂啊</p>
+<p>首先我们先来看一看参与人员</p>
+<p>1 firstactivity<br>2 seconactivity<br>3 firstfragment</p>
+<p>过程是这样的：</p>
+<p>secondactivity 向firstactivity 跳转 有个intent 。intent里面可以携带数据啊；</p>
+<p>在intent.putExtra() 方法中我们传入一个键值对</p>
+<p>获取方法有两种<br>
         <p class="article-more-link">
-          <a  href="/2016/06/24/Android学习笔记4 图片和杂谈/#more">more >></a>
+          <a  href="/2016/07/09/原-Android-复习6-fragment-argument/#more">more >></a>
         </p>
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2016/06/24/Android学习笔记4 图片和杂谈/" class="archive-article-date">
-  	<time datetime="2016-06-24T08:46:05.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-06-24</time>
+      <a href="/2016/07/09/原-Android-复习6-fragment-argument/" class="archive-article-date">
+  	<time datetime="2016-07-09T06:07:04.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-07-09</time>
 </a>
       
 	<div class="article-tag tagcloud">
@@ -404,7 +396,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/23/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/22/">22</a><a class="page-number" href="/page/23/">23</a><span class="page-number current">24</span>
+      <a class="extend prev" rel="prev" href="/page/23/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/22/">22</a><a class="page-number" href="/page/23/">23</a><span class="page-number current">24</span><a class="page-number" href="/page/25/">25</a><a class="page-number" href="/page/26/">26</a><a class="extend next" rel="next" href="/page/25/">Next &raquo;</a>
     </nav>
   
 
@@ -466,7 +458,7 @@
     
     	<section class="tools-section tools-section-tag">
     			<div class="widget tagcloud" id="js-tagcloud">
-    				<a href="/tags/Android/" style="font-size: 17.5px;">Android</a> <a href="/tags/Beauty-of-Programming/" style="font-size: 13.75px;">Beauty of Programming</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Java/" style="font-size: 15px;">Java</a> <a href="/tags/Java知识点/" style="font-size: 11.25px;">Java知识点</a> <a href="/tags/Java编程思想/" style="font-size: 16.25px;">Java编程思想</a> <a href="/tags/fragment/" style="font-size: 12.5px;">fragment</a> <a href="/tags/mvc/" style="font-size: 11.25px;">mvc</a> <a href="/tags/wenda/" style="font-size: 10px;">wenda</a> <a href="/tags/刷题/" style="font-size: 11.25px;">刷题</a> <a href="/tags/剑指Offer/" style="font-size: 18.75px;">剑指Offer</a> <a href="/tags/笔试/" style="font-size: 10px;">笔试</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a> <a href="/tags/线程/" style="font-size: 11.25px;">线程</a> <a href="/tags/结对编程/" style="font-size: 10px;">结对编程</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/随笔/" style="font-size: 12.5px;">随笔</a>
+    				<a href="/tags/Android/" style="font-size: 17.5px;">Android</a> <a href="/tags/Beauty-of-Programming/" style="font-size: 15px;">Beauty of Programming</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Java/" style="font-size: 16.25px;">Java</a> <a href="/tags/Java-wenda/" style="font-size: 10px;">Java,wenda</a> <a href="/tags/Java知识点/" style="font-size: 11.25px;">Java知识点</a> <a href="/tags/Java编程思想/" style="font-size: 16.25px;">Java编程思想</a> <a href="/tags/fragment/" style="font-size: 12.5px;">fragment</a> <a href="/tags/mvc/" style="font-size: 11.25px;">mvc</a> <a href="/tags/wenda/" style="font-size: 13.75px;">wenda</a> <a href="/tags/刷题/" style="font-size: 11.25px;">刷题</a> <a href="/tags/剑指Offer/" style="font-size: 18.75px;">剑指Offer</a> <a href="/tags/并发/" style="font-size: 10px;">并发</a> <a href="/tags/笔试/" style="font-size: 10px;">笔试</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a> <a href="/tags/线程/" style="font-size: 11.25px;">线程</a> <a href="/tags/结对编程/" style="font-size: 10px;">结对编程</a> <a href="/tags/计算机网络/" style="font-size: 11.25px;">计算机网络</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/随笔/" style="font-size: 12.5px;">随笔</a>
     			</div>
     	</section>
     

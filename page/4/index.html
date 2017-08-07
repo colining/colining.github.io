@@ -129,7 +129,7 @@
       <div class="body-wrap">
         
   
-    <article id="post-Java应急 知识" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-保龄球得分计算" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -139,7 +139,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/13/Java应急 知识/">Java应急 知识</a>
+      <a class="article-title" href="/2017/05/05/保龄球得分计算/">保龄球得分计算</a>
     </h1>
   
 
@@ -147,17 +147,17 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <ol>
-<li>通配符相关：<br>首先我们要明白类型擦出是怎么回事，也就是说，类型的确定是编译时确定的；编译时发现你往里存的对象有问题就报错；如果运行了你通过反射强制向里面添加元素其实是随便的；<br>&lt; T &gt;表示某种类型，比如Integer；&lt; ? &gt;表示不知道具体那种类型；&lt; T &gt;简单啊，你添加，读取都是T类型；？呢，不知道是哪种类型，能放进去吗？显然不能啊，你总不能把电视和地球放在一起把，这样会很奇怪；但是？读取，就会很方便，因为集合里已经有了这么一些东西，我管它是啥呢，拿出来就好了；<br>以这种思想，我们来看一下上下界通配符；<br>&lt; ? extend A&gt;  也就是T是个A的子类，那是哪个呢？很显然，你没办法向里面储存A的全部子类吧；比如T是个A的其中大儿子的儿子；那么A小儿子的儿子，很显然存不进去的嘛；但是反过来我不管T是哪个类，它总可以向上转型为A，所以就可以读取并转型为A；（不可转型为A的子类）；<br>&lt; ? super B&gt; 就是说T是B得一个父类，那么很显然的，存什么我都可以把它转型为T嘛，因为T是B的父类嘛；但是当你读取的时候，T？B的父类，那是个什么玩意，到底是父亲，还是爷爷，还是Object呢？所以无法读取；除非你读取转型为Object；
+        <h2 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h2><ol>
+<li>超无聊的一道题，保龄球得分真是麻烦；今天下午偶然看见结对编程，然后就申请了一下，写了这道题；
         <p class="article-more-link">
-          <a  href="/2017/04/13/Java应急 知识/#more">more >></a>
+          <a  href="/2017/05/05/保龄球得分计算/#more">more >></a>
         </p>
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2017/04/13/Java应急 知识/" class="archive-article-date">
-  	<time datetime="2017-04-13T11:15:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-04-13</time>
+      <a href="/2017/05/05/保龄球得分计算/" class="archive-article-date">
+  	<time datetime="2017-05-05T14:12:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-05-05</time>
 </a>
       
 	<div class="article-tag tagcloud">
@@ -182,7 +182,7 @@
 
 
   
-    <article id="post-剑指Offer 56 链表中环的入口结点" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Java 套接字" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -192,7 +192,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/10/剑指Offer 56 链表中环的入口结点/">剑指Offer 56 链表中环的入口结点</a>
+      <a class="article-title" href="/2017/05/02/Java 套接字/">Java 套接字</a>
     </h1>
   
 
@@ -200,25 +200,22 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>一个链表中包含环，请找出该链表的环的入口结点。</p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><ol>
-<li>hashset，最快的想法；重复检验嘛</li>
-<li>截断指针；因为什么呢？因为你会发现入口结点有两个入口，如果从头开始截断指针，最后的这个一定是入口结点；</li>
-<li>神奇的双指针：其实这个想法我稍微想过，不过步骤比较多，没想明白；首先我们进入了环中，就可以计算环的节点数目；第二个想法是在一个环中，两个结点追逐的话，在绕一圈以后，就会相遇；<br>那对这一题来说：<br>一个指针在头，另一个提前移动环节点数目，最后就会相遇；
+        <h2 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h2><p>其实我不想写起因，一位面试人家让我写一个套接字，不会，输入输出，不会写。唉。。。 写代码吧，现在想想，我认真写java代码也没多久，慢慢来呗；</p>
+<h2 id="套接字"><a href="#套接字" class="headerlink" title="套接字"></a>套接字</h2><p>这个怎么理解呢，就是说tcp/udp在运输层，那么上层好多应用都要使用TCP，那么怎么区分呢？这时候就出现了套接字和端口，应用程序自己创建套接字，标记自己的端口，那么分包的时候就有了约束，传回的数据包，也可以根据端口找到位置；<a href="https://github.com/colining/SocketTest">代码传送门</a><br>
         <p class="article-more-link">
-          <a  href="/2017/04/10/剑指Offer 56 链表中环的入口结点/#more">more >></a>
+          <a  href="/2017/05/02/Java 套接字/#more">more >></a>
         </p>
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2017/04/10/剑指Offer 56 链表中环的入口结点/" class="archive-article-date">
-  	<time datetime="2017-04-10T13:01:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-04-10</time>
+      <a href="/2017/05/02/Java 套接字/" class="archive-article-date">
+  	<time datetime="2017-05-02T14:05:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-05-02</time>
 </a>
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/剑指Offer/">剑指Offer</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
 	</div>
 
       
@@ -238,7 +235,7 @@
 
 
   
-    <article id="post-剑指Offer 53 正则表达式" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-俄罗斯方块Demo" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -248,7 +245,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/10/剑指Offer 53 正则表达式/">剑指Offer 53 正则表达式</a>
+      <a class="article-title" href="/2017/04/30/俄罗斯方块Demo/">俄罗斯方块Demo</a>
     </h1>
   
 
@@ -256,23 +253,21 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>请实现一个函数用来匹配包括’.’和’<em>‘的正则表达式。模式中的字符’.’表示任意一个字符，而’</em>‘表示它前面的字符可以出现任意次（包含0次）。 在本题中，匹配是指字符串的所有字符匹配整个模式。例如，字符串”aaa”与模式”a.a”和”ab<em>ac</em>a”匹配，但是与”aa.a”和”ab*a”均不匹配</p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><ol>
-<li>其实难点有两个，一个就是*的处理，因为包含三种情况；还有就是指针控制
+        <h2 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h2><p>其实是面京东伤心了，问啥啥不会，就拿个项目认真写写，写啥呢？俄罗斯方块呗；主要其实想玩一下io还有序列化；现在都基本实现了一下，下一步就是认真看看这两东西，或者就是看看socket方面的东西，反正就是一句话，玩项目，看书，巩固基础；<br><a href="https://github.com/colining/Tetris">代码传送门</a><br>
         <p class="article-more-link">
-          <a  href="/2017/04/10/剑指Offer 53 正则表达式/#more">more >></a>
+          <a  href="/2017/04/30/俄罗斯方块Demo/#more">more >></a>
         </p>
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2017/04/10/剑指Offer 53 正则表达式/" class="archive-article-date">
-  	<time datetime="2017-04-10T12:27:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-04-10</time>
+      <a href="/2017/04/30/俄罗斯方块Demo/" class="archive-article-date">
+  	<time datetime="2017-04-30T11:48:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-04-30</time>
 </a>
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/剑指Offer/">剑指Offer</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
 	</div>
 
       
@@ -292,7 +287,7 @@
 
 
   
-    <article id="post-剑指Offer 52 构建乘积数组" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-JDBC进阶 + 数据源" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -302,7 +297,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/09/剑指Offer 52 构建乘积数组/">剑指Offer 52 构建乘积数组</a>
+      <a class="article-title" href="/2017/04/25/JDBC进阶 + 数据源/">JDBC进阶 + 数据源</a>
     </h1>
   
 
@@ -310,23 +305,23 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定一个数组A[0,1,…,n-1],请构建一个数组B[0,1,…,n-1],其中B中的元素B[i]=A[0]<em>A[1]</em>…<em>A[i-1]</em>A[i+1]<em>…</em>A[n-1]。不能使用除法。</p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><ol>
-<li>想想一个矩阵
+        <h1 id="JDBC进阶"><a href="#JDBC进阶" class="headerlink" title="JDBC进阶"></a>JDBC进阶</h1><p>上回我们知道了，通过工厂模式+配置文件动态连接数据库；<br>这次的主要目的呢，则是将增删改查想办法重构掉；比如查询，到哪里的操作不都是一样的嘛；所以我们自然就想到了将查询操作重构掉；</p>
+<p>然后我们思考一下类的组织，有这么一个接口，其中声明了增删改查，我们的类实现这个接口== 我们的类必须实现增删改查，不实现这些，你也叫数据库操作吗？然后我们要将这个类的增删改查的实际操作重构掉；这个类只需要知道该干什么，需要什么齐活；</p>
+<p>首先是接口，实现类必须实现增删改查；<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">UserDAO</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> ArrayList&lt;Users&gt; <span class="title">findUsers</span><span class="params">()</span></span>;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">findUser</span><span class="params">(Users users)</span></span>;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">insertUser</span><span class="params">(Users users)</span></span>;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">update</span><span class="params">(Users users)</span></span>;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">delete</span><span class="params">(Users users)</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
         <p class="article-more-link">
-          <a  href="/2017/04/09/剑指Offer 52 构建乘积数组/#more">more >></a>
+          <a  href="/2017/04/25/JDBC进阶 + 数据源/#more">more >></a>
         </p>
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2017/04/09/剑指Offer 52 构建乘积数组/" class="archive-article-date">
-  	<time datetime="2017-04-09T09:32:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-04-09</time>
+      <a href="/2017/04/25/JDBC进阶 + 数据源/" class="archive-article-date">
+  	<time datetime="2017-04-25T11:25:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-04-25</time>
 </a>
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/剑指Offer/">剑指Offer</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
 	</div>
 
       
@@ -346,7 +341,7 @@
 
 
   
-    <article id="post-剑指Offer 51数组中重复的数字" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-计算机实验" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -356,7 +351,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/09/剑指Offer 51数组中重复的数字/">剑指Offer 51数组中重复的数字</a>
+      <a class="article-title" href="/2017/04/23/计算机实验/">短进程优先算法实验</a>
     </h1>
   
 
@@ -364,25 +359,23 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>在一个长度为n的数组里的所有数字都在0到n-1的范围内。<br>        数组中某些数字是重复的，但不知道有几个数字是重复的。也不知道每个数字重复几次。请找出数组中任意一个重复的数字。<br>        例如，如果输入长度为7的数组{2,3,1,0,2,5,3}，那么对应的输出是重复的数字2或者3。</p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><ol>
-<li>我们来思考一下，0~n-1 如果不重复是什么情况，就是0~n-1这些数都有一个，排好序完全就是从小到大；如果存在重复，最后一个数肯定到不了n-1；</li>
-<li>i这个数的位置就在i这个位置，所以我们可以用调整位置，如果在这个位置上的数和i一样，就说明有两个i了呗</li>
-<li>hashset
+        <h1 id="实验报告"><a href="#实验报告" class="headerlink" title="实验报告"></a>实验报告</h1><p>班级：10041461<br>姓名：任天起<br>学号：1004146111</p>
+<h2 id="实验目的："><a href="#实验目的：" class="headerlink" title="实验目的："></a>实验目的：</h2><p>就绪进程数大于处理机数时，按照某种策略决定哪些进程优先占用处理机。实验模拟处理机调度，加深对处理机调度的理解。</p>
+<h2 id="实验内容："><a href="#实验内容：" class="headerlink" title="实验内容："></a>实验内容：</h2><p>实验一模拟短进程优先调度<br>进程8 个,到达时间和服务时间(用户输入)<br>至少两种结果: 1 到达时间:0,1,2,….<br>             2 到达时间:其他</p>
         <p class="article-more-link">
-          <a  href="/2017/04/09/剑指Offer 51数组中重复的数字/#more">more >></a>
+          <a  href="/2017/04/23/计算机实验/#more">more >></a>
         </p>
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2017/04/09/剑指Offer 51数组中重复的数字/" class="archive-article-date">
-  	<time datetime="2017-04-09T08:05:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-04-09</time>
+      <a href="/2017/04/23/计算机实验/" class="archive-article-date">
+  	<time datetime="2017-04-23T11:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-04-23</time>
 </a>
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/剑指Offer/">剑指Offer</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
 	</div>
 
       
@@ -404,7 +397,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/24/">24</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/26/">26</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
     </nav>
   
 
@@ -466,7 +459,7 @@
     
     	<section class="tools-section tools-section-tag">
     			<div class="widget tagcloud" id="js-tagcloud">
-    				<a href="/tags/Android/" style="font-size: 17.5px;">Android</a> <a href="/tags/Beauty-of-Programming/" style="font-size: 13.75px;">Beauty of Programming</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Java/" style="font-size: 15px;">Java</a> <a href="/tags/Java知识点/" style="font-size: 11.25px;">Java知识点</a> <a href="/tags/Java编程思想/" style="font-size: 16.25px;">Java编程思想</a> <a href="/tags/fragment/" style="font-size: 12.5px;">fragment</a> <a href="/tags/mvc/" style="font-size: 11.25px;">mvc</a> <a href="/tags/wenda/" style="font-size: 10px;">wenda</a> <a href="/tags/刷题/" style="font-size: 11.25px;">刷题</a> <a href="/tags/剑指Offer/" style="font-size: 18.75px;">剑指Offer</a> <a href="/tags/笔试/" style="font-size: 10px;">笔试</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a> <a href="/tags/线程/" style="font-size: 11.25px;">线程</a> <a href="/tags/结对编程/" style="font-size: 10px;">结对编程</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/随笔/" style="font-size: 12.5px;">随笔</a>
+    				<a href="/tags/Android/" style="font-size: 17.5px;">Android</a> <a href="/tags/Beauty-of-Programming/" style="font-size: 15px;">Beauty of Programming</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Java/" style="font-size: 16.25px;">Java</a> <a href="/tags/Java-wenda/" style="font-size: 10px;">Java,wenda</a> <a href="/tags/Java知识点/" style="font-size: 11.25px;">Java知识点</a> <a href="/tags/Java编程思想/" style="font-size: 16.25px;">Java编程思想</a> <a href="/tags/fragment/" style="font-size: 12.5px;">fragment</a> <a href="/tags/mvc/" style="font-size: 11.25px;">mvc</a> <a href="/tags/wenda/" style="font-size: 13.75px;">wenda</a> <a href="/tags/刷题/" style="font-size: 11.25px;">刷题</a> <a href="/tags/剑指Offer/" style="font-size: 18.75px;">剑指Offer</a> <a href="/tags/并发/" style="font-size: 10px;">并发</a> <a href="/tags/笔试/" style="font-size: 10px;">笔试</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a> <a href="/tags/线程/" style="font-size: 11.25px;">线程</a> <a href="/tags/结对编程/" style="font-size: 10px;">结对编程</a> <a href="/tags/计算机网络/" style="font-size: 11.25px;">计算机网络</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/随笔/" style="font-size: 12.5px;">随笔</a>
     			</div>
     	</section>
     

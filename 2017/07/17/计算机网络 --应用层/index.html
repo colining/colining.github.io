@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>计算机网络 --应用层 | colin</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="起因
+其实也没啥起因，只不过是觉得自己没学好计算机网络，八周的课时，老师自己都不知道自己讲的是啥；我么买了本计算机网络 自顶向下方法，觉得计算机网络还真的是蛮有意思的；而且很多东西，我都自己实验了蛮有趣的；远不是想象的那么枯燥；
+
+应用层
+两大体系结构：
+cs
+p2p
+那什么B/S其实只是一种C/S结构罢了；
+
+
+TCP服务
+面向连接的服务，全双工通信，结束时必须拆除
+可靠的数据传输服务
+
+
+UD">
+<meta property="og:type" content="article">
+<meta property="og:title" content="计算机网络 --应用层">
+<meta property="og:url" content="http://yoursite.com/2017/07/17/计算机网络 --应用层/index.html">
+<meta property="og:site_name" content="colin">
+<meta property="og:description" content="起因
+其实也没啥起因，只不过是觉得自己没学好计算机网络，八周的课时，老师自己都不知道自己讲的是啥；我么买了本计算机网络 自顶向下方法，觉得计算机网络还真的是蛮有意思的；而且很多东西，我都自己实验了蛮有趣的；远不是想象的那么枯燥；
+
+应用层
+两大体系结构：
+cs
+p2p
+那什么B/S其实只是一种C/S结构罢了；
+
+
+TCP服务
+面向连接的服务，全双工通信，结束时必须拆除
+可靠的数据传输服务
+
+
+UD">
+<meta property="og:updated_time" content="2017-08-07T14:01:57.686Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="计算机网络 --应用层">
+<meta name="twitter:description" content="起因
+其实也没啥起因，只不过是觉得自己没学好计算机网络，八周的课时，老师自己都不知道自己讲的是啥；我么买了本计算机网络 自顶向下方法，觉得计算机网络还真的是蛮有意思的；而且很多东西，我都自己实验了蛮有趣的；远不是想象的那么枯燥；
+
+应用层
+两大体系结构：
+cs
+p2p
+那什么B/S其实只是一种C/S结构罢了；
+
+
+TCP服务
+面向连接的服务，全双工通信，结束时必须拆除
+可靠的数据传输服务
+
+
+UD">
+  
+    <link rel="alternative" href="/atom.xml" title="colin" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="//favicon.png">
+  
+  <script src="/style.js"></script>
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="/0.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">墨</a></h1>
+		</hgroup>
+
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/tags/随笔">随笔</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">所有文章</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="2" href="javascript:void(0)">友链</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="3" href="javascript:void(0)">关于我</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="https://github.com/colining" title="github">github</a>
+		        
+					<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/ren-tian-qi" title="zhihu">zhihu</a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<h1 class="header-author js-mobile-header hide">墨</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img src="/0.jpg" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">墨</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/tags/随笔">随笔</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/colining" title="github">github</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/ren-tian-qi" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap">
+        <article id="post-计算机网络 --应用层" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      计算机网络 --应用层
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h2><ul>
+<li>其实也没啥起因，只不过是觉得自己没学好计算机网络，八周的课时，老师自己都不知道自己讲的是啥；我么买了本计算机网络 自顶向下方法，觉得计算机网络还真的是蛮有意思的；而且很多东西，我都自己实验了蛮有趣的；远不是想象的那么枯燥；</li>
+</ul>
+<h2 id="应用层"><a href="#应用层" class="headerlink" title="应用层"></a>应用层</h2><ul>
+<li>两大体系结构：<ul>
+<li>cs</li>
+<li>p2p</li>
+<li>那什么B/S其实只是一种C/S结构罢了；</li>
+</ul>
+</li>
+<li>TCP服务<ul>
+<li>面向连接的服务，全双工通信，结束时必须拆除</li>
+<li>可靠的数据传输服务</li>
+</ul>
+</li>
+<li>UDP服务<ul>
+<li>只提供最小服务，就是把数据发出去，到不到不管；</li>
+<li>when in doubt, use TCP.</li>
+<li>虽然UDP看起来没什么用处，但是在对时效性有关的程序还是可以使用的，但是如今的宽带足够，UDP的作用就不那么明显了；但是UDP也给了自由，可以在UDP基础上，进行改写</li>
+</ul>
+</li>
+<li>运输层提供服务<ul>
+<li>运输层应该提供四种服务：可靠的数据传输，吞吐量，定时和安全性；</li>
+<li>时延和吞吐量至今无法保证，但是互联网还是好好的</li>
+<li>安全性，TCP和UDP都不提供，但是TCP的加强版SSL可以做到，但是是基于应用层的；<a id="more"></a>
+<h2 id="WEB和HTTP"><a href="#WEB和HTTP" class="headerlink" title="WEB和HTTP"></a>WEB和HTTP</h2></li>
+</ul>
+</li>
+<li>非持续连接和持续连接<ul>
+<li>HTTP是基于TCP的，也就是面向连接的，最初的协议是每个请求/响应 经一个TCP连接传输，然后就关闭；在当今这种一个web页面，成百上千个资源下肯定不行，所以就修改为持续连接；这样打击都通过一个TCP连接，就不会有等待TCP建立连接的尴尬了；</li>
+<li>TCP是全双工的，也就是请求和响应是可以同时进行的，我的猜测</li>
+</ul>
+</li>
+<li>cookie<ul>
+<li>HTTP是无状态的，所以想知道谁是谁，就需要在本地记录cookie；就好像银行接待人员永远都不关心你是谁，拿着银行发的卡，银行就知道你是谁了；</li>
+</ul>
+</li>
+</ul>
+<h2 id="WEB缓存"><a href="#WEB缓存" class="headerlink" title="WEB缓存"></a>WEB缓存</h2><ul>
+<li>其实这个名字听起来比较陌生，代理就简单多了；</li>
+<li>正向代理，就是针对客户端而言的，我现在使用的shadowsocks，就可以认为是，我的服务器对我的pc进行了代理，我想要访问境外网站，就可以让我的服务器去建立连接，然后将请求返回到我自己的pc上，只不过应该就没使用缓存功能吧，这个不清楚了；</li>
+<li>CDN，说起缓存，其实CDN是很典型的例子，在我就近的网络中，有一个结点缓存了很多我需要的资源，比如很多css文件，由于web的页面打开速度很大取决于页面渲染部分，所以CDN的存在就异常重要；</li>
+<li>反向代理，针对服务器的，比如我们访问Google，Google肯定有一大堆的服务器，然而面对我们的可能就那么一两个，你要是请求什么，代理就去找什么；这样的好处也就在于，可以隐藏原服务器；</li>
+<li>WEB缓存中的东西很可能过期，这是就可以问一下原服务器，通过GET方法</li>
+</ul>
+<h2 id="FTP"><a href="#FTP" class="headerlink" title="FTP"></a>FTP</h2><ul>
+<li>FTP其实还蛮简单的，重点就是他有两个端口，20,21；而且很显然，这是面向连接的，就是使用TCP的<ul>
+<li>21用作控制连接，用户标识，口令，一些操作都是通过控制连接传输的；</li>
+<li>20用于传输，就是进行数据传输喽；<h2 id="SMTP"><a href="#SMTP" class="headerlink" title="SMTP"></a>SMTP</h2></li>
+</ul>
+</li>
+<li>简单邮件传输协议，一个推协议，从发送端一直推到接收端</li>
+<li>用户代理或者干脆就命令行要与自己的邮件服务器进行通信，验证后，发出邮件，邮件先加入邮件服务器的发送队列，然后发到目的用户的邮件服务器；但是假设目的用户不在线，那么邮件服务器就没办法喽；</li>
+</ul>
+<h2 id="POP3"><a href="#POP3" class="headerlink" title="POP3"></a>POP3</h2><ul>
+<li>邮件访问协议，与邮件服务器端口110建立连接后，验证，然后就可以收取邮件，可以不删除邮件服务器的备份，也可以删除掉；</li>
+</ul>
+<h2 id="IMAP"><a href="#IMAP" class="headerlink" title="IMAP"></a>IMAP</h2><ul>
+<li>一个复杂的邮件访问协议，可以关联文件夹啥的；</li>
+</ul>
+<h2 id="邮件吐槽"><a href="#邮件吐槽" class="headerlink" title="邮件吐槽"></a>邮件吐槽</h2><ul>
+<li>今天我们使用最多的其实时浏览器上的邮箱，什么163，qq啊，所以上面三种协议离得真的好远，不过所幸我在腾讯云服务器搭了邮件服务器，稍微加深了一些印象；</li>
+<li>邮件绝对不是你发了，对面立马就收到了，在foxmail客户端上，就有收信的操作，然后你就感觉到POP3在干活了；</li>
+</ul>
+<h2 id="DNS"><a href="#DNS" class="headerlink" title="DNS"></a>DNS</h2><ul>
+<li>提供域名转换服务，主机别名，邮件别名</li>
+<li>提供负载分配，但是没法检测云主机的状态</li>
+<li>DNS请求流程，<ul>
+<li>将请求发给本地dns，之后本地dns就代替了我们，这时可认为是递归查询</li>
+<li>本地dns请求根dns服务器，根dns响应</li>
+<li>本地dns再请求dns服务器响应的服务器</li>
+<li>如此迭代查询</li>
+</ul>
+</li>
+<li>DNS 缓存<ul>
+<li>很明显的，每次都请求那么多DNS服务器不明智，所以DNS本地会进行缓存</li>
+</ul>
+</li>
+</ul>
+<h2 id="P2P"><a href="#P2P" class="headerlink" title="P2P"></a>P2P</h2><ul>
+<li>区别与C/S的结构<ul>
+<li>C/S结构，有明确的服务器，所有资源都需要服务器来承担，当用户量大的时候，服务器宽带就称为限制；</li>
+<li>P2P结构允许客户端之间互相传输，分发时间的增长就非常缓慢</li>
+<li>但是P2P也是有服务器的，只不过服务器会保存洪流表，就是告诉我们应该和谁进行连接；</li>
+</ul>
+</li>
+</ul>
+<h2 id="UDP和TCP-的套接字编程"><a href="#UDP和TCP-的套接字编程" class="headerlink" title="UDP和TCP 的套接字编程"></a>UDP和TCP 的套接字编程</h2><ul>
+<li>UDP<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> socket <span class="keyword">import</span> *</div><div class="line"><span class="comment"># 主机ip，还有端口</span></div><div class="line">serverName = <span class="string">'127.0.0.1'</span></div><div class="line">serverPort = <span class="number">12000</span></div><div class="line"><span class="comment">#建立一个socket，SOCK_DGRAM表明是UDP</span></div><div class="line">clientSocket = socket(AF_INET,SOCK_DGRAM)</div><div class="line"><span class="keyword">while</span> <span class="keyword">True</span>:</div><div class="line">    message = input(<span class="string">'input lowercase sentence: '</span>)</div><div class="line">    <span class="comment">#发送时，要携带主机地址和端口，每次都是</span></div><div class="line">    clientSocket.sendto(message.encode(),(serverName,serverPort))</div><div class="line">    modifiedMessage , serverAddress = clientSocket.recvfrom(<span class="number">2048</span>)</div><div class="line">    print(modifiedMessage)</div><div class="line">clientSocket.close()</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> socket <span class="keyword">import</span> *</div><div class="line"><span class="comment">#声明端口，创建SOCKET</span></div><div class="line">serverPort = <span class="number">12000</span></div><div class="line">serverSocket = socket(AF_INET,SOCK_DGRAM)</div><div class="line">serverSocket.bind((<span class="string">''</span>,serverPort))</div><div class="line">print(<span class="string">"The Server is ready to receive"</span>)</div><div class="line"><span class="keyword">while</span> <span class="keyword">True</span>:</div><div class="line">    message, clientAddress = serverSocket.recvfrom(<span class="number">2048</span>)</div><div class="line">    modifiedMessage = message.upper()</div><div class="line">    print(clientAddress)</div><div class="line">    serverSocket.sendto(modifiedMessage,clientAddress)</div></pre></td></tr></table></figure>
+<ul>
+<li>TCP<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> socket <span class="keyword">import</span>  *</div><div class="line"><span class="comment"># ip，端口</span></div><div class="line">serverName= <span class="string">'127.0.0.1'</span></div><div class="line">serverPort = <span class="number">12000</span></div><div class="line"><span class="comment">#SOCK_STREAM表明这是一个TCP连接</span></div><div class="line">clientSocket = socket(AF_INET,SOCK_STREAM)</div><div class="line"><span class="comment">#进行连接</span></div><div class="line">clientSocket.connect((serverName,serverPort))</div><div class="line">sentence = input(<span class="string">'input lowercase sentence'</span>)</div><div class="line"><span class="comment">#发送，注意已经有了连接，所以不需要指明去哪里</span></div><div class="line">clientSocket.send(sentence.encode())</div><div class="line">modifiedSentence = clientSocket.recv(<span class="number">2048</span>)</div><div class="line">print(<span class="string">'from server'</span>,modifiedSentence)</div><div class="line">clientSocket.close()</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> socket <span class="keyword">import</span> *</div><div class="line">serverPort = <span class="number">12000</span></div><div class="line">serverSocket = socket(AF_INET,SOCK_STREAM)</div><div class="line">serverSocket.bind((<span class="string">''</span>,serverPort))</div><div class="line"><span class="comment"># 监听TCP请求，1表示最大连接数</span></div><div class="line">serverSocket.listen(<span class="number">1</span>)</div><div class="line">print(<span class="string">"The Server is ready to receive"</span>)</div><div class="line"><span class="keyword">while</span> <span class="number">1</span>:</div><div class="line">    <span class="comment"># 创建一个新的socket用来进行传输</span></div><div class="line">    connectionSocket ,addr = serverSocket.accept()</div><div class="line">    sentence = connectionSocket.recv(<span class="number">1024</span>)</div><div class="line">    capitalizedSentence = sentence.upper()</div><div class="line">    connectionSocket.send(capitalizedSentence)</div></pre></td></tr></table></figure>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/07/17/计算机网络 --应用层/" class="archive-article-date">
+  	<time datetime="2017-07-17T12:05:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-07-17</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/计算机网络/">计算机网络</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2017/07/23/问题发布与敏感词过滤/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          问题发布与敏感词过滤
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/07/08/reglogin + interceptor/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">reglogin + interceptor</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="//v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="计算机网络 --应用层" data-title="计算机网络 --应用层" data-url="http://yoursite.com/2017/07/17/计算机网络 --应用层/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"colining.duoshuo.com"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 墨
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: false,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: "/"
+	}
+</script>
+
+<script src="/./main.js"></script>
+
+
+    
+<div class="tools-col">
+  <ul class="btn-wrap">
+    
+      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
+    
+    
+      <li data-hook="tools-section-tag"><span class="text">标签</span><i class="icon-price-tags"></i></li>
+    
+    
+      <li data-hook="tools-section-friends"><span class="text">友链</span><i class="icon-link"></i></li>
+    
+    
+      <li data-hook="tools-section-me"><span class="text">我</span><i class="icon-smile"></i></li>
+    
+  </ul>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all chose">
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-tag">
+    			<div class="widget tagcloud" id="js-tagcloud">
+    				<a href="/tags/Android/" style="font-size: 17.5px;">Android</a> <a href="/tags/Beauty-of-Programming/" style="font-size: 15px;">Beauty of Programming</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Java/" style="font-size: 16.25px;">Java</a> <a href="/tags/Java-wenda/" style="font-size: 10px;">Java,wenda</a> <a href="/tags/Java知识点/" style="font-size: 11.25px;">Java知识点</a> <a href="/tags/Java编程思想/" style="font-size: 16.25px;">Java编程思想</a> <a href="/tags/fragment/" style="font-size: 12.5px;">fragment</a> <a href="/tags/mvc/" style="font-size: 11.25px;">mvc</a> <a href="/tags/wenda/" style="font-size: 13.75px;">wenda</a> <a href="/tags/刷题/" style="font-size: 11.25px;">刷题</a> <a href="/tags/剑指Offer/" style="font-size: 18.75px;">剑指Offer</a> <a href="/tags/并发/" style="font-size: 10px;">并发</a> <a href="/tags/笔试/" style="font-size: 10px;">笔试</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a> <a href="/tags/线程/" style="font-size: 11.25px;">线程</a> <a href="/tags/结对编程/" style="font-size: 10px;">结对编程</a> <a href="/tags/计算机网络/" style="font-size: 11.25px;">计算机网络</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/随笔/" style="font-size: 12.5px;">随笔</a>
+    			</div>
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-friends">
+  		
+  			<div class="friends-wrap" id="js-friends">
+  			
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="https://www.google.com.hk/">谷歌</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="https://stackoverflow.com/">stackoverflow</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://beyondtech.org/">泡饭</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="https://menyifan.com/">MYF</a>
+  	        
+  	        </div>
+  		
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-me">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">继续跑&lt;br&gt;&lt;br&gt;带着赤子的骄傲</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div>
+</body>
+</html>

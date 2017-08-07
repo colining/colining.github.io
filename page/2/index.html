@@ -129,7 +129,7 @@
       <div class="body-wrap">
         
   
-    <article id="post-登录与JDBC" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-计算机网络 --应用层" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -139,7 +139,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/21/登录与JDBC/">登录与JDBC</a>
+      <a class="article-title" href="/2017/07/17/计算机网络 --应用层/">计算机网络 --应用层</a>
     </h1>
   
 
@@ -147,23 +147,45 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>我决定自顶向下讲一下，这样比较生动，也比较容易记住；</p>
-<h2 id="登录"><a href="#登录" class="headerlink" title="登录"></a>登录</h2><ol>
-<li>登录第一是要有个form，从网页哪里可以将数据提交到后台来；然后Servlet就来处理；
+        <h2 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h2><ul>
+<li>其实也没啥起因，只不过是觉得自己没学好计算机网络，八周的课时，老师自己都不知道自己讲的是啥；我么买了本计算机网络 自顶向下方法，觉得计算机网络还真的是蛮有意思的；而且很多东西，我都自己实验了蛮有趣的；远不是想象的那么枯燥；</li>
+</ul>
+<h2 id="应用层"><a href="#应用层" class="headerlink" title="应用层"></a>应用层</h2><ul>
+<li>两大体系结构：<ul>
+<li>cs</li>
+<li>p2p</li>
+<li>那什么B/S其实只是一种C/S结构罢了；</li>
+</ul>
+</li>
+<li>TCP服务<ul>
+<li>面向连接的服务，全双工通信，结束时必须拆除</li>
+<li>可靠的数据传输服务</li>
+</ul>
+</li>
+<li>UDP服务<ul>
+<li>只提供最小服务，就是把数据发出去，到不到不管；</li>
+<li>when in doubt, use TCP.</li>
+<li>虽然UDP看起来没什么用处，但是在对时效性有关的程序还是可以使用的，但是如今的宽带足够，UDP的作用就不那么明显了；但是UDP也给了自由，可以在UDP基础上，进行改写</li>
+</ul>
+</li>
+<li>运输层提供服务<ul>
+<li>运输层应该提供四种服务：可靠的数据传输，吞吐量，定时和安全性；</li>
+<li>时延和吞吐量至今无法保证，但是互联网还是好好的</li>
+<li>安全性，TCP和UDP都不提供，但是TCP的加强版SSL可以做到，但是是基于应用层的；
         <p class="article-more-link">
-          <a  href="/2017/05/21/登录与JDBC/#more">more >></a>
+          <a  href="/2017/07/17/计算机网络 --应用层/#more">more >></a>
         </p>
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2017/05/21/登录与JDBC/" class="archive-article-date">
-  	<time datetime="2017-05-21T13:11:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-05-21</time>
+      <a href="/2017/07/17/计算机网络 --应用层/" class="archive-article-date">
+  	<time datetime="2017-07-17T12:05:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-07-17</time>
 </a>
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/计算机网络/">计算机网络</a></li></ul>
 	</div>
 
       
@@ -183,7 +205,7 @@
 
 
   
-    <article id="post-最低公共祖先LCA" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-reglogin + interceptor" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -193,7 +215,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/15/最低公共祖先LCA/">最低公共祖先LCA</a>
+      <a class="article-title" href="/2017/07/08/reglogin + interceptor/">reglogin + interceptor</a>
     </h1>
   
 
@@ -201,26 +223,80 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>ps：这道题来源是剑指offer第50题；但是变种真的好多啊，所以就记录一下；</p>
-<p>####树中两个结点的最低公共祖先：</p>
-<ol>
-<li>首先我们要明白这个最低公共祖先是啥？对于一个结点，它上面能到达他的都叫做祖先，他的父结点和它的父结点的父结点；</li>
-<li>树，因为树的不同，这道题有很多变种；比如二叉树？二叉搜索树，或者只是树；</li>
+        <h1 id="登陆注册"><a href="#登陆注册" class="headerlink" title="登陆注册"></a>登陆注册</h1><ul>
+<li>核心思路就是你登陆注册，我判断是否合法，然后创建Ticket，下发Ticket；
+        <p class="article-more-link">
+          <a  href="/2017/07/08/reglogin + interceptor/#more">more >></a>
+        </p>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/07/08/reglogin + interceptor/" class="archive-article-date">
+  	<time datetime="2017-07-08T06:02:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-07-08</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/wenda/">wenda</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-mybatis + 首页开发" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/07/01/mybatis + 首页开发/">mybatis + 首页开发</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h1><ol>
+<li>其实这个看了半天也不没啥可说的，就是些零零散散的配置，不过还是记录一下吧；况且只是稍微会用，可不能称之为会用啊；</li>
 </ol>
+<h1 id="mybatis"><a href="#mybatis" class="headerlink" title="mybatis"></a>mybatis</h1><ul>
+<li>这货是java的一个持久化框架；我这里用的是mybatis-spring-boot-starter 不知道和只使用mybatis有啥区别不；<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">spring.datasource.url=jdbc:mysql://localhost:3306/wenda</div><div class="line">spring.datasource.data-username=root</div><div class="line">spring.datasource.data-password=86271325</div><div class="line">mybatis.config-location=classpath:mybatis-config.xml</div></pre></td></tr></table></figure>
+</li>
+</ul>
         <p class="article-more-link">
-          <a  href="/2017/05/15/最低公共祖先LCA/#more">more >></a>
+          <a  href="/2017/07/01/mybatis + 首页开发/#more">more >></a>
         </p>
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2017/05/15/最低公共祖先LCA/" class="archive-article-date">
-  	<time datetime="2017-05-15T09:59:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-05-15</time>
+      <a href="/2017/07/01/mybatis + 首页开发/" class="archive-article-date">
+  	<time datetime="2017-07-01T12:25:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-07-01</time>
 </a>
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/wenda/">wenda</a></li></ul>
 	</div>
 
       
@@ -240,7 +316,7 @@
 
 
   
-    <article id="post-保龄球得分计算" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-spring-boot&amp;mvn&amp;terminal" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -250,7 +326,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/05/保龄球得分计算/">保龄球得分计算</a>
+      <a class="article-title" href="/2017/06/25/spring-boot&mvn&terminal/">spring-boot&amp;mvn&amp;terminal</a>
     </h1>
   
 
@@ -258,22 +334,28 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h2><ol>
-<li>超无聊的一道题，保龄球得分真是麻烦；今天下午偶然看见结对编程，然后就申请了一下，写了这道题；
+        <h1 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h1><p>下午再看git，看了半天还是感觉有很多不懂的东西，用的时候再说吧；</p>
+<h1 id="Maven"><a href="#Maven" class="headerlink" title="Maven"></a>Maven</h1><ol>
+<li>maven原来没有配置过，直接用的Intellij 自己的，所以自然也不知到人家命令行是啥情况了呗；所以maven应该先下载，配置环境变量，然后就可以用命令行了；</li>
+</ol>
+<h1 id="Terminal"><a href="#Terminal" class="headerlink" title="Terminal"></a>Terminal</h1><ol>
+<li>一直以来都不咋会用命令行，结果今天发现cmd是可以直接运行git，maven命令的，也就是配置环境的作用？</li>
+<li>Intellij 中terminal是有问题的，因为win10命令行是新的，没法用的说，所以需要使用旧版控制台；</li>
+<li>powershell 也可以修改配色啥的，以后用用那个也不错的；
         <p class="article-more-link">
-          <a  href="/2017/05/05/保龄球得分计算/#more">more >></a>
+          <a  href="/2017/06/25/spring-boot&mvn&terminal/#more">more >></a>
         </p>
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2017/05/05/保龄球得分计算/" class="archive-article-date">
-  	<time datetime="2017-05-05T14:12:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-05-05</time>
+      <a href="/2017/06/25/spring-boot&mvn&terminal/" class="archive-article-date">
+  	<time datetime="2017-06-25T12:56:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-06-25</time>
 </a>
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/wenda/">wenda</a></li></ul>
 	</div>
 
       
@@ -293,7 +375,7 @@
 
 
   
-    <article id="post-Java 套接字" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Git 常用命令记录" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -303,7 +385,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/02/Java 套接字/">Java 套接字</a>
+      <a class="article-title" href="/2017/06/25/Git 常用命令记录/">Git 常用命令记录</a>
     </h1>
   
 
@@ -311,74 +393,30 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h2><p>其实我不想写起因，一位面试人家让我写一个套接字，不会，输入输出，不会写。唉。。。 写代码吧，现在想想，我认真写java代码也没多久，慢慢来呗；</p>
-<h2 id="套接字"><a href="#套接字" class="headerlink" title="套接字"></a>套接字</h2><p>这个怎么理解呢，就是说tcp/udp在运输层，那么上层好多应用都要使用TCP，那么怎么区分呢？这时候就出现了套接字和端口，应用程序自己创建套接字，标记自己的端口，那么分包的时候就有了约束，传回的数据包，也可以根据端口找到位置；<a href="https://github.com/colining/SocketTest">代码传送门</a><br>
+        <h1 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h1><ol>
+<li>记性太不好了，还是自己写写，记下来吧；</li>
+<li>intellij直接是使用的图形界面，命令啥的也不清楚；</li>
+</ol>
+<h2 id="一些命令"><a href="#一些命令" class="headerlink" title="一些命令"></a>一些命令</h2><ol>
+<li><p>git init<br>用来初始化目录为git目录，告诉git，这个目录归你管了；</p>
+</li>
+<li><p>git add readme.txt<br>git add将文件提交给git，放在临时区；就是说，诶，这个文件是我要准备提交的啊，你得跟踪一下；</p>
+</li>
+<li><p>git commit -m “this is a message”<br>commit就是提交了，不过是提交到本地；这时就存在版本了； </p>
         <p class="article-more-link">
-          <a  href="/2017/05/02/Java 套接字/#more">more >></a>
+          <a  href="/2017/06/25/Git 常用命令记录/#more">more >></a>
         </p>
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2017/05/02/Java 套接字/" class="archive-article-date">
-  	<time datetime="2017-05-02T14:05:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-05-02</time>
+      <a href="/2017/06/25/Git 常用命令记录/" class="archive-article-date">
+  	<time datetime="2017-06-25T06:39:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-06-25</time>
 </a>
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-俄罗斯方块Demo" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/30/俄罗斯方块Demo/">俄罗斯方块Demo</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h2><p>其实是面京东伤心了，问啥啥不会，就拿个项目认真写写，写啥呢？俄罗斯方块呗；主要其实想玩一下io还有序列化；现在都基本实现了一下，下一步就是认真看看这两东西，或者就是看看socket方面的东西，反正就是一句话，玩项目，看书，巩固基础；<br><a href="https://github.com/colining/Tetris">代码传送门</a><br>
-        <p class="article-more-link">
-          <a  href="/2017/04/30/俄罗斯方块Demo/#more">more >></a>
-        </p>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2017/04/30/俄罗斯方块Demo/" class="archive-article-date">
-  	<time datetime="2017-04-30T11:48:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-04-30</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git/">Git</a></li></ul>
 	</div>
 
       
@@ -400,7 +438,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/24/">24</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/26/">26</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
     </nav>
   
 
@@ -462,7 +500,7 @@
     
     	<section class="tools-section tools-section-tag">
     			<div class="widget tagcloud" id="js-tagcloud">
-    				<a href="/tags/Android/" style="font-size: 17.5px;">Android</a> <a href="/tags/Beauty-of-Programming/" style="font-size: 13.75px;">Beauty of Programming</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Java/" style="font-size: 15px;">Java</a> <a href="/tags/Java知识点/" style="font-size: 11.25px;">Java知识点</a> <a href="/tags/Java编程思想/" style="font-size: 16.25px;">Java编程思想</a> <a href="/tags/fragment/" style="font-size: 12.5px;">fragment</a> <a href="/tags/mvc/" style="font-size: 11.25px;">mvc</a> <a href="/tags/wenda/" style="font-size: 10px;">wenda</a> <a href="/tags/刷题/" style="font-size: 11.25px;">刷题</a> <a href="/tags/剑指Offer/" style="font-size: 18.75px;">剑指Offer</a> <a href="/tags/笔试/" style="font-size: 10px;">笔试</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a> <a href="/tags/线程/" style="font-size: 11.25px;">线程</a> <a href="/tags/结对编程/" style="font-size: 10px;">结对编程</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/随笔/" style="font-size: 12.5px;">随笔</a>
+    				<a href="/tags/Android/" style="font-size: 17.5px;">Android</a> <a href="/tags/Beauty-of-Programming/" style="font-size: 15px;">Beauty of Programming</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Java/" style="font-size: 16.25px;">Java</a> <a href="/tags/Java-wenda/" style="font-size: 10px;">Java,wenda</a> <a href="/tags/Java知识点/" style="font-size: 11.25px;">Java知识点</a> <a href="/tags/Java编程思想/" style="font-size: 16.25px;">Java编程思想</a> <a href="/tags/fragment/" style="font-size: 12.5px;">fragment</a> <a href="/tags/mvc/" style="font-size: 11.25px;">mvc</a> <a href="/tags/wenda/" style="font-size: 13.75px;">wenda</a> <a href="/tags/刷题/" style="font-size: 11.25px;">刷题</a> <a href="/tags/剑指Offer/" style="font-size: 18.75px;">剑指Offer</a> <a href="/tags/并发/" style="font-size: 10px;">并发</a> <a href="/tags/笔试/" style="font-size: 10px;">笔试</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a> <a href="/tags/线程/" style="font-size: 11.25px;">线程</a> <a href="/tags/结对编程/" style="font-size: 10px;">结对编程</a> <a href="/tags/计算机网络/" style="font-size: 11.25px;">计算机网络</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/随笔/" style="font-size: 12.5px;">随笔</a>
     			</div>
     	</section>
     
