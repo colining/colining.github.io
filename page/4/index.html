@@ -129,6 +129,117 @@
       <div class="body-wrap">
         
   
+    <article id="post-登录与JDBC" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/05/21/登录与JDBC/">登录与JDBC</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>我决定自顶向下讲一下，这样比较生动，也比较容易记住；</p>
+<h2 id="登录"><a href="#登录" class="headerlink" title="登录"></a>登录</h2><ol>
+<li>登录第一是要有个form，从网页哪里可以将数据提交到后台来；然后Servlet就来处理；
+        <p class="article-more-link">
+          <a  href="/2017/05/21/登录与JDBC/#more">more >></a>
+        </p>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/05/21/登录与JDBC/" class="archive-article-date">
+  	<time datetime="2017-05-21T13:11:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-05-21</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-最低公共祖先LCA" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/05/15/最低公共祖先LCA/">最低公共祖先LCA</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>ps：这道题来源是剑指offer第50题；但是变种真的好多啊，所以就记录一下；</p>
+<p>####树中两个结点的最低公共祖先：</p>
+<ol>
+<li>首先我们要明白这个最低公共祖先是啥？对于一个结点，它上面能到达他的都叫做祖先，他的父结点和它的父结点的父结点；</li>
+<li>树，因为树的不同，这道题有很多变种；比如二叉树？二叉搜索树，或者只是树；</li>
+</ol>
+        <p class="article-more-link">
+          <a  href="/2017/05/15/最低公共祖先LCA/#more">more >></a>
+        </p>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/05/15/最低公共祖先LCA/" class="archive-article-date">
+  	<time datetime="2017-05-15T09:59:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-05-15</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-保龄球得分计算" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -287,114 +398,6 @@
 
 
   
-    <article id="post-JDBC进阶 + 数据源" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/25/JDBC进阶 + 数据源/">JDBC进阶 + 数据源</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="JDBC进阶"><a href="#JDBC进阶" class="headerlink" title="JDBC进阶"></a>JDBC进阶</h1><p>上回我们知道了，通过工厂模式+配置文件动态连接数据库；<br>这次的主要目的呢，则是将增删改查想办法重构掉；比如查询，到哪里的操作不都是一样的嘛；所以我们自然就想到了将查询操作重构掉；</p>
-<p>然后我们思考一下类的组织，有这么一个接口，其中声明了增删改查，我们的类实现这个接口== 我们的类必须实现增删改查，不实现这些，你也叫数据库操作吗？然后我们要将这个类的增删改查的实际操作重构掉；这个类只需要知道该干什么，需要什么齐活；</p>
-<p>首先是接口，实现类必须实现增删改查；<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">UserDAO</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> ArrayList&lt;Users&gt; <span class="title">findUsers</span><span class="params">()</span></span>;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">findUser</span><span class="params">(Users users)</span></span>;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">insertUser</span><span class="params">(Users users)</span></span>;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">update</span><span class="params">(Users users)</span></span>;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">delete</span><span class="params">(Users users)</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-        <p class="article-more-link">
-          <a  href="/2017/04/25/JDBC进阶 + 数据源/#more">more >></a>
-        </p>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2017/04/25/JDBC进阶 + 数据源/" class="archive-article-date">
-  	<time datetime="2017-04-25T11:25:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-04-25</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-计算机实验" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/23/计算机实验/">短进程优先算法实验</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="实验报告"><a href="#实验报告" class="headerlink" title="实验报告"></a>实验报告</h1><p>班级：10041461<br>姓名：任天起<br>学号：1004146111</p>
-<h2 id="实验目的："><a href="#实验目的：" class="headerlink" title="实验目的："></a>实验目的：</h2><p>就绪进程数大于处理机数时，按照某种策略决定哪些进程优先占用处理机。实验模拟处理机调度，加深对处理机调度的理解。</p>
-<h2 id="实验内容："><a href="#实验内容：" class="headerlink" title="实验内容："></a>实验内容：</h2><p>实验一模拟短进程优先调度<br>进程8 个,到达时间和服务时间(用户输入)<br>至少两种结果: 1 到达时间:0,1,2,….<br>             2 到达时间:其他</p>
-        <p class="article-more-link">
-          <a  href="/2017/04/23/计算机实验/#more">more >></a>
-        </p>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2017/04/23/计算机实验/" class="archive-article-date">
-  	<time datetime="2017-04-23T11:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-04-23</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/26/">26</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
@@ -459,7 +462,7 @@
     
     	<section class="tools-section tools-section-tag">
     			<div class="widget tagcloud" id="js-tagcloud">
-    				<a href="/tags/Android/" style="font-size: 17.5px;">Android</a> <a href="/tags/Beauty-of-Programming/" style="font-size: 15px;">Beauty of Programming</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Java/" style="font-size: 16.25px;">Java</a> <a href="/tags/Java-wenda/" style="font-size: 10px;">Java,wenda</a> <a href="/tags/Java知识点/" style="font-size: 11.25px;">Java知识点</a> <a href="/tags/Java编程思想/" style="font-size: 16.25px;">Java编程思想</a> <a href="/tags/fragment/" style="font-size: 12.5px;">fragment</a> <a href="/tags/mvc/" style="font-size: 11.25px;">mvc</a> <a href="/tags/wenda/" style="font-size: 13.75px;">wenda</a> <a href="/tags/刷题/" style="font-size: 11.25px;">刷题</a> <a href="/tags/剑指Offer/" style="font-size: 18.75px;">剑指Offer</a> <a href="/tags/并发/" style="font-size: 10px;">并发</a> <a href="/tags/笔试/" style="font-size: 10px;">笔试</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a> <a href="/tags/线程/" style="font-size: 11.25px;">线程</a> <a href="/tags/结对编程/" style="font-size: 10px;">结对编程</a> <a href="/tags/计算机网络/" style="font-size: 11.25px;">计算机网络</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/随笔/" style="font-size: 12.5px;">随笔</a>
+    				<a href="/tags/Android/" style="font-size: 17.78px;">Android</a> <a href="/tags/Beauty-of-Programming/" style="font-size: 13.33px;">Beauty of Programming</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Java/" style="font-size: 16.67px;">Java</a> <a href="/tags/Java-wenda/" style="font-size: 10px;">Java,wenda</a> <a href="/tags/Java知识点/" style="font-size: 11.11px;">Java知识点</a> <a href="/tags/Java编程思想/" style="font-size: 15.56px;">Java编程思想</a> <a href="/tags/fragment/" style="font-size: 12.22px;">fragment</a> <a href="/tags/mvc/" style="font-size: 11.11px;">mvc</a> <a href="/tags/wenda/" style="font-size: 14.44px;">wenda</a> <a href="/tags/刷题/" style="font-size: 11.11px;">刷题</a> <a href="/tags/剑指Offer/" style="font-size: 18.89px;">剑指Offer</a> <a href="/tags/笔试/" style="font-size: 10px;">笔试</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a> <a href="/tags/线程/" style="font-size: 11.11px;">线程</a> <a href="/tags/结对编程/" style="font-size: 10px;">结对编程</a> <a href="/tags/计算机网络/" style="font-size: 11.11px;">计算机网络</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/随笔/" style="font-size: 12.22px;">随笔</a>
     			</div>
     	</section>
     

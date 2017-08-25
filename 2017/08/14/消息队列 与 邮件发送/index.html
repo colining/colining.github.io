@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>消息队列 与 邮件发送 | colin</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="起因
+消息队列顾名思义是发消息的，但是它并不是一个用来发消息功能；它的作用是用于线程与线程间，进程与进程间的通信；
+
+消息队列
+消息队列可认为是一种通用的解决方案，一种进程（线程）间通信的方案；有句话是这样讲的，不要以共享内存来实现通信，而应该通过通信来实现共享内存；当我们想把一件事情共享给多个进程，而又不需要强烈的时间限制，那么通信是一种很好的解决方案；两个进程如果都需要某个变量，那就通过通信传">
+<meta property="og:type" content="article">
+<meta property="og:title" content="消息队列 与 邮件发送">
+<meta property="og:url" content="http://yoursite.com/2017/08/14/消息队列 与 邮件发送/index.html">
+<meta property="og:site_name" content="colin">
+<meta property="og:description" content="起因
+消息队列顾名思义是发消息的，但是它并不是一个用来发消息功能；它的作用是用于线程与线程间，进程与进程间的通信；
+
+消息队列
+消息队列可认为是一种通用的解决方案，一种进程（线程）间通信的方案；有句话是这样讲的，不要以共享内存来实现通信，而应该通过通信来实现共享内存；当我们想把一件事情共享给多个进程，而又不需要强烈的时间限制，那么通信是一种很好的解决方案；两个进程如果都需要某个变量，那就通过通信传">
+<meta property="og:image" content="http://img.blog.csdn.net/20170814190924082?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjM5NzQxNzU=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:updated_time" content="2017-08-25T13:08:22.469Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="消息队列 与 邮件发送">
+<meta name="twitter:description" content="起因
+消息队列顾名思义是发消息的，但是它并不是一个用来发消息功能；它的作用是用于线程与线程间，进程与进程间的通信；
+
+消息队列
+消息队列可认为是一种通用的解决方案，一种进程（线程）间通信的方案；有句话是这样讲的，不要以共享内存来实现通信，而应该通过通信来实现共享内存；当我们想把一件事情共享给多个进程，而又不需要强烈的时间限制，那么通信是一种很好的解决方案；两个进程如果都需要某个变量，那就通过通信传">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20170814190924082?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjM5NzQxNzU=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+  
+    <link rel="alternative" href="/atom.xml" title="colin" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="//favicon.png">
+  
+  <script src="/style.js"></script>
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="/0.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">墨</a></h1>
+		</hgroup>
+
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/tags/随笔">随笔</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">所有文章</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="2" href="javascript:void(0)">友链</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="3" href="javascript:void(0)">关于我</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="https://github.com/colining" title="github">github</a>
+		        
+					<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/ren-tian-qi" title="zhihu">zhihu</a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<h1 class="header-author js-mobile-header hide">墨</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img src="/0.jpg" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">墨</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/tags/随笔">随笔</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/colining" title="github">github</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/ren-tian-qi" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap">
+        <article id="post-消息队列 与 邮件发送" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      消息队列 与 邮件发送
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h2><ol>
+<li>消息队列顾名思义是发消息的，但是它并不是一个用来发消息功能；它的作用是用于线程与线程间，进程与进程间的通信；</li>
+</ol>
+<h2 id="消息队列"><a href="#消息队列" class="headerlink" title="消息队列"></a>消息队列</h2><ol>
+<li>消息队列可认为是一种通用的解决方案，一种进程（线程）间通信的方案；有句话是这样讲的，不要以共享内存来实现通信，而应该通过通信来实现共享内存；当我们想把一件事情共享给多个进程，而又不需要强烈的时间限制，那么通信是一种很好的解决方案；两个进程如果都需要某个变量，那就通过通信传递，实现共享，协同工作；而消息队列是什么样的消息呢？它的通信实际上传递的是事件，或者工作；</li>
+<li>消息队列的目的是为了将一些不那么需要及时响应的活传递给另一个线程或者进程；这样主线程或者进程就可以快速的处理事情；</li>
+<li>举个不太恰当的例子，我是某办事处的老大，每天有n多投诉会到我们办事处，我会差不多看一遍，分分类，然后如果有红色等级就自己批注一下，否则的话，我就通通交给门口看门的街道办事处大爷；然后大爷就会找邻里街坊的把事情给处理掉；</li>
+<li>特点是：<ol>
+<li>我很忙，主线程的运行不能搁置，就好像双11，大家总不能都挤在入口的服务器上，我其实做了负载均衡或者代理的作用，所有事情都往我这里投诉，然后我在分配下去；</li>
+<li>异步性，这个处理并不是必须及时的，要是我的顶头上司过来投诉，我才不管别人，专门服务与我的上司；</li>
+<li>投诉很多，假设每天就一个投诉，那占用我的全部时间也没关系，但是当投诉堆积成山，我就会陷入宕机的状态，无法处理；</li>
+</ol>
+</li>
+<li>一个消费者也可以是一个生产者，比如说快递吧，一件商品运到目的地需要很多手传递，我们完全可以认为这是一个流水线的过程，任何一个消费者都可能是下一步的生产者；<a id="more"></a>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2></li>
+</ol>
+<ul>
+<li>类图描述<br><img src="http://img.blog.csdn.net/20170814190924082?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjM5NzQxNzU=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@RequestMapping</span>(path = &#123;<span class="string">"/like"</span>&#125;, method = &#123;RequestMethod.POST&#125;)</div><div class="line">    <span class="meta">@ResponseBody</span></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">like</span><span class="params">(@RequestParam(<span class="string">"commentId"</span>)</span> <span class="keyword">int</span> commentId) </span>&#123;</div><div class="line">        <span class="keyword">if</span> (hostHolder.getUser() == <span class="keyword">null</span>) &#123;</div><div class="line">            <span class="keyword">return</span> WendaUtil.getJSONString(<span class="number">999</span>);</div><div class="line">        &#125;</div><div class="line">        Comment comment = commentService.getCommentById(commentId);</div><div class="line"><span class="comment">//添加的部分，用于添加事件</span></div><div class="line">        eventProducer.fireEvent(<span class="keyword">new</span> EventModel(EventType.LIKE)</div><div class="line">                .setActorId(hostHolder.getUser().getId())</div><div class="line">                .setEntityId(commentId)</div><div class="line">                .setEntityType(EntityType.ENTITY_COMMENT)</div><div class="line">                .setExt(<span class="string">"questionId"</span>, String.valueOf(comment.getEntityId()))</div><div class="line">                .setEntityOwnerId(comment.getUserId()));</div><div class="line">        <span class="keyword">long</span> likeCount = likeService.like(hostHolder.getUser().getId(), EntityType.ENTITY_COMMENT, commentId);</div><div class="line">        <span class="keyword">return</span> WendaUtil.getJSONString(<span class="number">0</span>, String.valueOf(likeCount));</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<ul>
+<li><p>整个消费者</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Service</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">EventConsumer</span>  <span class="keyword">implements</span> <span class="title">InitializingBean</span>,<span class="title">ApplicationContextAware</span></span>&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Logger logger = LoggerFactory.getLogger(EventConsumer.class);</div><div class="line"></div><div class="line">    <span class="comment">//某个EventType 所对应的Handler链表；</span></div><div class="line">    <span class="keyword">private</span> Map&lt;EventType, List&lt;EventHandler&gt;&gt; config = <span class="keyword">new</span> HashMap&lt;&gt;();</div><div class="line">    <span class="comment">//上下文，可以通过它来找到所有实现EventHandler接口的类</span></div><div class="line">    <span class="keyword">private</span> ApplicationContext applicationContext;</div><div class="line"></div><div class="line">    <span class="meta">@Autowired</span></div><div class="line">    JedisAdapter jedisAdapter;</div><div class="line"></div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">afterPropertiesSet</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">        Map&lt;String, EventHandler&gt; beans = applicationContext.getBeansOfType(EventHandler.class);</div><div class="line">        <span class="keyword">if</span> (beans != <span class="keyword">null</span>) &#123;</div><div class="line">            <span class="keyword">for</span> (Map.Entry&lt;String, EventHandler&gt; entry : beans.entrySet()) &#123;</div><div class="line">                <span class="comment">//对于某个handler，他关注那些事件类型</span></div><div class="line">                List&lt;EventType&gt; eventTypes = entry.getValue().getSupportEventTypes();</div><div class="line">                <span class="keyword">for</span> (EventType eventType : eventTypes) &#123;</div><div class="line">                    <span class="comment">//这个事件被第一次注册</span></div><div class="line">                    <span class="keyword">if</span> (!config.containsKey(eventType)) &#123;</div><div class="line">                        config.put(eventType, <span class="keyword">new</span> ArrayList&lt;&gt;());</div><div class="line">                    &#125;</div><div class="line">                    <span class="comment">//将这个handler加入到他能处理的事件类型的那条链表中</span></div><div class="line">                    config.get(eventType).add(entry.getValue());</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="comment">//新建一个线程，简单来说，就是一直循环，有事件过来就消费；</span></div><div class="line">        Thread thread = <span class="keyword">new</span> Thread(() -&gt; &#123;</div><div class="line">            <span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</div><div class="line">                String key = RedisKeyUtil.getEventQueueKey();</div><div class="line">                List&lt;String&gt; events = jedisAdapter.brpop(<span class="number">0</span>, key);</div><div class="line">                <span class="keyword">for</span> (String message : events) &#123;</div><div class="line">                    <span class="keyword">if</span> (message.equals(key)) &#123;</div><div class="line">                        <span class="keyword">continue</span>;</div><div class="line">                    &#125;</div><div class="line">                    <span class="comment">// 还原event</span></div><div class="line">                    EventModel eventModel = JSON.parseObject(message, EventModel.class);</div><div class="line">                    <span class="keyword">if</span> (!config.containsKey(eventModel.getType())) &#123;</div><div class="line">                        logger.error(<span class="string">"非法事件"</span>);</div><div class="line">                        <span class="keyword">continue</span>;</div><div class="line">                    &#125;</div><div class="line">                    <span class="comment">//  对于该event所对应的所有handler，让handler进行处理</span></div><div class="line">                    <span class="keyword">for</span> (EventHandler eventHandler : config.get(eventModel.getType())) &#123;</div><div class="line">                        eventHandler.doHandle(eventModel);</div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">        thread.start();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setApplicationContext</span><span class="params">(ApplicationContext applicationContext)</span> <span class="keyword">throws</span> BeansException </span>&#123;</div><div class="line">        <span class="keyword">this</span>.applicationContext = applicationContext;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>生产者</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Service</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">EventProducer</span> </span>&#123;</div><div class="line">    <span class="meta">@Autowired</span></div><div class="line">    JedisAdapter jedisAdapter;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 添加时间给消息队列，这里消息队列由Redis实现</div><div class="line">     * 由于这里并不存在优先级级的问题，所以就用普通链表即可</div><div class="line">     * 这里将事件json话，然后使用kv存入redis，然后就可以从redis在读出来，</div><div class="line">     * 还原成事件</div><div class="line">     * <span class="doctag">@param</span> eventModel</div><div class="line">     * <span class="doctag">@return</span></div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">fireEvent</span><span class="params">(EventModel eventModel)</span> </span>&#123;</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            String json = JSONObject.toJSONString(eventModel);</div><div class="line">            String key = RedisKeyUtil.getEventQueueKey();</div><div class="line">            jedisAdapter.lpush(key, json);</div><div class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="邮件发送"><a href="#邮件发送" class="headerlink" title="邮件发送"></a>邮件发送</h2><ol>
+<li>这部分其实不难，就是写共有代码，问题实际就在ssl，它需要安全的连接，但是我自己的邮件服务器安全协议又会被拒绝，qq就没问题，不过需要使用授权码；</li>
+</ol>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/08/14/消息队列 与 邮件发送/" class="archive-article-date">
+  	<time datetime="2017-08-14T12:06:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-08-14</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/wenda/">wenda</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2017/08/19/SNS关注/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          SNS关注
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/08/07/volatile/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">volatile</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="//v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="消息队列 与 邮件发送" data-title="消息队列 与 邮件发送" data-url="http://yoursite.com/2017/08/14/消息队列 与 邮件发送/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"colining.duoshuo.com"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 墨
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: false,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: "/"
+	}
+</script>
+
+<script src="/./main.js"></script>
+
+
+    
+<div class="tools-col">
+  <ul class="btn-wrap">
+    
+      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
+    
+    
+      <li data-hook="tools-section-tag"><span class="text">标签</span><i class="icon-price-tags"></i></li>
+    
+    
+      <li data-hook="tools-section-friends"><span class="text">友链</span><i class="icon-link"></i></li>
+    
+    
+      <li data-hook="tools-section-me"><span class="text">我</span><i class="icon-smile"></i></li>
+    
+  </ul>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all chose">
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-tag">
+    			<div class="widget tagcloud" id="js-tagcloud">
+    				<a href="/tags/Android/" style="font-size: 17.78px;">Android</a> <a href="/tags/Beauty-of-Programming/" style="font-size: 13.33px;">Beauty of Programming</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Java/" style="font-size: 16.67px;">Java</a> <a href="/tags/Java-wenda/" style="font-size: 10px;">Java,wenda</a> <a href="/tags/Java知识点/" style="font-size: 11.11px;">Java知识点</a> <a href="/tags/Java编程思想/" style="font-size: 15.56px;">Java编程思想</a> <a href="/tags/fragment/" style="font-size: 12.22px;">fragment</a> <a href="/tags/mvc/" style="font-size: 11.11px;">mvc</a> <a href="/tags/wenda/" style="font-size: 14.44px;">wenda</a> <a href="/tags/刷题/" style="font-size: 11.11px;">刷题</a> <a href="/tags/剑指Offer/" style="font-size: 18.89px;">剑指Offer</a> <a href="/tags/笔试/" style="font-size: 10px;">笔试</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a> <a href="/tags/线程/" style="font-size: 11.11px;">线程</a> <a href="/tags/结对编程/" style="font-size: 10px;">结对编程</a> <a href="/tags/计算机网络/" style="font-size: 11.11px;">计算机网络</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/随笔/" style="font-size: 12.22px;">随笔</a>
+    			</div>
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-friends">
+  		
+  			<div class="friends-wrap" id="js-friends">
+  			
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="https://www.google.com.hk/">谷歌</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="https://stackoverflow.com/">stackoverflow</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://beyondtech.org/">泡饭</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="https://menyifan.com/">MYF</a>
+  	        
+  	        </div>
+  		
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-me">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">继续跑&lt;br&gt;&lt;br&gt;带着赤子的骄傲</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div>
+</body>
+</html>

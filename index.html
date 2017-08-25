@@ -129,6 +129,132 @@
       <div class="body-wrap">
         
   
+    <article id="post-SNS关注" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/19/SNS关注/">SNS关注</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><ul>
+<li>这会是一个超级无聊的内容；</li>
+</ul>
+<h1 id="架构"><a href="#架构" class="headerlink" title="架构"></a>架构</h1><ul>
+<li>首先我讲一下整体的架构（假装很厉害吧）；<ul>
+<li>JedisAdapter用来做Redis的适配，我们对一些redis命令进行封装；</li>
+<li>RedisKeyUtil 是用来记录redis中的key的;比如我们通过一个实体类别+实体id为key，然后就可以找到这个实体的关注者；相同的，我们可以通过userId+ 实体类别，就可以找到用户在这个方向关注什么了； </li>
+<li>然后我们想一下，一个关注事件发生后，会怎么样呢，是不是会发生私信事件，所以我们就可以在消息处理部分加一个handler，然后关注时，发出这样的消息；</li>
+<li>然后我们想一下，加上关注后，首先是我们关注了谁，关注了那些问题，事件，什么之类的，这些就可以通过userId+实体类别取出；然后是关注者，不管是问题还是人，都可以通过实体类别+实体id 找到它的关注者；还有就是当我们关注或者取消关注时，页面会发生变化，所以关注的代码是最多的，因为牵涉面最多，前端页面最多；</li>
+<li>所以其实整个关注中最重要的就是service先上层提供的增删改查服务；然后就是controller修改viewObject； 其他的其实只是代码量的问题罢了
+        <p class="article-more-link">
+          <a  href="/2017/08/19/SNS关注/#more">more >></a>
+        </p>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/08/19/SNS关注/" class="archive-article-date">
+  	<time datetime="2017-08-19T13:27:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-08-19</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/wenda/">wenda</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-消息队列 与 邮件发送" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/14/消息队列 与 邮件发送/">消息队列 与 邮件发送</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h2><ol>
+<li>消息队列顾名思义是发消息的，但是它并不是一个用来发消息功能；它的作用是用于线程与线程间，进程与进程间的通信；</li>
+</ol>
+<h2 id="消息队列"><a href="#消息队列" class="headerlink" title="消息队列"></a>消息队列</h2><ol>
+<li>消息队列可认为是一种通用的解决方案，一种进程（线程）间通信的方案；有句话是这样讲的，不要以共享内存来实现通信，而应该通过通信来实现共享内存；当我们想把一件事情共享给多个进程，而又不需要强烈的时间限制，那么通信是一种很好的解决方案；两个进程如果都需要某个变量，那就通过通信传递，实现共享，协同工作；而消息队列是什么样的消息呢？它的通信实际上传递的是事件，或者工作；</li>
+<li>消息队列的目的是为了将一些不那么需要及时响应的活传递给另一个线程或者进程；这样主线程或者进程就可以快速的处理事情；</li>
+<li>举个不太恰当的例子，我是某办事处的老大，每天有n多投诉会到我们办事处，我会差不多看一遍，分分类，然后如果有红色等级就自己批注一下，否则的话，我就通通交给门口看门的街道办事处大爷；然后大爷就会找邻里街坊的把事情给处理掉；</li>
+<li>特点是：<ol>
+<li>我很忙，主线程的运行不能搁置，就好像双11，大家总不能都挤在入口的服务器上，我其实做了负载均衡或者代理的作用，所有事情都往我这里投诉，然后我在分配下去；</li>
+<li>异步性，这个处理并不是必须及时的，要是我的顶头上司过来投诉，我才不管别人，专门服务与我的上司；</li>
+<li>投诉很多，假设每天就一个投诉，那占用我的全部时间也没关系，但是当投诉堆积成山，我就会陷入宕机的状态，无法处理；</li>
+</ol>
+</li>
+<li>一个消费者也可以是一个生产者，比如说快递吧，一件商品运到目的地需要很多手传递，我们完全可以认为这是一个流水线的过程，任何一个消费者都可能是下一步的生产者；
+        <p class="article-more-link">
+          <a  href="/2017/08/14/消息队列 与 邮件发送/#more">more >></a>
+        </p>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/08/14/消息队列 与 邮件发送/" class="archive-article-date">
+  	<time datetime="2017-08-14T12:06:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-08-14</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/wenda/">wenda</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-volatile" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -153,10 +279,13 @@
 <h1 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a>实现原理</h1><ul>
 <li>首先我们知道volatile能保证原子性，但是又不能保证同步，很奇怪吧；但是我写过一个例子，i++；非volatile会存在后面的值比前面小的情况，volatile不存在，只会存在相同的情形；这是为什么呢？<ul>
 <li>首先我们假定就是多个cpu，每cpu一个线程，我们知道内存里面放了成堆的数据，cpu每次取要用的放在寄存器里，那么多个线程一起处理一个变量，每个cpu的值很可能就是不一样的；</li>
-<li>然后我们的想法是，大家必须都应该是最新的数据，这就要求cpu运行时，做了什么操作，寄存器需要立马回写到内存，而且其他cpu此时不可以写；然后就是一个cpu对变量发生操作，其他cpu所持有的这个变量值就失效；</li>
+<li>然后我们的想法是，大家必须都应该是最新的数据，这就要求cpu运行时，做了什么操作，寄存器需要立马回写到内存，然后它会将所有其他cpu所持有的值更新；</li>
 </ul>
 </li>
-<li>通过这两个步骤我们就实现了读/写原子性，我们读的时候，这个值一定是最新的，但是加入我们10个线程同时读到最新的值为1，然后同时++；然后再各自写回内存，那么就会出现不同步的情况；但是不会出现后面的值比前面的值小的情况；
+<li>通过这两个步骤我们就实现了读/写原子性，我们读的时候，这个值一定是最新的，但是加入我们10个线程同时读到最新的值为1，然后同时++；然后再各自写回内存，那么就会出现不同步的情况；但是不会出现后面的值比前面的值小的情况；<ul>
+<li>i++本来是想cpu1 i++一下，cpu2 i++一下。。。 所有cpu分开进行加锁操作；</li>
+<li>如果不用volatile关键词，会出现i++反而变小，因为各个cpu持有的i不一样，比如大家先在cpu1 和 cpu2 读入 i = 1，然后cpu1 i++; 写回 i = 2；cpu3读取i = 2； 执行i++； 写回i =3 ；然后cpu2 执行 i++； 写回 i = 2； 这样就出现后面比前面小的状态</li>
+<li>使用volatile，在cpu1 写回 i =2 时，会通知所有cpu i = 2；但是存在问题时，加入通知的时候cpu2 已经做完 i++； 然后 通知 i = 2；那么cpu2 也会写回 i = 2 ；也就是相同的值；
         <p class="article-more-link">
           <a  href="/2017/08/07/volatile/#more">more >></a>
         </p>
@@ -170,7 +299,7 @@
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/并发/">并发</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
 	</div>
 
       
@@ -312,129 +441,6 @@
 
 
   
-    <article id="post-评论中心+站内信" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/23/评论中心+站内信/">评论中心+站内信</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h1><ul>
-<li>没有起因</li>
-<li>其实这节课主要是在将web开发中，一个全新功能是怎么一步一步完成的</li>
-</ul>
-<h1 id="评论中心"><a href="#评论中心" class="headerlink" title="评论中心"></a>评论中心</h1><ul>
-<li>数据库中comment的几个索引：<ul>
-<li>创建日期所构成的索引</li>
-<li>评论实体类型，和评论的id，比如针对问题的评论，问题的id是27，这些就是针对问题27的所有评论，比如针对评论的评论，评论的id也是27，但这量个就有很大的区别了</li>
-<li>用户id构成的索引，我们可以轻松的获取一个用户的全部评论，就可以放在用户最近动态里之类的；</li>
-</ul>
-</li>
-<li>在service层调用DAO层时，可以先过滤一下内容</li>
-<li>通过entityType和entityId 我们就构建了评论中心，不管是针对什么的评论，在数据库的一张表中就都可以放得下了；
-        <p class="article-more-link">
-          <a  href="/2017/07/23/评论中心+站内信/#more">more >></a>
-        </p>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2017/07/23/评论中心+站内信/" class="archive-article-date">
-  	<time datetime="2017-07-23T11:42:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-07-23</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java-wenda/">Java,wenda</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-问题发布与敏感词过滤" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/23/问题发布与敏感词过滤/">问题发布与敏感词过滤</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h1><p>这其实是上节课的内容了，不过还是记录一下好了；</p>
-<h2 id="问题发布"><a href="#问题发布" class="headerlink" title="问题发布"></a>问题发布</h2><h3 id="题外话"><a href="#题外话" class="headerlink" title="题外话"></a>题外话</h3><ul>
-<li>对一个web程序，架构是不变的，service负责拿数据，上层也不在意你是怎么取得的；所以一个功能的实现，要从建立数据库开始，然后是与之对应的model，然后是DAO层，service，然后controller就可以去的数据了，然后再通过model传到页面上，数据量大的话，可以使用ViewObject 来进行传输；</li>
-<li>切面可以让我们在业务中横插一刀，不管是打印log信息，还是做什么，都很好用；拦截器则是针对请求，我们可以在拦截器中检验用户状态，也可以进行重定向；</li>
-</ul>
-<h3 id="部分重点"><a href="#部分重点" class="headerlink" title="部分重点"></a>部分重点</h3><ul>
-<li>发布问题其实就是在数据库中添加一条记录，然后刷新页面，页面又会提取几条最新的数据，这样就发布了问题，代码上没什么困难；</li>
-<li>问题表有一个created_date的索引，据说如果想要找到一个范围的数据，这个索引还是有用处的；
-        <p class="article-more-link">
-          <a  href="/2017/07/23/问题发布与敏感词过滤/#more">more >></a>
-        </p>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2017/07/23/问题发布与敏感词过滤/" class="archive-article-date">
-  	<time datetime="2017-07-23T10:59:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-07-23</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/wenda/">wenda</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/26/">26</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -499,7 +505,7 @@
     
     	<section class="tools-section tools-section-tag">
     			<div class="widget tagcloud" id="js-tagcloud">
-    				<a href="/tags/Android/" style="font-size: 17.5px;">Android</a> <a href="/tags/Beauty-of-Programming/" style="font-size: 15px;">Beauty of Programming</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Java/" style="font-size: 16.25px;">Java</a> <a href="/tags/Java-wenda/" style="font-size: 10px;">Java,wenda</a> <a href="/tags/Java知识点/" style="font-size: 11.25px;">Java知识点</a> <a href="/tags/Java编程思想/" style="font-size: 16.25px;">Java编程思想</a> <a href="/tags/fragment/" style="font-size: 12.5px;">fragment</a> <a href="/tags/mvc/" style="font-size: 11.25px;">mvc</a> <a href="/tags/wenda/" style="font-size: 13.75px;">wenda</a> <a href="/tags/刷题/" style="font-size: 11.25px;">刷题</a> <a href="/tags/剑指Offer/" style="font-size: 18.75px;">剑指Offer</a> <a href="/tags/并发/" style="font-size: 10px;">并发</a> <a href="/tags/笔试/" style="font-size: 10px;">笔试</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a> <a href="/tags/线程/" style="font-size: 11.25px;">线程</a> <a href="/tags/结对编程/" style="font-size: 10px;">结对编程</a> <a href="/tags/计算机网络/" style="font-size: 11.25px;">计算机网络</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/随笔/" style="font-size: 12.5px;">随笔</a>
+    				<a href="/tags/Android/" style="font-size: 17.78px;">Android</a> <a href="/tags/Beauty-of-Programming/" style="font-size: 13.33px;">Beauty of Programming</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Java/" style="font-size: 16.67px;">Java</a> <a href="/tags/Java-wenda/" style="font-size: 10px;">Java,wenda</a> <a href="/tags/Java知识点/" style="font-size: 11.11px;">Java知识点</a> <a href="/tags/Java编程思想/" style="font-size: 15.56px;">Java编程思想</a> <a href="/tags/fragment/" style="font-size: 12.22px;">fragment</a> <a href="/tags/mvc/" style="font-size: 11.11px;">mvc</a> <a href="/tags/wenda/" style="font-size: 14.44px;">wenda</a> <a href="/tags/刷题/" style="font-size: 11.11px;">刷题</a> <a href="/tags/剑指Offer/" style="font-size: 18.89px;">剑指Offer</a> <a href="/tags/笔试/" style="font-size: 10px;">笔试</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a> <a href="/tags/线程/" style="font-size: 11.11px;">线程</a> <a href="/tags/结对编程/" style="font-size: 10px;">结对编程</a> <a href="/tags/计算机网络/" style="font-size: 11.11px;">计算机网络</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/随笔/" style="font-size: 12.22px;">随笔</a>
     			</div>
     	</section>
     

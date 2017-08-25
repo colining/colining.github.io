@@ -129,6 +129,117 @@
       <div class="body-wrap">
         
   
+    <article id="post-算法基础 快速排序" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/27/算法基础 快速排序/">算法基础 快速排序</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="快排"><a href="#快排" class="headerlink" title="快排"></a>快排</h2><p><img src="http://img.blog.csdn.net/20170327213235821?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjM5NzQxNzU=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>引用维基百科的定义<br>步骤为：</p>
+<ol>
+<li>从数列中挑出一个元素，称为”基准”（pivot），<br>2.重新排序数列，所有比基准值小的元素摆放在基准前面，所有比基准值大的元素摆在基准后面（相同的数可以到任一边）。在这个分区结束之后，该基准就处于数列的中间位置。这个称为分区（partition）操作。</li>
+<li>递归地（recursively）把小于基准值元素的子数列和大于基准值元素的子数列排序。</li>
+<li>递归到最底部时，数列的大小是零或一，也就是已经排序好了。这个算法一定会结束，因为在每次的迭代（iteration）中，它至少会把一个元素摆到它最后的位置去。<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2>其实快排的思想很是简单；一个基准，一边大一边小；到底哪里难以理解呢？<br>就是他了—-&gt;<strong>原地分区</strong> <a href="http://blog.csdn.net/morewindows/article/details/6684558">参考</a></li>
+</ol>
+<p>简单的说，就是代码实现时比较复杂；因为递归，你总不好一直创建一个小堆，一个大堆用来储存分好区的元素吧；尤其是java，实现起来真的好烦；<br>所以就要使用原地分区的思路；<br>
+        <p class="article-more-link">
+          <a  href="/2017/03/27/算法基础 快速排序/#more">more >></a>
+        </p>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/03/27/算法基础 快速排序/" class="archive-article-date">
+  	<time datetime="2017-03-27T13:40:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-03-27</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/剑指Offer/">剑指Offer</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-剑指Offer 28 -字符串的排列" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/27/剑指Offer 28 -字符串的排列/">剑指Offer 28 *字符串的排列</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>输入一个字符串,按字典序打印出该字符串中字符的所有排列。例如输入字符串abc,则打印出由字符a,b,c所能排列出来的所有字符串abc,acb,bac,bca,cab和cba。</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p><a href="http://blog.csdn.net/baidu_22405691/article/details/51325385">参考</a><br>1.第一种是递归的想法；全排列就是从第一个数字起每个数分别与它后面的数字交换。听起来很难懂，反正我一看就懂了，但是还是不知道递归内部是怎么做的；<br>我们先看一下核心代码<br>
+        <p class="article-more-link">
+          <a  href="/2017/03/27/剑指Offer 28 -字符串的排列/#more">more >></a>
+        </p>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/03/27/剑指Offer 28 -字符串的排列/" class="archive-article-date">
+  	<time datetime="2017-03-27T10:50:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-03-27</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/剑指Offer/">剑指Offer</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-剑指Offer 27 二叉搜索树与双向链表" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -289,115 +400,6 @@
 
 
   
-    <article id="post-剑指Offer 24 二叉搜索树的后序遍历序列" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/26/剑指Offer 24 二叉搜索树的后序遍历序列/">剑指Offer 24 二叉搜索树的后序遍历序列</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>输入一个整数数组，判断该数组是不是某二叉搜索树的后序遍历的结果。如果是则输出Yes,否则输出No。假设输入的数组的任意两个数字都互不相同。</p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><ol>
-<li>后序遍历，最后一个数就是根节点，他的前面左部分，小于他的是左子树，大于他的是右子树；当满足后序遍历时，左子树在一边，右子树在另外一边；然后根节点向下移动；递归就出来了</li>
-<li>根据上面说的，整个数组，和最后一个数比较的话，应该大于的在一边，小于在一边，所以我们可以逐个比较即可
-        <p class="article-more-link">
-          <a  href="/2017/03/26/剑指Offer 24 二叉搜索树的后序遍历序列/#more">more >></a>
-        </p>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2017/03/26/剑指Offer 24 二叉搜索树的后序遍历序列/" class="archive-article-date">
-  	<time datetime="2017-03-26T06:56:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-03-26</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/剑指Offer/">剑指Offer</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-剑指Offer 23 从上往下打印二叉树" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/26/剑指Offer 23 从上往下打印二叉树/">剑指Offer 23 从上往下打印二叉树</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>从上往下打印出二叉树的每个节点，同层节点从左至右打印。</p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>层序遍历二叉树；每一层从右开始输出；按照一般的遍历方法，左节点，右节点，那么在遍历左节点时，就应该将左节点的子节点保存下来，然后是右节点的子节点；然后统一输出；FIFO，先到先出即为队列；</p>
-<p>定义一个队列，将根节点放进去; 当队列不为空的时候， 获取队列的顶部元素，即当前的节点；有左子节点，就把左节点放进队列，有右子节点，放右节点；输出当前根节点的值；<br>
-        <p class="article-more-link">
-          <a  href="/2017/03/26/剑指Offer 23 从上往下打印二叉树/#more">more >></a>
-        </p>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2017/03/26/剑指Offer 23 从上往下打印二叉树/" class="archive-article-date">
-  	<time datetime="2017-03-26T05:30:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-03-26</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/剑指Offer/">剑指Offer</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/11/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/">13</a><a class="page-number" href="/page/14/">14</a><span class="space">&hellip;</span><a class="page-number" href="/page/26/">26</a><a class="extend next" rel="next" href="/page/13/">Next &raquo;</a>
@@ -462,7 +464,7 @@
     
     	<section class="tools-section tools-section-tag">
     			<div class="widget tagcloud" id="js-tagcloud">
-    				<a href="/tags/Android/" style="font-size: 17.5px;">Android</a> <a href="/tags/Beauty-of-Programming/" style="font-size: 15px;">Beauty of Programming</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Java/" style="font-size: 16.25px;">Java</a> <a href="/tags/Java-wenda/" style="font-size: 10px;">Java,wenda</a> <a href="/tags/Java知识点/" style="font-size: 11.25px;">Java知识点</a> <a href="/tags/Java编程思想/" style="font-size: 16.25px;">Java编程思想</a> <a href="/tags/fragment/" style="font-size: 12.5px;">fragment</a> <a href="/tags/mvc/" style="font-size: 11.25px;">mvc</a> <a href="/tags/wenda/" style="font-size: 13.75px;">wenda</a> <a href="/tags/刷题/" style="font-size: 11.25px;">刷题</a> <a href="/tags/剑指Offer/" style="font-size: 18.75px;">剑指Offer</a> <a href="/tags/并发/" style="font-size: 10px;">并发</a> <a href="/tags/笔试/" style="font-size: 10px;">笔试</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a> <a href="/tags/线程/" style="font-size: 11.25px;">线程</a> <a href="/tags/结对编程/" style="font-size: 10px;">结对编程</a> <a href="/tags/计算机网络/" style="font-size: 11.25px;">计算机网络</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/随笔/" style="font-size: 12.5px;">随笔</a>
+    				<a href="/tags/Android/" style="font-size: 17.78px;">Android</a> <a href="/tags/Beauty-of-Programming/" style="font-size: 13.33px;">Beauty of Programming</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Java/" style="font-size: 16.67px;">Java</a> <a href="/tags/Java-wenda/" style="font-size: 10px;">Java,wenda</a> <a href="/tags/Java知识点/" style="font-size: 11.11px;">Java知识点</a> <a href="/tags/Java编程思想/" style="font-size: 15.56px;">Java编程思想</a> <a href="/tags/fragment/" style="font-size: 12.22px;">fragment</a> <a href="/tags/mvc/" style="font-size: 11.11px;">mvc</a> <a href="/tags/wenda/" style="font-size: 14.44px;">wenda</a> <a href="/tags/刷题/" style="font-size: 11.11px;">刷题</a> <a href="/tags/剑指Offer/" style="font-size: 18.89px;">剑指Offer</a> <a href="/tags/笔试/" style="font-size: 10px;">笔试</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a> <a href="/tags/线程/" style="font-size: 11.11px;">线程</a> <a href="/tags/结对编程/" style="font-size: 10px;">结对编程</a> <a href="/tags/计算机网络/" style="font-size: 11.11px;">计算机网络</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/随笔/" style="font-size: 12.22px;">随笔</a>
     			</div>
     	</section>
     

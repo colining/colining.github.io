@@ -129,6 +129,114 @@
       <div class="body-wrap">
         
   
+    <article id="post-Java 读书笔记 15泛型" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/09/Java 读书笔记 15泛型/">Java 读书笔记 15泛型</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a>泛型</h2><p>泛型的来源，首先我们知道类是存在聚合的，就是这个类有其他类的对象；那么问题来了，我今天用你，明天用别人；怎么办呢？<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Automobile</span> </span>&#123;      <span class="comment">//普通模式有这么一个类</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Holder1</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span>  Automobile a;     <span class="comment">//类间聚合；但是你必须编译的时候就定义啊；</span></div><div class="line">    <span class="function"><span class="keyword">public</span>  <span class="title">Holder1</span><span class="params">(Automobile a)</span>   <span class="comment">//完全不能改变的时候</span></div><div class="line">    </span>&#123;</div><div class="line">        <span class="keyword">this</span>.a=a;</div><div class="line">    &#125;</div><div class="line">    <span class="function">Automobile <span class="title">get</span><span class="params">()</span></div><div class="line">    </span>&#123;</div><div class="line">        <span class="keyword">return</span>  a;</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">    <span class="keyword">private</span>  Object b;        <span class="comment">//定义Object可以通过向下转型的方式储存其他对象，但是自然是麻烦的；</span></div><div class="line">    <span class="function"><span class="keyword">public</span>  <span class="title">Holder1</span><span class="params">(Object b)</span></div><div class="line">    </span>&#123;</div><div class="line">        <span class="keyword">this</span>.b=b;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span>  <span class="keyword">void</span>  <span class="title">setB</span><span class="params">(Object b)</span></div><div class="line">    </span>&#123;</div><div class="line">        <span class="keyword">this</span>.b = b;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">getB</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> b;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        <p class="article-more-link">
+          <a  href="/2017/03/09/Java 读书笔记 15泛型/#more">more >></a>
+        </p>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/03/09/Java 读书笔记 15泛型/" class="archive-article-date">
+  	<time datetime="2017-03-09T14:19:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-03-09</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java编程思想/">Java编程思想</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Java 读书笔记 14.1-14.6 RTTI" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/08/Java 读书笔记 14.1-14.6 RTTI/">Java 读书笔记 14.1-14.6 RTTI</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="RTTI"><a href="#RTTI" class="headerlink" title="RTTI"></a>RTTI</h1><p>Runtime Type Information<br>好吧，时隔多日我又来啃这块骨头了；</p>
+<p>RTTI顾名思义 运行时类型信息；编译的时候不知道，只有当具体运行时才知道是什么类型信息；Java编程思想好像也没说是怎么具体实现的；我也只能管中窥豹了；</p>
+<p>首先，我们知道多态，那么多态是啥呢？<br>维基百科说：<br>多态也可定义为“一种将不同的特殊行为和单个泛化记号相关联的能力”</p>
+<p>这就让我想起了继承关系；不论是哪个子类都可以用父类表示；编译时是父类，运行时就变成子类了；这就是RTTI了；厉害吧；</p>
+        <p class="article-more-link">
+          <a  href="/2017/03/08/Java 读书笔记 14.1-14.6 RTTI/#more">more >></a>
+        </p>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/03/08/Java 读书笔记 14.1-14.6 RTTI/" class="archive-article-date">
+  	<time datetime="2017-03-08T12:37:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-03-08</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java编程思想/">Java编程思想</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-Java 读书笔记 14.7 动态代理" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -287,118 +395,6 @@
 
 
   
-    <article id="post-Java 读书笔记 11 持有对象" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/01/Java 读书笔记 11 持有对象/">Java 读书笔记 11 持有对象</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="持有对象"><a href="#持有对象" class="headerlink" title="持有对象"></a>持有对象</h1><h2 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a>泛型</h2><p>1.简单来说 ArrayAlist<apple>可以限制只储存Apple类及其子类，限制其他类对象<br><img src="https://segmentfault.com/img/bVC4g8?w=786&amp;h=362" alt="容器整体结构"></p>
-<p><img src="https://segmentfault.com/img/bVC4ht?w=588&amp;h=324" alt="这里写图片描述"></p>
-<p>这部分偏向于介绍具体的操作，就简单写了；这种东西不写写，不可能记得住；</p>
-<h2 id="list"><a href="#list" class="headerlink" title="list"></a>list</h2><ol>
-<li>ArayList，基本和数组一个模式，随机访问简单，插入删除比较麻烦</li>
-<li>LinkedList，链表嘛，肯定是插入删除简单，随机访问麻烦；
-        <p class="article-more-link">
-          <a  href="/2017/03/01/Java 读书笔记 11 持有对象/#more">more >></a>
-        </p>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2017/03/01/Java 读书笔记 11 持有对象/" class="archive-article-date">
-  	<time datetime="2017-03-01T13:57:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-03-01</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java编程思想/">Java编程思想</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Java 读书笔记 10 内部类" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/28/Java 读书笔记 10 内部类/">Java 读书笔记10 内部类</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="内部类"><a href="#内部类" class="headerlink" title="内部类"></a>内部类</h2><h2 id="可访问外围类"><a href="#可访问外围类" class="headerlink" title="可访问外围类"></a>可访问外围类</h2><ol>
-<li>外围类就是包含内部类的那个类的啦<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Sequence</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span>  Object[] items= <span class="keyword">new</span> Object[<span class="number">5</span>];</div><div class="line">    <span class="keyword">private</span>  <span class="class"><span class="keyword">class</span>  <span class="title">SequenceSelector</span> <span class="keyword">implements</span>  <span class="title">Selector</span></div><div class="line">    </span>&#123;</div><div class="line">        <span class="keyword">private</span>  <span class="keyword">int</span> i ;</div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">end</span><span class="params">()</span> </span>&#123;</div><div class="line">            <span class="keyword">return</span> <span class="number">1</span>==items.length;         <span class="comment">//直接访问了内部类属性；</span></div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span>  Selector <span class="title">selector</span> <span class="params">()</span></div><div class="line">    </span>&#123;</div><div class="line">        <span class="keyword">return</span>  <span class="keyword">new</span> SequenceSelector();</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span>  <span class="keyword">static</span>  <span class="keyword">void</span>  <span class="title">main</span> <span class="params">(String a[])</span></div><div class="line">    </span>&#123;</div><div class="line"></div><div class="line">        Sequence sequence = <span class="keyword">new</span> Sequence();</div><div class="line">       Selector selector =  sequence.selector();</div><div class="line">        System.out.println(selector.end());</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ol>
-        <p class="article-more-link">
-          <a  href="/2017/02/28/Java 读书笔记 10 内部类/#more">more >></a>
-        </p>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2017/02/28/Java 读书笔记 10 内部类/" class="archive-article-date">
-  	<time datetime="2017-02-28T13:43:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-02-28</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java编程思想/">Java编程思想</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/17/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="page-number" href="/page/17/">17</a><span class="page-number current">18</span><a class="page-number" href="/page/19/">19</a><a class="page-number" href="/page/20/">20</a><span class="space">&hellip;</span><a class="page-number" href="/page/26/">26</a><a class="extend next" rel="next" href="/page/19/">Next &raquo;</a>
@@ -463,7 +459,7 @@
     
     	<section class="tools-section tools-section-tag">
     			<div class="widget tagcloud" id="js-tagcloud">
-    				<a href="/tags/Android/" style="font-size: 17.5px;">Android</a> <a href="/tags/Beauty-of-Programming/" style="font-size: 15px;">Beauty of Programming</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Java/" style="font-size: 16.25px;">Java</a> <a href="/tags/Java-wenda/" style="font-size: 10px;">Java,wenda</a> <a href="/tags/Java知识点/" style="font-size: 11.25px;">Java知识点</a> <a href="/tags/Java编程思想/" style="font-size: 16.25px;">Java编程思想</a> <a href="/tags/fragment/" style="font-size: 12.5px;">fragment</a> <a href="/tags/mvc/" style="font-size: 11.25px;">mvc</a> <a href="/tags/wenda/" style="font-size: 13.75px;">wenda</a> <a href="/tags/刷题/" style="font-size: 11.25px;">刷题</a> <a href="/tags/剑指Offer/" style="font-size: 18.75px;">剑指Offer</a> <a href="/tags/并发/" style="font-size: 10px;">并发</a> <a href="/tags/笔试/" style="font-size: 10px;">笔试</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a> <a href="/tags/线程/" style="font-size: 11.25px;">线程</a> <a href="/tags/结对编程/" style="font-size: 10px;">结对编程</a> <a href="/tags/计算机网络/" style="font-size: 11.25px;">计算机网络</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/随笔/" style="font-size: 12.5px;">随笔</a>
+    				<a href="/tags/Android/" style="font-size: 17.78px;">Android</a> <a href="/tags/Beauty-of-Programming/" style="font-size: 13.33px;">Beauty of Programming</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Java/" style="font-size: 16.67px;">Java</a> <a href="/tags/Java-wenda/" style="font-size: 10px;">Java,wenda</a> <a href="/tags/Java知识点/" style="font-size: 11.11px;">Java知识点</a> <a href="/tags/Java编程思想/" style="font-size: 15.56px;">Java编程思想</a> <a href="/tags/fragment/" style="font-size: 12.22px;">fragment</a> <a href="/tags/mvc/" style="font-size: 11.11px;">mvc</a> <a href="/tags/wenda/" style="font-size: 14.44px;">wenda</a> <a href="/tags/刷题/" style="font-size: 11.11px;">刷题</a> <a href="/tags/剑指Offer/" style="font-size: 18.89px;">剑指Offer</a> <a href="/tags/笔试/" style="font-size: 10px;">笔试</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a> <a href="/tags/线程/" style="font-size: 11.11px;">线程</a> <a href="/tags/结对编程/" style="font-size: 10px;">结对编程</a> <a href="/tags/计算机网络/" style="font-size: 11.11px;">计算机网络</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/随笔/" style="font-size: 12.22px;">随笔</a>
     			</div>
     	</section>
     

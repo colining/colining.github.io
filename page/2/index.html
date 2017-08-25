@@ -129,6 +129,129 @@
       <div class="body-wrap">
         
   
+    <article id="post-评论中心+站内信" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/07/23/评论中心+站内信/">评论中心+站内信</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h1><ul>
+<li>没有起因</li>
+<li>其实这节课主要是在将web开发中，一个全新功能是怎么一步一步完成的</li>
+</ul>
+<h1 id="评论中心"><a href="#评论中心" class="headerlink" title="评论中心"></a>评论中心</h1><ul>
+<li>数据库中comment的几个索引：<ul>
+<li>创建日期所构成的索引</li>
+<li>评论实体类型，和评论的id，比如针对问题的评论，问题的id是27，这些就是针对问题27的所有评论，比如针对评论的评论，评论的id也是27，但这量个就有很大的区别了</li>
+<li>用户id构成的索引，我们可以轻松的获取一个用户的全部评论，就可以放在用户最近动态里之类的；</li>
+</ul>
+</li>
+<li>在service层调用DAO层时，可以先过滤一下内容</li>
+<li>通过entityType和entityId 我们就构建了评论中心，不管是针对什么的评论，在数据库的一张表中就都可以放得下了；
+        <p class="article-more-link">
+          <a  href="/2017/07/23/评论中心+站内信/#more">more >></a>
+        </p>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/07/23/评论中心+站内信/" class="archive-article-date">
+  	<time datetime="2017-07-23T11:42:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-07-23</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java-wenda/">Java,wenda</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-问题发布与敏感词过滤" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/07/23/问题发布与敏感词过滤/">问题发布与敏感词过滤</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h1><p>这其实是上节课的内容了，不过还是记录一下好了；</p>
+<h2 id="问题发布"><a href="#问题发布" class="headerlink" title="问题发布"></a>问题发布</h2><h3 id="题外话"><a href="#题外话" class="headerlink" title="题外话"></a>题外话</h3><ul>
+<li>对一个web程序，架构是不变的，service负责拿数据，上层也不在意你是怎么取得的；所以一个功能的实现，要从建立数据库开始，然后是与之对应的model，然后是DAO层，service，然后controller就可以去的数据了，然后再通过model传到页面上，数据量大的话，可以使用ViewObject 来进行传输；</li>
+<li>切面可以让我们在业务中横插一刀，不管是打印log信息，还是做什么，都很好用；拦截器则是针对请求，我们可以在拦截器中检验用户状态，也可以进行重定向；</li>
+</ul>
+<h3 id="部分重点"><a href="#部分重点" class="headerlink" title="部分重点"></a>部分重点</h3><ul>
+<li>发布问题其实就是在数据库中添加一条记录，然后刷新页面，页面又会提取几条最新的数据，这样就发布了问题，代码上没什么困难；</li>
+<li>问题表有一个created_date的索引，据说如果想要找到一个范围的数据，这个索引还是有用处的；
+        <p class="article-more-link">
+          <a  href="/2017/07/23/问题发布与敏感词过滤/#more">more >></a>
+        </p>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/07/23/问题发布与敏感词过滤/" class="archive-article-date">
+  	<time datetime="2017-07-23T10:59:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-07-23</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/wenda/">wenda</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-计算机网络 --应用层" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -316,126 +439,6 @@
 
 
   
-    <article id="post-spring-boot&amp;mvn&amp;terminal" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/25/spring-boot&mvn&terminal/">spring-boot&amp;mvn&amp;terminal</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h1><p>下午再看git，看了半天还是感觉有很多不懂的东西，用的时候再说吧；</p>
-<h1 id="Maven"><a href="#Maven" class="headerlink" title="Maven"></a>Maven</h1><ol>
-<li>maven原来没有配置过，直接用的Intellij 自己的，所以自然也不知到人家命令行是啥情况了呗；所以maven应该先下载，配置环境变量，然后就可以用命令行了；</li>
-</ol>
-<h1 id="Terminal"><a href="#Terminal" class="headerlink" title="Terminal"></a>Terminal</h1><ol>
-<li>一直以来都不咋会用命令行，结果今天发现cmd是可以直接运行git，maven命令的，也就是配置环境的作用？</li>
-<li>Intellij 中terminal是有问题的，因为win10命令行是新的，没法用的说，所以需要使用旧版控制台；</li>
-<li>powershell 也可以修改配色啥的，以后用用那个也不错的；
-        <p class="article-more-link">
-          <a  href="/2017/06/25/spring-boot&mvn&terminal/#more">more >></a>
-        </p>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2017/06/25/spring-boot&mvn&terminal/" class="archive-article-date">
-  	<time datetime="2017-06-25T12:56:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-06-25</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/wenda/">wenda</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Git 常用命令记录" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/25/Git 常用命令记录/">Git 常用命令记录</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h1><ol>
-<li>记性太不好了，还是自己写写，记下来吧；</li>
-<li>intellij直接是使用的图形界面，命令啥的也不清楚；</li>
-</ol>
-<h2 id="一些命令"><a href="#一些命令" class="headerlink" title="一些命令"></a>一些命令</h2><ol>
-<li><p>git init<br>用来初始化目录为git目录，告诉git，这个目录归你管了；</p>
-</li>
-<li><p>git add readme.txt<br>git add将文件提交给git，放在临时区；就是说，诶，这个文件是我要准备提交的啊，你得跟踪一下；</p>
-</li>
-<li><p>git commit -m “this is a message”<br>commit就是提交了，不过是提交到本地；这时就存在版本了； </p>
-        <p class="article-more-link">
-          <a  href="/2017/06/25/Git 常用命令记录/#more">more >></a>
-        </p>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2017/06/25/Git 常用命令记录/" class="archive-article-date">
-  	<time datetime="2017-06-25T06:39:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-06-25</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git/">Git</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/26/">26</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
@@ -500,7 +503,7 @@
     
     	<section class="tools-section tools-section-tag">
     			<div class="widget tagcloud" id="js-tagcloud">
-    				<a href="/tags/Android/" style="font-size: 17.5px;">Android</a> <a href="/tags/Beauty-of-Programming/" style="font-size: 15px;">Beauty of Programming</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Java/" style="font-size: 16.25px;">Java</a> <a href="/tags/Java-wenda/" style="font-size: 10px;">Java,wenda</a> <a href="/tags/Java知识点/" style="font-size: 11.25px;">Java知识点</a> <a href="/tags/Java编程思想/" style="font-size: 16.25px;">Java编程思想</a> <a href="/tags/fragment/" style="font-size: 12.5px;">fragment</a> <a href="/tags/mvc/" style="font-size: 11.25px;">mvc</a> <a href="/tags/wenda/" style="font-size: 13.75px;">wenda</a> <a href="/tags/刷题/" style="font-size: 11.25px;">刷题</a> <a href="/tags/剑指Offer/" style="font-size: 18.75px;">剑指Offer</a> <a href="/tags/并发/" style="font-size: 10px;">并发</a> <a href="/tags/笔试/" style="font-size: 10px;">笔试</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a> <a href="/tags/线程/" style="font-size: 11.25px;">线程</a> <a href="/tags/结对编程/" style="font-size: 10px;">结对编程</a> <a href="/tags/计算机网络/" style="font-size: 11.25px;">计算机网络</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/随笔/" style="font-size: 12.5px;">随笔</a>
+    				<a href="/tags/Android/" style="font-size: 17.78px;">Android</a> <a href="/tags/Beauty-of-Programming/" style="font-size: 13.33px;">Beauty of Programming</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Java/" style="font-size: 16.67px;">Java</a> <a href="/tags/Java-wenda/" style="font-size: 10px;">Java,wenda</a> <a href="/tags/Java知识点/" style="font-size: 11.11px;">Java知识点</a> <a href="/tags/Java编程思想/" style="font-size: 15.56px;">Java编程思想</a> <a href="/tags/fragment/" style="font-size: 12.22px;">fragment</a> <a href="/tags/mvc/" style="font-size: 11.11px;">mvc</a> <a href="/tags/wenda/" style="font-size: 14.44px;">wenda</a> <a href="/tags/刷题/" style="font-size: 11.11px;">刷题</a> <a href="/tags/剑指Offer/" style="font-size: 18.89px;">剑指Offer</a> <a href="/tags/笔试/" style="font-size: 10px;">笔试</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a> <a href="/tags/线程/" style="font-size: 11.11px;">线程</a> <a href="/tags/结对编程/" style="font-size: 10px;">结对编程</a> <a href="/tags/计算机网络/" style="font-size: 11.11px;">计算机网络</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/随笔/" style="font-size: 12.22px;">随笔</a>
     			</div>
     	</section>
     
